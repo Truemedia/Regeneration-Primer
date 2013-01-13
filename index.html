@@ -5,10 +5,16 @@
 <body>
 	<script type="text/javascript">
 		Crafty.init(400, 400);
+		Crafty.canvas.init();
 
 		// YOUR GAME CODE
-		alert("craft is loaded");
+		//turn the sprite map into usable components
+		Crafty.sprite(256, "images/items/Guns/AR-15.png", {
+    		gun1: [0, 0]
+		});
 
+		Crafty.e("2D, DOM, wall_left, solid, gun1")
+				.attr({x: 5, y: 5, z: 2});
 	</script>
 </body>
 </html>
