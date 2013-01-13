@@ -1,3 +1,6 @@
+h1{
+	text-align: center;	
+}
 .character_selection_row{
 	width: 100%;
 	display: block;	
@@ -6,4 +9,10 @@
 	display: inline; 
 	border: 1px solid black;
 	background-color: red;
+}
+#game_name{
+	color: slateblue;
+}	
+#regen_primer_version{
+	color: goldenrod;	
 }

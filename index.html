@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>	
 	<link rel="stylesheet" href="style.css" />
+	<!-- Dependencies -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="http://cdn.craftycomponents.com/crafty-release.js"></script>
 	<!-- Game Config Variables -->
 	<script type="text/javascript" src="javascript/config.js"></script>
@@ -16,43 +18,44 @@
 	<script type="text/javascript" src="javascript/maps/diydie.js"></script>
 </head>
 <body>
+	<h1>Welcome to a demo of <span id="game_name">Regeneration Primer</span> - <span id="regen_primer_version">(Version number here)</span></h1>
 	<script type="text/javascript" src="javascript/game.js">
 	</script>
-	<h3> Choose a character: </h3>
+	<h3 id="char_selection_screen"> Choose a character: </h3>
 	<div class="character_selection_row">
 		<div class="character_container">
 			<img src="images/characters/(Coward)_DefaultPose.png" />
-			<button onclick="startGame('coward');">Choose: Coward</button>
+			<button class="char_select" value="coward">Choose: Coward</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(Criminal)_DefaultPose.png" />
-			<button onclick="startGame('criminal');">Choose: Criminal</button>
+			<button class="char_select" value="criminal">Choose: Criminal</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(Mother)_DefaultPose.png" />
-			<button onclick="startGame('mother');">Choose: Mother</button>
+			<button class="char_select" value="mother">Choose: Mother</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(NextDoorNeighbor)_DefaultPose.png" />
-			<button onclick="startGame('nextdoorneighbor');">Choose: Next Door Neighbor</button>
+			<button class="char_select" value="nextdoorneighbor">Choose: Next Door Neighbor</button>
 		</div>
 	</div>
 	<div class="character_selection_row">
 		<div class="character_container">
 			<img src="images/characters/(PsychoticWorker)_DefaultPose.png" />
-			<button onclick="startGame('psychoticworker');">Choose: Psychotic Worker</button>
+			<button class="char_select" value="psychoticworker">Choose: Psychotic Worker</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(StoreOwner)_DefaultPose.png" />
-			<button onclick="startGame('storeowner');">Choose: Store Owner</button>
+			<button class="char_select" value="storeowner">Choose: Store Owner</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(StoreOwnerWife)_DefaultPose.png" />
-			<button onclick="startGame('storeownerwife');">Choose: Store Owner Wife</button>
+			<button class="char_select" value="storeownerwife">Choose: Store Owner Wife</button>
 		</div>
 		<div class="character_container">
 			<img src="images/characters/(WomanHelicopterPilot)_DefaultPose.png" />
-			<button onclick="startGame('womanhelicopterpilot');">Choose: Woman Helicopter Pilot</button>
+			<button class="char_select" value="womanhelicopterpilot">Choose: Woman Helicopter Pilot</button>
 		</div>
 	</div>
 </body>
