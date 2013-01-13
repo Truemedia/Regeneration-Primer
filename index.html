@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>	
+	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript" src="http://cdn.craftycomponents.com/crafty-release.js"></script>
+	<!-- Game Config Variables -->
+	<script type="text/javascript" src="javascript/config.js"></script>
 	<!-- Initialize functions -->
 	<script type="text/javascript" src="javascript/init.js"></script>
 	<!-- Sprites -->
@@ -15,5 +18,42 @@
 <body>
 	<script type="text/javascript" src="javascript/game.js">
 	</script>
+	<h3> Choose a character: </h3>
+	<div class="character_selection_row">
+		<div class="character_container">
+			<img src="images/characters/(Coward)_DefaultPose.png" />
+			<button onclick="startGame('coward');">Choose: Coward</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(Criminal)_DefaultPose.png" />
+			<button onclick="startGame('criminal');">Choose: Criminal</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(Mother)_DefaultPose.png" />
+			<button onclick="startGame('mother');">Choose: Mother</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(NextDoorNeighbor)_DefaultPose.png" />
+			<button onclick="startGame('nextdoorneighbor');">Choose: Next Door Neighbor</button>
+		</div>
+	</div>
+	<div class="character_selection_row">
+		<div class="character_container">
+			<img src="images/characters/(PsychoticWorker)_DefaultPose.png" />
+			<button onclick="startGame('psychoticworker');">Choose: Psychotic Worker</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(StoreOwner)_DefaultPose.png" />
+			<button onclick="startGame('storeowner');">Choose: Store Owner</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(StoreOwnerWife)_DefaultPose.png" />
+			<button onclick="startGame('storeownerwife');">Choose: Store Owner Wife</button>
+		</div>
+		<div class="character_container">
+			<img src="images/characters/(WomanHelicopterPilot)_DefaultPose.png" />
+			<button onclick="startGame('womanhelicopterpilot');">Choose: Woman Helicopter Pilot</button>
+		</div>
+	</div>
 </body>
 </html>

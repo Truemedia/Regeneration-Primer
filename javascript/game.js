@@ -1,14 +1,16 @@
-// Initializer
-initGame();
+function startGame(character){
+	// Initializer
+	initGame();
 
-// Setup all images as sprites
-setupSprites();
+	// Setup all images as sprites
+	setupSprites();
 
-// Controls
-controlsMapper();
+	// Controls
+	controlsMapper();
 
-// Generate Map
-generateWorld();
+	// Generate Map
+	generateWorld();
 
-// Put in the Game Objects
-gameObjects();
+	// Put in the Game Objects
+	gameObjects(character);
+}

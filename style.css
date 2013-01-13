@@ -1,0 +1,9 @@
+.character_selection_row{
+	width: 100%;
+	display: block;	
+}
+.character_container{
+	display: inline; 
+	border: 1px solid black;
+	background-color: red;
+}
