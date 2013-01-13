@@ -7,5 +7,8 @@ setupSprites();
 // Controls
 controlsMapper();
 
+// Generate Map
+generateWorld();
+
 // Put in the Game Objects
 gameObjects();
