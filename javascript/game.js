@@ -1,4 +1,6 @@
 jQuery(document).ready(function (){
+	// Setup initial scoring system
+	initialGameScoreValues();
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
@@ -8,6 +10,10 @@ jQuery(document).ready(function (){
 		/* ..and Start the game up */
 		startGame(this.value);
 	});	
+	// Give yourself points
+	jQuery("#points_incrementer").click(function (){
+		incrementScore();
+	});
 });
 
 function startGame(character){
