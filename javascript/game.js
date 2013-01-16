@@ -1,6 +1,7 @@
 jQuery(document).ready(function (){
 	// Setup initial scoring system
 	initialGameScoreValues();
+	
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
@@ -10,9 +11,24 @@ jQuery(document).ready(function (){
 		/* ..and Start the game up */
 		startGame(this.value);
 	});	
+	
 	// Give yourself points
+	jQuery(".score_submit").click(function (){
+		var player_id = this.value; // Button click = relevant to player
+		jQuery.getJSON("constants/numbers_as_words.json", function(json) {
+   			var player_number_as_word = json[player_id]; // so we can use database keys without numbers
+   			incrementScore(player_number_as_word);
+		});
+	});
+	
+	// Give everyone points
 	jQuery("#points_incrementer").click(function (){
-		incrementScore();
+		jQuery.getJSON("constants/numbers_as_words.json", function(json) {
+			jQuery.each(json, function(key, player_number_as_word) {
+				console.log(player_number_as_word);
+   				incrementScore(player_number_as_word); // one, two, three, four, five, six, seven, eight
+			});
+		});
 	});
 });
 

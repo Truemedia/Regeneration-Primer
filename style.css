@@ -1,18 +1,62 @@
-h1{
-	text-align: center;	
+/* Characters stylesheet (Coward) */
+@import url('stylesheets/character_styling/coward.css');
+/* Characters stylesheet (Criminal) */
+@import url('stylesheets/character_styling/criminal.css');
+/* Characters stylesheet (Mother) */
+@import url('stylesheets/character_styling/mother.css');
+/* Characters stylesheet (NextDoorNeighbor) */
+@import url('stylesheets/character_styling/nextdoorneighbor.css');
+/* Characters stylesheet (PsychoticWorker) */
+@import url('stylesheets/character_styling/psychoticworker.css');
+/* Characters stylesheet (StoreOwner) */
+@import url('stylesheets/character_styling/storeowner.css');
+/* Characters stylesheet (StoreOwnerWife) */
+@import url('stylesheets/character_styling/storeownerwife.css');
+/* Characters stylesheet (WomanHelicopterPilot) */
+@import url('stylesheets/character_styling/womanhelicopterpilot.css');
+
+/* General */
+body{
+	background-color: black;	
+}
+
+/* Selection screen styling */
+#character_selection{
+	border: 1px solid lightgrey;
 }
 .character_selection_row{
-	width: 100%;
-	display: block;	
+	display: block;
+	background-color: #131313; /* Light black */
 }
 .character_container{
-	display: inline; 
-	border: 1px solid black;
-	background-color: red;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	display: inline-block; 
+	text-align: center;
+	background-color: #262626;
+}
+
+/* Game information */
+#welcome_notice{
+	color: white;
+	text-align: center;
 }
 #game_name{
 	color: slateblue;
 }	
 #regen_primer_version{
 	color: goldenrod;	
+}
+
+/* Score styling */
+.score{
+	font-weight: bold;
+	font-size: 1.4em;
+}
+#players_scores{
+	color: white;
+}
+.player_score{
+	border-bottom: 1px solid grey;
 }
