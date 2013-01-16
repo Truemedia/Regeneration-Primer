@@ -2,6 +2,9 @@ jQuery(document).ready(function (){
 	// Setup initial scoring system
 	initialGameScoreValues();
 	
+	// Enable Music/Audio dialogue/Sounds
+	initGameAudio();
+	
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
