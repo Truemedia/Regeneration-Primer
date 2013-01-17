@@ -33,6 +33,11 @@ jQuery(document).ready(function (){
 			});
 		});
 	});
+	
+	// Mute or unmute audio
+	jQuery("#audio_toggle").click(function (){
+		toggleAudio(this.value);
+	});
 });
 
 function startGame(character){
