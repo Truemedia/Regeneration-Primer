@@ -4,7 +4,7 @@ function generateWorld(){
    		floor_tile: [0, 0]
 	});
 	
-	var map_size_x = 480;
+	var map_size_x = 960;
 	var map_size_y = 480;
 	var flooring_size_per_unit_x = 24;
 	var flooring_size_per_unit_y = 24;

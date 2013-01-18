@@ -1,6 +1,6 @@
 function initGame(){
 	// Setup Crafty area
-	Crafty.init(480, 480);
+	Crafty.init(960, 480);
 
 	// Use Crafty as canvas object
 	Crafty.canvas.init();

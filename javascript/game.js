@@ -5,6 +5,9 @@ jQuery(document).ready(function (){
 	// Enable Music/Audio dialogue/Sounds
 	initGameAudio();
 	
+	// Enable debugging (but hide from view)
+	initDebugger();
+	
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
@@ -38,6 +41,10 @@ jQuery(document).ready(function (){
 	jQuery("#audio_toggle").click(function (){
 		toggleAudio(this.value);
 	});
+	// Enable or disable debugging UI
+	jQuery("#debug_toggle").click(function (){
+		pointsDebugger();
+	});
 });
 
 function startGame(character){
@@ -55,4 +62,7 @@ function startGame(character){
 
 	// Put in the Game Objects
 	gameObjects(character);
+	
+	// Initialize Game Director
+	initGameDirector(character);
 }

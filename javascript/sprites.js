@@ -44,4 +44,9 @@ function setupSprites(){
 	Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"WomanHelicopterPilot"+default_sprite_filename_suffix, {
    		womanhelicopterpilot: [0, 0]
 	});
+	
+	/* First enemy */
+	Crafty.sprite(320, "images/enemies/(Brutal)_DefaultPose.png", {
+   		brutal: [0, 0]
+	});
 }

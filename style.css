@@ -15,6 +15,9 @@
 /* Characters stylesheet (WomanHelicopterPilot) */
 @import url('stylesheets/character_styling/womanhelicopterpilot.css');
 
+/* Debugging stylesheet */
+@import url('stylesheets/debug.css');
+
 /* General */
 body{
 	background-color: black;	
