@@ -16,7 +16,21 @@ function spawnCharacter(char_name, players_char_name, char_id){
 		.leftControls(3)
 		.text("YOU")
   		.textColor(characterColor(char_name), '1')
-  		.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
+  		.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
+  		.bind('KeyDown', function(e) {
+  			// Show quick info menu
+    		if(e.key == Crafty.keys['SHIFT']) {
+    			jQuery('#score_container').toggle();
+      			console.log("Showing quick info menu");
+    		}
+    	})
+    	.bind('KeyUp', function(e) {
+  			// Hide quick info menu
+    		if(e.key == Crafty.keys['SHIFT']) {
+    			jQuery('#score_container').toggle();
+      			console.log("Hiding quick info menu");
+    		}
+    	});
 	}
 	else{
 		// Spawning bot

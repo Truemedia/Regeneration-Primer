@@ -53,6 +53,12 @@ body{
 }
 
 /* Score styling */
+#score_container{
+	display: none;
+	background-color: #000000;
+	position: fixed;
+	z-index: 3;
+}
 .score{
 	font-weight: bold;
 	font-size: 1.4em;
