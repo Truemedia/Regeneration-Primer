@@ -30,6 +30,10 @@ function spawnCharacter(char_name, players_char_name, char_id){
     			jQuery('#score_container').toggle();
       			console.log("Hiding quick info menu");
     		}
+    		if(e.key == Crafty.keys['SPACE']) {
+    			jQuery('#inventory_window').toggle();
+      			console.log("Hiding or showing inventory");
+    		}
     	});
 	}
 	else{

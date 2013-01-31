@@ -1,0 +1,38 @@
+/* Inventory */
+#inventory_window{
+	background-color: #323232;
+	display: inline;
+	opacity: 0.85;
+	float: right;
+	margin: 0;
+	padding: 3px;
+}
+#inventory_container{
+	background-color: crimson;
+	margin: 0;
+	padding: 0;
+}
+.inventory{
+	margin: 0;
+	padding: 0;
+}
+/* Item */
+.item_name{
+	margin: 0;
+	padding: 0;	
+}
+.item_action{
+	background-color: #525252;
+	padding: 3px;
+}
+.item_action:link{
+	color: red;
+}
+.item_action:hover{
+	color: orange;
+}
+/* Sub-item */
+.subitem{
+	margin: 0;
+	padding: 0px 0px 3px 0px;
+}
