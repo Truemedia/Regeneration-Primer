@@ -1,3 +1,6 @@
 [submodule "dependencies/craftyjs"]
 	path = dependencies/craftyjs
 	url = https://github.com/craftyjs/Crafty.git
+[submodule "libs/jQuery-xslt"]
+	path = libs/jQuery-xslt
+	url = https://github.com/hyperthunk/jquery.xslt.git
