@@ -1,31 +1,43 @@
 /* Inventory */
 #inventory_window{
-	background-color: #323232;
+	border: 1px solid #DFDFDF;
 	display: inline;
-	opacity: 0.85;
 	float: right;
-	margin: 0;
-	padding: 3px;
-}
-#inventory_container{
-	background-color: crimson;
+	opacity: 0.85;
 	margin: 0;
 	padding: 0;
 }
+#inventory_container{
+	border: 1px solid grey;
+	background-color: #323232;
+	margin: 0;
+	padding: 10px;
+}
 .inventory{
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 /* Item */
+.inventory_item{
+	background-color: #212121;
+	padding: 0;
+	margin: 15px 0 15px 0;
+}
 .item_name{
+	background-color: #6495ED; /* Cornflower blue (HTML colorname) */
+	color: #DCDCDC; /* Gainsboro (HTML colorname) */
 	margin: 0;
-	padding: 0;	
+	padding: 2px 0 0 2px;	
 }
 .item_action{
 	background-color: #525252;
 	padding: 3px;
 }
 .item_action:link{
+	color: red;
+}
+.item_action:visited{
 	color: red;
 }
 .item_action:hover{
@@ -35,4 +47,12 @@
 .subitem{
 	margin: 0;
 	padding: 0px 0px 3px 0px;
+}
+.subitem_attribute{
+	color: #B8860B; /* Dark GoldenRod (HTML colorname) */
+	padding: 0 0 2px 5px;
+}
+.subitem_value{
+	color: #FF8C00; /* Dark Orange (HTML colorname) */
+	padding: 0 0 2px 0;
 }

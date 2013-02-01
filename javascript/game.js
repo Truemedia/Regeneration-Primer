@@ -65,4 +65,7 @@ function startGame(character){
 	
 	// Initialize Game Director
 	initGameDirector(character);
+	
+	// Initialize inventory
+	initInventory();
 }

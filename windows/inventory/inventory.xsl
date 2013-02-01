@@ -6,10 +6,13 @@
 			<ul class="inventory">
 				<xsl:for-each select="inventory/item">
 				<li class="inventory_item">
-					<h5 class="item_name"><xsl:value-of select="@name"/> (<xsl:value-of select="@type"/>)</h5>
+					<h4 class="item_name"><xsl:value-of select="@name"/> (<xsl:value-of select="@type"/>)</h4>
+					<IMG>
+  						<xsl:attribute name="src">images/items/Guns/<xsl:value-of select="@name"/>.png</xsl:attribute>
+					</IMG>
 					<xsl:for-each select="subitem">
 					<dl class="subitem">
-						<dt class="subitem_attribute"><xsl:value-of select="/"/>:</dt>
+						<dt class="subitem_attribute"><xsl:value-of select="."/>:</dt>
 						<dd class="subitem_value"><xsl:value-of select="@amount"/></dd>
 					</dl>
 					</xsl:for-each>

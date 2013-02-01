@@ -61,7 +61,7 @@ body{
 	background-color: #000000;
 	position: fixed;
 	z-index: 3;
-	opacity: 0.85;
+	opacity: 0.9;
 }
 .score{
 	font-weight: bold;
