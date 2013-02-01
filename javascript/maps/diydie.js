@@ -1,11 +1,15 @@
 function generateWorld(){
 	// Sprite Map for charachters
+	/* Turn on to enable proto floor (useful for debugging)
 	Crafty.sprite(24, "images/textures/flooring/proto_floor.png", {
+   		floor_tile: [0, 0]
+	}); */
+	Crafty.sprite(24, "images/textures/flooring/default_floor.png", {
    		floor_tile: [0, 0]
 	});
 	
-	var map_size_x = 960;
-	var map_size_y = 480;
+	var map_size_x = resolution_width;
+	var map_size_y = resolution_height;
 	var flooring_size_per_unit_x = 24;
 	var flooring_size_per_unit_y = 24;
 	for (i_x = 0; i_x < (map_size_x / flooring_size_per_unit_x); i_x++){
