@@ -52,6 +52,27 @@ function characterColor(character){
 		case 'coward':
 			return('#B8860B'); // Goldenrod
 			break;
+		case 'criminal':
+			return('#696969'); // Dim Grey
+			break;
+		case 'mother':
+			return('#483D8B'); // Dark slate blue
+			break;
+		case 'nextdoorneighbor':
+			return('#B22222'); // Fire brick
+			break;
+		case 'psychoticworker':
+			return('#4B0082'); // Indigo
+			break;
+		case 'storeowner':
+			return('#8B4513'); // Saddle Brown
+			break;
+		case 'storeownerwife':
+			return('#FA8072'); // Salmon
+			break;
+		case 'womanhelicopterpilot':
+			return('#2E8B57'); // Sea Green
+			break;
 		default:
 			return('#696969'); // Dim Grey
 			break;
