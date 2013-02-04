@@ -12,6 +12,13 @@ function gameObjects(character){
 		.attr({ x: 560, y: 20, z: 3, w: 400, h: 400})
 		.bind('Click', function() {
 			Crafty.audio.play("shoot",1,1);
+			$(".actual_bullet_list > li:eq(0)").flyOffPage({
+                retainSpace: {
+                    height: 0,
+                    margin: 0
+                },
+                direction: 'top'
+            });
 			console.log("enemy dead (+10 points)");
 			incrementScore('one');
 		})
