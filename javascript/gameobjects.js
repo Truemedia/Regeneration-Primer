@@ -11,6 +11,7 @@ function gameObjects(character){
 		// Draw the sprite
 		.attr({ x: 560, y: 20, z: 3, w: 400, h: 400})
 		.bind('Click', function() {
+			Crafty.audio.play("shoot",1,1);
 			console.log("enemy dead (+10 points)");
 			incrementScore('one');
 		})

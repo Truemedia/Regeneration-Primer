@@ -21,6 +21,9 @@
 /* Inventory stylesheet */
 @import url('windows/inventory/inventory.css');
 
+/* Interfaces stylesheet */
+@import url('interfaces/interfaces.css');
+
 /* General */
 body{
 	background-color: black;	

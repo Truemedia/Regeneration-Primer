@@ -30,9 +30,32 @@ function spawnCharacter(char_name, players_char_name, char_id){
     			jQuery('#score_container').toggle();
       			console.log("Hiding quick info menu");
     		}
+    		// Hiding or showing inventory
     		if(e.key == Crafty.keys['SPACE']) {
     			jQuery('#inventory_window').toggle();
       			console.log("Hiding or showing inventory");
+    		}
+    		// Do a partial reload (insert mag into empty gun)
+    		if(e.key == Crafty.keys['E']) {
+    			Crafty.audio.play("insert_mag",1,1);
+      			console.log("Partial reload");
+    		}
+    		// Do a full reload (discard mag, and insert new mag)
+    		if(e.key == Crafty.keys['R']) {
+    			Crafty.audio.play("lock_inserted_mag",1,1);
+    			//Crafty.audio.play("insert_mag",1,1);
+				//Crafty.audio.play("load_chamber",1,1);
+      			console.log("Full reload");
+    		}
+    		// Throw away magazine
+    		if(e.key == Crafty.keys['T']) {
+    			Crafty.audio.play("discard_mag",1,1);
+      			console.log("Threw away mag");
+    		}
+    		// Load chamber
+    		if(e.key == Crafty.keys['C']) {
+    			Crafty.audio.play("load_chamber",1,1);
+      			console.log("Loaded chamber");
     		}
     	});
 	}

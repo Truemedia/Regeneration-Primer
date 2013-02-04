@@ -1,4 +1,5 @@
 // Directories
+var audio_dir = "multimedia/audio/";
 var characters_image_directory = "images/characters/";
 
 // Defaults
