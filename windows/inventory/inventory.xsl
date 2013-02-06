@@ -69,10 +69,12 @@
 						<li><img src="images/items/Guns/Bullet.png" /></li>
 					</ul>
 					</xsl:for-each>
-					<a href="player_one" class="item_action">Equip</a>
-					<a href="#" class="item_action">Discard</a>
-					<a href="#" class="item_action">Give to a player</a>
-					<a href="#" class="item_tooltip">?</a>
+					<div class="item_actions">
+						<a href="player_one" class="item_action">Equip</a>
+						<a href="#" class="item_action">Discard</a>
+						<a href="#" class="item_action">Give to a player</a>
+						<a href="#" class="item_tooltip">?</a>
+					</div>
 				</li>
 				</xsl:for-each>
 			</ul>

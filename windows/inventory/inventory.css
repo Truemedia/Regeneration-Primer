@@ -37,6 +37,12 @@
 	display: inline-block;
 	float: center;
 }
+.item_actions{
+	margin: 0;
+	padding: 0;
+	display: block;
+	clear: both;
+}
 .item_action{
 	text-align: center;
 	background-color: #525252;

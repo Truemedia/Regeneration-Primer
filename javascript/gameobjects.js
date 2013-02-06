@@ -17,7 +17,8 @@ function gameObjects(character){
                     height: 0,
                     margin: 0
                 },
-                direction: 'top'
+                direction: 'top',
+                duration: 250
             });
 			console.log("enemy dead (+10 points)");
 			incrementScore('one');
