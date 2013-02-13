@@ -1,8 +1,8 @@
-function initGameDirector(character){
-// Spawn players
-spawnCharacters(character);
-
-// Spawn monsters
-//spawnEnemies(8);
-// Wait 5 seconds.. then spawn 1 more monster
-}
+define(["./jQuery", "./Crafty", "./spawner"], function(jQuery, Crafty, spawner) {
+	return {
+	initGameDirector: function(character){
+		// Spawn players
+		spawner.spawnCharacters(character);
+	}
+	}
+});

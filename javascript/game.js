@@ -1,5 +1,62 @@
-jQuery(document).ready(function (){
-	// Setup initial scoring system
+// RequireJS config
+require.config({
+	baseUrl: "",
+	paths: {
+        'jQuery': "../../libraries/jQuery/jquery.min", /* jQuery core */
+        'Crafty': "dependencies/craftyjs/crafty-local", /* Crafty core */
+        'jQ.xslt': "libs/jquery.xslt", /* jQuery XSLT plugin */
+        'config': "javascript/config", /* Game Config Variables */
+        'init': "javascript/init", /* Initialize functions */
+        'scores': "javascript/scores", /* Scoring system */
+        'sprites': "javascript/sprites", /* Sprites */
+        'controls': "javascript/controls", /* Controls */
+        'gameobjects': "javascript/gameobjects", /* Game Objects */
+        'gamedirector': "javascript/game_director/game_director", /* Game Director */
+        'spawner': "javascript/spawner/spawner", /* Spawner */
+        'diydie': "javascript/maps/diydie", /* Current MAP */
+        'audio': "resource_managers/audio/audio", /* Audio */
+        'debug': "javascript/game_director/debug", /* Debugging */
+        'windows': "javascript/windows", /* AJAX-XSLT templates */
+        'jQ.flyoff': "libs/jquery.flyoffpage.full" /* Fly off animation */
+    },
+    shim: {
+    	// Dependencies
+    	'jQuery': {
+            exports: 'jQuery'
+        },
+        'Crafty': {
+            exports: 'Crafty'
+        },
+        // jQuery plugins
+        'jQ.xslt': {
+            deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+        'jQ.flyoff': {
+            deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+        // General game files
+        'config': ['jQuery', 'Crafty'],
+        'init': ['jQuery', 'Crafty'],
+        'scores': ['jQuery', 'Crafty'],
+        'sprites': ['jQuery', 'Crafty'],
+        'controls': ['jQuery', 'Crafty'],
+        'gameobjects': ['jQuery', 'Crafty'],
+        'gamedirector': ['jQuery', 'Crafty'],
+        'spawner': ['jQuery', 'Crafty'],
+        'diydie': ['jQuery', 'Crafty'],
+        'audio': ['jQuery', 'Crafty'],
+        'debug': ['jQuery', 'Crafty'],
+        'windows': ['jQuery', 'Crafty']
+    }
+});
+// JavaScript includes
+require(['jQ.xslt', 'config', 'init', 'scores', 'sprites', 'controls', 'gameobjects', 'gamedirector', 'spawner', 'diydie', 'audio', 'debug', 'windows', 'jQ.flyoff'], function(jQuery, Crafty) {
+    // do something here...
+    
+    jQuery(document).ready( function(jQuery){
+    // Setup initial scoring system
 	initialGameScoreValues();
 	
 	// Enable Music/Audio dialogue/Sounds
@@ -15,7 +72,26 @@ jQuery(document).ready(function (){
 		/* Show option to bring up selection screen.. */
 		jQuery("#char_selection_screen").html("<a href='index.html'>Rechoose character</a>");
 		/* ..and Start the game up */
-		startGame(this.value);
+		// Initializer
+		init.initGame();
+
+		// Setup all images as sprites
+		sprites.setupSprites();
+
+		// Controls
+		controls.controlsMapper();
+
+		// Generate Map
+		diydie.generateWorld();
+
+		// Put in the Game Objects
+		gameobjects.gameObjects(this.value);
+	
+		// Initialize Game Director
+		gamedirector.initGameDirector(this.value);
+	
+		// Initialize inventory
+		windows.initInventory();
 	});	
 	
 	// Give yourself points
@@ -45,27 +121,7 @@ jQuery(document).ready(function (){
 	jQuery("#debug_toggle").click(function (){
 		pointsDebugger();
 	});
+	
+	return jQuery.noConflict(true);
+	});
 });
-
-function startGame(character){
-	// Initializer
-	initGame();
-
-	// Setup all images as sprites
-	setupSprites();
-
-	// Controls
-	controlsMapper();
-
-	// Generate Map
-	generateWorld();
-
-	// Put in the Game Objects
-	gameObjects(character);
-	
-	// Initialize Game Director
-	initGameDirector(character);
-	
-	// Initialize inventory
-	initInventory();
-}

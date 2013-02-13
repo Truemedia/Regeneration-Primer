@@ -20,7 +20,6 @@
 	Compatibility: 1.1.3
 
 */
-
 (function($) {
 	// $.xslt(options) - Return transformed XML
 	$.xslt = function(options) {
