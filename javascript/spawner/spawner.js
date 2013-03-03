@@ -1,13 +1,5 @@
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 return {
- spawnCharacters: function(character){
-	jQuery.getJSON("constants/character_info.json", function(all_characters_info) {
-		jQuery.each(all_characters_info, function(key, item){
-			// Code to add player/s on screen
-			this.spawnCharacter(item, character, key);
-		});
-	});
-},
 spawnCharacter: function(char_name, players_char_name, char_id){
 	if(char_name == players_char_name){
 		// Matches character we choose (spawning us)
@@ -17,7 +9,7 @@ spawnCharacter: function(char_name, players_char_name, char_id){
 		// Add controls to this object
 		.leftControls(3)
 		.text("YOU")
-  		.textColor(characterColor(char_name), '1')
+  		.textColor(this.characterColor(char_name), '1')
   		.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
   		.bind('KeyDown', function(e) {
   			// Show quick info menu
@@ -67,7 +59,7 @@ spawnCharacter: function(char_name, players_char_name, char_id){
 		// Draw the sprite
 		.attr({x: (80+(40*char_id)), y: (20*char_id), z: (1*char_id)})
 		.text("(Bot)")
-  		.textColor(characterColor(char_name), '0.9')
+  		.textColor(this.characterColor(char_name), '0.9')
   		.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
 	}
 },
