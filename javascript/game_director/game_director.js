@@ -1,3 +1,4 @@
+// Game director module
 define(["./jQuery", "./Crafty", "./spawner"], function(jQuery, Crafty, spawner) {
 	return {
 		initGameDirector: function(character){

@@ -1,3 +1,4 @@
+// Windows module
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		initInventory: function(){

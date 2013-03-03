@@ -62,9 +62,6 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'co
 	// Enable Music/Audio dialogue/Sounds
 	audio.initGameAudio();
 	
-	// Enable debugging (but hide from view)
-	debug.initDebugger();
-	
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
@@ -92,6 +89,9 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'co
 	
 		// Initialize inventory
 		windows.initInventory();
+		
+		// Enable debugging (but hide from view)
+		debug.initDebugger();
 	});	
 	
 	// Give yourself points

@@ -1,3 +1,4 @@
+// Game objects module
 define(["./jQuery", "./Crafty", "./scores"], function(jQuery, Crafty, scores) {
 	return {
 		gameObjects: function(character){

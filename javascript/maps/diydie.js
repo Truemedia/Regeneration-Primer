@@ -1,3 +1,4 @@
+// DiyDie module
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		generateWorld: function(){

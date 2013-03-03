@@ -2,7 +2,7 @@
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return debug = {
 		initDebugger: function(){
-			this.pointsDebugger();
+			debug.pointsDebugger();
 		},
 		pointsDebugger: function(){
 			// Hide or show manual score incrementers

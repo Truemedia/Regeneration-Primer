@@ -1,3 +1,4 @@
+// Audio module
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		// Audio with only one format (using default audio file)

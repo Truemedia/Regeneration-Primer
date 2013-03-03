@@ -1,3 +1,4 @@
+// Sprites module
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		setup: function(){
