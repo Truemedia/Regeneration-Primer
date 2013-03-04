@@ -4,3 +4,6 @@
 [submodule "dependencies/requirejs"]
 	path = dependencies/requirejs
 	url = https://github.com/jrburke/requirejs.git
+[submodule "dependencies/jqueryUI"]
+	path = dependencies/jqueryUI
+	url = https://github.com/jquery/jquery-ui.git

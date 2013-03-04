@@ -21,6 +21,9 @@
 /* All window stylesheets */
 @import url('stylesheets/windows.css');
 
+/* jQuery UI Base Stylesheet (none-modified) */
+@import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css');
+
 /* Interfaces stylesheet */
 @import url('interfaces/interfaces.css');
 
@@ -67,4 +70,11 @@ body{
 	border-bottom: 1px solid grey;
 	background-color: #000000;
 	opacity: 0.9;
+}
+.player_health{
+	background-color: red;
+	width: 250px;
+	height: 20px;
+	margin: 0px 5px 0px 5px;
+	display: inline-block;
 }

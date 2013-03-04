@@ -1,5 +1,5 @@
 // Scores module
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
 	return scores = {
 		// defaults
 		scores_db: "scores",
@@ -85,6 +85,12 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
   						scores.setScoreDOM(score, key);
   					}
 				});
+			});
+		},
+		lifeSupport: function(){
+			jQuery('.score').append("<div class='player_health'></div>");
+			jQuery(".player_health").progressbar({
+				value: 67
 			});
 		}
 	}

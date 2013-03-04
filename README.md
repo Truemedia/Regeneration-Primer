@@ -1,10 +1,8 @@
 How to setup Regeneration Primer
 
-# Download the git repo and make sure submodules are loaded
+# Download the git repo and make sure submodules are loaded (git submodule init)
 
-# Make sure you include a copy of jQuery where the the script tag points to it (this will be changed in future)
-
-# Set browser to file://LocationOfTheseScript/index.html
+# Set browser to file://LocationOfThisSoftwareFolder/index.html
 
 # Make sure javascript is enabled and enjoy
 
