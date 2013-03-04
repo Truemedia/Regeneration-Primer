@@ -1,0 +1,36 @@
+/* Footer */
+.footer_title{
+	margin: 0;
+	padding: 0;
+	color: goldenrod;
+}
+#poweredby{
+	background-color: #768359;
+	border: 5px solid #667349;
+	margin: 0;
+	padding: 0px 5px 0px 5px;
+}
+/* Make a bullet list into a CSV list */
+ul.csv{
+	margin: 0;
+	padding: 0;
+}
+ul.csv li {
+	margin: 0px;
+	padding: 0px;
+ 	list-style: none;
+ 	display: inline-block;
+}
+ul.csv li:after { 
+	content: ",\00a0";
+}
+ul.csv li:last-child:after {
+	content: "";
+}
+ul.csv li h4 {
+	text-decoration: none; 
+	color: #345378; 
+	display: inline-block; 
+	margin: 0;
+	padding: 0;
+}

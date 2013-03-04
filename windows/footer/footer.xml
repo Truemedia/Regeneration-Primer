@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<poweredbys>
+		<poweredby coreDependency="jQuery">
+			<dependencyPlugin>jQueryUI</dependencyPlugin>
+			<dependencyPlugin>jQuery FlyOff</dependencyPlugin>
+		</poweredby>
+		<poweredby coreDependency="Crafty"></poweredby>
+		<poweredby coreDependency="RequireJS"></poweredby>
+		<poweredby coreDependency="KnockoutJS"></poweredby>
+		<poweredby coreDependency="JXON">
+			<note>implemented using jQuery plugins</note>
+			<dependencyPlugin>jQuery XSLT</dependencyPlugin>
+		</poweredby>
+		<poweredby coreDependency="LessCSS"></poweredby>
+	</poweredbys>

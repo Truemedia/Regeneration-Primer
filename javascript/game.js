@@ -62,6 +62,9 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'co
 	// Enable Music/Audio dialogue/Sounds
 	audio.initGameAudio();
 	
+	// Load header and footer
+	windows.initHT();
+	
 	// When character chosen
 	jQuery(".char_select").click(function (){
 		/* Delete selection screen */
@@ -87,8 +90,9 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'co
 		// Initialize Game Director
 		gamedirector.initGameDirector(this.value);
 	
-		// Initialize inventory
+		// Initialize and adapt windows
 		windows.initInventory();
+		windows.RearrangeForCanvas();
 		
 		// Enable debugging (but hide from view)
 		debug.initDebugger();

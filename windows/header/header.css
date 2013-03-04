@@ -1,0 +1,12 @@
+/* Header */
+/* Game information */
+#welcome_notice{
+	color: white;
+	text-align: center;
+}
+#game_name{
+	color: slateblue;
+}	
+#regen_primer_version{
+	color: goldenrod;	
+}
