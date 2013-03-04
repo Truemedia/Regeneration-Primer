@@ -49,7 +49,7 @@ define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
 			scores.getJSONkeyFromJSONvalue("constants/numbers_as_words.json", player_number_as_word, new_score)
 		},
 		setScoreDOM: function(score, player_id){
-			jQuery('button[value="'+parseInt(player_id)+'"].score_submit').prev().html(score);
+			jQuery('button[value="'+parseInt(player_id)+'"].score_submit').siblings('.score').html(score);
 			if(player_id == 1){
 				// This is us
 				jQuery('#my_score').html(score);
@@ -85,12 +85,6 @@ define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
   						scores.setScoreDOM(score, key);
   					}
 				});
-			});
-		},
-		lifeSupport: function(){
-			jQuery('.score').append("<div class='player_health'></div>");
-			jQuery(".player_health").progressbar({
-				value: 67
 			});
 		}
 	}

@@ -11,6 +11,7 @@ require.config({
         'config': "javascript/config", // Game Config Variables
         'scores': "javascript/scores", // Scoring system
         'audio': "resource_managers/audio/audio", // Audio
+        'health': "javascript/health", // Health
         'debug': "javascript/game_director/debug", // Debugging
         'init': "javascript/init", // Initialize functions
         'sprites': "javascript/sprites", // Sprites
@@ -58,6 +59,7 @@ require.config({
         'config': ['jQuery', 'Crafty'],
         'scores': ['jQuery', 'Crafty'],
         'audio': ['jQuery', 'Crafty'],
+        'health': ['jQuery', 'Crafty'],
         'debug': ['jQuery', 'Crafty'],
         'init': ['jQuery', 'Crafty'],
         'sprites': ['jQuery', 'Crafty'],
@@ -70,7 +72,7 @@ require.config({
     }
 });
 // JavaScript includes
-require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows) {
+require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows) {
     // do something here...
     
     jQuery(document).ready( function(jQuery){
@@ -113,7 +115,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'debug', 'init', 'sprites', 'co
 			windows.RearrangeForCanvas();
 		
 			// Hook up life bars
-			scores.lifeSupport();
+			health.lifeSetup();
 		
 			// Enable debugging (but hide from view)
 			debug.initDebugger();
