@@ -1,10 +1,11 @@
 // Health module
 define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
 	return health = {
+		default_health_unit: 94,
 		lifeSetup: function(){
-			jQuery('.score').after("<div class='player_health'></div>");
+			jQuery('.score').after("<div class='player_health'></div><div class='player_health_stats'>Health: (<span class='player_health_unit'>"+health.default_health_unit+"</span>/100)</div>");
 			jQuery(".player_health").progressbar({
-				value: 67
+				value: health.default_health_unit
 			});
 		}
 	}
