@@ -1,5 +1,5 @@
 // Windows module
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQ.xml2json", "./Crafty"], function(jQuery, Crafty) {
 	return windows = {
 		initHeader: function(){
 			// Load header
@@ -22,6 +22,21 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			// Move it to the bottom of the page, when canvas has loaded 
 			// TODO: assign canvas to it's own element on build to avoid need for this code
 			jQuery('#inventory_window').after(jQuery('#cr-stage'));
+			
+			/* Populate ammo */
+			jQuery.get('windows/inventory/inventory.xml', function(xml){
+				var json = jQuery.xml2json(xml);
+				
+				jQuery.each(json.inventory.item, function(itemIteration, item) {
+  					// Get amount of bullets and use to populate DOM relevant to item
+  					var bulletList = '';
+  					for(i=0; i <= item.subitem.amount; i++){
+  						bulletList += '<li><img src="images/items/Guns/Bullet.png" /></li>';
+  					}
+  					jQuery('.inventory_item:eq('+itemIteration+') .actual_bullet_list').append(bulletList);
+				});
+			});
+			/* /Populate ammo */
 		}
 	}
 });

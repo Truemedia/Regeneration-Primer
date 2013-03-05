@@ -16,57 +16,6 @@
 						<dd class="subitem_value"><xsl:value-of select="@amount"/></dd>
 					</dl>
 					<ul class="actual_bullet_list">
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
-						<li><img src="images/items/Guns/Bullet.png" /></li>
 					</ul>
 					</xsl:for-each>
 					<div class="item_actions">

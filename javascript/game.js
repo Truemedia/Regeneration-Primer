@@ -6,7 +6,8 @@ require.config({
         'jQuery': "dependencies/jqueryUI/jquery-1.9.1", // jQuery core
         'Crafty': "dependencies/craftyjs/crafty-local", // Crafty core
         'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
-        
+        'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
+                
         /* Game modules */
         'config': "javascript/config", // Game Config Variables
         'scores': "javascript/scores", // Scoring system
@@ -39,6 +40,10 @@ require.config({
         },
         // jQuery plugins
         'jQ.xslt': {
+            deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+        'jQ.xml2json': {
             deps: ['jQuery'],
             exports: 'jQuery'
         },
