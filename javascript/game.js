@@ -5,6 +5,7 @@ require.config({
 		/* Core dependencies */
         'jQuery': "dependencies/jqueryUI/jquery-1.9.1", // jQuery core
         'Crafty': "dependencies/craftyjs/crafty-local", // Crafty core
+        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core
         'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
         'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
                 
@@ -22,6 +23,7 @@ require.config({
         'gameobjects': "javascript/gameobjects", // Game Objects
         'gamedirector': "javascript/game_director/game_director", // Game Director
         'windows': "javascript/windows", // AJAX-XSLT templates
+        'Gun.MOD': "interfaces/gun/gun.module", // Gun module
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
@@ -77,8 +79,8 @@ require.config({
     }
 });
 // JavaScript includes
-require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows) {
-    // do something here...
+require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun) {
+    // Game starts here (bootstrap)
     
     jQuery(document).ready( function(jQuery){
     	// Setup initial scoring system
@@ -88,7 +90,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 		audio.initGameAudio();
 	
 		// Load header and footer
-		windows.initHT();
+		windows.init(['header', 'footer']);
 	
 		// When character chosen
 		jQuery(".char_select").click(function (){
@@ -115,15 +117,21 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			// Initialize Game Director
 			gamedirector.initGameDirector(this.value);
 	
-			// Initialize and adapt windows
-			windows.initInventory();
-			windows.RearrangeForCanvas();
+			// Initialize session windows
+			windows.init("inventory");
 		
 			// Hook up life bars
 			health.lifeSetup();
 		
 			// Enable debugging (but hide from view)
 			debug.initDebugger();
+			
+			// New gun module interface 
+			// TODO: Use this standard for all other modules, or evolve upon it
+			Gun.init();
+			
+			// Adapt to new scene
+			windows.RearrangeForCanvas();
 		});	
 	
 		// Give yourself points

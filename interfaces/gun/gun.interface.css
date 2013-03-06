@@ -1,0 +1,19 @@
+/* Gun interface CSS */
+#knockout{
+	background-color: white;
+}
+.actual_bullet_list{
+	/* Depicts a guns ammunition as a list */
+	list-style-type: none;
+	display: block;
+	width: 272px;
+	margin: 0;
+	padding: 0;
+}
+.actual_bullet_list > li{
+    float: left;
+    width: 16px;
+    height: 64px;
+    margin: 0;
+	padding: 0;
+}

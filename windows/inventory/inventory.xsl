@@ -13,9 +13,9 @@
 					<xsl:for-each select="subitem">
 					<dl class="subitem">
 						<dt class="subitem_attribute"><xsl:value-of select="."/>:</dt>
-						<dd class="subitem_value"><xsl:value-of select="@amount"/></dd>
+						<dd class="subitem_value" data-bind="value: ammoCount"><xsl:value-of select="@amount"/></dd>
 					</dl>
-					<ul class="actual_bullet_list">
+					<ul class="actual_bullet_list" data-bind="value: ammo">
 					</ul>
 					</xsl:for-each>
 					<div class="item_actions">

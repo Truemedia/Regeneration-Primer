@@ -7,3 +7,6 @@
 [submodule "dependencies/jqueryUI"]
 	path = dependencies/jqueryUI
 	url = https://github.com/jquery/jquery-ui.git
+[submodule "dependencies/knockout"]
+	path = dependencies/knockout
+	url = https://github.com/SteveSanderson/knockout.git

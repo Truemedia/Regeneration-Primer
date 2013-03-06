@@ -33,19 +33,19 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
     				// Do a partial reload (insert mag into empty gun)
     				if(e.key == Crafty.keys['E']) {
     					Crafty.audio.play("insert_mag",1,1);
-      					console.log("Partial reload");
+      					console.log("Loaded a mag");
     				}
     				// Do a full reload (discard mag, and insert new mag)
     				if(e.key == Crafty.keys['R']) {
     					Crafty.audio.play("lock_inserted_mag",1,1);
     					//Crafty.audio.play("insert_mag",1,1);
 						//Crafty.audio.play("load_chamber",1,1);
-      					console.log("Full reload");
+      					console.log("Connected a mag");
     				}
     				// Throw away magazine
     				if(e.key == Crafty.keys['T']) {
     					Crafty.audio.play("discard_mag",1,1);
-      					console.log("Threw away mag");
+      					console.log("Removed a mag");
     				}
     				// Load chamber
     				if(e.key == Crafty.keys['C']) {

@@ -2,6 +2,8 @@ How to setup Regeneration Primer
 
 # Download the git repo and make sure submodules are loaded (git submodule init)
 
+# Make sure KnockoutJS is built (cd into software directory and run 'dependencies/knockout/build/build.sh')
+
 # Set browser to file://LocationOfThisSoftwareFolder/index.html
 
 # Make sure javascript is enabled and enjoy
