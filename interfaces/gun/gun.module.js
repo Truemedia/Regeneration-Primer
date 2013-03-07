@@ -3,9 +3,9 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
 	return Gun = {
 		init: function(){
 			// TODO: Ammo count viewmodel (in progress)
-			jQuery('.inventory_item').each(function(itemIteration, item) {
+			/*jQuery('.inventory_item').each(function(itemIteration, item) {
 					ko.applyBindings(new Gun.ViewModel(), jQuery('.inventory_item:eq('+itemIteration+')'));
-			});
+			});*/
 			// Setup test view model
 			ko.applyBindings(new Gun.TestViewModel("Player", "Name")); // This makes Knockout get to work
 		},
@@ -19,14 +19,14 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
         		return this.firstName() + " " + this.lastName();
     		}, this);
     	},
-		ViewModel: function() { 
+		/*ViewModel: function() { 
 			this.ammo = ko.observableArray();
 		
     		this.ammoCount = ko.computed(function() {
         		// It knows to change when this event returns a result different from the previous result
         		return ViewModel.ammo().length;
     		}, this);
-		},
+		},*/
 		populateAmmo: function(){
 			jQuery.get('windows/inventory/inventory.xml', function(xml){
 				var json = jQuery.xml2json(xml);

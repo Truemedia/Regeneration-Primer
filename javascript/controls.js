@@ -1,5 +1,5 @@
 // Controls module
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQuery", "./Crafty", "./tooltip"], function(jQuery, Crafty, tooltip) {
 	return controls = {
 		mapper: function(){
 			Crafty.c("LeftControls", {
@@ -12,6 +12,10 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
         			return this;
    				}  
 			});
+		},
+		hints: function(button, event){
+			// Stuff to show a first time player (control hints)
+			tooltip.init(button, event);
 		}
 	}
 });

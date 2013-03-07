@@ -12,20 +12,22 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 				//Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
 			});
 		},
-		toggleAudio: function(mute_option){ 
+		toggleAudio: function(event){ 
 			jQuery.getJSON("resource_managers/audio/default_settings.json", function(audio_manager_defaults) {
 				// Mute or unmute all audio
-				if(mute_option == 1){
+				if(jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")){
 					/* Mute audio */
 					// Play sound through mixer API
 					Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],"0.0");
-					jQuery("#audio_toggle").val(0);
+					jQuery("#audio_toggle > span").removeClass("ui-icon-volume-on")
+						.addClass("ui-icon-volume-off");
 				}
 				else{
 					/* Unmute audio */
 					// Play sound through mixer API
 					Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
-					jQuery("#audio_toggle").val(1);
+					jQuery("#audio_toggle > span").removeClass("ui-icon-volume-off")
+						.addClass("ui-icon-volume-on");
 				}
 			});
 		},

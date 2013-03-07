@@ -22,6 +22,7 @@ require.config({
         'spawner': "javascript/spawner/spawner", // Spawner
         'gameobjects': "javascript/gameobjects", // Game Objects
         'gamedirector': "javascript/game_director/game_director", // Game Director
+        'tooltip': "javascript/tooltip", // Tooltips
         'windows': "javascript/windows", // AJAX-XSLT templates
         'Gun.MOD': "interfaces/gun/gun.module", // Gun module
         
@@ -30,7 +31,8 @@ require.config({
         
         /* jQuery UI files */
         'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget", // Core widget file
-        'jQ.ui.progressbar': "dependencies/jqueryUI/ui/jquery.ui.progressbar" // Progress bar
+        'jQ.ui.progressbar': "dependencies/jqueryUI/ui/jquery.ui.progressbar", // Progress bar
+        'jQ.ui.tooltip': "dependencies/jqueryUI/ui/jquery.ui.tooltip" // Tooltip
     },
     shim: {
     	// Dependencies
@@ -59,6 +61,10 @@ require.config({
             exports: 'jQuery'
         },
         'jQ.ui.progressbar': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.tooltip': {
             deps: ['jQuery', 'jQ.ui.widget'],
             exports: 'jQuery'
         },
@@ -118,7 +124,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			gamedirector.initGameDirector(this.value);
 	
 			// Initialize session windows
-			windows.init("inventory");
+			windows.init(["inventory", "marquee"]);
 		
 			// Hook up life bars
 			health.lifeSetup();
@@ -153,14 +159,37 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			});
 		});
 	
+		/* Marquee event handlers */
 		// Mute or unmute audio
-		jQuery("#audio_toggle").click(function (){
-			audio.toggleAudio(this.value);
+		jQuery('#marquee_window').on("click", "#audio_toggle", function(event){
+			audio.toggleAudio(event);
 		});
+		jQuery('#marquee_window').on("mouseenter", "#audio_toggle", function(event){
+			controls.hints("audio", event);
+		});
+		jQuery('#marquee_window').on("mouseleave", "#audio_toggle", function(event){
+			controls.hints("audio", event);
+		});
+		
 		// Enable or disable debugging UI
-		jQuery("#debug_toggle").click(function (){
-			debug.pointsDebugger();
+		jQuery('#marquee_window').on("click", "#debug_toggle", function(event){
+			debug.pointsDebugger(event);
 		});
+		jQuery('#marquee_window').on("mouseenter", "#debug_toggle", function(event){
+			controls.hints("debug", event);
+		});
+		jQuery('#marquee_window').on("mouseleave", "#debug_toggle", function(event){
+			controls.hints("debug", event);
+		});
+		
+		// Show control hints
+		jQuery('#marquee_window').on("mouseenter", "#controls_tooltip", function(event){
+			controls.hints("controls", event);
+		});
+		jQuery('#marquee_window').on("mouseleave", "#controls_tooltip", function(event){
+			controls.hints("controls", event);
+		});
+		/* /Marquee event handlers */
 	
 		return jQuery.noConflict(true);
 	});

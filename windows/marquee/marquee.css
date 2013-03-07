@@ -1,0 +1,36 @@
+#marquee_window{
+	background-color: #BABABA;
+	margin-bottom: 2px;
+}
+.key_hint{
+	color: red;
+}
+.key_expression_press{
+	font-weight: bold;
+	color: navy;
+}
+.key_expression_hold{
+	font-weight: bold;
+	color: orange;
+}
+.control_instruction{
+	display: block;
+	margin: 4px;
+}
+
+/* Players score, in top left */
+#my_score{
+	font-size: 1.3em;
+	color: firebrick;
+}
+
+/* State styles */
+label.current{
+	font-style: italic;
+	color: seagreen;
+}
+label{
+	padding: 5px;
+	font-weight: bold;
+	color: #494949;
+}
