@@ -58,10 +58,12 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 				// Spawning bot
 				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", Text")
 				// Draw the sprite
-				.attr({x: (80+(40*char_id)), y: (20*char_id), z: (1*char_id)})
+				.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
 				.text("(Bot)")
   				.textColor(this.characterColor(char_name), '0.9')
   				.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
+  				// Spawning bots gun
+				Crafty.e("2D, DOM, wall_left, solid, gun2, Text").attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)});
 			}
 		},
 		characterColor: function(character){

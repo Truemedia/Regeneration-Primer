@@ -2,12 +2,16 @@
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		setup: function(){
-			// Sprite Map for items
-			Crafty.sprite(256, "images/items/Guns/AR-15.png", {
+			/* Sprite Map for items */
+			Crafty.sprite(256, "images/items/Guns/AR-15.png", { // AR-15
    				gun1: [0, 0]
 			});
+			Crafty.sprite(256, "images/items/Guns/Glock.png", { // Glock
+   				gun2: [0, 0]
+			});
 
-			// Sprite Map for charachters
+			
+			/* Sprite Map for characters */
 			/* Coward */
 			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"Coward"+default_sprite_filename_suffix, {
    				coward: [0, 0]

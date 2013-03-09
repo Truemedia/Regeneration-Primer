@@ -8,3 +8,21 @@ FreeSound (http://www.freesound.org) - http://www.freesound.org/people/ceremonia
 
 License:
 Creative Commons 0 license
+
+Title:
+falling_brass_5.wav
+
+Source:
+FreeSound (http://www.freesound.org) - http://www.freesound.org/people/movingplaid/sounds/76182/
+
+License:
+Creative Commons 0 license
+
+Title:
+Out of Ammo - No Ammo
+
+Source:
+FreeSound (http://www.freesound.org) - http://www.freesound.org/people/PacmanGamer/sounds/165660/
+
+License:
+Creative Commons 0 license

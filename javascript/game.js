@@ -2,37 +2,59 @@
 require.config({
 	baseUrl: "",
 	paths: {
+		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
+		'Crafty': "dependencies/craftyjs/crafty-local", // Crafty core
         'jQuery': "dependencies/jqueryUI/jquery-1.9.1", // jQuery core
-        'Crafty': "dependencies/craftyjs/crafty-local", // Crafty core
-        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core
         'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
         'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
+        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core
                 
-        /* Game modules */
-        'config': "javascript/config", // Game Config Variables
+        /* Systems (Core game mechanics) */
+        'audio': "resource_managers/audio/audio", // Audio system
+        'config': "javascript/config", // Game Config system
+        'controls': "javascript/controls", // Controls system
+        'debug': "javascript/game_director/debug", // Debugging system
+        'diydie': "javascript/maps/diydie", // Map System (Current MAP only)
+        'gamedirector': "javascript/game_director/game_director", // Game Director system
+        'gameobjects': "javascript/gameobjects", // Game Objects system
+        'health': "javascript/health", // Health system
+        'init': "javascript/init", // Initialization system
+        'notification': "javascript/notification", // Notification system
         'scores': "javascript/scores", // Scoring system
-        'audio': "resource_managers/audio/audio", // Audio
-        'health': "javascript/health", // Health
-        'debug': "javascript/game_director/debug", // Debugging
-        'init': "javascript/init", // Initialize functions
-        'sprites': "javascript/sprites", // Sprites
-        'controls': "javascript/controls", // Controls
-        'diydie': "javascript/maps/diydie", // Current MAP
-        'spawner': "javascript/spawner/spawner", // Spawner
-        'gameobjects': "javascript/gameobjects", // Game Objects
-        'gamedirector': "javascript/game_director/game_director", // Game Director
-        'tooltip': "javascript/tooltip", // Tooltips
-        'windows': "javascript/windows", // AJAX-XSLT templates
+        'spawner': "javascript/spawner/spawner", // Spawner system
+        'sprites': "javascript/sprites", // Sprites system
+        'tooltip': "javascript/tooltip", // Tooltips system
+        'windows': "javascript/windows", // AJAX-XSLT templates system
+        
+        /* Game modules */
         'Gun.MOD': "interfaces/gun/gun.module", // Gun module
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
         
         /* jQuery UI files */
-        'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget", // Core widget file
-        'jQ.ui.progressbar': "dependencies/jqueryUI/ui/jquery.ui.progressbar", // Progress bar
-        'jQ.ui.tooltip': "dependencies/jqueryUI/ui/jquery.ui.tooltip" // Tooltip
+        'jQ.ui.accordion': "dependencies/jqueryUI/ui/jquery.ui.accordion", // Accordion
+        'jQ.ui.autocomplete': "dependencies/jqueryUI/ui/jquery.ui.autocomplete", // Auto Complete
+        'jQ.ui.button': "dependencies/jqueryUI/ui/jquery.ui.button", // Button
+        'jQ.ui.core': "dependencies/jqueryUI/ui/jquery.ui.core", // Core file
+        'jQ.ui.datepicker': "dependencies/jqueryUI/ui/jquery.ui.datepicker", // Date Picker
+        'jQ.ui.dialog': "dependencies/jqueryUI/ui/jquery.ui.dialog", // Dialog
+        'jQ.ui.draggable': "dependencies/jqueryUI/ui/jquery.ui.draggable", // Draggable
+        'jQ.ui.droppable': "dependencies/jqueryUI/ui/jquery.ui.droppable", // Droppable
+        'jQ.ui.effect': "dependencies/jqueryUI/ui/jquery.ui.effect", // Effect
+        'jQ.ui.menu': "dependencies/jqueryUI/ui/jquery.ui.menu", // Menu
+        'jQ.ui.mouse': "dependencies/jqueryUI/ui/jquery.ui.mouse", // Mouse
+        'jQ.ui.position': "dependencies/jqueryUI/ui/jquery.ui.position", // Position
+       	'jQ.ui.progressbar': "dependencies/jqueryUI/ui/jquery.ui.progressbar", // Progress bar
+       	'jQ.ui.resizable': "dependencies/jqueryUI/ui/jquery.ui.resizable", // Resizable
+       	'jQ.ui.selectable': "dependencies/jqueryUI/ui/jquery.ui.selectable", // Selectable
+       	'jQ.ui.slider': "dependencies/jqueryUI/ui/jquery.ui.slider", // Slider
+       	'jQ.ui.sortable': "dependencies/jqueryUI/ui/jquery.ui.sortable", // Sortable
+       	'jQ.ui.spinner': "dependencies/jqueryUI/ui/jquery.ui.spinner", // Spinner
+       	'jQ.ui.tabs': "dependencies/jqueryUI/ui/jquery.ui.tabs", // Tabs
+       	'jQ.ui.tooltip': "dependencies/jqueryUI/ui/jquery.ui.tooltip", // Tooltip
+        'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget" // Core widget file
     },
     shim: {
     	// Dependencies
@@ -60,7 +82,79 @@ require.config({
             deps: ['jQuery'],
             exports: 'jQuery'
         },
-        'jQ.ui.progressbar': {
+        'jQ.ui.accordion': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.autocomplete': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.button': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.core': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.datepicker': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.dialog': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.draggable': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.droppable': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.effect': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.menu': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.mouse': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+        'jQ.ui.position': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.progressbar': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        }, 
+       	'jQ.ui.resizable': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.selectable': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.slider': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.sortable': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.spinner': {
+            deps: ['jQuery', 'jQ.ui.widget'],
+            exports: 'jQuery'
+        },
+       	'jQ.ui.tabs':  {
             deps: ['jQuery', 'jQ.ui.widget'],
             exports: 'jQuery'
         },
@@ -85,7 +179,7 @@ require.config({
     }
 });
 // JavaScript includes
-require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun) {
+require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification) {
     // Game starts here (bootstrap)
     
     jQuery(document).ready( function(jQuery){
@@ -138,6 +232,9 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			
 			// Adapt to new scene
 			windows.RearrangeForCanvas();
+			
+			// Setup notification system
+			notification.init();
 		});	
 	
 		// Give yourself points

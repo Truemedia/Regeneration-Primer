@@ -38,6 +38,8 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			Crafty.audio.add("insert_mag", audio_dir+"ar-15/loading_mag.wav");
 			Crafty.audio.add("lock_inserted_mag", audio_dir+"ar-15/locking_mag.wav");
 			Crafty.audio.add("load_chamber", audio_dir+"ar-15/load_chamber.wav");
-		}
+			Crafty.audio.add("fired_bullet_shelldrop", audio_dir+"ar-15/fired_bullet_shelldrop.wav");
+			Crafty.audio.add("out_of_ammo", audio_dir+"ar-15/out_of_ammo.wav");
+		},
 	}
 });

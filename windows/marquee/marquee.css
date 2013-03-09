@@ -26,7 +26,6 @@
 
 /* State styles */
 label.current{
-	font-style: italic;
 	color: seagreen;
 }
 label{

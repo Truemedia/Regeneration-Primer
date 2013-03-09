@@ -33,8 +33,12 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
 				
 				jQuery.each(json.inventory.item, function(itemIteration, item) {
   					// Get amount of bullets and use to populate DOM relevant to item
+  					var ammoCount = jQuery(".subitem_value:eq("+itemIteration+")").html(item.subitem.amount);
+  					// Number of current bullets
+					var current_bullets = jQuery(".actual_bullet_list:eq("+itemIteration+") > li").length;
+					var bullets_needed = item.subitem.amount - current_bullets;
   					var bulletList = '';
-  					for(i=0; i <= item.subitem.amount; i++){
+  					for(i=1; i <= bullets_needed; i++){
   						bulletList += '<li><img src="images/items/Guns/Bullet.png" /></li>';
   					}
   					jQuery('.inventory_item:eq('+itemIteration+') .actual_bullet_list').append(bulletList);

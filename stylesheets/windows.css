@@ -5,6 +5,9 @@
 /* Marquee stylesheet */
 @import url('../windows/marquee/marquee.css');
 
+/* Canvas Overlay stylesheet */
+@import url('../windows/notification/notification.css');
+
 /* Footer stylesheet */
 @import url('../windows/footer/footer.css');
 
