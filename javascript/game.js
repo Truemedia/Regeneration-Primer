@@ -190,7 +190,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 		audio.initGameAudio();
 	
 		// Load header and footer
-		windows.init(['header', 'footer']);
+		windows.init({'header': '', 'footer': ''});
 	
 		// When character chosen
 		jQuery(".char_select").click(function (){
@@ -218,7 +218,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			gamedirector.initGameDirector(this.value);
 	
 			// Initialize session windows
-			windows.init(["inventory", "marquee"]);
+			windows.init({"inventory": '', "scores": this.value, "marquee": this.value});
 		
 			// Hook up life bars
 			health.lifeSetup();
@@ -231,14 +231,23 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			Gun.init();
 			
 			// Adapt to new scene
-			windows.RearrangeForCanvas();
+			windows.RearrangeForCanvas(this.value);
 			
 			// Setup notification system
 			notification.init();
 		});	
 	
+		// Individual point debugging handlers
+		jQuery("#scores_window").on("click", ".score_submit", function (event){
+			var player_id = this.value; // Button click = relevant to player
+			jQuery.getJSON("constants/numbers_as_words.json", function(json) {
+   				var player_number_as_word = json[player_id]; // so we can use database keys without numbers
+   				scores.incrementScore(player_number_as_word);
+			});
+		});
+	
 		// Give yourself points
-		jQuery(".score_submit").click(function (){
+		jQuery("#marquee_window").on("click", ".score_submit", function (event){
 			var player_id = this.value; // Button click = relevant to player
 			jQuery.getJSON("constants/numbers_as_words.json", function(json) {
    				var player_number_as_word = json[player_id]; // so we can use database keys without numbers
@@ -247,7 +256,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 		});
 	
 		// Give everyone points
-		jQuery("#points_incrementer").click(function (){
+		jQuery("#marquee_window").on("click", "#points_incrementer", function (event){
 			jQuery.getJSON("constants/numbers_as_words.json", function(json) {
 				jQuery.each(json, function(key, player_number_as_word) {
 					console.log(player_number_as_word);

@@ -42,19 +42,15 @@ define(["./jQuery", "./Crafty", "./scores", "./Gun.MOD", "./audio", "./notificat
     			.areaMap([0,0], [400,0], [400,400], [0,400])
     			.color("#0000FF");
     	
-    	// Supplies box (Can be expanded upon later)
-   		 Crafty.e("2D, DOM, Color, Mouse, Text")
-    			.attr({ w: 100, h: 100, x: 50, y: 250, z: 6})
+    		 // Supplies box (Can be expanded upon later)
+			 Crafty.e("2D, DOM, Color, Mouse, storageBox, solid")
+    			.attr({ x: 1080, y: 50, z: 1, w: 128, h: 128})
     			.bind('Click', function() {
     				notification.highlight("MAX AMMO", "Found ammo from supplies box");
     				console.log("Gave yourself maximum ammunition");
     				Gun.populateAmmo();
     			})
-    			.areaMap([0,0], [100,0], [100,100], [0,100])
-    			.color("#FFFF00")
-    			.text("Supplies box")
-  				.textColor('#000000', '0.9')
-  				.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
+  				.areaMap([0,-128], [128, -128], [128,0], [0,0]);
 		}
 	}
 });

@@ -9,6 +9,9 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			Crafty.sprite(256, "images/items/Guns/Glock.png", { // Glock
    				gun2: [0, 0]
 			});
+			Crafty.sprite(256, "images/items/Storage/WoodenCrate.png", { // General supplies box
+   				storageBox: [0, 0]
+			});
 
 			
 			/* Sprite Map for characters */

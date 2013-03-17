@@ -51,26 +51,3 @@ body{
 	text-align: center;
 	background-color: #262626;
 }
-
-/* Score styling */
-#score_container{
-	display: none;
-	background-color: #000000;
-	position: fixed;
-	z-index: 3;
-	opacity: 0.9;
-}
-.score{
-	font-weight: bold;
-	font-size: 1.4em;
-	background-color: #000000;
-	opacity: 0.9;
-}
-#players_scores{
-	color: white;
-}
-.player_score{
-	border-bottom: 1px solid grey;
-	background-color: #000000;
-	opacity: 0.9;
-}

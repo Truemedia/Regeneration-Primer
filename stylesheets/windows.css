@@ -5,7 +5,10 @@
 /* Marquee stylesheet */
 @import url('../windows/marquee/marquee.css');
 
-/* Canvas Overlay stylesheet */
+/* Scores stylesheet */
+@import url('../windows/scores/scores.css');
+
+/* Notification stylesheet */
 @import url('../windows/notification/notification.css');
 
 /* Footer stylesheet */

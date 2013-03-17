@@ -1,0 +1,49 @@
+/* Score styling */
+dl{
+	margin: 0;
+	padding: 0;
+}
+#scores_window{
+	display: none;
+	background-color: #000000;
+	position: fixed;
+	z-index: 3;
+	opacity: 0.9;
+	margin: 0;
+	padding: 0;
+}
+.score{
+	font-weight: bold;
+	font-size: 1.4em;
+	opacity: 0.9;
+}
+.score_container:first-child > .player_info{
+	color: black;
+	background-color: cornsilk;
+	font-weight: bold;
+}
+.player_info{
+	color: white;
+	background-color: #000000;
+}
+
+.player_score{
+	border-bottom: 1px solid grey;
+	opacity: 0.9;
+}
+.player_overview{
+	margin: 2px 0px 5px 0px;
+	padding: 0;
+}
+.player_maininfo{
+	display: inline-block;
+}
+.player_number{
+	text-align: left;
+	width: 30%;
+}
+.player_name{
+	text-align: right;
+	width: 69%;
+	padding-right: 1%;
+}

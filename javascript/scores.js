@@ -49,7 +49,7 @@ define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
 			scores.getJSONkeyFromJSONvalue("constants/numbers_as_words.json", player_number_as_word, new_score)
 		},
 		setScoreDOM: function(score, player_id){
-			jQuery('button[value="'+parseInt(player_id)+'"].score_submit').siblings('.score').html(score);
+			jQuery('.score_container > .player_info > .player_score > .score_submit[value='+player_id+']').siblings(".score").html(score);
 			if(player_id == 1){
 				// This is us
 				jQuery('#my_score').html(score);
@@ -85,6 +85,26 @@ define(["./jQ.ui.progressbar", "./Crafty"], function(jQuery, Crafty) {
   						scores.setScoreDOM(score, key);
   					}
 				});
+			});
+		},
+		highlightMainPlayer: function(character){
+			// Move current character to top of list (shown as highlighted)
+			jQuery("#scores_window .score_container:first").before(
+				jQuery('#scores_window > .score_container > input.player_object[value='+character+']').parent()
+			);
+			
+			// Label main player as (You) and rest of players as (Bot)
+			jQuery("#scores_window .score_container").each(function(charIteration){
+				var charName = jQuery(this).children("input.player_object").val();
+				var charNumDOM = jQuery(this).children("dl.player_info").children("dt.player_overview").children("span.player_number");
+				// Populate the player
+				if(charName == character){
+					jQuery(charNumDOM).append(" (You)");
+				}
+				// Populate a bot
+				else{
+					jQuery(charNumDOM).append(" (Bot)");
+				}
 			});
 		}
 	}

@@ -1,29 +1,23 @@
 // Windows module
-define(["./jQ.xml2json", "./Crafty", "./Gun.MOD"], function(jQuery, Crafty, Gun) {
+define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./scores"], function(jQuery, Crafty, Gun, scores) {
 	return windows = {
 		init: function(windowObject){
 			// Make chainable callback since XSLT plugin callback support is bugged
-			jQuery.fn.windowLoadCallback = function(windowName)
+			jQuery.fn.windowLoadCallback = function(windowName, callbackValue)
 			{
-    			windows.callbacks(windowName);
+    			windows.callbacks(windowName, callbackValue);
 			}
 			
 			/* Load the XHTML for a window */
-			// If a string, transform into single item array
-			if(jQuery.isArray(windowObject) == false){
-				singleWindowObject = windowObject;
-				windowObject = [];
-				windowObject.push(singleWindowObject);
-			}
-			jQuery.each(windowObject, function(windowItertion, windowName){
+			jQuery.each(windowObject, function(windowName, callbackValue){
 				var windowDirFilePrefix = 'windows/'+windowName+'/'+windowName+'.';
 				// Load each window
 				var windowHTML = jQuery.xslt({xmlUrl: windowDirFilePrefix+'xml', xslUrl: windowDirFilePrefix+'xsl'});
 				jQuery('#'+windowName+'_window').html(windowHTML)
-					.windowLoadCallback(windowName);
+					.windowLoadCallback(windowName, callbackValue);
 			});
 		},
-		callbacks: function(windowName){
+		callbacks: function(windowName, callbackValue){
 			/* Function list to call based on specific window, after window has loaded */
 			console.log(windows.realName(windowName)+" window loaded");
 			switch (windowName){
@@ -32,6 +26,10 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD"], function(jQuery, Crafty, Gun)
 				case 'footer':
 					break;
   				case 'marquee':
+  					windows.assignPlayerNameDOM(callbackValue);
+  					break;
+  				case 'scores':
+ 			 		scores.highlightMainPlayer(callbackValue);
   					break;
   				case 'inventory':
  			 		Gun.populateAmmo();
@@ -43,10 +41,20 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD"], function(jQuery, Crafty, Gun)
 			// TODO: Consider in future implementing multiple languages function called with this (multilingual debugging)
     		return windowName.charAt(0).toUpperCase() + windowName.slice(1);
 		},
-		RearrangeForCanvas: function(){
+		RearrangeForCanvas: function(character){
 			// Move it to the bottom of the page, when canvas has loaded 
 			// TODO: assign canvas to it's own element on build to avoid need for this code
 			jQuery('#inventory_window').after(jQuery('#cr-stage'));
+		},
+		assignPlayerNameDOM: function(player_name){
+			// Add player_id to dom where-ever needed
+			jQuery(".score_container").each( function( index ){
+				if(jQuery(this).has('#'+player_name+'_score_color').length > 0){
+					// Setup our own players score debugging tool
+					player_id = jQuery('#'+player_name+'_score_submit').val();
+					jQuery('#self_incrementer').val(player_id);
+				}
+			});
 		}
 	}
 });

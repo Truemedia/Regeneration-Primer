@@ -5,7 +5,7 @@ define(["./jQuery", "./Crafty", "./windows"], function(jQuery, Crafty, windows) 
 			/* TODO: consider using noty (jQuery plugin) for notifications enhancement */
 			// Build notification
 			jQuery('#cr-stage').append("<div id='notification_window'></div>");
-			windows.init("notification");
+			windows.init({"notification":''});
 			// ..and then hide
 			jQuery('#notification_window').hide();
 		},

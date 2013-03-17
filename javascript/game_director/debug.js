@@ -22,6 +22,8 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			jQuery(".score_submit").toggle();
 			// Hide or show global manual score incrementer
 			jQuery("#score_debug_panel").toggle();
+			// Hide or show Developer hints
+			jQuery(".devhint").toggle();
 		}
 	}
 });
