@@ -8,6 +8,9 @@
 /* Scores stylesheet */
 @import url('../windows/scores/scores.css');
 
+/* Social stylesheet */
+@import url('../windows/social/social.css');
+
 /* Notification stylesheet */
 @import url('../windows/notification/notification.css');
 

@@ -1,6 +1,8 @@
 #marquee_window{
-	background-color: #BABABA;
+	background-color: #6D6D6D;
 	margin-bottom: 2px;
+	height: 35px;
+	border: 1px dashed lightgrey;
 }
 .key_hint{
 	color: red;

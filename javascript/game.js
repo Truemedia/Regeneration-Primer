@@ -20,8 +20,10 @@ require.config({
         'gameobjects': "javascript/gameobjects", // Game Objects system
         'health': "javascript/health", // Health system
         'init': "javascript/init", // Initialization system
+        'marquee': "javascript/marquee", // Marquee system
         'notification': "javascript/notification", // Notification system
         'scores': "javascript/scores", // Scoring system
+        'social': "javascript/social", // Social system
         'spawner': "javascript/spawner/spawner", // Spawner system
         'sprites': "javascript/sprites", // Sprites system
         'tooltip': "javascript/tooltip", // Tooltips system
@@ -54,7 +56,10 @@ require.config({
        	'jQ.ui.spinner': "dependencies/jqueryUI/ui/jquery.ui.spinner", // Spinner
        	'jQ.ui.tabs': "dependencies/jqueryUI/ui/jquery.ui.tabs", // Tabs
        	'jQ.ui.tooltip': "dependencies/jqueryUI/ui/jquery.ui.tooltip", // Tooltip
-        'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget" // Core widget file
+        'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget", // Core widget file
+        
+        /* Libraries (For UI, FX, and API's) */
+        'forkit': "libs/forkitJs/js/forkit" // ForkIt fancy link
     },
     shim: {
     	// Dependencies
@@ -179,7 +184,7 @@ require.config({
     }
 });
 // JavaScript includes
-require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification) {
+require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
     // Game starts here (bootstrap)
     
     jQuery(document).ready( function(jQuery){
@@ -195,10 +200,12 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 		// When character chosen
 		jQuery(".char_select").click(function (){
 			/* Delete selection screen */
-			jQuery(".character_selection_row").remove();
-			/* Show option to bring up selection screen.. */
-			jQuery("#char_selection_screen").html("<a href='index.html'>Rechoose character</a>");
+			jQuery("#character_selection").remove();
+
 			/* ..and Start the game up */
+			// TODO: Hide Dev notices nicer
+    		jQuery('.devhint').toggle();
+    		
 			// Initializer
 			init.initGame();
 
@@ -218,7 +225,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			gamedirector.initGameDirector(this.value);
 	
 			// Initialize session windows
-			windows.init({"inventory": '', "scores": this.value, "marquee": this.value});
+			windows.init({"inventory": '', "scores": this.value, "marquee": this.value, "social": '', "debug": ''});
 		
 			// Hook up life bars
 			health.lifeSetup();
@@ -245,57 +252,6 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
    				scores.incrementScore(player_number_as_word);
 			});
 		});
-	
-		// Give yourself points
-		jQuery("#marquee_window").on("click", ".score_submit", function (event){
-			var player_id = this.value; // Button click = relevant to player
-			jQuery.getJSON("constants/numbers_as_words.json", function(json) {
-   				var player_number_as_word = json[player_id]; // so we can use database keys without numbers
-   				scores.incrementScore(player_number_as_word);
-			});
-		});
-	
-		// Give everyone points
-		jQuery("#marquee_window").on("click", "#points_incrementer", function (event){
-			jQuery.getJSON("constants/numbers_as_words.json", function(json) {
-				jQuery.each(json, function(key, player_number_as_word) {
-					console.log(player_number_as_word);
-   					scores.incrementScore(player_number_as_word); // one, two, three, four, five, six, seven, eight
-				});
-			});
-		});
-	
-		/* Marquee event handlers */
-		// Mute or unmute audio
-		jQuery('#marquee_window').on("click", "#audio_toggle", function(event){
-			audio.toggleAudio(event);
-		});
-		jQuery('#marquee_window').on("mouseenter", "#audio_toggle", function(event){
-			controls.hints("audio", event);
-		});
-		jQuery('#marquee_window').on("mouseleave", "#audio_toggle", function(event){
-			controls.hints("audio", event);
-		});
-		
-		// Enable or disable debugging UI
-		jQuery('#marquee_window').on("click", "#debug_toggle", function(event){
-			debug.pointsDebugger(event);
-		});
-		jQuery('#marquee_window').on("mouseenter", "#debug_toggle", function(event){
-			controls.hints("debug", event);
-		});
-		jQuery('#marquee_window').on("mouseleave", "#debug_toggle", function(event){
-			controls.hints("debug", event);
-		});
-		
-		// Show control hints
-		jQuery('#marquee_window').on("mouseenter", "#controls_tooltip", function(event){
-			controls.hints("controls", event);
-		});
-		jQuery('#marquee_window').on("mouseleave", "#controls_tooltip", function(event){
-			controls.hints("controls", event);
-		});
-		/* /Marquee event handlers */
 	
 		return jQuery.noConflict(true);
 	});

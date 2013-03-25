@@ -1,0 +1,20 @@
+/* ForkIt base CSS */
+@import url('../../libs/forkitJs/css/forkit.css');
+/* ForkIt demo CSS */
+@import url('../../libs/forkitJs/css/demo.css');
+
+/* Social media CSS */
+#youtube_icon{
+	font-size: 1.1em;
+	font-weight: bold;
+	padding: 5px;
+}
+#youtube_oval
+{
+	display: inline;
+	border: 2px #aa0000 solid;
+	background-color: red;
+	border-radius: 8px;
+	-moz-border-radius: 8px; /* Old Firefox */
+	padding: 2px;
+} 

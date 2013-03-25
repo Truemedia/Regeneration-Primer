@@ -20,6 +20,10 @@ define(["./jQ.ui.tooltip", "./Crafty"], function(jQuery, Crafty) {
 					var buttonType = "toggle";
 					var tooltipParent = button+"_"+buttonType;
 					break;
+				case 'header':
+					var buttonType = "toggle";
+					var tooltipParent = button+"_"+buttonType;
+					break;
 			}
 			/* /Button special cases */
 

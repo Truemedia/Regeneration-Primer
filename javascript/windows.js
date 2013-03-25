@@ -1,5 +1,5 @@
 // Windows module
-define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./scores"], function(jQuery, Crafty, Gun, scores) {
+define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./scores", "./social", "./debug", "./marquee"], function(jQuery, Crafty, Gun, scores, social, debug, marquee) {
 	return windows = {
 		init: function(windowObject){
 			// Make chainable callback since XSLT plugin callback support is bugged
@@ -22,14 +22,23 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./scores"], function(jQuery, 
 			console.log(windows.realName(windowName)+" window loaded");
 			switch (windowName){
 				case 'header':
+					// TODO: Hide Dev notices nicer
+    				jQuery('.devhint').toggle();
+					break;
+				case 'debug':
+					debug.registerEvents();
 					break;
 				case 'footer':
 					break;
   				case 'marquee':
   					windows.assignPlayerNameDOM(callbackValue);
+  					marquee.registerEvents();
   					break;
   				case 'scores':
  			 		scores.highlightMainPlayer(callbackValue);
+  					break;
+  				case 'social':
+  					social.forkit();
   					break;
   				case 'inventory':
  			 		Gun.populateAmmo();

@@ -8,6 +8,11 @@ How to setup Regeneration Primer
 
 # Make sure javascript is enabled and enjoy
 
+If your want a quick try of the software without installing anything head to: http://truemedia.github.com/Regeneration-Primer
+
+This is a clone of our latest master branch code whenever we update it 
+(may be broken, be patient while we are in the main development phase of pre 0.1)
+
 This is the documentation for Regen Primer, A moddable game software for client and/or server based HTML5 games.
 
 Games based on this software:
