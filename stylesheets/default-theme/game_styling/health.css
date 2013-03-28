@@ -1,0 +1,11 @@
+/* Health SYSTEM styling */
+.player_health{
+	background-color: red;
+	width: 250px;
+	height: 20px;
+	margin: 0px 5px 0px 5px;
+	display: inline-block;
+}
+.player_health_stats{
+	text-align: center;
+}

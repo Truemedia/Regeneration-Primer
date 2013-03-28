@@ -16,7 +16,7 @@
 				<div>
 					<xsl:attribute name="style">border: 1px solid <xsl:value-of select="characterColourScheme"/>; position: relative; margin: 8px;</xsl:attribute>
 				<img>
-					<xsl:attribute name="src">images/characters/(<xsl:value-of select="identifierCamelCase"/>)_DefaultPose.png</xsl:attribute> 
+					<xsl:attribute name="src">multimedia/default-contentpack/images/characters/(<xsl:value-of select="identifierCamelCase"/>)_DefaultPose.png</xsl:attribute> 
 				</img>
 				<h5 class="character_name_attribute">
 					<span>
@@ -28,7 +28,7 @@
 					<xsl:attribute name="style">color: black; background-color: yellow; border: 1px solid white; padding: 2px; margin: 0; border-top-left-radius: 25px; border-bottom-left-radius: 25px;</xsl:attribute>
 					Occupation: </span><span style="padding: 2px; margin: 0; background-color: black; border: 1px solid white; border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
 						<img>
-							<xsl:attribute name="src">images/characters/(<xsl:value-of select="@identifierReference"/>)_mini.png</xsl:attribute>
+							<xsl:attribute name="src">multimedia/default-contentpack/images/characters/(<xsl:value-of select="@identifierReference"/>)_mini.png</xsl:attribute>
 						</img>
 						<xsl:value-of select="occupation"/>
 					</span>

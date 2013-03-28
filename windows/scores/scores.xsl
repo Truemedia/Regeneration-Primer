@@ -15,7 +15,7 @@
 					</dt>
 					<dd class="player_score">
 						<img>
-							<xsl:attribute name="src">images/characters/(<xsl:value-of select="@identifierReference"/>)_mini.png</xsl:attribute>
+							<xsl:attribute name="src">multimedia/default-contentpack/images/characters/(<xsl:value-of select="@identifierReference"/>)_mini.png</xsl:attribute>
 						</img>
 						<span>
 							<xsl:attribute name="id"><xsl:value-of select="@identifierReference"/>_score_color</xsl:attribute>

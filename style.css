@@ -1,34 +1,35 @@
 /* Characters stylesheet (Coward) */
-@import url('stylesheets/character_styling/coward.css');
+@import url('stylesheets/default-theme/character_styling/coward.css');
 /* Characters stylesheet (Criminal) */
-@import url('stylesheets/character_styling/criminal.css');
+@import url('stylesheets/default-theme/character_styling/criminal.css');
 /* Characters stylesheet (Mother) */
-@import url('stylesheets/character_styling/mother.css');
+@import url('stylesheets/default-theme/character_styling/mother.css');
 /* Characters stylesheet (NextDoorNeighbor) */
-@import url('stylesheets/character_styling/nextdoorneighbor.css');
+@import url('stylesheets/default-theme/character_styling/nextdoorneighbor.css');
 /* Characters stylesheet (PsychoticWorker) */
-@import url('stylesheets/character_styling/psychoticworker.css');
+@import url('stylesheets/default-theme/character_styling/psychoticworker.css');
 /* Characters stylesheet (StoreOwner) */
-@import url('stylesheets/character_styling/storeowner.css');
+@import url('stylesheets/default-theme/character_styling/storeowner.css');
 /* Characters stylesheet (StoreOwnerWife) */
-@import url('stylesheets/character_styling/storeownerwife.css');
+@import url('stylesheets/default-theme/character_styling/storeownerwife.css');
 /* Characters stylesheet (WomanHelicopterPilot) */
-@import url('stylesheets/character_styling/womanhelicopterpilot.css');
+@import url('stylesheets/default-theme/character_styling/womanhelicopterpilot.css');
 
 /* Debugging stylesheet */
-@import url('stylesheets/debug.css');
+@import url('stylesheets/default-theme/game_styling/debug.css');
 
 /* All window stylesheets */
-@import url('stylesheets/windows.css');
+@import url('stylesheets/default-theme/themeroller_styling/windows.css');
 
 /* jQuery UI Base Stylesheet (none-modified) */
 @import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css');
 
-/* Interfaces stylesheet */
-@import url('interfaces/interfaces.css');
+/* Modules stylesheet */
+@import url('modules/modules.css');
 
+// TODO: Consider how to structure Health System since it is a sub-system of score
 /* Health stylesheet */
-@import url('stylesheets/health.css');
+@import url('stylesheets/default-theme/game_styling/health.css');
 
 /* General */
 body{

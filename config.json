@@ -1,0 +1,44 @@
+/* Concept config (needs implementing, and maybe rewriting) */
+{
+	'environment' => {
+		'stage' => "development",
+		'server' => {
+			'used' => false,
+			'technology' => "PHP",
+			'version' => "N/A",
+			'webserver' => {
+				'technology' => "Apache",
+				'domain' => "",
+				'sef' => false // Search engine friendly
+			}
+		},
+		'spa' => true // Single page application
+	},
+	'game_settings' => {
+		'version' => "Pre 0.1",
+		'contentpack' => "default",
+		'theme' => "default"
+	},
+	'directories' => {
+		'components' => "components",
+		'dependencies' => "dependencies",
+		'gameobjects' => "gameobjects",
+		'libs' => "libs",
+		'modules' => "modules",
+		'multimedia' => {
+			// Determine paths based on Content Pack
+			'audio' => "multimedia/"+this.settings.contentpack+"-contentpack/audio/",
+			'images' => "multimedia/"+this.settings.contentpack+"-contentpack/images/",
+			'video' => "multimedia/"+this.settings.contentpack+"-contentpack/video/"
+		},
+		'scenes' => "scenes",
+		'stylesheets' => {
+			// Determine paths based on Theme
+			'game_styling' => "stylesheets/"+this.settings.theme+"-theme/game_styling",
+			'themeroller_styling' => "stylesheets/"+this.settings.theme+"-theme/themeroller_styling",
+			'character_styling' => "stylesheets/"+this.settings.theme+"-theme/character_styling"
+		},
+		'systems' => "systems",
+		'windows' => "windows"
+	}
+}

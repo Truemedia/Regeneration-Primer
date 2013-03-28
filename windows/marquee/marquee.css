@@ -21,9 +21,12 @@
 }
 
 /* Players score, in top left */
+#my_points{
+	color: black;
+}
 #my_score{
 	font-size: 1.3em;
-	color: firebrick;
+	color: #5BADAD;
 }
 
 /* State styles */
@@ -33,5 +36,9 @@ label.current{
 label{
 	padding: 5px;
 	font-weight: bold;
-	color: #494949;
+}
+.toggle_text{
+	text-decoration: underline;
+	color: #B4B4B4;
+	font-size: 1.4em;
 }
