@@ -12,6 +12,7 @@ require.config({
                 
         /* Systems (Core game mechanics) */
         'audio': "resource_managers/audio/audio", // Audio system
+        'characterselection': "javascript/characterselection", // Controls system
         'config': "javascript/config", // Game Config system
         'controls': "javascript/controls", // Controls system
         'debug': "javascript/game_director/debug", // Debugging system
@@ -184,10 +185,13 @@ require.config({
     }
 });
 // JavaScript includes
-require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+require(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
     // Game starts here (bootstrap)
     
     jQuery(document).ready( function(jQuery){
+    	// TODO: Add cleanup hidden process
+    	jQuery('#marquee_window').toggle();
+    
     	// Setup initial scoring system
 		scores.initialGameScoreValues();
 	
@@ -195,7 +199,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 		audio.initGameAudio();
 	
 		// Load header and footer
-		windows.init({'header': '', 'footer': ''});
+		windows.init({'header': '', 'characterselection': '', 'footer': ''});
 	
 		// When character chosen
 		jQuery(".char_select").click(function (){
@@ -205,6 +209,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
     		jQuery('.devhint').toggle();
+    		jQuery('#marquee_window').toggle();
     		
 			// Initializer
 			init.initGame();
@@ -225,7 +230,7 @@ require(['jQ.xslt', 'config', 'scores', 'audio', 'health', 'debug', 'init', 'spr
 			gamedirector.initGameDirector(this.value);
 	
 			// Initialize session windows
-			windows.init({"inventory": '', "scores": this.value, "marquee": this.value, "social": '', "debug": ''});
+			windows.init({"inventory": '', "scores": this.value, "marquee": this.value, "social": '', "debug": '', "options": ''});
 		
 			// Hook up life bars
 			health.lifeSetup();

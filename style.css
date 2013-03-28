@@ -34,20 +34,3 @@
 body{
 	background-color: black;	
 }
-
-/* Selection screen styling */
-#character_selection{
-	border: 1px solid lightgrey;
-}
-.character_selection_row{
-	display: block;
-	background-color: #131313; /* Light black */
-}
-.character_container{
-	margin: 0;
-	padding: 0;
-	width: 25%;
-	display: inline-block; 
-	text-align: center;
-	background-color: #262626;
-}

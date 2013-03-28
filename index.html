@@ -1,60 +1,24 @@
 <!DOCTYPE html>
-<head>	
-	<link rel="stylesheet" href="style.css" />
-	<!-- Dependencies -->
-	<!-- CDN copies of dependencies (Internet only quick-loads) 
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="http://cdn.craftycomponents.com/crafty-release.js"></script>
-	-->
-	<!-- Local copies of dependencies (Can be used offline, contained in RequireJS call) -->
-</head>
-<body>
-	<div id="header_window"></div>
-	<script data-main="javascript/game" src="dependencies/requirejs/require.js"></script>
-	</script>
-	<div id="character_selection">
-	<div class="character_selection_row">
-		<div class="character_container">
-			<img src="images/characters/(Coward)_DefaultPose.png" />
-			<button class="char_select" value="coward">Choose: Coward</button>
-		</div><div class="character_container">
-			<img src="images/characters/(Criminal)_DefaultPose.png" />
-			<button class="char_select" value="criminal">Choose: Criminal</button>
-		</div><div class="character_container">
-			<img src="images/characters/(Mother)_DefaultPose.png" />
-			<button class="char_select" value="mother">Choose: Mother</button>
-		</div><div class="character_container">
-			<img src="images/characters/(NextDoorNeighbor)_DefaultPose.png" />
-			<button class="char_select" value="nextdoorneighbor">Choose: Next Door Neighbor</button>
-		</div>
-	</div>
-	<div class="character_selection_row">
-		<div class="character_container">
-			<img src="images/characters/(PsychoticWorker)_DefaultPose.png" />
-			<button class="char_select" value="psychoticworker">Choose: Psychotic Worker</button>
-		</div><div class="character_container">
-			<img src="images/characters/(StoreOwner)_DefaultPose.png" />
-			<button class="char_select" value="storeowner">Choose: Store Owner</button>
-		</div><div class="character_container">
-			<img src="images/characters/(StoreOwnerWife)_DefaultPose.png" />
-			<button class="char_select" value="storeownerwife">Choose: Store Owner Wife</button>
-		</div><div class="character_container">
-			<img src="images/characters/(WomanHelicopterPilot)_DefaultPose.png" />
-			<button class="char_select" value="womanhelicopterpilot">Choose: Woman Helicopter Pilot</button>
-		</div>
-	</div>
-	</div>
-<div id="marquee_window"></div>
-<div id="social_window"></div>
-<div id="debug_window"></div>
-<div id="scores_window"></div>
-<div id="canvas_overlay_window"></div>
-<div id="inventory_window"></div>
-<div id="footer_window"></div>
-<div id="knockout">
-	<p>First name: <input data-bind="value: firstName" /></p>
-	<p>Last name: <input data-bind="value: lastName" /></p>
-	<h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
-</div>
-</body>
+	<head>	
+		<link rel="stylesheet" href="style.css" />
+		<!-- Dependencies -->
+		<!-- CDN copies of dependencies (Internet only quick-loads) 
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdn.craftycomponents.com/crafty-release.js"></script>
+		-->
+		<!-- Local copies of dependencies (Can be used offline, contained in RequireJS call) -->
+	</head>
+	<body>
+		<div id="header_window"></div>
+		<script data-main="javascript/game" src="dependencies/requirejs/require.js"></script>
+		<div id="characterselection_window"></div>
+		<div id="marquee_window"></div>
+		<div id="social_window"></div>
+		<div id="debug_window"></div>
+		<div id="scores_window"></div>
+		<div id="canvas_overlay_window"></div>
+		<div id="inventory_window"></div>
+		<div id="options_window"></div>
+		<div id="footer_window"></div>
+	</body>
 </html>

@@ -2,6 +2,9 @@
 /* Header stylesheet */
 @import url('../windows/header/header.css');
 
+/* Character Selection stylesheet */
+@import url('../windows/characterselection/characterselection.css');
+
 /* Marquee stylesheet */
 @import url('../windows/marquee/marquee.css');
 

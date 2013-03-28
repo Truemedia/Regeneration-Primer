@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<selectionWindows>
+	<selectionWindow group="maincharacters">
+		<player identifierReference="coward">
+			<identifierCamelCase>Coward</identifierCamelCase>
+			<characterColourScheme>goldenrod</characterColourScheme>
+			<name>Reece Neadham</name>
+			<occupation>Student</occupation>
+			<about>Student studying at Leeds metropolitian university for Law and copyright</about>
+		</player>
+		<player identifierReference="criminal">
+			<identifierCamelCase>Criminal</identifierCamelCase>
+			<characterColourScheme>dimgrey</characterColourScheme>
+			<name>Brian Lomber</name>
+			<occupation>Prison Guard</occupation>
+			<about>Main job involves being a prison guard, but is involved with illegal activity inside and outside of the prison he works at</about>
+		</player>
+		<player identifierReference="mother">
+			<identifierCamelCase>Mother</identifierCamelCase>
+			<characterColourScheme>darkslateblue</characterColourScheme>
+			<name>Angela</name>
+			<occupation>Carer</occupation>
+			<about>Part time empolyed to look after physically disabled children at a local hospital, and spends the rest of her time looking after her own kids</about>
+		</player>
+		<player identifierReference="nextdoorneighbor">
+			<identifierCamelCase>NextDoorNeighbor</identifierCamelCase>
+			<characterColourScheme>firebrick</characterColourScheme>
+			<name>Damian Esterson</name>
+			<occupation>Car mechanic</occupation>
+			<about>Works for a garage popularily known for over the top car modifications, but also spend his spare time going to sports events and drinking</about>
+		</player>
+	</selectionWindow>
+	<selectionWindow group="supportingcharacters">
+	<player identifierReference="psychoticworker">
+			<identifierCamelCase>PsychoticWorker</identifierCamelCase>
+			<characterColourScheme>indigo</characterColourScheme>
+			<name>Martin Bargus</name>
+			<occupation>Til Operative</occupation>
+			<about>Recently left college and only just starting a work opportunity provided by his grandparents</about>
+		</player>
+		<player identifierReference="storeowner">
+			<identifierCamelCase>StoreOwner</identifierCamelCase>
+			<characterColourScheme>saddlebrown</characterColourScheme>
+			<name>Nicholas Bargus</name>
+			<occupation>Manager</occupation>
+			<about>Dedicated long time worker of a local DIY store, and longest running manager in the companies history </about>
+		</player>
+		<player identifierReference="storeownerwife">
+			<identifierCamelCase>StoreOwnerWife</identifierCamelCase>
+			<characterColourScheme>salmon</characterColourScheme>
+			<name>Lucy Bargus</name>
+			<occupation>Assistant Manager</occupation>
+			<about>Dedicated as much as her husband to her job, aswell as very versed in agricultar practices such as farming and harvesting</about>
+		</player>
+		<player identifierReference="womanhelicopterpilot">
+			<identifierCamelCase>WomanHelicopterPilot</identifierCamelCase>
+			<characterColourScheme>seagreen</characterColourScheme>
+			<name>Claire Bellinger</name>
+			<occupation>Aviation Pilot</occupation>
+			<about>Professional helicopter pilot, and strong passion for travel and vehicles</about>
+		</player>
+	</selectionWindow>
+</selectionWindows>
