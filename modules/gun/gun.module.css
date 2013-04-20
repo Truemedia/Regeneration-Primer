@@ -12,8 +12,8 @@
 }
 .actual_bullet_list > li{
     float: left;
-    width: 16px;
-    height: 64px;
+    width: 12px;
+    height: 32px;
     margin: 0;
 	padding: 0;
 }

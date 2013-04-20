@@ -29,8 +29,9 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 				});
 			});
 		/* jQuery event handlers (for Debug) */ },
-		initDebugger: function(){
-			debug.pointsDebugger();
+		initDebugger: function(event){
+			debug.pointsDebugger(event);
+			debug.mouseDebugger(event);
 		},
 		pointsDebugger: function(event){
 			if (event != null){
@@ -52,6 +53,20 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			jQuery("#score_debug_panel").toggle();
 			// Hide or show Developer hints
 			jQuery(".devhint").toggle();
+		},
+		mouseDebugger: function(event){
+			// Hide or show mouse debug panel
+			jQuery("#mouse_debug_panel").toggle();
+			
+			// Variables for tracking mouse
+    		var mouseX, mouseY;
+    		var canvas = jQuery('#cr-stage').get(0);
+   			
+   			// Realtime mouse coords debugging
+   			canvas.addEventListener('mousemove', function (mouse) {
+    			jQuery("#mouse_x_coords").html(mouse.pageX - canvas.offsetLeft);
+				jQuery("#mouse_y_coords").html(mouse.pageY - canvas.offsetTop);
+    		}, 0);
 		}
 	}
 });

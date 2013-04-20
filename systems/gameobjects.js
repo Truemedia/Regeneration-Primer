@@ -10,12 +10,16 @@
 define(["./jQuery", "./Crafty", "./scores", "./Gun.MOD", "./audio", "./notification"], function(jQuery, Crafty, scores, Gun, audio, notification) {
 	return gameObjects = {
 		gameObjects: function(character){
-			/* Guns */
-			Crafty.e("2D, DOM, wall_left, solid, gun1, LeftControls")
-				// Draw the sprite
-				.attr({x: 12, y: 0, z: 2})
-				// Add controls to this object
+			var transitional_layer = 5; // TODO: Move this repeated variable into config
+			/* Give yourself some glocks */
+			Crafty.e("2D, DOM, wall_left, solid, gun2, LeftControls")
+				.attr({x: 0, y: 108, z: transitional_layer + 1})
 				.leftControls(3);
+			Crafty.e("2D, DOM, wall_left, solid, gun2, LeftControls")
+				.attr({x: 65, y: 108, z: transitional_layer + 1})
+				.leftControls(3);
+			// TODO: Use this future format when function no longer has memory leak
+			/* Gun.wield('gun2', 'dual', new Array("1", "104")); */
 
 			/* Enemies */
 			Crafty.e("2D, DOM, Color, Mouse, wall_left, solid, brutal")
@@ -52,7 +56,7 @@ define(["./jQuery", "./Crafty", "./scores", "./Gun.MOD", "./audio", "./notificat
     	
     		 // Supplies box (Can be expanded upon later)
 			 Crafty.e("2D, DOM, Color, Mouse, storageBox, solid")
-    			.attr({ x: 1080, y: 50, z: 1, w: 128, h: 128})
+    			.attr({ x: 1080, y: 150, z: 3, w: 128, h: 128})
     			.bind('Click', function() {
     				notification.highlight("MAX AMMO", "Found ammo from supplies box");
     				console.log("Gave yourself maximum ammunition");

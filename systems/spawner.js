@@ -10,11 +10,14 @@
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return {
 		spawnCharacter: function(char_name, players_char_name, char_id){
+			// Layer constants
+			var transitional_layer = 5; // z-index starting point for any character
+		
 			if(char_name == players_char_name){
 				// Matches character we choose (spawning us)
 				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text")
 				// Draw the sprite
-				.attr({x: 2, y: 2, z: 1})
+				.attr({x: 2, y: 100, z: transitional_layer})
 				// Add controls to this object
 				.leftControls(3)
 				.text("YOU")
@@ -60,18 +63,29 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
     					Crafty.audio.play("load_chamber",1,1);
       					console.log("Loaded chamber");
     				}
+    				// Save X Y coords (one instance shown in debug toolbar)
+    				if(e.key == Crafty.keys['Z']) {
+    					var x = jQuery("#mouse_x_coords").html();
+    					var y = jQuery("#mouse_y_coords").html();
+    					jQuery("#saved_mouse_coords").html(x+","+y);
+      					console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
+    				}
     			});
 			}
 			else{
-				// Spawning bot
-				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", Text")
-				// Draw the sprite
-				.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
-				.text("(Bot)")
-  				.textColor(this.characterColor(char_name), '0.9')
-  				.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
-  				// Spawning bots gun
-				Crafty.e("2D, DOM, wall_left, solid, gun2, Text").attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)});
+				/* Spawning bot */
+				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", Tween, Text")
+					// Draw the sprite
+					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
+					// Bot paths (currently implemented as single static path using tween)
+  					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300)
+					.text(char_name+" (Bot)")
+  					.textColor(this.characterColor(char_name), '0.9')
+  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
+  				/* Spawning bots gun */
+				Crafty.e("2D, DOM, wall_left, solid, gun1, Tween, Text")
+					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id) + transitional_layer})
+					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300);
 			}
 		},
 		characterColor: function(character){

@@ -1,0 +1,41 @@
+/* Inline panels */
+#debug_window{
+	background-color: brown;Position
+}
+#score_debug_panel, #mouse_debug_panel, #mouse_debug_panel > dl{
+	display: inline;
+}
+/* Mouse debug styling */
+#mouse_debug_panel > dl > dt, #mouse_debug_panel > dl > dd{
+	display: inline-block;
+}
+#mouse_x_label{
+	font-size: 1.5em;
+	padding: 0px 5px 0px 5px;
+	color: orange;
+}
+#mouse_x_coords{
+	font-size: 1.4em;
+	padding: 0px 5px 0px 5px;
+	color: hotpink;
+}
+#mouse_y_label{
+	font-size: 1.5em;
+	padding: 0px 5px 0px 5px;
+	color: yellow;
+}
+#mouse_y_coords{
+	font-size: 1.4em;
+	padding: 0px 5px 0px 5px;
+	color: pink;
+}
+#mouse_clipboard_label{
+	font-size: 1.4em;
+	padding: 5px;
+	color: cyan;
+}
+#saved_mouse_coords{
+	font-size: 1.3em;
+	padding: 5px;
+	color: lime;
+}

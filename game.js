@@ -75,7 +75,7 @@ define(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 
 			health.lifeSetup();
 		
 			// Enable debugging (but hide from view)
-			debug.initDebugger();
+			debug.initDebugger(null);
 			
 			// New gun module interface 
 			// TODO: Use this standard for all other modules, or evolve upon it

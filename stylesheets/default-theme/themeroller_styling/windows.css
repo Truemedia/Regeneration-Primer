@@ -8,6 +8,9 @@
 /* Marquee stylesheet */
 @import url('../../../windows/marquee/marquee.css');
 
+/* Debugging stylesheet */
+@import url('../../../windows/debug/debug.css');
+
 /* Scores stylesheet */
 @import url('../../../windows/scores/scores.css');
 

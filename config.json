@@ -17,7 +17,16 @@
 	'game_settings' => {
 		'version' => "Pre 0.1",
 		'contentpack' => "default",
-		'theme' => "default"
+		'theme' => "default",
+		"resolution" => {
+			'width' => "",
+			'height' => ""
+		}
+	},
+	'sprites' => {
+		'default_character' => "coward",
+		'sprite_filename_prefix = "(",
+		'sprite_filename_suffix = ")_DefaultPose.png"
 	},
 	'directories' => {
 		'components' => "components",

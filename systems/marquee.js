@@ -46,7 +46,7 @@ define(["./jQuery", "./Crafty", "./windows", "./scores", "./audio", "./controls"
 		
 			// Enable or disable debugging UI
 			jQuery('#marquee_window').on("click", "#debug_toggle", function(event){
-				debug.pointsDebugger(event);
+				debug.initDebugger(event);
 			});
 			jQuery('#marquee_window').on("mouseenter", "#debug_toggle", function(event){
 				controls.hints("debug", event);

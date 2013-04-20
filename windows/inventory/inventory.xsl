@@ -6,7 +6,7 @@
 			<ul class="inventory">
 				<xsl:for-each select="inventory/item">
 				<li class="inventory_item">
-					<h4 class="item_name"><xsl:value-of select="@name"/> (<xsl:value-of select="@type"/>)</h4>
+					<h4 class="item_name"><xsl:value-of select="@name"/> (<xsl:value-of select="@type"/>) <xsl:value-of select="@wield"/> wield</h4>
 					<div class="item_sprite">
   						<xsl:attribute name="style">background:url("multimedia/default-contentpack/images/items/Guns/<xsl:value-of select="@name"/>.png") 0 0;</xsl:attribute>
 					</div>

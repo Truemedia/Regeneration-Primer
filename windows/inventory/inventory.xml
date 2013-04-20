@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <inventories>
 <inventory>
-<item name="AR-15" type="Gun">
-<subitem type="disposable" amount="35">Bullets</subitem>
+<item name="Glock" type="Gun" wield="Dual">
+<subitem type="disposable" amount="47">Bullets</subitem>
 </item>
-<item name="Glock" type="Gun">
-<subitem type="disposable" amount="12">Bullets</subitem>
+<item name="AR-15" type="Gun" wield="Single">
+<subitem type="disposable" amount="35">Bullets</subitem>
 </item>
 </inventory>
 </inventories>

@@ -4,7 +4,7 @@
 	display: inline;
 	float: right;
 	opacity: 0.85;
-	margin: 0;
+	margin: 12px 320px 0px 0px;
 	padding: 0;
 }
 #inventory_container{
@@ -32,8 +32,8 @@
 }
 .item_sprite{
 /* Use css sprite for partial image */
-	width: 130px;
-	height: 190px;
+	width: 128px;
+	height: 155px;
 	display: inline-block;
 	float: center;
 }

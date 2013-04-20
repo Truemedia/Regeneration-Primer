@@ -48,6 +48,31 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
   					console.log("Loaded "+item.subitem.amount+" bullets for "+item.name+" (item "+itemIteration+")");
 				});
 			});
+		},
+		// TODO: Find the memory leak bug in this function, and use to spawn guns when fixed
+		wield: function(gun_sprite, single_or_dual, dimensions){
+			if(single_or_dual == "dual"){
+				var gun_count = 2;
+			}
+			else{
+				var gun_count = 1;
+			}
+			// Default dimension offsets
+			var weapon_layer = 6;
+			
+			for(var gun_counter = 1; gun_counter <= gun_count; gun_counter++){
+				if(gun_counter == 2){
+					var gun_x = (dimensions[0]*2)+10;
+				}
+				else{
+					var gun_x = dimensions[0];
+				}
+				Crafty.e("2D, DOM, wall_left, solid, "+gun_sprite+", LeftControls")
+				// Draw the sprite
+				.attr({x: gun_x, y: 98, z: weapon_layer})
+				// Add controls to this object
+				.leftControls(3);
+			}
 		}
 	}
 });
