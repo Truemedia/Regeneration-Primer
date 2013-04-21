@@ -1,6 +1,6 @@
-#coward_score_color{
-color: goldenrod;
-}
-#coward_score_submit{
-color: goldenrod;
+/* Styles for mimicking imagery of character 
+	Character: Coward
+*/
+.coward-colorscheme{
+	color: goldenrod;
 }

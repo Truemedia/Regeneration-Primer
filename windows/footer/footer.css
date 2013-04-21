@@ -1,14 +1,22 @@
 /* Footer */
+#footer_window{
+	background-color: #768359;
+	border: 5px solid #667349;
+	margin: 0;
+	padding: 0px 5px 0px 5px;
+}
 .footer_title{
 	margin: 0;
 	padding: 0;
 	color: goldenrod;
 }
 #poweredby{
-	background-color: #768359;
-	border: 5px solid #667349;
-	margin: 0;
-	padding: 0px 5px 0px 5px;
+	display: inline-block;
+}
+#shortcredits{
+	display: inline-block;
+	float: right;
+	color: navy;
 }
 /* Make a bullet list into a CSV list */
 ul.csv{

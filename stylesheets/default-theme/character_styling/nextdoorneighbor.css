@@ -1,6 +1,6 @@
-#nextdoorneighbor_score_color{
-color: firebrick;
-}
-#nextdoorneighbor_score_submit{
-color: firebrick;
+/* Styles for mimicking imagery of character 
+	Character: Next Door Neighbor
+*/
+.nextdoorneighbor-colorscheme{
+	color: firebrick;
 }

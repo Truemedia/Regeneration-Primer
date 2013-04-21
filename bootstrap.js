@@ -206,6 +206,6 @@ require.config({
     }
 });
 // Run the game launcher (Game system - method)
-require(['jQ.xslt', 'config', 'game', 'characterselection', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, game, characterselection, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+require(['game'], function(game) {
 	game.launch();
 });

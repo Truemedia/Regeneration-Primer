@@ -1,0 +1,7 @@
+/* Canvas styling */
+#canvas_window{
+	display: inline-block;
+}
+#cr-stage{
+	/* Put your styling for the actual canvas element here */
+}

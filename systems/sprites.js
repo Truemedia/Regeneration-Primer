@@ -8,68 +8,52 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
-	return {
+	return sprites = {
+		
 		setup: function(){
-			/* Sprite Map for items */
 			// TODO: Extract in-use content pack from config
 			var contentpack = "default";
+			var sprites_dir = "multimedia/"+contentpack+"-contentpack/images/";
+			var f = ".png"; // Only file format used at the moment
+		
+			// Load all sprites
+			sprites.setupItems(sprites_dir, f);
+			sprites.setupCharacters(sprites_dir, f);
+			sprites.setupEnemies(sprites_dir, f);
+		},
+		setupItems: function(sprites_dir, f){
+			/* Sprite maps for Items */
+			// Directories
+			var items_sprites_dir = sprites_dir+"items/";
+			var guns_sprites_dir = items_sprites_dir+"Guns/";
+			var storage_sprites_dir = items_sprites_dir+"Storage/";
 			
-			Crafty.sprite(256, "multimedia/"+contentpack+"-contentpack/images/items/Guns/AR-15.png", { // AR-15
-   				gun1: [0, 0]
-			});
-			Crafty.sprite(256, "multimedia/"+contentpack+"-contentpack/images/items/Guns/Glock.png", { // Glock
-   				gun2: [0, 0]
-			});
-			Crafty.sprite(256, "multimedia/"+contentpack+"-contentpack/images/items/Storage/WoodenCrate.png", { // General supplies box
-   				storageBox: [0, 0]
-			});
-
+			Crafty.sprite(256, guns_sprites_dir+"AR-15"+f, { gun1: [0, 0] }); /* AR-15 */
+			Crafty.sprite(256, guns_sprites_dir+"Glock"+f, { gun2: [0, 0] }); /* Glock */
+			Crafty.sprite(256, storage_sprites_dir+"WoodenCrate"+f, { storageBox: [0, 0] }); /* General supplies box */
+			Crafty.sprite(256, storage_sprites_dir+"Bullet"+f, { mag: [0, 0] }); /* Gun magazine (TODO: rename image file on gun cleanup) */
+		},
+		setupCharacters: function(sprites_dir, f){
+			/* Sprite maps for Characters */
+			// Directories
+			var characters_sprites_dir = characters_image_directory + default_sprite_filename_prefix;
+			var af = default_sprite_filename_suffix; // Alternative filename.fileformat
 			
-			/* Sprite Map for characters */
-			/* Coward */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"Coward"+default_sprite_filename_suffix, {
-   				coward: [0, 0]
-			});
-	
-			/* Criminal */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"Criminal"+default_sprite_filename_suffix, {
-   				criminal: [0, 0]
-			});
-	
-			/* Mother */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"Mother"+default_sprite_filename_suffix, {
-   				mother: [0, 0]
-			});
-	
-			/* Next Door Neighbor */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"NextDoorNeighbor"+default_sprite_filename_suffix, {
-   				nextdoorneighbor: [0, 0]
-			});
-	
-			/* Psychotic Worker */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"PsychoticWorker"+default_sprite_filename_suffix, {
-   				psychoticworker: [0, 0]
-			});
-	
-			/* Store Owner */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"StoreOwner"+default_sprite_filename_suffix, {
-   				storeowner: [0, 0]
-			});
-	
-			/* Store Owner Wife */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"StoreOwnerWife"+default_sprite_filename_suffix, {
-   				storeownerwife: [0, 0]
-			});
-	
-			/* Woman Helicopter Pilot */
-			Crafty.sprite(256, characters_image_directory+default_sprite_filename_prefix+"WomanHelicopterPilot"+default_sprite_filename_suffix, {
-   				womanhelicopterpilot: [0, 0]
-			});
-	
-			/* First enemy */
-			Crafty.sprite(320, "multimedia/"+contentpack+"-contentpack/images/enemies/(Brutal)_DefaultPose.png", {
-   				brutal: [0, 0]
-			});
+			Crafty.sprite(256, characters_sprites_dir+"Coward"+af, { coward: [0, 0] }); /* Coward */
+			Crafty.sprite(256, characters_sprites_dir+"Criminal"+af, { criminal: [0, 0] }); /* Criminal */
+			Crafty.sprite(256, characters_sprites_dir+"Mother"+af, { mother: [0, 0] }); /* Mother */
+			Crafty.sprite(256, characters_sprites_dir+"NextDoorNeighbor"+af, { nextdoorneighbor: [0, 0] }); /* Next Door Neighbor */
+			Crafty.sprite(256, characters_sprites_dir+"PsychoticWorker"+af, { psychoticworker: [0, 0] }); /* Psychotic Worker */
+			Crafty.sprite(256, characters_sprites_dir+"StoreOwner"+af, { storeowner: [0, 0] }); /* Store Owner */
+			Crafty.sprite(256, characters_sprites_dir+"StoreOwnerWife"+af, { storeownerwife: [0, 0] }); /* Store Owner Wife */
+			Crafty.sprite(256, characters_sprites_dir+"WomanHelicopterPilot"+af, { womanhelicopterpilot: [0, 0] }); /* Woman Helicopter Pilot */
+		},
+		setupEnemies: function(sprites_dir, f){
+			/* Sprite maps for Enemies */
+			// Directories
+			var enemies_sprites_dir = sprites_dir+"enemies/";
+			
+			Crafty.sprite(320, enemies_sprites_dir+"(Brutal)_DefaultPose"+f, { brutal: [0, 0] }); /* First enemy */
 		}
 	}
 });

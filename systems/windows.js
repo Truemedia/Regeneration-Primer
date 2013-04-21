@@ -63,13 +63,9 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection", "./sco
 			// TODO: Consider in future implementing multiple languages function called with this (multilingual debugging)
     		return windowName.charAt(0).toUpperCase() + windowName.slice(1);
 		},
-		RearrangeForCanvas: function(character){
-			// Move it to the bottom of the page, when canvas has loaded 
-			// TODO: assign canvas to it's own element on build to avoid need for this code
-			jQuery('#inventory_window').after(jQuery('#cr-stage'));
-		},
 		assignPlayerNameDOM: function(player_name){
 			// Add player_id to dom where-ever needed
+			jQuery('#my_score').addClass(player_name+"-colorscheme");
 			jQuery(".score_container").each( function( index ){
 				if(jQuery(this).has('#'+player_name+'_score_color').length > 0){
 					// Setup our own players score debugging tool

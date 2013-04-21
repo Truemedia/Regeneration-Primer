@@ -1,6 +1,6 @@
-#womanhelicopterpilot_score_color{
-color: seagreen;
-}
-#womanhelicopterpilot_score_submit{
-color: seagreen;
+/* Styles for mimicking imagery of character 
+	Character: Woman Helicopter Pilot
+*/
+.womanhelicopterpilot-colorscheme{
+	color: seagreen;
 }

@@ -81,9 +81,6 @@ define(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 
 			// TODO: Use this standard for all other modules, or evolve upon it
 			Gun.init();
 			
-			// Adapt to new scene
-			windows.RearrangeForCanvas(characterselected);
-			
 			// Setup notification system
 			notification.init();
 		}

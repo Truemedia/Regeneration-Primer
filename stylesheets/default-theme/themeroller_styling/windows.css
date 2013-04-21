@@ -1,27 +1,33 @@
-/* Stylesheets for all windows */
-/* Header stylesheet */
-@import url('../../../windows/header/header.css');
+/* Stylesheets for all windows 
+	(when adding a new window add a link to the relevant windows CSS file here)
+*/
+
+/* Canvas stylesheet */
+@import url('../../../windows/canvas/canvas.css');
 
 /* Character Selection stylesheet */
 @import url('../../../windows/characterselection/characterselection.css');
 
+/* Debugging stylesheet */
+@import url('../../../windows/debug/debug.css');
+
+/* Footer stylesheet */
+@import url('../../../windows/footer/footer.css');
+
+/* Header stylesheet */
+@import url('../../../windows/header/header.css');
+
+/* Inventory stylesheet */
+@import url('../../../windows/inventory/inventory.css');
+
 /* Marquee stylesheet */
 @import url('../../../windows/marquee/marquee.css');
 
-/* Debugging stylesheet */
-@import url('../../../windows/debug/debug.css');
+/* Notification stylesheet */
+@import url('../../../windows/notification/notification.css');
 
 /* Scores stylesheet */
 @import url('../../../windows/scores/scores.css');
 
 /* Social stylesheet */
 @import url('../../../windows/social/social.css');
-
-/* Notification stylesheet */
-@import url('../../../windows/notification/notification.css');
-
-/* Footer stylesheet */
-@import url('../../../windows/footer/footer.css');
-
-/* Inventory stylesheet */
-@import url('../../../windows/inventory/inventory.css');

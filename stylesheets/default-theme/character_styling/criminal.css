@@ -1,6 +1,6 @@
-#criminal_score_color{
-color: dimgrey;
-}
-#criminal_score_submit{
-color: dimgrey;
+/* Styles for mimicking imagery of character 
+	Character: Criminal
+*/
+.criminal-colorscheme{
+	color: dimgrey;
 }

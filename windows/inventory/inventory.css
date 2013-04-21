@@ -1,11 +1,11 @@
 /* Inventory */
 #inventory_window{
 	border: 1px solid #DFDFDF;
-	display: inline;
+	display: inline-block;
 	float: right;
 	opacity: 0.85;
-	margin: 12px 320px 0px 0px;
 	padding: 0;
+	margin: 0 328px 0 0;
 }
 #inventory_container{
 	border: 1px solid grey;
