@@ -26,8 +26,8 @@
 /* Notification stylesheet */
 @import url('../../../windows/notification/notification.css');
 
-/* Scores stylesheet */
-@import url('../../../windows/scores/scores.css');
+/* Points stylesheet */
+@import url('../../../windows/points/points.css');
 
 /* Social stylesheet */
 @import url('../../../windows/social/social.css');

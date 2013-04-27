@@ -8,15 +8,12 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, scores, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config', 'characterselection', 'points', 'audio', 'Health.MOD', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){
     			// TODO: Add cleanup hidden process
     			jQuery('#marquee_window').toggle();
-    
-    			// Setup initial scoring system
-				scores.initialGameScoreValues();
 	
 				// Enable Music/Audio dialogue/Sounds
 				audio.initGameAudio();
@@ -28,15 +25,6 @@ define(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 
 				jQuery('#characterselection_window').on("click", ".char_select", function(event){
 					game.startSession(event, this.value);
 				});	
-	
-				// Individual point debugging handlers
-				jQuery("#scores_window").on("click", ".score_submit", function (event){
-					var player_id = this.value; // Button click = relevant to player
-					jQuery.getJSON("systems/numbers_as_words.json", function(json) {
-   						var player_number_as_word = json[player_id]; // so we can use database keys without numbers
-   						scores.incrementScore(player_number_as_word);
-					});
-				});
 	
 				return jQuery.noConflict(true);
 			});
@@ -69,10 +57,7 @@ define(['jQ.xslt', 'config', 'characterselection', 'scores', 'audio', 'health', 
 			gamedirector.initGameDirector(characterselected);
 	
 			// Initialize session windows
-			windows.init({"inventory": '', "scores": characterselected, "marquee": characterselected, "social": '', "debug": '', "options": ''});
-		
-			// Hook up life bars
-			health.lifeSetup();
+			windows.init({"inventory": '', "points": characterselected, "marquee": characterselected, "social": '', "debug": '', "options": ''});
 		
 			// Enable debugging (but hide from view)
 			debug.initDebugger(null);

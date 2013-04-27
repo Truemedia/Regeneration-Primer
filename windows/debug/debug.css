@@ -5,6 +5,15 @@
 #score_debug_panel, #mouse_debug_panel, #mouse_debug_panel > dl{
 	display: inline;
 }
+.score_debug_buttons{
+	display: inline-block;
+}
+.score_debug_button{
+	margin: 5px; 10px;
+}
+#debug_mods{
+	background-color: green;
+}
 /* Mouse debug styling */
 #mouse_debug_panel > dl > dt, #mouse_debug_panel > dl > dd{
 	display: inline-block;

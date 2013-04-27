@@ -30,8 +30,8 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			
 			Crafty.sprite(256, guns_sprites_dir+"AR-15"+f, { gun1: [0, 0] }); /* AR-15 */
 			Crafty.sprite(256, guns_sprites_dir+"Glock"+f, { gun2: [0, 0] }); /* Glock */
+			Crafty.sprite(256, guns_sprites_dir+"Bullet"+f, { mag: [0, 0] }); /* Gun magazine (TODO: rename image file on gun cleanup) */
 			Crafty.sprite(256, storage_sprites_dir+"WoodenCrate"+f, { storageBox: [0, 0] }); /* General supplies box */
-			Crafty.sprite(256, storage_sprites_dir+"Bullet"+f, { mag: [0, 0] }); /* Gun magazine (TODO: rename image file on gun cleanup) */
 		},
 		setupCharacters: function(sprites_dir, f){
 			/* Sprite maps for Characters */

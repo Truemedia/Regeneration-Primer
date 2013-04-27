@@ -4,7 +4,7 @@
 		<div>
 			<!-- Stats -->
 			<span id="my_points">
-				<span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score">500</span>
+				<span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score"></span>
 			</span>
 			<!-- /Stats -->
 			

@@ -37,11 +37,10 @@ require.config({
         'diydie': "systems/maps", // Map System (Currently inline coded MAP only)
         'gamedirector': "systems/gamedirector", // Game Director system
         'gameobjects': "systems/gameobjects", // Game Objects system
-        'health': "systems/health", // Health system
         'init': "systems/init", // Initialization system
         'marquee': "systems/marquee", // Marquee system
         'notification': "systems/notification", // Notification system
-        'scores': "systems/scores", // Scoring system
+        'points': "systems/points", // Points system
         'social': "systems/social", // Social system
         'spawner': "systems/spawner", // Spawner system
         'sprites': "systems/sprites", // Sprites system
@@ -50,6 +49,8 @@ require.config({
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
+        'Health.MOD': "modules/health/health.module", // Health module
+        'Score.MOD': "modules/score/score.module", // Score module
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
@@ -78,7 +79,8 @@ require.config({
         'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget", // Core widget file
         
         /* Libraries (For UI, FX, and API's) */
-        'forkit': "libs/forkitJs/js/forkit" // ForkIt fancy link
+        'forkit': "libs/forkitJs/js/forkit", // ForkIt fancy link
+        'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },
     shim: {
     	// Dependencies
@@ -185,6 +187,10 @@ require.config({
         'jQ.ui.tooltip': {
             deps: ['jQuery', 'jQ.ui.widget'],
             exports: 'jQuery'
+        },
+        'bindings.ko': {
+            deps: ['jQ.ui.progressbar', 'KO'],
+            exports: 'KO'
         },
         
         // Systems

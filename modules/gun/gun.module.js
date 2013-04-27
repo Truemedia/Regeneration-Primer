@@ -1,13 +1,22 @@
-// Gun module
+/* 
+* @file Gun MODULE
+* @author Wade Penistone (Truemedia)
+* @overview Regeneration Primer bundled module used for handling Gun objects in DOM
+* @copyright Wade Penistone 2013
+* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+*/
 define(["./jQuery", "./KO"], function(jQuery, ko) {
 	return Gun = {
+		binding_element_id: "inventory_window",
 		init: function(){
 			// TODO: Ammo count viewmodel (in progress)
 			/*jQuery('.inventory_item').each(function(itemIteration, item) {
 					ko.applyBindings(new Gun.ViewModel(), jQuery('.inventory_item:eq('+itemIteration+')'));
 			});*/
 			// Setup test view model
-			ko.applyBindings(new Gun.TestViewModel("Player", "Name")); // This makes Knockout get to work
+			ko.applyBindings(new Gun.TestViewModel("Player", "Name"), document.getElementById(Gun.binding_element_id)); // This makes Knockout get to work
 		},
 		// Here's my data model
 		TestViewModel: function(first, last){

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection", "./scores", "./social", "./debug", "./marquee"], function(jQuery, Crafty, Gun, characterselection, scores, social, debug, marquee) {
+define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection", "./points", "./social", "./debug", "./marquee"], function(jQuery, Crafty, Gun, characterselection, points, social, debug, marquee) {
 	return windows = {
 		init: function(windowObject){
 			// Make chainable callback since XSLT plugin callback support is bugged
@@ -42,11 +42,12 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection", "./sco
 				case 'footer':
 					break;
   				case 'marquee':
-  					windows.assignPlayerNameDOM(callbackValue);
+  					windows.assignPlayerNameDOM(callbackValue); // Make unique to player
   					marquee.registerEvents();
+  					score.init(); // Kickstart players score
   					break;
-  				case 'scores':
- 			 		scores.highlightMainPlayer(callbackValue);
+  				case 'points':
+ 			 		points.init();
   					break;
   				case 'social':
   					social.forkit();

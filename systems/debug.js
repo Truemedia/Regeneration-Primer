@@ -7,26 +7,20 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQ.ui.tabs", "./Crafty", "./points"], function(jQuery, Crafty, points) {
 	return debug = {
 		registerEvents: function(){ /* jQuery event handlers (for Debug) */
+			// Activate debugging panels
+			//jQuery("#debug_panels").tabs();
+		
 			// Give yourself points
 			jQuery("#debug_window").on("click", ".score_submit", function (event){
-				var player_id = this.value; // Button click = relevant to player
-				jQuery.getJSON("systems/numbers_as_words.json", function(json) {
-   					var player_number_as_word = json[player_id]; // so we can use database keys without numbers
-   					scores.incrementScore(player_number_as_word);
-				});
+				points.incrementMyScore();
 			});
 	
 			// Give everyone points
 			jQuery("#debug_window").on("click", "#points_incrementer", function (event){
-				jQuery.getJSON("systems/numbers_as_words.json", function(json) {
-					jQuery.each(json, function(key, player_number_as_word) {
-						console.log(player_number_as_word);
-   						scores.incrementScore(player_number_as_word); // one, two, three, four, five, six, seven, eight
-					});
-				});
+				points.incrementAllScores();
 			});
 		/* jQuery event handlers (for Debug) */ },
 		initDebugger: function(event){
@@ -48,9 +42,9 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			}
 			
 			// Hide or show manual score incrementers
-			jQuery(".score_submit").toggle();
+			jQuery(".score_debug_buttons").toggle();
 			// Hide or show global manual score incrementer
-			jQuery("#score_debug_panel").toggle();
+			jQuery("#debug_panels").toggle();
 			// Hide or show Developer hints
 			jQuery(".devhint").toggle();
 		},

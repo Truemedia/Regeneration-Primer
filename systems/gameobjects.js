@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./scores", "./Gun.MOD", "./audio", "./notification"], function(jQuery, Crafty, scores, Gun, audio, notification) {
+define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points", "./audio", "./notification"], function(jQuery, Crafty, ko, Gun, points, audio, notification) {
 	return gameObjects = {
 		gameObjects: function(character){
 			var transitional_layer = 5; // TODO: Move this repeated variable into config
@@ -40,7 +40,10 @@ define(["./jQuery", "./Crafty", "./scores", "./Gun.MOD", "./audio", "./notificat
                		 		duration: 150
            				});
 						console.log("enemy dead (+10 points)");
-						scores.incrementScore('one');
+						
+						// TODO: Find a viewModel retrieval library that can be implemented into module viewmodel is relevant to
+    					points.incrementMyScore();
+    					
 						// None immediate sound
 						// TODO: Make Audio delay timer component or function
 						Crafty.audio.play("fired_bullet_shelldrop",1,0.2);

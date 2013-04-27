@@ -3,7 +3,7 @@ dl{
 	margin: 0;
 	padding: 0;
 }
-#scores_window{
+#points_window{
 	display: none;
 	background-color: #000000;
 	position: fixed;

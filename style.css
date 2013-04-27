@@ -27,10 +27,6 @@
 /* Modules stylesheet */
 @import url('modules/modules.css');
 
-/* TODO: Consider how to structure Health System since it is a sub-system of score */
-/* Health stylesheet */
-@import url('stylesheets/default-theme/game_styling/health.css');
-
 /* General */
 body{
 	background-color: black;	

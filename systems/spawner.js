@@ -26,14 +26,14 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
   				.bind('KeyDown', function(e) {
   					// Show quick info menu
     				if(e.key == Crafty.keys['SHIFT']) {
-    					jQuery('#scores_window').toggle();
+    					jQuery('#points_window').toggle();
       					console.log("Showing quick info menu");
     				}
     			})
     			.bind('KeyUp', function(e) {
   					// Hide quick info menu
     				if(e.key == Crafty.keys['SHIFT']) {
-    					jQuery('#scores_window').toggle();
+    					jQuery('#points_window').toggle();
       					console.log("Hiding quick info menu");
     				}
     				// Hiding or showing inventory
