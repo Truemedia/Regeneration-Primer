@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 	<poweredbys>
-		<poweredby coreDependency="jQuery">
-			<dependencyPlugin>jQueryUI</dependencyPlugin>
-			<dependencyPlugin>jQuery FlyOff</dependencyPlugin>
+		<poweredby coreDependency="jQuery" website="http://jquery.com/">
+			<dependencyPlugin website="http://jqueryui.com/">jQueryUI</dependencyPlugin>
+			<dependencyPlugin website="http://james.padolsey.com/javascript/new-jquery-plugin-fly-off-page/">jQuery FlyOff</dependencyPlugin>
 		</poweredby>
-		<poweredby coreDependency="Crafty"></poweredby>
-		<poweredby coreDependency="RequireJS"></poweredby>
-		<poweredby coreDependency="KnockoutJS"></poweredby>
-		<poweredby coreDependency="JXON">
+		<poweredby coreDependency="Crafty" website="http://craftyjs.com/"></poweredby>
+		<poweredby coreDependency="RequireJS" website="http://requirejs.org/"></poweredby>
+		<poweredby coreDependency="KnockoutJS" website="http://knockoutjs.com/"></poweredby>
+		<!--<poweredby coreDependency="JXON">
 			<note>implemented using jQuery plugins</note>
 			<dependencyPlugin>jQuery XSLT</dependencyPlugin>
 		</poweredby>
-		<poweredby coreDependency="LessCSS"></poweredby>
+		<poweredby coreDependency="Modernizr"></poweredby>
+		<poweredby coreDependency="Bootstrap"></poweredby>
+		<poweredby coreDependency="Popcorn"></poweredby>-->
 	</poweredbys>

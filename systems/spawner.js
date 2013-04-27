@@ -15,9 +15,9 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 		
 			if(char_name == players_char_name){
 				// Matches character we choose (spawning us)
-				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text")
+				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text, Collision")
 				// Draw the sprite
-				.attr({x: 2, y: 100, z: transitional_layer})
+				.attr({x: 50, y: 100, z: transitional_layer})
 				// Add controls to this object
 				.leftControls(3)
 				.text("YOU")
@@ -70,11 +70,17 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
     					jQuery("#saved_mouse_coords").html(x+","+y);
       					console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
     				}
-    			});
+    			})
+    			.bind('Moved', function(from) { // Restrict movement across solid objects
+    				if(this.hit('solid')){
+        				this.attr({x: from.x, y:from.y});
+    				}
+				});
+    			//.within(Number x, Number y, Number w, Number h)
 			}
 			else{
 				/* Spawning bot */
-				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", Tween, Text")
+				Crafty.e("2D, DOM, wall_left, "+char_name+", Tween, Text")
 					// Draw the sprite
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
 					// Bot paths (currently implemented as single static path using tween)
@@ -83,7 +89,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
   					.textColor(this.characterColor(char_name), '0.9')
   					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
   				/* Spawning bots gun */
-				Crafty.e("2D, DOM, wall_left, solid, gun1, Tween, Text")
+				Crafty.e("2D, DOM, wall_left, gun1, Tween, Text")
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id) + transitional_layer})
 					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300);
 			}

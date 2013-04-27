@@ -8,7 +8,11 @@
 					<ul class="csv">
 						<xsl:for-each select="poweredbys/poweredby">
 						<li class="core_dependency">
-							<h4><xsl:value-of select="@coreDependency"/></h4>
+							<h4>
+								<a>
+								<xsl:attribute name="href"><xsl:value-of select="@website"/></xsl:attribute>
+								<xsl:value-of select="@coreDependency"/>
+								</a></h4>
 						</li>
 						</xsl:for-each>
 					</ul>

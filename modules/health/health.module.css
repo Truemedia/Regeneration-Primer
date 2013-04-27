@@ -9,3 +9,24 @@
 	text-align: center;
 	padding-left: 75px;
 }
+/* Use to decorate elements of a dead player */
+.deceased{
+	text-decoration: line-through;
+	background-color: darkred;
+	color: red;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+.deceased > span{
+	color: black;
+}
+/* Use to decorate elements of an alive player */
+.alive{
+	text-decoration: line-through;
+	color: lightgreen;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+.alive > span{
+	color: white;
+}

@@ -20,13 +20,13 @@ define(["./jQ.ui.progressbar", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"
 		registerBindings: function(){
 			/* Iterate multiple binding instances with jQuery */
 			jQuery("."+points.binding_element_class).each(function(index) {
-				ko.applyBindings(new points.ViewModel(), this);
+				ko.applyBindings(new points.ViewModel(index), this);
 			});
 		},
-		ViewModel: function() { 
+		ViewModel: function(player_id) { 
 			// Modules with ViewModels for this System
 			this.score = new score.ViewModel();
-    		this.health = new health.ViewModel();
+    		this.health = new health.ViewModel(player_id);
 		},
 		highlightMainPlayer: function(character){
 			// Move current character to top of list (shown as highlighted)

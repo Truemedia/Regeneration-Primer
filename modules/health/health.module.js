@@ -13,7 +13,7 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Cr
 		default_value: 94,
 		default_step: 4,
 		max_value: 100,
-		min_value: 1,
+		min_value: 0,
 		
 		registerEvents: function(){
 			// Setup health tracking jQuery events
@@ -32,7 +32,8 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Cr
 			/* Green (100 - 90% health) */
 			jQuery('.player_health > div').css({ 'background': 'LightGreen' });
 		},
-		ViewModel: function() { 
+		ViewModel: function(player_id) {
+			this.player_id = ko.observable(player_id);
 			this.hp = ko.observable(health.default_value);
 			this.step = ko.observable(health.default_step);
     		this.incrementHealth = function() {
@@ -45,9 +46,15 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Cr
     		};
     		this.decrementHealth = function() {
     			if(this.hp() >= (health.min_value + this.step())){
+    				/* if(this.player_id() == 0){
+    					jQuery("#player_purgatory > span").html("Alive");
+    				} */
         			this.hp(this.hp() - this.step()); // Normal modify event
         		}
         		else{
+        			/* if(this.player_id() == 0){
+        				jQuery("#player_purgatory > span").html("Deceased (no health)");
+        			} */
         			this.hp(health.min_value); // Reached modify limit
         		}
     		};

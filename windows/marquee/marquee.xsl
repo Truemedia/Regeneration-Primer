@@ -22,6 +22,8 @@
 			<button id="header_toggle" title="Click to hide or show the header" class="ui-state-default ui-corner-all">
 				<span class="ui-icon ui-icon-arrowthickstop-1-n"></span>
 			</button> <label for="header_toggle" class="toggle_text">Hide header</label>
+			<!-- Player alive or dead indicator -->
+    		<!-- <span id="player_purgatory" class="deceased"><span></span><span> -->
 		</div>
 	</xsl:template>
 </xsl:stylesheet>
