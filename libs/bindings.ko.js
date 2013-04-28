@@ -9,7 +9,12 @@ define(["./jQ.ui.progressbar", "./KO"], function(jQuery, ko) {
     	},
     	update: function(element, valueAccessor) {
 			var val = ko.utils.unwrapObservable(valueAccessor());
-    		jQuery(element).progressbar("value", parseFloat(val));
+			if(val == 0){
+				jQuery(element).progressbar("value", false);
+			}
+			else{
+				jQuery(element).progressbar("value", parseFloat(val));
+			}
    		}
 	};
 	ko.bindingHandlers.singleton = {

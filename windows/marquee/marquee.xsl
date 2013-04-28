@@ -5,6 +5,7 @@
 			<!-- Stats -->
 			<span id="my_points">
 				<span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score"></span>
+				<span id="player_purgatory" class="alive"><span>Alive</span></span>
 			</span>
 			<!-- /Stats -->
 			
@@ -23,7 +24,6 @@
 				<span class="ui-icon ui-icon-arrowthickstop-1-n"></span>
 			</button> <label for="header_toggle" class="toggle_text">Hide header</label>
 			<!-- Player alive or dead indicator -->
-    		<!-- <span id="player_purgatory" class="deceased"><span></span><span> -->
 		</div>
 	</xsl:template>
 </xsl:stylesheet>

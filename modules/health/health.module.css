@@ -9,6 +9,9 @@
 	text-align: center;
 	padding-left: 75px;
 }
+#player_purgatory{
+	margin: 5px;
+}
 /* Use to decorate elements of a dead player */
 .deceased{
 	text-decoration: line-through;
@@ -17,12 +20,17 @@
 	font-weight: bold;
 	font-size: 1.3em;
 }
+.dead_status{
+	background-color: none;
+	font-size: 1em;
+	color: yellow;
+}
 .deceased > span{
 	color: black;
 }
 /* Use to decorate elements of an alive player */
 .alive{
-	text-decoration: line-through;
+	background-color: darkgreen;
 	color: lightgreen;
 	font-weight: bold;
 	font-size: 1.3em;

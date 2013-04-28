@@ -40,6 +40,7 @@ require.config({
         'init': "systems/init", // Initialization system
         'marquee': "systems/marquee", // Marquee system
         'notification': "systems/notification", // Notification system
+        'player': "systems/player", // Player system
         'points': "systems/points", // Points system
         'social': "systems/social", // Social system
         'spawner': "systems/spawner", // Spawner system

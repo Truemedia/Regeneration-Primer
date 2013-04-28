@@ -28,9 +28,10 @@
 								</span>
 							</div>
 							<span data-bind="with: health">
-							<div class='player_health' data-bind='progress: hp'></div>
+							<div class="player_health" data-bind="progress: hp"></div>
 							<div class='player_health_stats'>
-								HP: (<span class='player_health_unit' data-bind='text: hp'></span>/100)
+								<span data-bind="if: dead" class="dead_status"><span class="no-bg">DECEASED</span></span>
+								<span data-bind="ifnot: dead">HP: (<span class="player_health_unit" data-bind="text: hp"></span>/100)</span>
 							</div>
 							</div>
 						</div>
@@ -40,13 +41,13 @@
 									<xsl:attribute name="data-bind">click: decrementScore</xsl:attribute>
 									<xsl:attribute name="class">score_debug_button score_submit ui-state-default ui-corner-all <xsl:value-of select="@identifierReference"/>-colorscheme</xsl:attribute>
 									<xsl:attribute name="value"><xsl:value-of select="@playerNumber"/></xsl:attribute>
-									<span class="ui-icon ui-icon-minusthick"></span> 10 points
+									<span class="ui-icon ui-icon-minusthick"></span> 10 Score (SP) 
 								</button>
 								<button>
 									<xsl:attribute name="data-bind">click: incrementScore</xsl:attribute>
 									<xsl:attribute name="class">score_debug_button score_submit ui-state-default ui-corner-all <xsl:value-of select="@identifierReference"/>-colorscheme</xsl:attribute>
 									<xsl:attribute name="value"><xsl:value-of select="@playerNumber"/></xsl:attribute>
-									<span class="ui-icon ui-icon-plusthick"></span> 10 points
+									<span class="ui-icon ui-icon-plusthick"></span> 10 Score (SP)
 								</button>
 								<!-- Used to make sure data is fed to #my_score -->
 								<div data-bind="singleton: sp"></div>
@@ -56,13 +57,13 @@
 								<xsl:attribute name="class">health_reduce score_debug_button ui-state-default ui-corner-all <xsl:value-of select="@identifierReference"/>-colorscheme</xsl:attribute>
 								<xsl:attribute name="value"><xsl:value-of select="@playerNumber"/></xsl:attribute>
 								<xsl:attribute name="data-bind">click: decrementHealth</xsl:attribute>
-								<span class="ui-icon ui-icon-minusthick"></span> 4 HP
+								<span class="ui-icon ui-icon-minusthick"></span> 4 Health (HP)
 							</button>
 							<button> 
 								<xsl:attribute name="class">health_reduce score_debug_button ui-state-default ui-corner-all <xsl:value-of select="@identifierReference"/>-colorscheme</xsl:attribute>
 								<xsl:attribute name="value"><xsl:value-of select="@playerNumber"/></xsl:attribute>
 								<xsl:attribute name="data-bind">click: incrementHealth</xsl:attribute>
-								<span class="ui-icon ui-icon-plusthick"></span> 4 HP
+								<span class="ui-icon ui-icon-plusthick"></span> 4 Health (HP)
 							</button>
 							</span>
 						</div>

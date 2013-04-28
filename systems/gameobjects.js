@@ -14,10 +14,10 @@ define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points", "./audio", "./n
 			
 			/* Give yourself some glocks */
 			Crafty.e("2D, DOM, wall_left, gun2, LeftControls")
-				.attr({x: 0, y: 108, z: transitional_layer + 1})
+				.attr({x: 48, y: 108, z: transitional_layer + 1})
 				.leftControls(3);
 			Crafty.e("2D, DOM, wall_left, gun2, LeftControls")
-				.attr({x: 65, y: 108, z: transitional_layer + 1})
+				.attr({x: 109, y: 108, z: transitional_layer + 1})
 				.leftControls(3);
 			// TODO: Use this future format when function no longer has memory leak
 			/* Gun.wield('gun2', 'dual', new Array("1", "104")); */

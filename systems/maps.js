@@ -36,6 +36,9 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			Crafty.sprite(256, "multimedia/"+contentpack+"-contentpack/images/textures/doors/doorless.png", {
    				doorless: [0, 0]
 			});
+			Crafty.sprite(256, "multimedia/"+contentpack+"-contentpack/images/textures/materials/wood.png", {
+   				wood: [0, 0]
+			});
 			Crafty.sprite(24, "multimedia/"+contentpack+"-contentpack/images/textures/walls/proto_wall_front.png", {
    				wall_front_tile: [0, 0]
 			});
@@ -71,7 +74,31 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			}
 			/* Spawn point */
 			Crafty.e("2D, DOM, wall_left, doorless")
-					.attr({x: 35, y: 0, z: 4});
+				.attr({x: 35, y: 0, z: 4});
+			// ..with Baricades 
+			// TODO: Make baricades a game mechanic, and get rid of this preset
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:20, z: 4, rotation: 10});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 40, y:40, z: 4, rotation: -10});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:60, z: 4, rotation: 15});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:85, z: 4});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 41, y:107, z: 4});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 48, y:128, z: 4, rotation: 16});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 48, y:137, z: 4, rotation: -16});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:145, z: 4, rotation: 10});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 40, y:165, z: 4, rotation: -10});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:185, z: 4, rotation: 15});
+			Crafty.e("2D, DOM, wall_left, wood")
+				.attr({x: 45, y:210, z: 4});
 			
 			/* Decorations */
 			var background_layer = 4; // TODO: Move this repeated variable into config

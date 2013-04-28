@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Crafty, ko) {
+define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko", "./player"], function(jQuery, Crafty, ko, player) {
 	return health = {
 		// Module variables (can be overwritten dynamically)
 		default_value: 94,
@@ -34,28 +34,60 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Cr
 		},
 		ViewModel: function(player_id) {
 			this.player_id = ko.observable(player_id);
+			this.dead = ko.observable(false);
 			this.hp = ko.observable(health.default_value);
 			this.step = ko.observable(health.default_step);
-    		this.incrementHealth = function() {
-    			if(this.hp() <= (health.max_value - this.step())){
-        			this.hp(this.hp() + this.step()); // Normal modify event
-        		}
-        		else{
-        			this.hp(health.max_value); // Reached modify limit
+			
+			// Add health (if not dead)
+    		this.incrementHealth = function() { if(this.dead() == false){
+    				if(this.hp() <= (health.max_value - this.step())){
+    					if(this.player_id() == 0){
+    						jQuery("#player_purgatory > span").html("Alive")
+    						jQuery("#player_purgatory")
+    							.removeClass("deceased")
+    							.addClass("alive");
+    					}
+        				this.hp(this.hp() + this.step()); // Normal modify event
+        			}
+        			else{
+        				if(this.player_id() == 0){
+    						jQuery("#player_purgatory > span").html("Alive")
+    						jQuery("#player_purgatory")
+    							.removeClass("deceased")
+    							.addClass("alive");
+    					}
+        				this.hp(health.max_value); // Reached modify limit (Maximum health)
+        			}
         		}
     		};
+    		
+    		// Remove health
     		this.decrementHealth = function() {
     			if(this.hp() >= (health.min_value + this.step())){
-    				/* if(this.player_id() == 0){
-    					jQuery("#player_purgatory > span").html("Alive");
-    				} */
+    				if(this.player_id() == 0){
+    					jQuery("#player_purgatory > span").html("Alive")
+    					jQuery("#player_purgatory")
+    						.removeClass("deceased")
+    						.addClass("alive");
+    				}
         			this.hp(this.hp() - this.step()); // Normal modify event
         		}
         		else{
-        			/* if(this.player_id() == 0){
-        				jQuery("#player_purgatory > span").html("Deceased (no health)");
-        			} */
-        			this.hp(health.min_value); // Reached modify limit
+
+        			// Reached modify limit (No health)
+        			if(this.player_id() == 0){
+        				jQuery("#player_purgatory > span").html("Deceased (no health)")
+        				jQuery("#player_purgatory")
+        					.removeClass("alive")
+    						.addClass("deceased");
+        			}
+        			
+        			// Kill off the player
+        			if(this.dead() == false){
+        				this.hp(health.min_value);
+        				this.dead(true);
+        				player.killPlayer(this.player_id());
+        			}
         		}
     		};
 		},
@@ -80,9 +112,12 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko"], function(jQuery, Cr
 			} else if (hp >= 20){ // Purple (40% - 20% health)
 				console.log("Health color is Purple, HP = "+hp);
 				jQuery(element).css({ 'background': 'Purple' });
-			} else{ // Red (20% - 1% health)
+			} else if (hp >= 1){ // Red (20% - 1% health)
 				console.log("Health color is Crimson, HP = "+hp);
 				jQuery(element).css({ 'background': 'Crimson' });
+			} else { // Black (0% health)
+				console.log("Health color is Grey, HP = "+hp);
+				jQuery(element).css({ 'background': 'Grey' });
 			}	
 			/* At 0% player will be crossed out */
 			// TODO: Add visuals and code for inactive player (deceased)

@@ -8,86 +8,91 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
-	return {
+	return spawner = {
+		characters: [],
+		
 		spawnCharacter: function(char_name, players_char_name, char_id){
 			// Layer constants
 			var transitional_layer = 5; // z-index starting point for any character
 		
-			if(char_name == players_char_name){
-				// Matches character we choose (spawning us)
-				Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text, Collision")
-				// Draw the sprite
-				.attr({x: 50, y: 100, z: transitional_layer})
-				// Add controls to this object
-				.leftControls(3)
-				.text("YOU")
-  				.textColor(this.characterColor(char_name), '1')
-  				.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
-  				.bind('KeyDown', function(e) {
-  					// Show quick info menu
-    				if(e.key == Crafty.keys['SHIFT']) {
-    					jQuery('#points_window').toggle();
-      					console.log("Showing quick info menu");
-    				}
-    			})
-    			.bind('KeyUp', function(e) {
-  					// Hide quick info menu
-    				if(e.key == Crafty.keys['SHIFT']) {
-    					jQuery('#points_window').toggle();
-      					console.log("Hiding quick info menu");
-    				}
-    				// Hiding or showing inventory
-    				if(e.key == Crafty.keys['SPACE']) {
-    					jQuery('#inventory_window').toggle();
-      					console.log("Hiding or showing inventory");
-    				}
-    				// Do a partial reload (insert mag into empty gun)
-    				if(e.key == Crafty.keys['E']) {
-    					Crafty.audio.play("insert_mag",1,1);
-      					console.log("Loaded a mag");
-    				}
-    				// Do a full reload (discard mag, and insert new mag)
-    				if(e.key == Crafty.keys['R']) {
-    					Crafty.audio.play("lock_inserted_mag",1,1);
-    					//Crafty.audio.play("insert_mag",1,1);
-						//Crafty.audio.play("load_chamber",1,1);
-      					console.log("Connected a mag");
-    				}
-    				// Throw away magazine
-    				if(e.key == Crafty.keys['T']) {
-    					Crafty.audio.play("discard_mag",1,1);
-      					console.log("Removed a mag");
-    				}
-    				// Load chamber
-    				if(e.key == Crafty.keys['C']) {
-    					Crafty.audio.play("load_chamber",1,1);
-      					console.log("Loaded chamber");
-    				}
-    				// Save X Y coords (one instance shown in debug toolbar)
-    				if(e.key == Crafty.keys['Z']) {
-    					var x = jQuery("#mouse_x_coords").html();
-    					var y = jQuery("#mouse_y_coords").html();
-    					jQuery("#saved_mouse_coords").html(x+","+y);
-      					console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
-    				}
-    			})
-    			.bind('Moved', function(from) { // Restrict movement across solid objects
-    				if(this.hit('solid')){
-        				this.attr({x: from.x, y:from.y});
-    				}
-				});
-    			//.within(Number x, Number y, Number w, Number h)
+			if(char_name == players_char_name){ // Matches character we choose (spawning us)
+
+				spawner.characters.push( Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text, Collision")
+					// Draw the sprite
+					.attr({x: 50, y: 100, z: transitional_layer})
+					// Add controls to this object
+					.leftControls(3)
+					.text("YOU")
+  					.textColor(this.characterColor(char_name), '1')
+  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
+  					.bind('KeyDown', function(e) {
+  						// Show quick info menu
+    					if(e.key == Crafty.keys['SHIFT']) {
+    						jQuery('#points_window').toggle();
+      						console.log("Showing quick info menu");
+    					}
+    				})
+    				.bind('KeyUp', function(e) {
+  						// Hide quick info menu
+    					if(e.key == Crafty.keys['SHIFT']) {
+    						jQuery('#points_window').toggle();
+      						console.log("Hiding quick info menu");
+    					}
+    					// Hiding or showing inventory
+    					if(e.key == Crafty.keys['SPACE']) {
+    						jQuery('#inventory_window').toggle();
+      						console.log("Hiding or showing inventory");
+    					}
+    					// Do a partial reload (insert mag into empty gun)
+    					if(e.key == Crafty.keys['E']) {
+    						Crafty.audio.play("insert_mag",1,1);
+      						console.log("Loaded a mag");
+    					}
+    					// Do a full reload (discard mag, and insert new mag)
+    					if(e.key == Crafty.keys['R']) {
+    						Crafty.audio.play("lock_inserted_mag",1,1);
+    						//Crafty.audio.play("insert_mag",1,1);
+							//Crafty.audio.play("load_chamber",1,1);
+      						console.log("Connected a mag");
+    					}
+    					// Throw away magazine
+    					if(e.key == Crafty.keys['T']) {
+    						Crafty.audio.play("discard_mag",1,1);
+      						console.log("Removed a mag");
+    					}
+    					// Load chamber
+    					if(e.key == Crafty.keys['C']) {
+    						Crafty.audio.play("load_chamber",1,1);
+      						console.log("Loaded chamber");
+    					}
+    					// Save X Y coords (one instance shown in debug toolbar)
+    					if(e.key == Crafty.keys['Z']) {
+    						var x = jQuery("#mouse_x_coords").html();
+    						var y = jQuery("#mouse_y_coords").html();
+    						jQuery("#saved_mouse_coords").html(x+","+y);
+      						console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
+    					}
+    				})
+    				.bind('Moved', function(from) { // Restrict movement across solid objects
+    					if(this.hit('solid')){
+        					this.attr({x: from.x, y:from.y});
+    					}
+					})
+				);
+    			// TODO: Use this line for pain zones
+    			// .within(Number x, Number y, Number w, Number h)
 			}
 			else{
 				/* Spawning bot */
-				Crafty.e("2D, DOM, wall_left, "+char_name+", Tween, Text")
+				spawner.characters.push( Crafty.e("2D, DOM, wall_left, "+char_name+", Tween, Text")
 					// Draw the sprite
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
 					// Bot paths (currently implemented as single static path using tween)
   					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300)
 					.text(char_name+" (Bot)")
   					.textColor(this.characterColor(char_name), '0.9')
-  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' });
+  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
+  				);
   				/* Spawning bots gun */
 				Crafty.e("2D, DOM, wall_left, gun1, Tween, Text")
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id) + transitional_layer})
