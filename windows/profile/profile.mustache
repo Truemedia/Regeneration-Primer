@@ -1,0 +1,43 @@
+<div data-bind="ifnot: loggedin">
+	<h1 style="text-align: center; color: #505050; padding: 3px;">{{header}}</h1>
+
+	<form>
+		<label>Username:</label>
+		<input type="text" data-bind="value: username" placeholder="Enter your username here" name="username" /></li>
+		<label>Password:</label>
+		<input type="password" placeholder="You don't need a password" name="password" /></li>
+	</form>
+	<button data-bind="click: loginAsUser">Login</button>
+	<button data-bind="click: loginAsGuest">Quick play as guest</button>
+
+	{{#empty}}
+		<p>The list is empty.</p>
+	{{/empty}}
+
+	<div style="display: inline-block; padding: 3px;">
+		<ul style="list-style: none;">
+			<li style="display: inline-block;"><a style="color: #242424; font-weight: bold;" href="#">Register</a></li>
+			<li style="display: inline-block;"><a style="color: #0123FF;" href="#">Recommend to a friend</a></li>
+		</ul>
+	</div>
+	<div style="display: inline-block; padding: 3px;">
+		<ul style="list-style: none;">
+			<li style="display: inline-block;"><a style="color: darkred; font-size: 0.8em;" href="#">Forgot username?</a></li>
+			<li style="display: inline-block;"><a style="color: crimson; font-size: 0.8em;" href="#">Forgot password?</a></li>
+		</ul>
+	</div>
+</div>
+
+<div data-bind="if: loggedin">
+	<div>
+		<h1 style="text-align: center; color: #505050; padding: 3px;">Hi, <span data-bind="text: username"></span></h1>
+	</div>
+	<!-- Stats -->
+	<div style="text-align: right;">
+		<span id="my_points">
+			<span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score">{{scoredefault}}</span>
+			<span id="player_purgatory" class="alive"><span>Alive</span></span>
+		</span>
+	</div>
+	<!-- /Stats -->
+</div>

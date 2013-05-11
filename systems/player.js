@@ -7,8 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./spawner"], function(jQuery, Crafty, ko, spawner) {
+define(["./jQuery", "./Crafty", "./KO", "./spawner.SYS", "./profile.SYS"], function(jQuery, Crafty, ko, spawner, profile) {
 	return player = {
+		loadProfile: function(){
+			profile.init();
+		},
 		killPlayer: function(player_id){
 			var real_id = player_id + 1;
 			console.log("Player "+real_id+" died");
@@ -25,7 +28,7 @@ define(["./jQuery", "./Crafty", "./KO", "./spawner"], function(jQuery, Crafty, k
 			
 			// Access player and do something to indicate they are dead
 			spawner.characters[player_id]
-				.attr({rotation: flat_player})
+				.tween({rotation: flat_player}, 60)
 				.textColor("#FFFFFF", '0.9')
 				.text("DEAD");
 			

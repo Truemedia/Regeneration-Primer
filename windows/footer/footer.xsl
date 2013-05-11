@@ -12,7 +12,16 @@
 								<a>
 								<xsl:attribute name="href"><xsl:value-of select="@website"/></xsl:attribute>
 								<xsl:value-of select="@coreDependency"/>
-								</a></h4>
+								</a>
+							</h4>
+							<xsl:for-each select="dependencyPlugins/dependencyPlugin">
+							<h5>
+								<a>
+								<xsl:attribute name="href"><xsl:value-of select="@website"/></xsl:attribute>
+								+ <xsl:value-of select="."/>
+								</a>
+							</h5>
+							</xsl:for-each>
 						</li>
 						</xsl:for-each>
 					</ul>

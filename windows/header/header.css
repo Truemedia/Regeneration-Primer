@@ -1,19 +1,20 @@
 /* Header */
 #header_window{
 	height: 95px;
-	background-color: #DEB887;
+	background-color: deepskyblue;
+	opacity: 0.9;
 }
 /* Game information */
 #welcome_notice{
 	padding-top: 35px;
-	color: peru;
+	color: lightblue;
 	text-align: center;
 	display: block;
 }
 #game_name{
-	color: #D2691E;
+	color: black;
 }	
 #regen_primer_version{
 	padding-left: 5px;
-	color: #A52A2A;	
+	color: yellow;	
 }

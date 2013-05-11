@@ -1,8 +1,6 @@
 /* Inventory */
 #inventory_window{
 	border: 1px solid #DFDFDF;
-	display: inline-block;
-	float: right;
 	opacity: 0.85;
 	padding: 0;
 	margin: 0 328px 0 0;

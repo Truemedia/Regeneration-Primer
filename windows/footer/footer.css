@@ -1,7 +1,7 @@
 /* Footer */
 #footer_window{
-	background-color: #768359;
-	border: 5px solid #667349;
+	background-color: #B88300;
+	border: 5px ridge #434343;
 	margin: 0;
 	padding: 0px 5px 0px 5px;
 }
@@ -16,7 +16,7 @@
 #shortcredits{
 	display: inline-block;
 	float: right;
-	color: navy;
+	color: yellow;
 }
 /* Make a bullet list into a CSV list */
 ul.csv{

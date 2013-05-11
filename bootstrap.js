@@ -11,10 +11,16 @@
 require.config({
 	baseUrl: "",
 	paths: {
+		/* Require JS plugins */
+		// Hogan/Mustache
+		hgn : 'dependencies/requirejs-hogan/hgn',
+        text : 'dependencies/requirejs-hogan/text',
+        hogan : 'dependencies/requirejs-hogan/hogan',
+	
 		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
 		'Crafty': [
-			/* TODO: Find bug that makes characters HUGE! when using CDN "http://cdn.craftycomponents.com/crafty-release", // cdn */
+			"http://cdn.craftycomponents.com/crafty-release", // cdn */
 			"dependencies/craftyjs/crafty-local" // local
 		], // Crafty core
         'jQuery': [
@@ -23,35 +29,43 @@ require.config({
         ], // jQuery core
         'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
         'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
-        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core
+        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core 
+        'Modernizr': [
+       		"http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min", // cdn 
+        	"dependencies/modernizr/src/Modernizr" // local
+        ], // Modernizr core
         
         /* Main game (shabang code) */
         'game': "game", // Entire game instance and low level game instance control methods
-                
+      
         /* Systems (Core game mechanics) */
-        'audio': "systems/audio", // Audio system
-        'characterselection': "systems/characterselection", // Controls system
-        'config': "systems/config", // Game Config system
-        'controls': "systems/controls", // Controls system
-        'debug': "systems/debug", // Debugging system
-        'diydie': "systems/maps", // Map System (Currently inline coded MAP only)
-        'gamedirector': "systems/gamedirector", // Game Director system
-        'gameobjects': "systems/gameobjects", // Game Objects system
-        'init': "systems/init", // Initialization system
-        'marquee': "systems/marquee", // Marquee system
-        'notification': "systems/notification", // Notification system
-        'player': "systems/player", // Player system
-        'points': "systems/points", // Points system
-        'social': "systems/social", // Social system
-        'spawner': "systems/spawner", // Spawner system
-        'sprites': "systems/sprites", // Sprites system
-        'tooltip': "systems/tooltip", // Tooltips system
-        'windows': "systems/windows", // AJAX-XSLT templates system
+        'audio.SYS': "systems/audio", // Audio system
+        'characterselection.SYS': "systems/characterselection", // Controls system
+        'config.SYS': "systems/config", // Game Config system
+        'controls.SYS': "systems/controls", // Controls system
+        'debug.SYS': "systems/debug", // Debugging system
+        'diydie.SYS': "systems/maps", // Map System (Currently inline coded MAP only)
+        'gamedirector.SYS': "systems/gamedirector", // Game Director system
+        'gameobjects.SYS': "systems/gameobjects", // Game Objects system
+        'init.SYS': "systems/init", // Initialization system
+        'marquee.SYS': "systems/marquee", // Marquee system
+        'notification.SYS': "systems/notification", // Notification system
+        'player.SYS': "systems/player", // Player system
+        'points.SYS': "systems/points", // Points system
+        'profile.SYS': "systems/profile", // Profile system
+        'social.SYS': "systems/social", // Social system
+        'spawner.SYS': "systems/spawner", // Spawner system
+        'sprites.SYS': "systems/sprites", // Sprites system
+        'tooltip.SYS': "systems/tooltip", // Tooltips system
+        'windows.SYS': "systems/windows", // AJAX-XSLT templates system
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         'Health.MOD': "modules/health/health.module", // Health module
         'Score.MOD': "modules/score/score.module", // Score module
+        
+        /* Modernizr (Feature detect and polyfills) */
+        //'Mdnzr.canvas': "dependencies/Modernizr/feature-detects/canvas", // Canvas
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
@@ -90,6 +104,12 @@ require.config({
         },
         'Crafty': {
             exports: 'Crafty'
+        },
+        'KO': {
+            exports: 'KO'
+        },
+        'Modernizr': {
+            exports: 'Modernizr'
         },
         // jQuery plugins
         'jQ.xslt': {
@@ -189,30 +209,18 @@ require.config({
             deps: ['jQuery', 'jQ.ui.widget'],
             exports: 'jQuery'
         },
+        // Knockout custom bindings
         'bindings.ko': {
             deps: ['jQ.ui.progressbar', 'KO'],
             exports: 'KO'
-        },
-        
-        // Systems
-        'config': ['jQuery', 'Crafty'],
-        'game': ['jQuery', 'Crafty'],
-        'characterselection': ['jQuery', 'Crafty'],
-        'scores': ['jQuery', 'Crafty'],
-        'audio': ['jQuery', 'Crafty'],
-        'health': ['jQuery', 'Crafty'],
-        'debug': ['jQuery', 'Crafty'],
-        'init': ['jQuery', 'Crafty'],
-        'sprites': ['jQuery', 'Crafty'],
-        'controls': ['jQuery', 'Crafty'],
-        'diydie': ['jQuery', 'Crafty'],
-        'spawner': ['jQuery', 'Crafty'],
-        'gameobjects': ['jQuery', 'Crafty'],
-        'gamedirector': ['jQuery', 'Crafty', 'spawner'],
-        'windows': ['jQuery', 'Crafty']
+        }
+    },
+    // configure hgn! plugin
+    hgn : {
+        templateExtension : '.mustache'
     }
 });
 // Run the game launcher (Game system - method)
-require(['game'], function(game) {
+require(['game'], function(game){
 	game.launch();
 });

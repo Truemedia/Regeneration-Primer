@@ -30,11 +30,11 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			var storage_sprites_dir = items_sprites_dir+"Storage/";
 			var swords_sprites_dir = items_sprites_dir+"Swords/";
 			
-			Crafty.sprite(256, guns_sprites_dir+"AR-15"+f, { gun1: [0, 0] }); /* AR-15 */
-			Crafty.sprite(256, guns_sprites_dir+"Glock"+f, { gun2: [0, 0] }); /* Glock */
-			Crafty.sprite(256, guns_sprites_dir+"Bullet"+f, { mag: [0, 0] }); /* Gun magazine (TODO: rename image file on gun cleanup) */
-			Crafty.sprite(256, storage_sprites_dir+"WoodenCrate"+f, { storageBox: [0, 0] }); /* General supplies box */
-			Crafty.sprite(256, swords_sprites_dir+"Katana"+f, { katana: [0, 0] }); /* Katana */
+			Crafty.sprite(1, guns_sprites_dir+"AR-15"+f, { gun1: [0, 0, 128, 256] }); /* AR-15 */
+			Crafty.sprite(1, guns_sprites_dir+"Glock"+f, { gun2: [0, 0, 128, 256] }); /* Glock */
+			Crafty.sprite(1, guns_sprites_dir+"Bullet"+f, { mag: [0, 0, 12, 32] }); /* Gun magazine (TODO: rename image file on gun cleanup) */
+			Crafty.sprite(1, storage_sprites_dir+"WoodenCrate"+f, { storageBox: [0, 0, 128, 128] }); /* General supplies box */
+			Crafty.sprite(1, swords_sprites_dir+"Katana"+f, { katana: [0, 0, 128, 256] }); /* Katana */
 		},
 		setupCharacters: function(sprites_dir, f){
 			/* Sprite maps for Characters */
@@ -42,21 +42,21 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			var characters_sprites_dir = characters_image_directory + default_sprite_filename_prefix;
 			var af = default_sprite_filename_suffix; // Alternative filename.fileformat
 			
-			Crafty.sprite(256, characters_sprites_dir+"Coward"+af, { coward: [0, 0] }); /* Coward */
-			Crafty.sprite(256, characters_sprites_dir+"Criminal"+af, { criminal: [0, 0] }); /* Criminal */
-			Crafty.sprite(256, characters_sprites_dir+"Mother"+af, { mother: [0, 0] }); /* Mother */
-			Crafty.sprite(256, characters_sprites_dir+"NextDoorNeighbor"+af, { nextdoorneighbor: [0, 0] }); /* Next Door Neighbor */
-			Crafty.sprite(256, characters_sprites_dir+"PsychoticWorker"+af, { psychoticworker: [0, 0] }); /* Psychotic Worker */
-			Crafty.sprite(256, characters_sprites_dir+"StoreOwner"+af, { storeowner: [0, 0] }); /* Store Owner */
-			Crafty.sprite(256, characters_sprites_dir+"StoreOwnerWife"+af, { storeownerwife: [0, 0] }); /* Store Owner Wife */
-			Crafty.sprite(256, characters_sprites_dir+"WomanHelicopterPilot"+af, { womanhelicopterpilot: [0, 0] }); /* Woman Helicopter Pilot */
+			Crafty.sprite(characters_sprites_dir+"Coward"+af, { coward: [0, 0, 128, 256] }); /* Coward */
+			Crafty.sprite(characters_sprites_dir+"Criminal"+af, { criminal: [0, 0, 128, 256] }); /* Criminal */
+			Crafty.sprite(characters_sprites_dir+"Mother"+af, { mother: [0, 0, 128, 256] }); /* Mother */
+			Crafty.sprite(characters_sprites_dir+"NextDoorNeighbor"+af, { nextdoorneighbor: [0, 0, 128, 256] }); /* Next Door Neighbor */
+			Crafty.sprite(characters_sprites_dir+"PsychoticWorker"+af, { psychoticworker: [0, 0, 128, 256] }); /* Psychotic Worker */
+			Crafty.sprite(characters_sprites_dir+"StoreOwner"+af, { storeowner: [0, 0, 128, 256] }); /* Store Owner */
+			Crafty.sprite(characters_sprites_dir+"StoreOwnerWife"+af, { storeownerwife: [0, 0, 128, 256] }); /* Store Owner Wife */
+			Crafty.sprite(characters_sprites_dir+"WomanHelicopterPilot"+af, { womanhelicopterpilot: [0, 0, 128, 256] }); /* Woman Helicopter Pilot */
 		},
 		setupEnemies: function(sprites_dir, f){
 			/* Sprite maps for Enemies */
 			// Directories
 			var enemies_sprites_dir = sprites_dir+"enemies/";
 			
-			Crafty.sprite(320, enemies_sprites_dir+"(Brutal)_DefaultPose"+f, { brutal: [0, 0] }); /* First enemy */
+			Crafty.sprite(1, enemies_sprites_dir+"(Brutal)_DefaultPose"+f, { brutal: [0, 0, 320, 320] }); /* First enemy */
 		}
 	}
 });

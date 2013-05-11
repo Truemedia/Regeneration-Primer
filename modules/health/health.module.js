@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko", "./player"], function(jQuery, Crafty, ko, player) {
+define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko", "./player.SYS"], function(jQuery, Crafty, ko, player) {
 	return health = {
 		// Module variables (can be overwritten dynamically)
 		default_value: 94,
@@ -94,6 +94,7 @@ define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko", "./player"], functio
 		init: function(){
 			health.registerUI(); // Kickstart UI
 			health.registerEvents(); // Apply all jQuery event handlers
+			player.loadProfile();
 		},
 		HPcolor: function(element, hp){
 			/* Change progress bar colour, depending on value ranges */

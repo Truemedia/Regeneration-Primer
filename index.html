@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-	<head>	
+	<head>
 		<link rel="stylesheet" href="style.css" />
+		<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 		<script data-main="bootstrap" src="dependencies/requirejs/require.js"></script>
+		<title>Regeneration Primer - Pre 0.0.5</title>
 	</head>
 	<body>
 		<!-- Header -->
@@ -18,9 +20,13 @@
 			<div id="cr-stage"></div>
 		</div>
 		<!-- /Canvas -->
-		<!-- Inventory -->
-		<div id="inventory_window"></div>
-		<!-- /Inventory -->
+		<div class="window-column">
+			<!-- Mustache working template -->
+			<div id="profile_window" style="background-color: #BEBEBE; border: 1px solid #505050;"></div>
+			<!-- Inventory -->
+			<div id="inventory_window"></div>
+			<!-- /Inventory -->
+		</div>
 		<div id="options_window"></div>
 		<!-- Footer -->
 		<div id="footer_window"></div>

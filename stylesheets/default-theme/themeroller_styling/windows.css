@@ -31,3 +31,8 @@
 
 /* Social stylesheet */
 @import url('../../../windows/social/social.css');
+
+.window-column{
+	display: inline-block;
+	float: right;
+}

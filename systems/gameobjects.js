@@ -7,25 +7,27 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points", "./audio", "./notification"], function(jQuery, Crafty, ko, Gun, points, audio, notification) {
+define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.SYS", "./audio.SYS", "./notification.SYS"], function(jQuery, Crafty, ko, Gun, points, audio, notification) {
 	return gameObjects = {
+
 		gameObjects: function(character){
 			var transitional_layer = 5; // TODO: Move this repeated variable into config
+			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
 			
 			/* Give yourself some glocks */
-			Crafty.e("2D, DOM, wall_left, gun2, LeftControls")
+			Crafty.e("2D, "+render_engine+", wall_left, gun2, LeftControls")
 				.attr({x: 48, y: 108, z: transitional_layer + 1})
 				.leftControls(3);
-			Crafty.e("2D, DOM, wall_left, gun2, LeftControls")
+			Crafty.e("2D, "+render_engine+", wall_left, gun2, LeftControls")
 				.attr({x: 109, y: 108, z: transitional_layer + 1})
 				.leftControls(3);
 			// TODO: Use this future format when function no longer has memory leak
 			/* Gun.wield('gun2', 'dual', new Array("1", "104")); */
 
 			/* Enemies */
-			Crafty.e("2D, DOM, Color, Mouse, wall_left, brutal")
+			Crafty.e("2D, "+render_engine+", Mouse, wall_left, brutal")
 				// Draw the sprite
-				.attr({ x: 560, y: 20, z: 3, w: 400, h: 400})
+				.attr({ x: 560, y: 20, z: 3})
 				.bind('Click', function() {
 					// Number of bullets
 					var current_bullets = jQuery(".actual_bullet_list:eq(0) > li").length;
@@ -55,12 +57,11 @@ define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points", "./audio", "./n
 						Crafty.audio.play("out_of_ammo",1,1);
 					}
 				})
-    			.areaMap([0,0], [400,0], [400,400], [0,400])
-    			.color("#0000FF");
+    			.areaMap([0,0], [400,0], [400,400], [0,400]);
     	
     		 // Supplies box (Can be expanded upon later)
-			 Crafty.e("2D, DOM, Color, Mouse, storageBox")
-    			.attr({ x: 1080, y: 150, z: 3, w: 128, h: 128})
+			 Crafty.e("2D, "+render_engine+", Mouse, storageBox")
+    			.attr({ x: 1080, y: 150, z: 3})
     			.bind('Click', function() {
     				notification.highlight("MAX AMMO", "Found ammo from supplies box");
     				console.log("Gave yourself maximum ammunition");

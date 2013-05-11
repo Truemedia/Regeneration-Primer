@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 	<poweredbys>
 		<poweredby coreDependency="jQuery" website="http://jquery.com/">
-			<dependencyPlugin website="http://jqueryui.com/">jQueryUI</dependencyPlugin>
-			<dependencyPlugin website="http://james.padolsey.com/javascript/new-jquery-plugin-fly-off-page/">jQuery FlyOff</dependencyPlugin>
+			<dependencyPlugins>
+				<dependencyPlugin website="http://jqueryui.com/">jQueryUI</dependencyPlugin>
+				<dependencyPlugin website="http://james.padolsey.com/javascript/new-jquery-plugin-fly-off-page/">jQuery FlyOff</dependencyPlugin>
+			</dependencyPlugins>
 		</poweredby>
 		<poweredby coreDependency="Crafty" website="http://craftyjs.com/"></poweredby>
 		<poweredby coreDependency="RequireJS" website="http://requirejs.org/"></poweredby>
@@ -10,8 +12,9 @@
 		<!--<poweredby coreDependency="JXON">
 			<note>implemented using jQuery plugins</note>
 			<dependencyPlugin>jQuery XSLT</dependencyPlugin>
-		</poweredby>
-		<poweredby coreDependency="Modernizr"></poweredby>
-		<poweredby coreDependency="Bootstrap"></poweredby>
+		</poweredby> -->
+		<poweredby coreDependency="Modernizr" website="http://http://modernizr.com/"></poweredby>
+		<poweredby coreDependency="Mustache" website="http://mustache.github.io/"></poweredby>
+		<!-- <poweredby coreDependency="Bootstrap"></poweredby>
 		<poweredby coreDependency="Popcorn"></poweredby>-->
 	</poweredbys>

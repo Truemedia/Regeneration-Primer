@@ -13,3 +13,9 @@
 [submodule "libs/forkitJs"]
 	path = libs/forkitJs
 	url = https://github.com/hakimel/forkit.js.git
+[submodule "dependencies/modernizr"]
+	path = dependencies/modernizr
+	url = https://github.com/Modernizr/Modernizr.git
+[submodule "dependencies/requirejs-hogan"]
+	path = dependencies/requirejs-hogan
+	url = https://github.com/millermedeiros/requirejs-hogan-plugin.git

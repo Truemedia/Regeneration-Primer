@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./spawner"], function(jQuery, Crafty, spawner) {
+define(["./jQuery", "./Crafty", "./spawner.SYS"], function(jQuery, Crafty, spawner) {
 	return {
 		initGameDirector: function(character){
 			// Spawn players

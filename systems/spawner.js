@@ -9,22 +9,26 @@
 */
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return spawner = {
+
+		/* Stored entities */
 		characters: [],
 		
 		spawnCharacter: function(char_name, players_char_name, char_id){
 			// Layer constants
 			var transitional_layer = 5; // z-index starting point for any character
+			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
 		
 			if(char_name == players_char_name){ // Matches character we choose (spawning us)
 
-				spawner.characters.push( Crafty.e("2D, DOM, wall_left, solid, "+char_name+", LeftControls, Text, Collision")
+				spawner.characters.push( Crafty.e("2D, "+render_engine+", solid, "+char_name+", LeftControls, Collision")
 					// Draw the sprite
 					.attr({x: 50, y: 100, z: transitional_layer})
 					// Add controls to this object
 					.leftControls(3)
-					.text("YOU")
+					// CraftyJS bug causing text to interfere with characters sprite?
+					/*.text("YOU")
   					.textColor(this.characterColor(char_name), '1')
-  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
+  					.textFont({ type: 'italic', family: 'Arial', weight: 'bold' })*/
   					.bind('KeyDown', function(e) {
   						// Show quick info menu
     					if(e.key == Crafty.keys['SHIFT']) {
@@ -75,7 +79,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
     				})
     				.bind('Moved', function(from) { // Restrict movement across solid objects
     					if(this.hit('solid')){
-        					this.attr({x: from.x, y:from.y});
+        					this.attr({x: from.x, y: from.y});
     					}
 					})
 				);
@@ -84,17 +88,18 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			}
 			else{
 				/* Spawning bot */
-				spawner.characters.push( Crafty.e("2D, DOM, wall_left, "+char_name+", Tween, Text")
+				spawner.characters.push( Crafty.e("2D, "+render_engine+", "+char_name+", Tween")
 					// Draw the sprite
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
 					// Bot paths (currently implemented as single static path using tween)
   					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300)
-					.text(char_name+" (Bot)")
+  					// CraftyJS bug causing text to interfere with characters sprite?
+					/*.text(char_name+" (Bot)")
   					.textColor(this.characterColor(char_name), '0.9')
-  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })
+  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })*/
   				);
   				/* Spawning bots gun */
-				Crafty.e("2D, DOM, wall_left, gun1, Tween, Text")
+				Crafty.e("2D, "+render_engine+", wall_left, gun1, Tween, Text")
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id) + transitional_layer})
 					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300);
 			}

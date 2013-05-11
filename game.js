@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config', 'characterselection', 'points', 'audio', 'Health.MOD', 'debug', 'init', 'sprites', 'controls', 'diydie', 'spawner', 'gameobjects', 'gamedirector', 'windows', 'Gun.MOD', 'notification', 'marquee', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config.SYS', 'characterselection.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){

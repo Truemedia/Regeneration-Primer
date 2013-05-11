@@ -8,7 +8,7 @@
 		</h2>
 		</xsl:for-each>
 		<div class="devhint" style="color: beige; text-align: center;">
-			<span style="color: darkorange">Developer Hint:</span>
+			<span style="color: blue; font-weight: bold;">Developer Hint:</span>
 			 Change the name of the game by editing 
 			<span style="color: brown">windows/header/headers.xml</span> 
 			 from your games root directory

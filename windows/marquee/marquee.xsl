@@ -2,13 +2,6 @@
 <xsl:stylesheet>
 	<xsl:template match="/">
 		<div>
-			<!-- Stats -->
-			<span id="my_points">
-				<span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score"></span>
-				<span id="player_purgatory" class="alive"><span>Alive</span></span>
-			</span>
-			<!-- /Stats -->
-			
 			<!-- Main buttons -->
 			<button id="debug_toggle" title="Click to show or hide debugging tools (Developers only)" class="ui-state-default ui-corner-all">
 				<span class="ui-icon ui-icon-wrench"></span>
