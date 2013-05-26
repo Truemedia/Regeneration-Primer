@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.tabs", "./Crafty", "./points.SYS"], function(jQuery, Crafty, points) {
+define(["./jQ.ui", "./Crafty", "./points.SYS"], function(jQuery, Crafty, points) {
 	return debug = {
 		registerEvents: function(){ /* jQuery event handlers (for Debug) */
 			// Activate debugging panels

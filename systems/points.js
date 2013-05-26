@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.progressbar", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(jQuery, Crafty, ko, health, score) {
+define(["./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(jQuery, Crafty, ko, health, score) {
 	return points = {
 		// defaults
 		binding_element_class: "score_container",

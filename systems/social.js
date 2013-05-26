@@ -7,11 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./forkit"], function(forkit) {
+define([/*"./forkit"*/], function(/*forkit*/) {
 	return social = {
 		forkit: function(forkit){
 			// Show fancy Github ribbon + UI
-			forkit;
+			//forkit;
 		}
 	}
 });

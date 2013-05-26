@@ -15,14 +15,12 @@
 /* Characters stylesheet (WomanHelicopterPilot) */
 @import url('stylesheets/default-theme/character_styling/womanhelicopterpilot.css');
 
-/* Debugging stylesheet */
-@import url('stylesheets/default-theme/game_styling/debug.css');
-
 /* All window stylesheets */
 @import url('stylesheets/default-theme/themeroller_styling/windows.css');
 
 /* jQuery UI Base Stylesheet (none-modified) */
-@import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css');
+@import url('http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css');
+/* TODO: Implement or find a CSS CDN fallback system (like requireJS) @import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css'); */
 
 /* Modules stylesheet */
 @import url('modules/modules.css');

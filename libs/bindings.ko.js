@@ -1,6 +1,6 @@
 // Library for apply custom UI bindings using knockout
 // TODO: Setup as submodule and develop or find a complete jQueryUI to KnockOut library
-define(["./jQ.ui.progressbar", "./KO"], function(jQuery, ko) {
+define(["./jQ.ui", "./KO"], function(jQuery, ko) {
 	ko.bindingHandlers.progress = {
     	init: function(element, valueAccessor) {
         	jQuery(element).progressbar({

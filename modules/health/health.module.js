@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.progressbar", "./Crafty", "./bindings.ko", "./player.SYS"], function(jQuery, Crafty, ko, player) {
+define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.SYS"], function(jQuery, Crafty, ko, player) {
 	return health = {
 		// Module variables (can be overwritten dynamically)
 		default_value: 94,

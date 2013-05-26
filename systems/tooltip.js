@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui.tooltip", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQ.ui", "./Crafty"], function(jQuery, Crafty) {
 	return tooltip = {
 		init: function(button, event){
 			/* Button special cases */

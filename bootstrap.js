@@ -13,14 +13,23 @@ require.config({
 	paths: {
 		/* Require JS plugins */
 		// Hogan/Mustache
-		hgn : 'dependencies/requirejs-hogan/hgn',
-        text : 'dependencies/requirejs-hogan/text',
-        hogan : 'dependencies/requirejs-hogan/hogan',
+		hgn : [
+			'dependencies/hgn', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
+			'dependencies/requirejs-hogan/hgn' 
+		],
+        text : [
+        	'dependencies/text', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
+        	'dependencies/requirejs-hogan/text'
+        ],
+        hogan : [
+        	'dependencies/hogan', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
+        	'dependencies/requirejs-hogan/hogan'
+        ],
 	
 		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
 		'Crafty': [
-			"http://cdn.craftycomponents.com/crafty-release", // cdn */
+			"http://cdn.craftycomponents.com/crafty-release", // cdn
 			"dependencies/craftyjs/crafty-local" // local
 		], // Crafty core
         'jQuery': [
@@ -29,7 +38,10 @@ require.config({
         ], // jQuery core
         'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
         'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
-        'KO': "dependencies/knockout/build/output/knockout-latest", // KnockoutJS core 
+        'KO': [
+        	"http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1", // cdn
+        	"dependencies/knockout/build/output/knockout-latest" // local
+        ], // KnockoutJS core 
         'Modernizr': [
        		"http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min", // cdn 
         	"dependencies/modernizr/src/Modernizr" // local
@@ -64,37 +76,14 @@ require.config({
         'Health.MOD': "modules/health/health.module", // Health module
         'Score.MOD': "modules/score/score.module", // Score module
         
-        /* Modernizr (Feature detect and polyfills) */
-        //'Mdnzr.canvas': "dependencies/Modernizr/feature-detects/canvas", // Canvas
-        
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
         
         /* jQuery UI files */
-        'jQ.ui.accordion': "dependencies/jqueryUI/ui/jquery.ui.accordion", // Accordion
-        'jQ.ui.autocomplete': "dependencies/jqueryUI/ui/jquery.ui.autocomplete", // Auto Complete
-        'jQ.ui.button': "dependencies/jqueryUI/ui/jquery.ui.button", // Button
-        'jQ.ui.core': "dependencies/jqueryUI/ui/jquery.ui.core", // Core file
-        'jQ.ui.datepicker': "dependencies/jqueryUI/ui/jquery.ui.datepicker", // Date Picker
-        'jQ.ui.dialog': "dependencies/jqueryUI/ui/jquery.ui.dialog", // Dialog
-        'jQ.ui.draggable': "dependencies/jqueryUI/ui/jquery.ui.draggable", // Draggable
-        'jQ.ui.droppable': "dependencies/jqueryUI/ui/jquery.ui.droppable", // Droppable
-        'jQ.ui.effect': "dependencies/jqueryUI/ui/jquery.ui.effect", // Effect
-        'jQ.ui.menu': "dependencies/jqueryUI/ui/jquery.ui.menu", // Menu
-        'jQ.ui.mouse': "dependencies/jqueryUI/ui/jquery.ui.mouse", // Mouse
-        'jQ.ui.position': "dependencies/jqueryUI/ui/jquery.ui.position", // Position
-       	'jQ.ui.progressbar': "dependencies/jqueryUI/ui/jquery.ui.progressbar", // Progress bar
-       	'jQ.ui.resizable': "dependencies/jqueryUI/ui/jquery.ui.resizable", // Resizable
-       	'jQ.ui.selectable': "dependencies/jqueryUI/ui/jquery.ui.selectable", // Selectable
-       	'jQ.ui.slider': "dependencies/jqueryUI/ui/jquery.ui.slider", // Slider
-       	'jQ.ui.sortable': "dependencies/jqueryUI/ui/jquery.ui.sortable", // Sortable
-       	'jQ.ui.spinner': "dependencies/jqueryUI/ui/jquery.ui.spinner", // Spinner
-       	'jQ.ui.tabs': "dependencies/jqueryUI/ui/jquery.ui.tabs", // Tabs
-       	'jQ.ui.tooltip': "dependencies/jqueryUI/ui/jquery.ui.tooltip", // Tooltip
-        'jQ.ui.widget': "dependencies/jqueryUI/ui/jquery.ui.widget", // Core widget file
+        'jQ.ui': "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min", // Core file
         
         /* Libraries (For UI, FX, and API's) */
-        'forkit': "libs/forkitJs/js/forkit", // ForkIt fancy link
+        //'forkit': "libs/forkitJs/js/forkit", // ForkIt fancy link
         'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },
     shim: {
@@ -125,93 +114,13 @@ require.config({
             exports: 'jQuery'
         },
         // jQuery UI 
-        'jQ.ui.widget': {
+        'jQ.ui': {
             deps: ['jQuery'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.accordion': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.autocomplete': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.button': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.core': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.datepicker': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.dialog': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.draggable': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.droppable': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.effect': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.menu': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.mouse': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.position': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.progressbar': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        }, 
-       	'jQ.ui.resizable': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.selectable': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.slider': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.sortable': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.spinner': {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-       	'jQ.ui.tabs':  {
-            deps: ['jQuery', 'jQ.ui.widget'],
-            exports: 'jQuery'
-        },
-        'jQ.ui.tooltip': {
-            deps: ['jQuery', 'jQ.ui.widget'],
             exports: 'jQuery'
         },
         // Knockout custom bindings
         'bindings.ko': {
-            deps: ['jQ.ui.progressbar', 'KO'],
+            deps: ['jQ.ui', 'KO'],
             exports: 'KO'
         }
     },

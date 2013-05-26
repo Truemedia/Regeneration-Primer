@@ -1,7 +1,7 @@
 /* ForkIt base CSS */
-@import url('../../libs/forkitJs/css/forkit.css');
+/* TODO: Resolve style dependencies on these files @import url('../../libs/forkitJs/css/forkit.css'); */
 /* ForkIt demo CSS */
-@import url('../../libs/forkitJs/css/demo.css');
+/* TODO: Resolve style dependencies on these files @import url('../../libs/forkitJs/css/demo.css'); */
 
 /* Social media CSS */
 #youtube_icon{
