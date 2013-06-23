@@ -2,13 +2,31 @@
 	<head>
 		<link rel="stylesheet" href="style.css" />
 		<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-		<script data-main="bootstrap" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
-		<script> window.require || document.write('<script data-main="bootstrap" src="dependencies/requirejs/require.js">\x3C/script>'); </script>
+		<script data-main="start" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+		<script> window.require || document.write('<script data-main="start" src="dependencies/requirejs/require.js">\x3C/script>'); </script>
 		<title>Regeneration Primer - Pre 0.0.5</title>
 	</head>
 	<body>
-		<!-- Header -->
-		<div id="header_window"></div>
+		<div class="container">
+			<!-- Header -->
+			<div id="header_window">
+		</div>
+		<header id="overview" class="jumbotron subhead">
+  			<div class="row">
+    			<div class="span6">
+      				<h1>Welcome to a demo of</h1>
+      				<p class="lead">DIYDIE (Game built with Regeneration Primer)</p>
+    			</div>
+ 			</div>
+  			<div class="subnav">
+    			<ul class="nav nav-pills">
+      				<li><a href="#inventory_window">Inventory</a></li>
+      				<li><a href="#points_window">Points</a></li>
+      				<li><a href="#objectives_window">Objectives</a></li>
+      				<li><a href="#actions_window">Actions</a></li>
+    			</ul>
+  			</div>
+		</header>
 		<!-- /Header -->
 		<div id="characterselection_window"></div>
 		<div id="marquee_window"></div>
@@ -32,5 +50,11 @@
 		<!-- Footer -->
 		<div id="footer_window"></div>
 		<!-- /Footer -->
+		<!-- Modals -->
+		<div id="about_window" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-system-name" aria-hidden="true"></div>
+		<div id="gameinfo_window" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="gameinfo-system-name" aria-hidden="true"></div>
+		<div id="mainmenu_window" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mainmenu-system-name" aria-hidden="true"></div>
+		<div id="theme_window" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="theme-system-name" aria-hidden="true"></div>
+		</div>
 	</body>
 </html>

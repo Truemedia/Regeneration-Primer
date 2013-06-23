@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!windows/profile/profile", "jQuery", "KO"], function(window, jQuery, ko) {
+define(["hgn!systems/profile/profile", "jQuery", "KO"], function(window, jQuery, ko) {
 	return profile = {
 		init: function(){
 			/* Lightweight template loader */

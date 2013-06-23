@@ -18,7 +18,7 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection.SYS", ".
 			
 			/* Load the XHTML for a window */
 			jQuery.each(windowObject, function(windowName, callbackValue){
-				var windowDirFilePrefix = 'windows/'+windowName+'/'+windowName+'.';
+				var windowDirFilePrefix = 'systems/'+windowName+'/'+windowName+'.';
 				// Load each window
 				var windowHTML = jQuery.xslt({xmlUrl: windowDirFilePrefix+'xml', xslUrl: windowDirFilePrefix+'xsl'});
 				jQuery('#'+windowName+'_window').html(windowHTML)

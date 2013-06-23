@@ -22,6 +22,9 @@
 @import url('http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css');
 /* TODO: Implement or find a CSS CDN fallback system (like requireJS) @import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css'); */
 
+/* Datatables Base stylesheet */
+@import url('http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css');
+
 /* Modules stylesheet */
 @import url('modules/modules.css');
 

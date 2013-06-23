@@ -1,5 +1,5 @@
 /* 
-* @file Bootstrap file/script
+* @file Starting file/script
 * @author Wade Penistone (Truemedia)
 * @overview Base script included in the HTML of any game page, for none compiled games
 * @copyright Wade Penistone 2013
@@ -11,8 +11,8 @@
 require.config({
 	baseUrl: "",
 	paths: {
-		/* Require JS plugins */
-		// Hogan/Mustache
+		// Require JS plugins
+		/* Hogan/Mustache */
 		hgn : [
 			'dependencies/hgn', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
 			'dependencies/requirejs-hogan/hgn' 
@@ -46,29 +46,37 @@ require.config({
        		"http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min", // cdn 
         	"dependencies/modernizr/src/Modernizr" // local
         ], // Modernizr core
+        'Bootstrap': [
+        	"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min"
+        ], // Bootstrap
         
         /* Main game (shabang code) */
         'game': "game", // Entire game instance and low level game instance control methods
       
         /* Systems (Core game mechanics) */
-        'audio.SYS': "systems/audio", // Audio system
-        'characterselection.SYS': "systems/characterselection", // Controls system
-        'config.SYS': "systems/config", // Game Config system
-        'controls.SYS': "systems/controls", // Controls system
-        'debug.SYS': "systems/debug", // Debugging system
-        'diydie.SYS': "systems/maps", // Map System (Currently inline coded MAP only)
-        'gamedirector.SYS': "systems/gamedirector", // Game Director system
-        'gameobjects.SYS': "systems/gameobjects", // Game Objects system
-        'init.SYS': "systems/init", // Initialization system
-        'marquee.SYS': "systems/marquee", // Marquee system
-        'notification.SYS': "systems/notification", // Notification system
-        'player.SYS': "systems/player", // Player system
-        'points.SYS': "systems/points", // Points system
-        'profile.SYS': "systems/profile", // Profile system
-        'social.SYS': "systems/social", // Social system
-        'spawner.SYS': "systems/spawner", // Spawner system
-        'sprites.SYS': "systems/sprites", // Sprites system
-        'tooltip.SYS': "systems/tooltip", // Tooltips system
+        'about.SYS': "systems/about/about", // About system
+        'audio.SYS': "systems/audio/audio", // Audio system
+        'characterselection.SYS': "systems/characterselection/characterselection", // Controls system
+        'config.SYS': "systems/config/config", // Game Config system
+        'controls.SYS': "systems/controls/controls", // Controls system
+        'debug.SYS': "systems/debug/debug", // Debugging system
+        'diydie.SYS': "systems/maps/maps", // Map System (Currently inline coded MAP only)
+        'gamedirector.SYS': "systems/gamedirector/gamedirector", // Game Director system
+        'gameinfo.SYS': "systems/gameinfo/gameinfo", // Game Info system
+        'gameobjects.SYS': "systems/gameobjects/gameobjects", // Game Objects system
+        'init.SYS': "systems/init/init", // Initialization system
+        'mainmenu.SYS': "systems/mainmenu/mainmenu", // Main Menu system
+        'marquee.SYS': "systems/marquee/marquee", // Marquee system
+        'notification.SYS': "systems/notification/notification", // Notification system
+        'player.SYS': "systems/player/player", // Player system
+        'points.SYS': "systems/points/points", // Points system
+        'profile.SYS': "systems/profile/profile", // Profile system
+        'social.SYS': "systems/social/social", // Social system
+        'spawner.SYS': "systems/spawner/spawner", // Spawner system
+        'sprites.SYS': "systems/sprites/sprites", // Sprites system
+        'theme.SYS': "systems/theme/theme", // Theme system
+        'tooltip.SYS': "systems/tooltip/tooltip", // Tooltips system
+        /* TODO: Get this system setup as a requirejs text library, rather than a system */
         'windows.SYS': "systems/windows", // AJAX-XSLT templates system
         
         /* Game modules */
@@ -78,6 +86,7 @@ require.config({
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
+        'jQ.Datatables': "http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min", // Datatables
         
         /* jQuery UI files */
         'jQ.ui': "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min", // Core file
@@ -87,6 +96,7 @@ require.config({
         'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },
     shim: {
+
     	// Dependencies
     	'jQuery': {
             exports: 'jQuery'
@@ -100,6 +110,7 @@ require.config({
         'Modernizr': {
             exports: 'Modernizr'
         },
+
         // jQuery plugins
         'jQ.xslt': {
             deps: ['jQuery'],
@@ -113,17 +124,27 @@ require.config({
             deps: ['jQuery'],
             exports: 'jQuery'
         },
+
         // jQuery UI 
         'jQ.ui': {
             deps: ['jQuery'],
             exports: 'jQuery'
         },
+        
+        // Bootstrap
+        // jQuery UI 
+        'Bootstrap': {
+            deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+
         // Knockout custom bindings
         'bindings.ko': {
             deps: ['jQ.ui', 'KO'],
             exports: 'KO'
         }
     },
+
     // configure hgn! plugin
     hgn : {
         templateExtension : '.mustache'

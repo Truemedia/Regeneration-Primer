@@ -4,17 +4,24 @@
 			<dependencyPlugins>
 				<dependencyPlugin website="http://jqueryui.com/">jQueryUI</dependencyPlugin>
 				<dependencyPlugin website="http://james.padolsey.com/javascript/new-jquery-plugin-fly-off-page/">jQuery FlyOff</dependencyPlugin>
+				<dependencyPlugin website="http://datatables.net">Datatables</dependencyPlugin>
 			</dependencyPlugins>
 		</poweredby>
 		<poweredby coreDependency="Crafty" website="http://craftyjs.com/"></poweredby>
 		<poweredby coreDependency="RequireJS" website="http://requirejs.org/"></poweredby>
+			<dependencyPlugins>
+				<dependencyPlugin website="https://github.com/millermedeiros/requirejs-hogan-plugin">Hogan</dependencyPlugin>
+			</dependencyPlugins>
 		<poweredby coreDependency="KnockoutJS" website="http://knockoutjs.com/"></poweredby>
-		<!--<poweredby coreDependency="JXON">
-			<note>implemented using jQuery plugins</note>
-			<dependencyPlugin>jQuery XSLT</dependencyPlugin>
-		</poweredby> -->
+			<dependencyPlugins>
+				<dependencyPlugin website="https://github.com/millermedeiros/requirejs-hogan-plugin">jQuery UI bindings</dependencyPlugin>
+			</dependencyPlugins>
 		<poweredby coreDependency="Modernizr" website="http://http://modernizr.com/"></poweredby>
 		<poweredby coreDependency="Mustache" website="http://mustache.github.io/"></poweredby>
-		<!-- <poweredby coreDependency="Bootstrap"></poweredby>
-		<poweredby coreDependency="Popcorn"></poweredby>-->
+		<poweredby coreDependency="Bootstrap" website="http://twitter.github.io/bootstrap/">
+			<dependencyPlugins>
+				<dependencyPlugin website="http://bootswatch.com/">Bootswatch</dependencyPlugin>
+			</dependencyPlugins>
+		</poweredby>
+		<!-- <poweredby coreDependency="Popcorn"></poweredby>-->
 	</poweredbys>
