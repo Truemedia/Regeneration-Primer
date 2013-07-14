@@ -64,6 +64,7 @@ require.config({
         'gamedirector.SYS': "systems/gamedirector/gamedirector", // Game Director system
         'gameinfo.SYS': "systems/gameinfo/gameinfo", // Game Info system
         'gameobjects.SYS': "systems/gameobjects/gameobjects", // Game Objects system
+        'header.SYS': "systems/header/header", // Header system
         'init.SYS': "systems/init/init", // Initialization system
         'mainmenu.SYS': "systems/mainmenu/mainmenu", // Main Menu system
         'marquee.SYS': "systems/marquee/marquee", // Marquee system
@@ -75,13 +76,13 @@ require.config({
         'spawner.SYS': "systems/spawner/spawner", // Spawner system
         'sprites.SYS': "systems/sprites/sprites", // Sprites system
         'theme.SYS': "systems/theme/theme", // Theme system
-        'tooltip.SYS': "systems/tooltip/tooltip", // Tooltips system
         /* TODO: Get this system setup as a requirejs text library, rather than a system */
         'windows.SYS': "systems/windows", // AJAX-XSLT templates system
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         'Health.MOD': "modules/health/health.module", // Health module
+        'Options.MOD': "modules/options/options.module", // Options module
         'Score.MOD': "modules/score/score.module", // Score module
         
         /* jQuery plugins */

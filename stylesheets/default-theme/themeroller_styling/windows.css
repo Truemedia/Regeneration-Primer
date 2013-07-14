@@ -3,34 +3,34 @@
 */
 
 /* Canvas stylesheet */
-@import url('../../../windows/canvas/canvas.css');
+@import url('../../../systems/canvas/canvas.css');
 
 /* Character Selection stylesheet */
-@import url('../../../windows/characterselection/characterselection.css');
+@import url('../../../systems/characterselection/characterselection.css');
 
 /* Debugging stylesheet */
-@import url('../../../windows/debug/debug.css');
+@import url('../../../systems/debug/debug.css');
 
 /* Footer stylesheet */
-@import url('../../../windows/footer/footer.css');
+@import url('../../../systems/footer/footer.css');
 
 /* Header stylesheet */
-@import url('../../../windows/header/header.css');
+@import url('../../../systems/header/header.css');
 
 /* Inventory stylesheet */
-@import url('../../../windows/inventory/inventory.css');
+@import url('../../../systems/inventory/inventory.css');
 
 /* Marquee stylesheet */
-@import url('../../../windows/marquee/marquee.css');
+@import url('../../../systems/marquee/marquee.css');
 
 /* Notification stylesheet */
-@import url('../../../windows/notification/notification.css');
+@import url('../../../systems/notification/notification.css');
 
 /* Points stylesheet */
-@import url('../../../windows/points/points.css');
+@import url('../../../systems/points/points.css');
 
 /* Social stylesheet */
-@import url('../../../windows/social/social.css');
+@import url('../../../systems/social/social.css');
 
 .window-column{
 	display: inline-block;

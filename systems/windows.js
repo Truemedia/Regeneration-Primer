@@ -43,7 +43,6 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./characterselection.SYS", ".
 					break;
   				case 'marquee':
   					windows.assignPlayerNameDOM(callbackValue); // Make unique to player
-  					marquee.registerEvents();
   					score.init(); // Kickstart players score
   					break;
   				case 'points':

@@ -33,46 +33,6 @@ define(["./jQuery", "./Crafty", "./windows.SYS", "./points.SYS", "./audio.SYS", 
 			}
 		},
 		registerEvents: function (){ /* jQuery event handlers (for Marquee) */
-			// Mute or unmute audio
-			jQuery('#marquee_window').on("click", "#audio_toggle", function(event){
-				audio.toggleAudio(event);
-			});
-			jQuery('#marquee_window').on("mouseenter", "#audio_toggle", function(event){
-				controls.hints("audio", event);
-			});
-			jQuery('#marquee_window').on("mouseleave", "#audio_toggle", function(event){
-				controls.hints("audio", event);
-			});
-		
-			// Enable or disable debugging UI
-			jQuery('#marquee_window').on("click", "#debug_toggle", function(event){
-				debug.initDebugger(event);
-			});
-			jQuery('#marquee_window').on("mouseenter", "#debug_toggle", function(event){
-				controls.hints("debug", event);
-			});
-			jQuery('#marquee_window').on("mouseleave", "#debug_toggle", function(event){
-				controls.hints("debug", event);
-			});
-		
-			// Show control hints
-			jQuery('#marquee_window').on("mouseenter", "#controls_tooltip", function(event){
-				controls.hints("controls", event);
-			});
-			jQuery('#marquee_window').on("mouseleave", "#controls_tooltip", function(event){
-				controls.hints("controls", event);
-			});
-		
-			// Hide or display unnecessary windows
-			jQuery('#marquee_window').on("click", "#header_toggle", function(event){
-				marquee.toggleHeader();
-			});
-			jQuery('#marquee_window').on("mouseenter", "#header_toggle", function(event){
-				controls.hints("header", event);
-			});
-			jQuery('#marquee_window').on("mouseleave", "#header_toggle", function(event){
-				controls.hints("header", event);
-			});
 		/* /jQuery event handlers (for Marquee) */ }
 	}
 });

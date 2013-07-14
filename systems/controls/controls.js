@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./tooltip.SYS"], function(jQuery, Crafty, tooltip) {
+define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 	return controls = {
 		mapper: function(){
 			Crafty.c("LeftControls", {
@@ -20,10 +20,6 @@ define(["./jQuery", "./Crafty", "./tooltip.SYS"], function(jQuery, Crafty, toolt
         			return this;
    				}  
 			});
-		},
-		hints: function(button, event){
-			// Stuff to show a first time player (control hints)
-			tooltip.init(button, event);
 		}
 	}
 });

@@ -16,29 +16,8 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
 		// Load the theme system
 		init: function() {
 		
-			// TODO: Move this line to config
-			cdn_api_url = "http://api.bootswatch.com";
-			
-			// Load list of BootSwatch themes via JSON API
-			jQuery.getJSON(cdn_api_url, function(data){
-			
-				// Load initial theme (Cyborg)
-				initial_theme_stylesheet = data.themes[3].cssMin;
-				initial_theme_image = data.themes[3].thumbnail;
-				theme.load(initial_theme_stylesheet, initial_theme_image);
-			
-				// Mustache
-       			document.getElementById('theme_window').innerHTML = window(data);
-       			
-       			// jQuery events
-       			theme.registerEvents();
-       			
-       			// Use themes as a datatable
-       			theme.dataTable();
-       			
-       			// Save themes in accessible array
-       			theme.themes = data.themes;
-			});
+			// Fetch and load themes
+			theme.cdnAPI();
 		},
 
 		dataTable: function(){
@@ -72,6 +51,7 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
 				var theme_image_url = jQuery(this).children().attr('src');
 				theme.load(theme_stylesheet_url, theme_image_url);
 			});
+
 		/* jQuery event handlers (for Theme) */ },
 
 		load: function(theme_stylesheet_url, theme_image_url) {
@@ -84,6 +64,39 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
 			
 			// show as current theme
 			jQuery('#current-theme').attr('src', theme_image_url);
+		},
+		
+		cdnAPI: function(){
+		
+			// function use to communicate with a CDN API, and download data for linking to resources
+			// TODO: Move this line to config
+			cdn_api_url = "http://api.bootswatch.com";
+			
+			// Load list of BootSwatch themes via JSON API
+			jQuery.getJSON(cdn_api_url, function(data){
+			
+				// Load initial theme (Cyborg)
+				initial_theme_stylesheet = data.themes[3].cssMin;
+				initial_theme_image = data.themes[3].thumbnail;
+				theme.load(initial_theme_stylesheet, initial_theme_image);
+			
+				// Mustache
+       			document.getElementById('theme_window').innerHTML = window(data);
+       			
+       			// jQuery events
+       			theme.registerEvents();
+       			
+       			// Use themes as a datatable
+       			theme.dataTable();
+       			
+       			// Save themes in accessible array
+       			theme.themes = data.themes;
+			})
+			// Fallback to function to only use statically set CDN and disable theme selector
+			.fail(function() { 
+				console.log("CDN is down, diverting resources and disabling theme selector");
+				theme.load("http://bootswatch.com/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
+			})
 		}
 	}
 });

@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'gameinfo.SYS', 'about.SYS', 'theme.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config.SYS', 'header.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'gameinfo.SYS', 'about.SYS', 'theme.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, header, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){
@@ -24,7 +24,8 @@ define(['jQ.xslt', 'config.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'game
 				about.init();
 	
 				// Load header and footer
-				windows.init({'header': '', 'characterselection': '', 'footer': ''});
+				header.init();
+				windows.init({'characterselection': '', 'footer': ''});
 				
 				// Setup theme/themes
 				theme.init();
@@ -65,7 +66,7 @@ define(['jQ.xslt', 'config.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'game
 			gamedirector.initGameDirector(characterselected);
 	
 			// Initialize session windows
-			windows.init({"inventory": '', "points": characterselected, "marquee": characterselected, "social": '', "debug": '', "options": ''});
+			windows.init({"inventory": '', "points": characterselected, "marquee": characterselected, "social": '', "debug": ''});
 		
 			// Enable debugging (but hide from view)
 			debug.initDebugger(null);
