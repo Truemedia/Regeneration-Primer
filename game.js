@@ -25,6 +25,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'characterselection.SYS', 'mainme
 	
 				// Load header and footer
 				header.init();
+				characterselection.init();
 				windows.init({'characterselection': '', 'footer': ''});
 				
 				// Setup theme/themes

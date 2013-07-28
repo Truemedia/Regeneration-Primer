@@ -1,1 +1,75 @@
-{{ ! TODO: Port XSLT code to Mustache }}
+<!--<div class="row">
+<div class="span6">
+<a href="#" class="btn btn-success btn-large">Play as selected character</a>
+</div>
+<div class="span6">
+<a href="#" class="btn btn-primary btn-large">Play as random character</a>
+</div>
+</div>-->
+<!-- Character selection (Main Area) --> 
+<div id="main_area">
+
+	<!-- Slider -->
+	<div class="row">
+		<div class="span12" id="slider">
+			<div class="row">
+				<div class="span8" id="carousel-bounding-box">
+					<div id="myCarousel" class="carousel slide">
+
+						<!-- Carousel items -->
+						<div class="carousel-inner">
+						{{#characters}}
+							<div class="item{{active}}" data-slide-number="{{pid}}">
+								<img src="multimedia/default-contentpack/images/characters/({{identifierCamelCase}})_SelectionScreen.png" alt="{{full_name}}" />
+    						</div>
+						{{/characters}}
+						</div>
+
+						<!-- Carousel navigation -->
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+					</div>
+				</div>
+				
+				<!-- Current carousel item content -->
+				<div class="span4" id="carousel-text"></div>
+				
+				<!-- All carousel items content -->
+ 				<div style="display: none;" id="slide-content">
+				{{#characters}}
+					<div id="slide-content-{{pid}}">
+    					<div class="thumbnail clearfix" style="border: 5px solid {{characterColourScheme}};">
+    						<div class="caption" class="pull-left">
+    							<button class="btn btn-primary icon pull-right char_select" value="{{identifierReference}}">
+    								<span>Select</span>
+    							</button>
+    							<h4 style="color: {{characterColourScheme}};">{{full_name}}</h4>
+    							<span class="badge badge-inverse"><b class="text-warning">Occupation: </b>{{occupation}}</span>
+								<h5 class="well well-small"><img src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" /> About</h5>
+								<p class="mute"><em>{{about}}</em></p>
+    						</div>
+    					</div>
+    				</div>
+				{{/characters}}
+				</div>
+			</div>
+ 		</div>
+	</div>
+	
+	<!-- Thumbnails -->
+ 	<div class="row hidden-phone" id="slider-thumbs">
+		<div class="span12">
+
+			<!-- Bottom switcher of slider -->
+			<ul class="thumbnails">
+			{{#characters}}
+				<li class="span2">
+					<a class="thumbnail" id="carousel-selector-{{pid}}">
+						<img src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" />
+					</a>
+				</li>
+			{{/characters}}
+			</ul>
+		</div>
+	</div>
+</div>

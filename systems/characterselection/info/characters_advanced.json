@@ -1,0 +1,52 @@
+{
+  "characters": [
+      {
+      	"pid": "1", "full_name": "Reece Neadham", "occupation": "Student",
+      	"about": "Student studying at Leeds metropolitian university for Law and copyright",
+      	"characterColourScheme": "goldenrod", "identifierReference": "coward", "identifierCamelCase": "Coward",
+      	"active": " active"
+      },
+      {
+      	"pid": "2", "full_name": "Brian Lomber", "occupation": "Prison Guard",
+      	"about": "Main job involves being a prison guard, but is involved with illegal activity inside and outside of the prison he works at",
+      	"characterColourScheme": "dimgrey", "identifierReference": "criminal", "identifierCamelCase": "Criminal",
+      	"active": ""
+      },
+      {
+      	"pid": "3", "full_name": "Angela", "occupation": "Carer",
+      	"about": "Part time empolyed to look after physically disabled children at a local hospital, and spends the rest of her time looking after her own kids",
+      	"characterColourScheme": "darkslateblue", "identifierReference": "mother", "identifierCamelCase": "Mother",
+      	"active": ""
+      },
+      {
+      	"pid": "4", "full_name": "Damian Esterson", "occupation": "Car mechanic",
+      	"about": "Works for a garage popularily known for over the top car modifications, but also spend his spare time going to sports events and drinking",
+      	"characterColourScheme": "firebrick", "identifierReference": "nextdoorneighbor", "identifierCamelCase": "NextDoorNeighbor",
+      	"active": ""
+      },
+      {
+      	"pid": "5", "full_name": "Martin Bargus", "occupation": "Til Operative",
+		"about": "Recently left college and only just starting a work opportunity provided by his grandparents",
+		"characterColourScheme": "cyan", "identifierReference": "psychoticworker", "identifierCamelCase": "PsychoticWorker",
+		"active": ""
+	  },
+	  {
+	  	"pid": "6", "full_name": "Nicholas Bargus", "occupation": "Manager",
+		"about": "Dedicated long time worker of a local DIY store, and longest running manager in the companies history",
+		"characterColourScheme": "saddlebrown", "identifierReference": "storeowner", "identifierCamelCase": "StoreOwner",
+		"active": ""
+	  },
+	  {
+	  	"pid": "7", "full_name": "Lucy Bargus", "occupation": "Assistant Manager",
+		"about": "Dedicated as much as her husband to her job, aswell as very versed in agricultar practices such as farming and harvesting",
+		"characterColourScheme": "salmon", "identifierReference": "storeownerwife", "identifierCamelCase": "StoreOwnerWife",
+		"active": ""
+	  },
+	  {
+	  	"pid": "8", "full_name": "Claire Bellinger", "occupation": "Aviation Pilot",
+		"about": "Professional helicopter pilot, and strong passion for travel and vehicles",
+		"characterColourScheme": "seagreen", "identifierReference": "womanhelicopterpilot", "identifierCamelCase": "WomanHelicopterPilot",
+		"active": ""
+	  }
+  ]
+}

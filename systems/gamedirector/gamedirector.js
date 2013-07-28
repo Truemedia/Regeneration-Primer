@@ -11,7 +11,7 @@ define(["./jQuery", "./Crafty", "./spawner.SYS"], function(jQuery, Crafty, spawn
 	return {
 		initGameDirector: function(character){
 			// Spawn players
-			jQuery.getJSON("systems/character_info.json", function(all_characters_info) {
+			jQuery.getJSON("systems/characterselection/info/characters.json", function(all_characters_info) {
 				jQuery.each(all_characters_info, function(key, item){
 					// Code to add player/s on screen
 					spawner.spawnCharacter(item, character, key);
