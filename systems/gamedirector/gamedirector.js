@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define(["./jQuery", "./Crafty", "./spawner.SYS"], function(jQuery, Crafty, spawner) {
-	return {
+	return gamedirector = {
 		initGameDirector: function(character){
 			// Spawn players
 			jQuery.getJSON("systems/characterselection/info/characters.json", function(all_characters_info) {

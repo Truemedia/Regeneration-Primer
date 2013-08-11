@@ -26,7 +26,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'characterselection.SYS', 'mainme
 				// Load header and footer
 				header.init();
 				characterselection.init();
-				windows.init({'characterselection': '', 'footer': ''});
+				windows.init({'footer': ''});
 				
 				// Setup theme/themes
 				theme.init();
@@ -34,6 +34,25 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'characterselection.SYS', 'mainme
 				// When character chosen
 				jQuery('#characterselection_window').on("click", ".char_select", function(event){
 					game.startSession(event, this.value);
+				});
+				
+				/* CHARACTER SELECTION EVENT */
+				jQuery('#characters_window').on("click", ".start_session", function(event){
+
+					// Specific character chosen
+					if(jQuery(this).attr("id") == "use_picked_char"){
+						console.log("Using players choosen character: "+this.value);
+						game.startSession(event, this.value);
+					} else {
+					// Choose a random character for the player
+						console.log("Using random character");
+						jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(all_characters_info) {
+							number_of_chars = all_characters_info.characters.length - 1;
+							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
+							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
+							game.startSession(event, random_char_name);
+						});
+					}
 				});	
 	
 				return jQuery.noConflict(true);
@@ -42,6 +61,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'characterselection.SYS', 'mainme
 		startSession: function(event, characterselected){ // Startup the actual game environment (once the player is happy to start)
 			/* Delete selection screen */
 			jQuery("#character_selection").remove();
+			jQuery("#characters_window").remove();
 
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer

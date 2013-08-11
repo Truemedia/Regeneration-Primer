@@ -1,12 +1,7 @@
-<!--<div class="row">
-<div class="span6">
-<a href="#" class="btn btn-success btn-large">Play as selected character</a>
-</div>
-<div class="span6">
-<a href="#" class="btn btn-primary btn-large">Play as random character</a>
-</div>
-</div>-->
 <!-- Character selection (Main Area) --> 
+<div class="page-header">
+	<h1 style="text-align: center;">Choose a character</h1>
+</div>
 <div id="main_area">
 
 	<!-- Slider -->
@@ -17,12 +12,12 @@
 					<div id="myCarousel" class="carousel slide">
 
 						<!-- Carousel items -->
-						<div class="carousel-inner">
-						{{#characters}}
+						<div class="carousel-inner hover_char">
+							{{#characters}}
 							<div class="item{{active}}" data-slide-number="{{pid}}">
 								<img src="multimedia/default-contentpack/images/characters/({{identifierCamelCase}})_SelectionScreen.png" alt="{{full_name}}" />
     						</div>
-						{{/characters}}
+							{{/characters}}
 						</div>
 
 						<!-- Carousel navigation -->
@@ -32,25 +27,25 @@
 				</div>
 				
 				<!-- Current carousel item content -->
-				<div class="span4" id="carousel-text"></div>
+				<div class="span4" id="carousel-text" style="height: 300px;"></div>
 				
 				<!-- All carousel items content -->
  				<div style="display: none;" id="slide-content">
-				{{#characters}}
+					{{#characters}}
 					<div id="slide-content-{{pid}}">
     					<div class="thumbnail clearfix" style="border: 5px solid {{characterColourScheme}};">
-    						<div class="caption" class="pull-left">
+    						<div class="caption">
     							<button class="btn btn-primary icon pull-right char_select" value="{{identifierReference}}">
     								<span>Select</span>
     							</button>
     							<h4 style="color: {{characterColourScheme}};">{{full_name}}</h4>
-    							<span class="badge badge-inverse"><b class="text-warning">Occupation: </b>{{occupation}}</span>
+    							<span class="badge"><b style="color: black;">Occupation: </b>{{occupation}}</span>
 								<h5 class="well well-small"><img src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" /> About</h5>
 								<p class="mute"><em>{{about}}</em></p>
     						</div>
     					</div>
     				</div>
-				{{/characters}}
+					{{/characters}}
 				</div>
 			</div>
  		</div>
@@ -62,14 +57,28 @@
 
 			<!-- Bottom switcher of slider -->
 			<ul class="thumbnails">
-			{{#characters}}
+				{{#characters}}
 				<li class="span2">
 					<a class="thumbnail" id="carousel-selector-{{pid}}">
 						<img src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" />
 					</a>
 				</li>
-			{{/characters}}
+				{{/characters}}
 			</ul>
+			<div class="row">
+				<div class="span3">
+					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>Play as selected character</button>
+				</div>
+				<div class="span3">
+					<button id="use_random_char" class="btn btn-primary btn-large start_session">Play as random character</button>
+				</div>
+				<div class="span3">
+					<button class="btn btn-info btn-large disabled">Wait for more random players</button>
+				</div>
+				<div class="span3">
+					<button class="btn btn-large disabled">Invite friends to session</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
