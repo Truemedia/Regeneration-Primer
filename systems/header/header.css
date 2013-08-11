@@ -1,9 +1,4 @@
 /* Header */
-#header_window{
-	height: 95px;
-	background-color: deepskyblue;
-	opacity: 0.9;
-}
 /* Game information */
 #welcome_notice{
 	padding-top: 35px;
