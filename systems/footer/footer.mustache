@@ -1,1 +1,94 @@
-{{ ! TODO: Port XSLT code to Mustache }}
+<div class="row-fluid">
+	<h3>Powered by</h3>
+</div>
+
+<footer class="row-fluid">
+
+	<div class="span3">
+    	<h4 class="line3 center standart-h4title"><span>Packages</span></h4>
+        <div class="bs-example">
+        	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
+        		{{#poweredby}}
+            	<li class="dropdown">
+                  <a href="{{website}}" data-toggle="dropdown" class="dropdown-toggle">
+                    {{coreDependency}} + <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                  	{{#dependencyPlugins}}
+                    <li><a href="{{website}}">{{name}}</a></li>
+                    {{/dependencyPlugins}}
+                  </ul>
+            	</li>
+            	{{/poweredby}}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="span3">
+    	<h4 class="line3 center standart-h4title"><span>Services</span></h4>
+    	<div class="bs-example">
+        	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
+            	<li><a href="https://github.com/">Github</a></li>
+                <li><a href="http://cdnjs.com/">CDNjs</a></li>
+                <li class="dropdown">
+                  <a href="http://getbootstrap.com/2.3.2/" data-toggle="dropdown" class="dropdown-toggle">
+                    Bootstrap sites <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="http://bootswatch.com/">Bootswatch</a></li>
+                    <li><a href="http://bootsnipp.com/">Bootsnipp</a></li>
+                    <li><a href="http://bootstraptor.com">Bootstraptor</a></li>
+                  </ul>
+            	</li>
+            </ul>
+        </div>
+    </div> 
+	  
+	<div class="span3">
+    	<h4 class="line3 center standart-h4title"><span>Contributors</span></h4>
+        <div class="bs-example">
+        	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
+            	<li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                	Wade Penistone <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://github.com/Truemedia/Regeneration-Primer">GitHub</a></li>
+                    <li><a href="http://www.youtube.com/user/MCOMediaCityOnline">YouTube</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/Truemedia">My other open source projects</a></li>
+                  </ul>
+            	</li>
+            </ul>
+        </div>
+    </div>
+	
+    <div class="span3">
+    	<h4 class="line3 center standart-h4title"><span>Regeneration game engine</span></h4>
+			<p>
+				Concept, Design, Development, Graphics, and Soundtrack by <br/>
+				<a href="http://github.com/Truemedia">Wade Penistone (Truemedia)</a>
+			</p>
+			<p>
+				Sound effects provided by <br />
+				<a href="http://freesound.org">FreeSound</a>
+			</p>
+    </div>
+  
+	<div class="span12">
+		<hr>
+		<div class="row-fluid">
+        	<div class="span6">
+        		<p>&copy; Wade Penistone 2013</p>
+        	</div>
+			<div class="span6">
+				<p class="text-right">
+					<a href="https://github.com/Truemedia/Regeneration-Primer" class="btn btn-danger">
+						Want to contribute to this project? Check Github here
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	  
+</footer>

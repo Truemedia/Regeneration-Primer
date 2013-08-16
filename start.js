@@ -61,6 +61,7 @@ require.config({
         'controls.SYS': "systems/controls/controls", // Controls system
         'debug.SYS': "systems/debug/debug", // Debugging system
         'diydie.SYS': "systems/maps/maps", // Map System (Currently inline coded MAP only)
+        'footer.SYS': "systems/footer/footer", // Map System (Currently inline coded MAP only)
         'gamedirector.SYS': "systems/gamedirector/gamedirector", // Game Director system
         'gameinfo.SYS': "systems/gameinfo/gameinfo", // Game Info system
         'gameobjects.SYS': "systems/gameobjects/gameobjects", // Game Objects system

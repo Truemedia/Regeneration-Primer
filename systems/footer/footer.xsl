@@ -28,9 +28,5 @@
 				</dd>
 			</dl>
 		</div>
-		<div id="shortcredits">
-			<span>Concept, Design, Development, Graphics, and Soundtrack by <a href="http://github.com/Truemedia">Wade Penistone (Truemedia)</a></span><br />
-			<span>Sound effects provided by <a href="http://freesound.org">FreeSound</a></span>
-		</div>
 	</xsl:template>
 </xsl:stylesheet>
