@@ -12,6 +12,7 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 
 		/* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */
 		init: function(){
+			
 			// Load up list of characters to choose from
 			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
 

@@ -25,6 +25,8 @@ require.config({
         	'dependencies/hogan', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
         	'dependencies/requirejs-hogan/hogan'
         ],
+        /* Internalization */
+        i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
 	
 		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
@@ -150,8 +152,13 @@ require.config({
     // configure hgn! plugin
     hgn : {
         templateExtension : '.mustache'
-    }
-});
+    },
+    // configure i18n! plugin
+    config: {
+        i18n: {
+            locale: 'jp'
+        }
+    }});
 // Run the game launcher (Game system - method)
 require(['game'], function(game){
 	game.launch();
