@@ -1,3 +1,13 @@
 {
-	"holding_text" : "Menu item"
+	"menu_items": [
+		{
+			"name": "Highscores"
+		},
+		{
+			"name": "Restart round"
+		},
+		{
+			"name": "Restart game"
+		}
+	]
 }

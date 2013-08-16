@@ -32,7 +32,11 @@
         	"dependencyPlugins": [
         		{
 	          		"website": "https://github.com/millermedeiros/requirejs-hogan-plugin",
-	          		"name": "Hogan (Mustache templating)"
+	          		"name": "Hogan (Templating)"
+	        	},
+	        	{
+	          		"website": "https://github.com/requirejs/i18n",
+	          		"name": "i18n (Internalization)"
 	        	}
         	]
 	    },

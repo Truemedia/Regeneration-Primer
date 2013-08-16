@@ -4,9 +4,13 @@
 </div>
 <div class="modal-body">
 	<ul class="nav nav-tabs nav-stacked">
-		<li>{{holding_text}} 1</li>
-		<li>{{holding_text}} 2</li>
-		<li>{{holding_text}} 3</li>
+		{{#menu_items}}
+		<li>
+			<p>
+				<button class="btn btn-default btn-large btn-block" type="button">{{name}}</button>
+			</p>
+		</li>
+		{{/menu_items}}
     </ul>
 </div>
 <div class="modal-footer">
