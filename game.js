@@ -31,14 +31,9 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection
 				
 				// Setup theme/themes
 				theme.init();
-	
-				// When character chosen
-				jQuery('#characterselection_window').on("click", ".char_select", function(event){
-					game.startSession(event, this.value);
-				});
 				
 				/* CHARACTER SELECTION EVENT */
-				jQuery('#characters_window').on("click", ".start_session", function(event){
+				jQuery('#characterselection_window').on("click", ".start_session", function(event){
 
 					// Specific character chosen
 					if(jQuery(this).attr("id") == "use_picked_char"){
@@ -61,8 +56,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection
 		},
 		startSession: function(event, characterselected){ // Startup the actual game environment (once the player is happy to start)
 			/* Delete selection screen */
-			jQuery("#character_selection").remove();
-			jQuery("#characters_window").remove();
+			jQuery("#characterselection_window").remove();
 
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer

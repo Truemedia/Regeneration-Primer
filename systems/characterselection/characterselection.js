@@ -16,7 +16,7 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
 
 				// Mustache
-       			document.getElementById('characters_window').innerHTML = window(data);
+       			document.getElementById('characterselection_window').innerHTML = window(data);
  				
  				jQuery(document).ready(function() {
  					// Setup UI
@@ -29,36 +29,15 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 		},
 		
 		registerEvents: function(){ /* jQuery event handlers (for Character Selection) */
-			/*jQuery('#characterselection_window').on("mouseover", ".character_container", function(event){
-				characterselection.highlightWindow(event, this);
-			});
-			jQuery('#characterselection_window').on("mouseleave", ".character_container", function(event){
-				characterselection.unhighlightWindow(event, this);
-			});*/
 			
 			// New character select method
-			jQuery('#characters_window').on("click", ".char_select", function(event) {
+			jQuery('#characterselection_window').on("click", ".char_select", function(event) {
 
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);
 			});
 			
 		/* /jQuery event handlers (for Character Selection) */ },
-		
-		highlightWindow: function(event, selector){
-			jQuery(selector).children("div").addClass("hover_char");
-			jQuery(selector).children("button").children("span").removeClass("ui-icon-closethick");
-			jQuery(selector).children("button").children("span").addClass("ui-icon-check");
-			jQuery(selector).addClass("highlight_button");
-			characterselection.registerSounds();
-		},
-		
-		unhighlightWindow: function(event, selector){
-			jQuery(selector).children("div").removeClass("hover_char");
-			jQuery(selector).children("button").children("span").removeClass("ui-icon-check");
-			jQuery(selector).children("button").children("span").addClass("ui-icon-closethick");
-			jQuery(selector).removeClass("highlight_button");
-		},
 		
 		registerSounds: function(){
 			// TODO: Find appropriate sound and register then add case function to play
@@ -110,10 +89,6 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 				
 			// Update carousel
 			jQuery('#carousel-text').html(jQuery('#slide-content-'+selected_char).html());
-		},
-
-		unselectCharacter: function() {
-			
 		}
 	}
 });
