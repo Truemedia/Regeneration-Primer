@@ -18,7 +18,7 @@ require.config({
 			'dependencies/requirejs-hogan/hgn' 
 		],
         text : [
-        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text.js',
+        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text',
         	'dependencies/requirejs-text'
         ],
         hogan : [
