@@ -4,13 +4,15 @@ dl{
 	padding: 0;
 }
 #points_window{
-	display: none;
+	display: block;
 	background-color: #000000;
 	position: fixed;
 	z-index: 3;
 	opacity: 0.9;
 	margin: 0;
 	padding: 0;
+	top: 50px;
+	left: 0;
 }
 .score{
 	font-weight: bold;
