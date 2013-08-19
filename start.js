@@ -18,8 +18,8 @@ require.config({
 			'dependencies/requirejs-hogan/hgn' 
 		],
         text : [
-        	'dependencies/text', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
-        	'dependencies/requirejs-hogan/text'
+        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text.js',
+        	'dependencies/requirejs-text'
         ],
         hogan : [
         	'dependencies/hogan', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
