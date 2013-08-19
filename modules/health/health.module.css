@@ -7,7 +7,8 @@
 }
 .player_health_stats{
 	text-align: center;
-	padding-left: 75px;
+	padding-left: 10px;
+	padding-right: 8px;
 }
 #player_purgatory{
 	margin: 5px;

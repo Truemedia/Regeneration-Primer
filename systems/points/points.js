@@ -7,15 +7,25 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(jQuery, Crafty, ko, health, score) {
+define(["hgn!systems/points/points", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(window, jQuery, Crafty, ko, health, score) {
 	return points = {
 		// defaults
 		binding_element_class: "score_container",
 		
 		init: function(){
-			points.registerBindings(); // Apply all KO bindings
-			/* Start up modules */
-			health.init();
+			
+			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
+
+				// Mustache
+       			document.getElementById('points_window').innerHTML = window(data);
+ 				
+ 				jQuery(document).ready(function() {
+ 					points.registerBindings(); // Apply all KO bindings
+ 					/* Start up modules */
+ 					health.init();
+ 					console.log("Points window loaded");
+				}); 
+			});
 		},
 		registerBindings: function(){
 			/* Iterate multiple binding instances with jQuery */

@@ -82,7 +82,8 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection
 			gamedirector.initGameDirector(characterselected);
 	
 			// Initialize session windows
-			windows.init({"inventory": '', "points": characterselected, "marquee": characterselected, "social": '', "debug": ''});
+			points.init();
+			windows.init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
 		
 			// Enable debugging (but hide from view)
 			debug.initDebugger(null);
