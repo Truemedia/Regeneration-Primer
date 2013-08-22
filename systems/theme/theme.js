@@ -94,8 +94,11 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
 			})
 			// Fallback to function to only use statically set CDN and disable theme selector
 			.fail(function() { 
+				
+				// TODO: Make this temporary variable usable in a config
+				var bootstrap_version = '2';
 				console.log("CDN is down, diverting resources and disabling theme selector");
-				theme.load("http://bootswatch.com/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
+				theme.load("http://bootswatch.com/"+bootstrap_version+"/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
 			})
 		}
 	}
