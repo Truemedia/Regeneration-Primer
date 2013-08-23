@@ -3,12 +3,10 @@
 	display: inline-block;
 	width: 250px;
 	height: 25px;
-	margin: 0px 5px 0px 5px;
+	margin: 5px;
 }
 .player_health_stats{
-	text-align: center;
-	padding-left: 10px;
-	padding-right: 8px;
+	margin-top: 9px;
 }
 #player_purgatory{
 	margin: 5px;
@@ -38,4 +36,7 @@
 }
 .alive > span{
 	color: white;
+}
+.player_health_unit{
+	color: yellow;
 }

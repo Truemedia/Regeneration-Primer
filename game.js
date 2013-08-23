@@ -60,7 +60,6 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection
 
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
-    		jQuery('.devhint').toggle();
     		jQuery('#marquee_window').toggle();
     		
 			// Initializer

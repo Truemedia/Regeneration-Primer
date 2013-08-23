@@ -25,6 +25,11 @@ dl{
 	color: black;
 	background-color: cornsilk;
 	font-weight: bold;
+	padding-top: 20px;
+}
+.score_container{
+	padding: 0;
+	margin: 0;
 }
 .player_info{
 	color: white;
@@ -38,18 +43,21 @@ dl{
 	opacity: 0.9;
 }
 .player_overview{
-	margin: 2px 0px 5px 0px;
+	margin: 0;
 	padding: 0;
 }
 .player_maininfo{
 	display: inline-block;
 }
 .player_number{
-	text-align: left;
-	width: 30%;
+	float: left;
+	padding-left: 10px;
 }
 .player_name{
-	text-align: right;
-	width: 69%;
-	padding-right: 1%;
+	float: right;
+	padding-right: 10px;
+}
+.debug_controls{
+	text-align: center;
+	margin: 5px;
 }

@@ -40,13 +40,9 @@ define(["./jQ.ui", "./Crafty", "./points.SYS"], function(jQuery, Crafty, points)
 						.addClass("ui-icon-gear");
 				}
 			}
-			
-			// Hide or show manual score incrementers
-			jQuery(".score_debug_buttons").toggle();
+
 			// Hide or show global manual score incrementer
 			jQuery("#debug_panels").toggle();
-			// Hide or show Developer hints
-			jQuery(".devhint").toggle();
 		},
 		mouseDebugger: function(event){
 			// Hide or show mouse debug panel

@@ -1,47 +1,50 @@
 {{#characters}}
-<div class="score_container">
+<div class="score_container" style="clear: both;">
 	<input class="player_object" type="hidden" value="{{identifierReference}}" />
 	<dl class="player_info">
 		<dt class="player_overview">
 			<span class="player_maininfo player_number">Player {{pid}}</span>
 			<span class="player_maininfo player_name">{{full_name}} ({{occupation}})</span>
-					</dt>
-					<dd class="player_score">
-						<div style="display: inline-block;">
-							<span data-bind="with: score">
-								<!-- Player icon and colored score -->
-								<img style="padding: 0; margin: 0;" src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" />
-								<span data-bind="text: sp" id="{{identifierReference}}_score_color" class="score {{identifierReference}}-colorscheme"></span>
-							</div>
-							<span data-bind="with: health">
-							<div class="player_health" data-bind="progress: hp"></div>
-							<span class='player_health_stats'>
-								<span data-bind="if: dead" class="dead_status"><span class="no-bg">DECEASED</span></span>
-								<span data-bind="ifnot: dead">HP: (<span class="player_health_unit" data-bind="text: hp"></span>/100)</span>
-							</span>
-							</div>
-						</div>
-						<div class="score_debug_buttons">
-							<span data-bind="with: score">
-								<button data-bind="click: decrementScore" class="score_debug_button score_submit ui-state-default ui-corner-all {{identifierReference}}-colorscheme" value="{{pid}}">
-									<span class="ui-icon ui-icon-minusthick"></span> 10 Score (SP) 
-								</button>
-								<button data-bind="click: incrementScore" class"score_debug_button score_submit ui-state-default ui-corner-all {{identifierReference}}-colorscheme" value="{{pid}}">
-									<span class="ui-icon ui-icon-plusthick"></span> 10 Score (SP)
-								</button>
-								<!-- Used to make sure data is fed to #my_score -->
-								<div data-bind="singleton: sp"></div>
-							</span>
-							<span data-bind="with: health">
-							<button class="health_reduce score_debug_button ui-state-default ui-corner-all {{identifierReference}}-colorscheme" value="{{pid}}" data-bind="click: decrementHealth">
-								<span class="ui-icon ui-icon-minusthick"></span> 4 Health (HP)
-							</button>
-							<button class="health_reduce score_debug_button ui-state-default ui-corner-all {{identifierReference}}-colorscheme value="{{pid}}" data-bind="click: incrementHealth">
-								<span class="ui-icon ui-icon-plusthick"></span> 4 Health (HP)
-							</button>
-							</span>
-						</div>
-					</dd>
-				</dl>
+		</dt>
+		<dd class="player_score">
+			<div style="display: inline-block;">
+				<span data-bind="with: score">
+				<!-- Player icon and colored score -->
+				<img style="padding: 0; margin: 0;" src="multimedia/default-contentpack/images/characters/({{identifierReference}})_mini.png" />
+				<span data-bind="text: sp" id="{{identifierReference}}_score_color" class="score {{identifierReference}}-colorscheme"></span>
 			</div>
+			<div style="width: 420px;">
+				<div class="pull-left" style="text-align: center;" data-bind="with: health">
+					<div class="player_health" data-bind="progress: hp"></div>
+						<span class="player_health_stats badge badge-important pull-right">
+							<span data-bind="if: dead" class="dead_status"><span class="no-bg">DECEASED</span></span>
+							<span data-bind="ifnot: dead">HP: (<span class="player_health_unit" data-bind="text: hp"></span>/100)</span>
+						</span>
+					</div>
+					<a href="#" class="debug_button pull-right" style="margin-right: 10px;">Debug</a>
+				</div>
+				<div class="debug_controls">
+					<div class="btn-group" data-bind="with: score">
+						<button data-bind="click: decrementScore" class="score_submit btn btn-mini {{identifierReference}}-colorscheme" value="{{pid}}">
+							<i class="icon-minus"></i> 10 SP
+						</button>
+						<button data-bind="click: incrementScore" class="score_submit btn btn-mini {{identifierReference}}-colorscheme" value="{{pid}}">
+							<i class="icon-plus"></i> 10 SP
+						</button>
+					</div>
+					<div class="btn-group" data-bind="with: health">
+						<button class="health_reduce btn btn-mini {{identifierReference}}-colorscheme" value="{{pid}}" data-bind="click: decrementHealth">
+							<i class="icon-minus"></i> 4 HP
+						</button>
+						<button class="health_reduce btn btn-mini {{identifierReference}}-colorscheme value="{{pid}}" data-bind="click: incrementHealth">
+							<i class="icon-plus"></i> 4 HP
+						</button>
+					</div>
+					<!-- Used to make sure data is fed to #my_score -->
+					<div style="display: none;" data-bind="with: score"><div data-bind="singleton: sp"></div></div>
+				</div>
+			</div>
+		</dd>
+	</dl>
+</div>
 {{/characters}}

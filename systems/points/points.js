@@ -24,6 +24,10 @@ define(["hgn!systems/points/points", "./jQ.ui", "./Crafty", "./KO", "./Health.MO
  					/* Start up modules */
  					health.init();
  					console.log("Points window loaded");
+ 					
+ 					// Hide points debugging (TODO: Make hidden via KO)
+ 					jQuery('.debug_controls').toggle();
+ 					jQuery('.debug_controls:first').toggle();
 				}); 
 			});
 		},
