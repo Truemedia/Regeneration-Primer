@@ -7,9 +7,12 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/header/header", "./Bootstrap", "./Options.MOD"], function(window, jQuery, options) {
+define(["hgn!systems/header/header", "./Bootstrap", "./Options.MOD"], function(view, jQuery, options) {
 	return header = {
 	
+		// Partial loading location	
+		partial_block_element: 'header_partial',
+			
 		// Variable containing all html from modules
 		nested_view: "",
 	
@@ -36,10 +39,10 @@ define(["hgn!systems/header/header", "./Bootstrap", "./Options.MOD"], function(w
 				data.options = header.nested_view;
 			
 				// Mustache
-       			document.getElementById('header_window').innerHTML = window(data);
+       			document.getElementById(header.partial_block_element).innerHTML = view(data);
 
 			});
-			console.log("Header window loaded");
+			console.log("Header PACKAGE loaded");
 		}
 	}
 });

@@ -3,7 +3,7 @@ dl{
 	margin: 0;
 	padding: 0;
 }
-#points_window{
+#points_partial{
 	display: block;
 	background-color: #000000;
 	position: fixed;

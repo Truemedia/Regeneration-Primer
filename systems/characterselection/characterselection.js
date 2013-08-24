@@ -7,8 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Crafty"], function(window, jQuery, Crafty) {
+define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Crafty"], function(view, jQuery, Crafty) {
 	return characterselection = {
+			
+		// Partial loading location	
+		partial_block_element: 'characterselection_partial',
 
 		/* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */
 		init: function(){
@@ -17,14 +20,14 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
 
 				// Mustache
-       			document.getElementById('characterselection_window').innerHTML = window(data);
+       			document.getElementById(characterselection.partial_block_element).innerHTML = view(data);
  				
  				jQuery(document).ready(function() {
  					// Setup UI
  					characterselection.selectionScreen();
  					// Setup UI handlers
  					characterselection.registerEvents();
- 					console.log("Character selection window loaded");
+ 					console.log("Character Selection PACKAGE loaded");
 				}); 
 			});
 		},
@@ -32,7 +35,7 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 		registerEvents: function(){ /* jQuery event handlers (for Character Selection) */
 			
 			// New character select method
-			jQuery('#characterselection_window').on("click", ".char_select", function(event) {
+			jQuery("#characterselection_partial").on("click", ".char_select", function(event) {
 
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);

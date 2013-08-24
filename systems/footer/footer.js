@@ -7,8 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/footer/footer", "i18n!lang/nls/string", "./Bootstrap"], function(window, lang, jQuery) {
+define(["hgn!systems/footer/footer", "i18n!lang/nls/string", "./Bootstrap"], function(view, lang, jQuery) {
 	return footer = {
+			
+		// Partial loading location	
+		partial_block_element: 'footer_partial',
 	
 		// Load the footer system
 		init: function() {
@@ -23,12 +26,12 @@ define(["hgn!systems/footer/footer", "i18n!lang/nls/string", "./Bootstrap"], fun
 			jQuery.getJSON("sample_package.json", function(data){
 			
 				// Mustache
-       			document.getElementById('footer_window').innerHTML = window(data);
+       			document.getElementById(footer.partial_block_element).innerHTML = view(data);
 
        			// Language test
        			document.getElementById('country').innerHTML = lang.country;
 			});
-			console.log("Footer window loaded");
+			console.log("Footer PACKAGE loaded");
 		}
 	}
 });

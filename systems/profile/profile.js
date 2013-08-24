@@ -7,15 +7,19 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/profile/profile", "jQuery", "KO"], function(window, jQuery, ko) {
+define(["hgn!systems/profile/profile", "jQuery", "KO"], function(view, jQuery, ko) {
 	return profile = {
+			
+		// Partial loading location	
+		partial_block_element: 'profile_partial',	
+			
 		init: function(){
 			/* Lightweight template loader */
 			// TODO: Make window system use config to load this in single call
 			jQuery.getJSON("systems/profile/profile.json", function(data){
 			
 				// Mustache
-       			document.getElementById('profile_window').innerHTML = window(data);
+       			document.getElementById(profile.partial_block_element).innerHTML = view(data);
        			
        			// Knockout
        			profile.registerBindings();
@@ -38,7 +42,7 @@ define(["hgn!systems/profile/profile", "jQuery", "KO"], function(window, jQuery,
 			};
 		},
 		registerBindings: function(){
-			ko.applyBindings(new profile.ViewModel(), document.getElementById('profile_window'));
+			ko.applyBindings(new profile.ViewModel(), document.getElementById(profile.partial_block_element));
 		},
 		loginAsGuest: function(){
 

@@ -7,11 +7,14 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(window, jQuery) {
+define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(view, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array
 	 	themes: [],
+	 	
+	 	// Partial loading location	
+		partial_block_element: 'theme_partial',
 	
 		// Load the theme system
 		init: function() {
@@ -81,7 +84,7 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
 				theme.load(initial_theme_stylesheet, initial_theme_image);
 			
 				// Mustache
-       			document.getElementById('theme_window').innerHTML = window(data);
+       			document.getElementById(theme.partial_block_element).innerHTML = view(data);
        			
        			// jQuery events
        			theme.registerEvents();
@@ -91,6 +94,8 @@ define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(win
        			
        			// Save themes in accessible array
        			theme.themes = data.themes;
+       			
+       			console.log("Theme PACKAGE loaded");
 			})
 			// Fallback to function to only use statically set CDN and disable theme selector
 			.fail(function() { 

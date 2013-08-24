@@ -23,7 +23,7 @@ define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.SYS"], function(jQuery
                 var hp = parseInt(jQuery(this).attr("aria-valuenow"), 10);
                 health.HPcolor(element, hp);
             });
-            jQuery('#points_window').on("click", ".debug_button", function(event) {
+            jQuery('#points_partial').on("click", ".debug_button", function(event) {
 
 				jQuery(this).parent().parent().children(".debug_controls").toggle();
 			});
