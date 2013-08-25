@@ -1,3 +1,0 @@
-define({
-    "country": "England"
-});

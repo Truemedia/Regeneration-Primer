@@ -92,6 +92,10 @@ require.config({
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
         'jQ.Datatables': "http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min", // Datatables
         
+        /* Bootstrap helpers */
+        'Bootstrap.formhelpers.languages.codes': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-languages.codes", // Bootstrap form helper (for language codes)
+        'Bootstrap.formhelpers.languages': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-languages", // Bootstrap form helper (for languages)
+        
         /* jQuery UI files */
         'jQ.ui': "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min", // Core file
         
@@ -136,9 +140,16 @@ require.config({
         },
         
         // Bootstrap
-        // jQuery UI 
         'Bootstrap': {
             deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+        'Bootstrap.formhelpers.languages.codes': {
+        	deps: ['Bootstrap', 'jQuery'],
+            exports: 'jQuery'
+        },
+        'Bootstrap.formhelpers.languages': {
+        	deps: ['Bootstrap', 'jQuery'],
             exports: 'jQuery'
         },
 
