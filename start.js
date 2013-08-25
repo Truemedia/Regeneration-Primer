@@ -68,6 +68,7 @@ require.config({
         'gameinfo.SYS': "systems/gameinfo/gameinfo", // Game Info system
         'gameobjects.SYS': "systems/gameobjects/gameobjects", // Game Objects system
         'header.SYS': "systems/header/header", // Header system
+        'highscores.SYS': "systems/highscores/main", // Header system
         'init.SYS': "systems/init/init", // Initialization system
         'mainmenu.SYS': "systems/mainmenu/mainmenu", // Main Menu system
         'marquee.SYS': "systems/marquee/marquee", // Marquee system

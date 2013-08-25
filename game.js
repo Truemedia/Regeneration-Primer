@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'gameinfo.SYS', 'about.SYS', 'theme.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'highscores.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'gameinfo.SYS', 'about.SYS', 'theme.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){
@@ -28,6 +28,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'characterselection
 				header.init();
 				characterselection.init();
 				footer.init();
+				highscores.init();
 				
 				// Setup theme/themes
 				theme.init();
