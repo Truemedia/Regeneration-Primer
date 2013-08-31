@@ -16,7 +16,7 @@ define(["hgn!packages/profile/partial", "jQuery", "KO"], function(view, jQuery, 
 		init: function(){
 			/* Lightweight template loader */
 			// TODO: Make window system use config to load this in single call
-			jQuery.getJSON("packages/profile/profile.json", function(data){
+			jQuery.getJSON("packages/profile/data.json", function(data){
 			
 				// Mustache
        			document.getElementById(profile.partial_block_element).innerHTML = view(data);

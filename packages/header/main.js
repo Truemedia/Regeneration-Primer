@@ -33,7 +33,7 @@ define(["hgn!packages/header/partial", "./Bootstrap", "./Options.MOD"], function
 		loadDOM: function() {
 
 			// Load header data
-			jQuery.getJSON("packages/header/header.json", function(data){
+			jQuery.getJSON("packages/header/data.json", function(data){
 			
 				// Append modules to view data
 				data.options = header.nested_view;

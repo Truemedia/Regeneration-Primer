@@ -16,7 +16,7 @@ define(["hgn!packages/mainmenu/partial", "./Bootstrap"], function(view, jQuery) 
 		init: function(){
 
 			// Load view data via system's JSON
-			jQuery.getJSON("packages/mainmenu/mainmenu.json", function(data){
+			jQuery.getJSON("packages/mainmenu/data.json", function(data){
 			
 				// Mustache
        			document.getElementById(mainmenu.partial_block_element).innerHTML = view(data);
