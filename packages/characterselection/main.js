@@ -1,13 +1,13 @@
 /* 
-* @file Character Selection SYSTEM 
+* @file Character Selection PACKAGE 
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for selecting a character to play as
+* @overview Core Regeneration Primer package used for selecting a character to play as
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Crafty"], function(view, jQuery, Crafty) {
+define(["hgn!packages/characterselection/partial", "./jQuery", "./Crafty"], function(view, jQuery, Crafty) {
 	return characterselection = {
 			
 		// Partial loading location	
@@ -17,7 +17,7 @@ define(["hgn!systems/characterselection/characterselection", "./jQuery", "./Craf
 		init: function(){
 			
 			// Load up list of characters to choose from
-			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
+			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 
 				// Mustache
        			document.getElementById(characterselection.partial_block_element).innerHTML = view(data);

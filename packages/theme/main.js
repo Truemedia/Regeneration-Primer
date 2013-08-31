@@ -1,13 +1,13 @@
 /* 
-* @file Theme SYSTEM
+* @file Theme PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for controlling, loading and manipulating themes (Snippets of CSS and HTML associated to an interchangeable folder)
+* @overview Core Regeneration Primer package used for controlling, loading and manipulating themes (Snippets of CSS and HTML associated to an interchangeable folder)
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/theme/theme", "./Bootstrap", "jQ.Datatables"], function(view, jQuery) {
+define(["hgn!packages/theme/partial", "./Bootstrap", "jQ.Datatables"], function(view, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array

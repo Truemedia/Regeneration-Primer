@@ -1,13 +1,13 @@
 /* 
-* @file Points SYSTEM
+* @file Points PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used as CRUDL API of various point mechanisms relevant to players
+* @overview Core Regeneration Primer package used as CRUDL API of various point mechanisms relevant to players
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/points/points", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, jQuery, Crafty, ko, health, score) {
+define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, jQuery, Crafty, ko, health, score) {
 	return points = {
 			
 		// Partial loading location	
@@ -18,7 +18,7 @@ define(["hgn!systems/points/points", "./jQ.ui", "./Crafty", "./KO", "./Health.MO
 		
 		init: function(){
 			
-			jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(data){
+			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 
 				// Mustache
        			document.getElementById(points.partial_block_element).innerHTML = view(data);

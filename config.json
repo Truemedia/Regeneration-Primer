@@ -47,7 +47,7 @@
 			'themeroller_styling' => "stylesheets/"+this.settings.theme+"-theme/themeroller_styling",
 			'character_styling' => "stylesheets/"+this.settings.theme+"-theme/character_styling"
 		},
-		'systems' => "systems",
+		'packages' => "packages",
 		'windows' => "windows"
 	}
 }

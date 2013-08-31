@@ -1,13 +1,13 @@
 /* 
-* @file Profile SYSTEM
+* @file Profile PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview FIRST TEST SYSTEM IMPLEMENTING Hogan + JSON + Mustache templating
+* @overview FIRST TEST PACKAGE IMPLEMENTING Hogan + JSON + Mustache templating
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/profile/profile", "jQuery", "KO"], function(view, jQuery, ko) {
+define(["hgn!packages/profile/partial", "jQuery", "KO"], function(view, jQuery, ko) {
 	return profile = {
 			
 		// Partial loading location	
@@ -16,7 +16,7 @@ define(["hgn!systems/profile/profile", "jQuery", "KO"], function(view, jQuery, k
 		init: function(){
 			/* Lightweight template loader */
 			// TODO: Make window system use config to load this in single call
-			jQuery.getJSON("systems/profile/profile.json", function(data){
+			jQuery.getJSON("packages/profile/profile.json", function(data){
 			
 				// Mustache
        			document.getElementById(profile.partial_block_element).innerHTML = view(data);

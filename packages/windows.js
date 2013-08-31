@@ -1,13 +1,13 @@
 /* 
-* @file Windows SYSTEM
+* @file Windows PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for loading windows, assigning window events, and general window maintenance (windows = widgets made of HTML,CSS and JavaScript)
+* @overview Core Regeneration Primer package used for loading windows, assigning window events, and general window maintenance (windows = widgets made of HTML,CSS and JavaScript)
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./social.SYS", "./debug.SYS", "./marquee.SYS", "./profile.SYS"], function(jQuery, Crafty, Gun, social, debug, marquee, profile) {
+define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./social.PKG", "./debug.PKG", "./marquee.PKG", "./profile.PKG"], function(jQuery, Crafty, Gun, social, debug, marquee, profile) {
 	return windows = {
 		init: function(windowObject){
 			// Make chainable callback since XSLT plugin callback support is bugged
@@ -18,16 +18,16 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./social.SYS", "./debug.SYS",
 			
 			/* Load the XHTML for a window */
 			jQuery.each(windowObject, function(windowName, callbackValue){
-				var windowDirFilePrefix = 'systems/'+windowName+'/'+windowName+'.';
+				var windowDirFilePrefix = 'packages/'+windowName+'/'+windowName+'.';
 				// Load each window
 				var windowHTML = jQuery.xslt({xmlUrl: windowDirFilePrefix+'xml', xslUrl: windowDirFilePrefix+'xsl'});
-				jQuery('#'+windowName+'_window').html(windowHTML)
+				jQuery('#'+windowName+'_partial').html(windowHTML)
 					.windowLoadCallback(windowName, callbackValue);
 			});
 		},
 		callbacks: function(windowName, callbackValue){
-			/* Function list to call based on specific window, after window has loaded */
-			console.log(windows.realName(windowName)+" window loaded");
+			/* Function list to call based on specific package, after package has loaded */
+			console.log(windows.realName(windowName)+" PACKAGE loaded");
 			switch (windowName){
 				case 'header':
 					// TODO: Hide Dev notices nicer
@@ -53,7 +53,7 @@ define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./social.SYS", "./debug.SYS",
 			} 
 		},
 		realName: function(windowName){
-			// Return window name shown to humans (capitalized first letter)
+			// Return package name shown to humans (capitalized first letter)
 			// TODO: Consider in future implementing multiple languages function called with this (multilingual debugging)
     		return windowName.charAt(0).toUpperCase() + windowName.slice(1);
 		},

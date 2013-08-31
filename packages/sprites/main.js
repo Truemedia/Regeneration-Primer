@@ -1,7 +1,7 @@
 /* 
-* @file Sprites SYSTEM
+* @file Sprites PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for loading Crafty sprite resources
+* @overview Core Regeneration Primer package used for loading Crafty sprite resources
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}

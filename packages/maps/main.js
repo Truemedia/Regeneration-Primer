@@ -1,13 +1,13 @@
 /* 
-* @file Maps SYSTEM
+* @file Maps PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for loading maps (certain levels of game modes)
+* @overview Core Regeneration Primer package used for loading maps (certain levels of game modes)
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./init.SYS"], function(jQuery, Crafty, init) {
+define(["./jQuery", "./Crafty", "./init.PKG"], function(jQuery, Crafty, init) {
 	return maps = {
 		
 		layers: 1,

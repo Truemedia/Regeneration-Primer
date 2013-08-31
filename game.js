@@ -8,13 +8,13 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'highscores.SYS', 'characterselection.SYS', 'mainmenu.SYS', 'gameinfo.SYS', 'about.SYS', 'theme.SYS', 'points.SYS', 'audio.SYS', 'Health.MOD', 'debug.SYS', 'init.SYS', 'sprites.SYS', 'controls.SYS', 'diydie.SYS', 'spawner.SYS', 'gameobjects.SYS', 'gamedirector.SYS', 'windows.SYS', 'Gun.MOD', 'notification.SYS', 'marquee.SYS', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', 'characterselection.PKG', 'mainmenu.PKG', 'gameinfo.PKG', 'about.PKG', 'theme.PKG', 'points.PKG', 'audio.PKG', 'Health.MOD', 'debug.PKG', 'init.PKG', 'sprites.PKG', 'controls.PKG', 'diydie.PKG', 'spawner.PKG', 'gameobjects.PKG', 'gamedirector.PKG', 'windows.PKG', 'Gun.MOD', 'notification.PKG', 'marquee.PKG', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){
     			// TODO: Add cleanup hidden process
-    			jQuery('#marquee_window').toggle();
-    			jQuery('.window-column').toggle();
+    			jQuery('#marquee_partial').toggle();
+    			jQuery('.partial-column').toggle();
 	
 				// Enable Music/Audio dialogue/Sounds
 				audio.initGameAudio();
@@ -43,7 +43,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'highscores.SYS', '
 					} else {
 					// Choose a random character for the player
 						console.log("Using random character");
-						jQuery.getJSON("systems/characterselection/info/characters_advanced.json", function(all_characters_info) {
+						jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(all_characters_info) {
 							number_of_chars = all_characters_info.characters.length - 1;
 							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
 							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
@@ -61,7 +61,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'highscores.SYS', '
 
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
-    		jQuery('#marquee_window').toggle();
+    		jQuery('#marquee_partial').toggle();
     		
 			// Initializer
 			init.initGame();
@@ -81,7 +81,7 @@ define(['jQ.xslt', 'config.SYS', 'header.SYS', 'footer.SYS', 'highscores.SYS', '
 			// Initialize Game Director
 			gamedirector.initGameDirector(characterselected);
 	
-			// Initialize session windows
+			// Initialize session partials
 			points.init();
 			windows.init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
 		

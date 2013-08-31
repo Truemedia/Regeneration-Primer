@@ -1,7 +1,7 @@
 /* 
-* @file Spawner SYSTEM
+* @file Spawner PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for spawning friendlies and enemies (based on gamemode and spawn context)
+* @overview Core Regeneration Primer package used for spawning friendlies and enemies (based on gamemode and spawn context)
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}

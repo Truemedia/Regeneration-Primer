@@ -1,7 +1,7 @@
 /* 
-* @file Audio SYSTEM
+* @file Audio PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for controlling audio sources and playback
+* @overview Core Regeneration Primer package used for controlling audio sources and playback
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
@@ -14,7 +14,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			var f = ".wav";
 			
 			this.register_SFX(f);
-			jQuery.getJSON("systems/default_settings.json", function(audio_manager_defaults) {
+			jQuery.getJSON("packages/default_settings.json", function(audio_manager_defaults) {
 				// Load sound as resource
 				Crafty.audio.add(audio_manager_defaults['background_music'], audio_dir+audio_manager_defaults['background_music']+"/"+audio_manager_defaults['background_music']+f);
 		
@@ -23,7 +23,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			});
 		},
 		toggleAudio: function(event){ 
-			jQuery.getJSON("systems/default_settings.json", function(audio_manager_defaults) {
+			jQuery.getJSON("packages/default_settings.json", function(audio_manager_defaults) {
 				// Mute or unmute all audio
 				if(jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")){
 					/* Mute audio */

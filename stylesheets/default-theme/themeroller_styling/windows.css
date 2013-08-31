@@ -1,36 +1,36 @@
-/* Stylesheets for all windows 
-	(when adding a new window add a link to the relevant windows CSS file here)
+/* Stylesheets for all packages
+	(when adding a new package add a link to the relevant package's CSS file here)
 */
 
 /* Canvas stylesheet */
-@import url('../../../systems/canvas/canvas.css');
+@import url('../../../packages/canvas/style.css');
 
 /* Character Selection stylesheet */
-@import url('../../../systems/characterselection/characterselection.css');
+@import url('../../../packages/characterselection/style.css');
 
 /* Debugging stylesheet */
-@import url('../../../systems/debug/debug.css');
+@import url('../../../packages/debug/style.css');
 
 /* Footer stylesheet */
-@import url('../../../systems/footer/footer.css');
+@import url('../../../packages/footer/style.css');
 
 /* Header stylesheet */
-@import url('../../../systems/header/header.css');
+@import url('../../../packages/header/style.css');
 
 /* Inventory stylesheet */
-@import url('../../../systems/inventory/inventory.css');
+@import url('../../../packages/inventory/style.css');
 
 /* Marquee stylesheet */
-@import url('../../../systems/marquee/marquee.css');
+@import url('../../../packages/marquee/style.css');
 
 /* Notification stylesheet */
-@import url('../../../systems/notification/notification.css');
+@import url('../../../packages/notification/style.css');
 
 /* Points stylesheet */
-@import url('../../../systems/points/points.css');
+@import url('../../../packages/points/style.css');
 
 /* Social stylesheet */
-@import url('../../../systems/social/social.css');
+@import url('../../../packages/social/style.css');
 
 .window-column{
 	display: inline-block;

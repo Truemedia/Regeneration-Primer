@@ -1,13 +1,13 @@
 /* 
-* @file Marquee SYSTEM
+* @file Marquee PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer system used for displaying important information in a style mimicking a real-life marquee
+* @overview Core Regeneration Primer package used for displaying important information in a style mimicking a real-life marquee
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./windows.SYS", "./points.SYS", "./audio.SYS", "./controls.SYS", "./debug.SYS",], function(jQuery, Crafty, windows, points, audio, controls, debug) {
+define(["./jQuery", "./Crafty", "./windows.PKG", "./points.PKG", "./audio.PKG", "./controls.PKG", "./debug.PKG",], function(jQuery, Crafty, windows, points, audio, controls, debug) {
 	return marquee = {
 		toggleHeader: function(){
 			// Hide or show everything..

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!systems/highscores/partial", "./Bootstrap"], function(view, jQuery) {
+define(["hgn!packages/highscores/partial", "./Bootstrap"], function(view, jQuery) {
 	return highscores = {
 	
 		// Partial loading location	
@@ -24,7 +24,7 @@ define(["hgn!systems/highscores/partial", "./Bootstrap"], function(view, jQuery)
 		loadDOM: function() {
 
 			// Load highscores data
-			jQuery.getJSON("systems/highscores/data.json", function(data){
+			jQuery.getJSON("packages/highscores/data.json", function(data){
 			
 				// Mustache
        			document.getElementById(highscores.partial_block_element).innerHTML = view(data);

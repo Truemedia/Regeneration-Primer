@@ -18,8 +18,9 @@ require.config({
 			'dependencies/requirejs-hogan/hgn' 
 		],
         text : [
-        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text',
-        	'dependencies/requirejs-text'
+            'dependencies/text',
+            'dependencies/requirejs-hogan/text',
+        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text'
         ],
         hogan : [
         	'dependencies/hogan', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
@@ -55,33 +56,33 @@ require.config({
         /* Main game (shabang code) */
         'game': "game", // Entire game instance and low level game instance control methods
       
-        /* Systems (Core game mechanics) */
-        'about.SYS': "systems/about/about", // About system
-        'audio.SYS': "systems/audio/audio", // Audio system
-        'characterselection.SYS': "systems/characterselection/characterselection", // Controls system
-        'config.SYS': "systems/config/config", // Game Config system
-        'controls.SYS': "systems/controls/controls", // Controls system
-        'debug.SYS': "systems/debug/debug", // Debugging system
-        'diydie.SYS': "systems/maps/maps", // Map System (Currently inline coded MAP only)
-        'footer.SYS': "systems/footer/footer", // Map System (Currently inline coded MAP only)
-        'gamedirector.SYS': "systems/gamedirector/gamedirector", // Game Director system
-        'gameinfo.SYS': "systems/gameinfo/gameinfo", // Game Info system
-        'gameobjects.SYS': "systems/gameobjects/gameobjects", // Game Objects system
-        'header.SYS': "systems/header/header", // Header system
-        'highscores.SYS': "systems/highscores/main", // Header system
-        'init.SYS': "systems/init/init", // Initialization system
-        'mainmenu.SYS': "systems/mainmenu/mainmenu", // Main Menu system
-        'marquee.SYS': "systems/marquee/marquee", // Marquee system
-        'notification.SYS': "systems/notification/notification", // Notification system
-        'player.SYS': "systems/player/player", // Player system
-        'points.SYS': "systems/points/points", // Points system
-        'profile.SYS': "systems/profile/profile", // Profile system
-        'social.SYS': "systems/social/social", // Social system
-        'spawner.SYS': "systems/spawner/spawner", // Spawner system
-        'sprites.SYS': "systems/sprites/sprites", // Sprites system
-        'theme.SYS': "systems/theme/theme", // Theme system
-        /* TODO: Get this system setup as a requirejs text library, rather than a system */
-        'windows.SYS': "systems/windows", // AJAX-XSLT templates system
+        /* Packages */
+        'about.PKG': "packages/about/main", // About package
+        'audio.PKG': "packages/audio/main", // Audio package
+        'characterselection.PKG': "packages/characterselection/main", // Controls package
+        'config.PKG': "packages/config/main", // Game Config package
+        'controls.PKG': "packages/controls/main", // Controls package
+        'debug.PKG': "packages/debug/main", // Debugging package
+        'diydie.PKG': "packages/maps/main", // Map package (Currently inline coded MAP only)
+        'footer.PKG': "packages/footer/main", // Footer package
+        'gamedirector.PKG': "packages/gamedirector/main", // Game Director package
+        'gameinfo.PKG': "packages/gameinfo/main", // Game Info package
+        'gameobjects.PKG': "packages/gameobjects/main", // Game Objects package
+        'header.PKG': "packages/header/main", // Header package
+        'highscores.PKG': "packages/highscores/main", // Highscores package
+        'init.PKG': "packages/init/main", // Initialization package
+        'mainmenu.PKG': "packages/mainmenu/main", // Main Menu package
+        'marquee.PKG': "packages/marquee/main", // Marquee package
+        'notification.PKG': "packages/notification/main", // Notification package
+        'player.PKG': "packages/player/main", // Player package
+        'points.PKG': "packages/points/main", // Points package
+        'profile.PKG': "packages/profile/main", // Profile package
+        'social.PKG': "packages/social/main", // Social package
+        'spawner.PKG': "packages/spawner/main", // Spawner package
+        'sprites.PKG': "packages/sprites/main", // Sprites package
+        'theme.PKG': "packages/theme/main", // Theme package
+        /* TODO: Move this packages to regeneration core and rename */
+        'windows.PKG': "packages/windows", // AJAX-XSLT templates package
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module

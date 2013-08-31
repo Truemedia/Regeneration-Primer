@@ -9,7 +9,7 @@
 */
 define(["./jQuery", "./KO"], function(jQuery, ko) {
 	return Gun = {
-		binding_element_id: "inventory_window",
+		binding_element_id: "inventory_partial",
 		init: function(){
 			// TODO: Ammo count viewmodel (in progress)
 			/*jQuery('.inventory_item').each(function(itemIteration, item) {
@@ -39,7 +39,7 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
 		populateAmmo: function(){
 			// TODO: Extract in-use content pack from config
 			var contentpack = "default";
-			jQuery.get('windows/inventory/inventory.xml', function(xml){
+			jQuery.get('packages/inventory/inventory.xml', function(xml){
 				var json = jQuery.xml2json(xml);
 				
 				jQuery.each(json.inventory.item, function(itemIteration, item) {
