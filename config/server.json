@@ -1,0 +1,9 @@
+{
+	"used": false,
+	"language": "PHP",
+	"version": "N/A",
+	"webserver": "Apache",
+	"domain": "",
+	"sef": false,
+	"spa": true 
+}

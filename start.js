@@ -55,6 +55,9 @@ require.config({
         
         /* Main game (shabang code) */
         'game': "game", // Entire game instance and low level game instance control methods
+        
+        /* Core classes */
+        'Config': "regeneration/configuration", // Config class
       
         /* Packages */
         'about.PKG': "packages/about/main", // About package
