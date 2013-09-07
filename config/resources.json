@@ -12,16 +12,16 @@
 		"modules": "modules",
 		"multimedia": {
 			// Determine paths based on Content Pack
-			"audio": "multimedia/"+this.settings.contentpack+"-contentpack/audio/",
-			"images": "multimedia/"+this.settings.contentpack+"-contentpack/images/",
-			"video": "multimedia/"+this.settings.contentpack+"-contentpack/video/"
+			"audio": "multimedia/default-contentpack/audio/",
+			"images": "multimedia/default-contentpack/images/",
+			"video": "multimedia/default-contentpack/video/"
 		},
 		"scenes": "scenes",
 		"stylesheets": {
 			// Determine paths based on Theme
-			"game_styling": "stylesheets/"+this.settings.theme+"-theme/game_styling",
-			"themeroller_styling": "stylesheets/"+this.settings.theme+"-theme/themeroller_styling",
-			"character_styling": "stylesheets/"+this.settings.theme+"-theme/character_styling"
+			"game_styling": "stylesheets/default-theme/game_styling",
+			"themeroller_styling": "stylesheets/default-theme/themeroller_styling",
+			"character_styling": "stylesheets/default-theme/character_styling"
 		},
 		"packages": "packages",
 		"windows": "windows"

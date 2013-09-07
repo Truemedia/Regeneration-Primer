@@ -7,12 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
 	return sprites = {
 		
 		setup: function(){
-			// TODO: Extract in-use content pack from config
-			var contentpack = "default";
+			var contentpack = Config.get('game.content_pack', 'default');
 			var sprites_dir = "multimedia/"+contentpack+"-contentpack/images/";
 			var f = ".png"; // Only file format used at the moment
 		

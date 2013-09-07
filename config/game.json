@@ -1,6 +1,6 @@
 {
 	"version": "Pre 0.1",
-	"contentpack": "default",
+	"content_pack": "default",
 	"theme": "default",
 	"resolution": {
 		"width": "1280",

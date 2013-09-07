@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./init.PKG"], function(jQuery, Crafty, init) {
+define(["./jQuery", "./Crafty", "./Config", "./init.PKG"], function(jQuery, Crafty, Config, init) {
 	return maps = {
 		
 		layers: 1,
@@ -17,8 +17,7 @@ define(["./jQuery", "./Crafty", "./init.PKG"], function(jQuery, Crafty, init) {
 			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
 		
 			// Sprite Map for charachters
-			// TODO: Extract in-use content pack from config
-			var contentpack = "default";
+			var contentpack = Config.get('game.content_pack', 'default');
 			
 			/* Comment in to enable proto floor (useful for debugging) */
 			/*Crafty.sprite(24, "multimedia/"+contentpack+"-contentpack/images/textures/flooring/proto_floor.png", {
@@ -49,8 +48,9 @@ define(["./jQuery", "./Crafty", "./init.PKG"], function(jQuery, Crafty, init) {
    				wall_front_tile: [0, 0, 24, 4]
 			});
 	
-			var map_size_x = resolution_width;
-			var map_size_y = resolution_height;
+			var resolution = Config.get('game.resolution');
+			var map_size_x = resolution.width;
+			var map_size_y = resolution.height;
 			var flooring_size_per_unit_x = 24;
 			var flooring_size_per_unit_y = 24;
 			var vert_wall_offset = 4;

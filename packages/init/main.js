@@ -7,13 +7,20 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./Modernizr"], function(jQuery, Crafty, Modernizr) {
+define(["./jQuery", "./Crafty", "./Modernizr", "./Config"], function(jQuery, Crafty, Modernizr, Config) {
 	return init = {
 		initGame: function(){
+
+			// Get game resolution from config file
+			var resolution = Config.get('game.resolution');
+
 			// Setup Crafty area
-			Crafty.init(resolution_width, resolution_height).canvas.init();
+			Crafty.init(resolution.width, resolution.height).canvas.init();
+			
 			// Set a background color to debug canvas if needed (uncomment to use)
-			/*Crafty.background("yellow");*/
+			/* TODO: Set this color based on time of day (based on sky color)
+			 * Crafty.background("yellow");
+			*/
 		},
 		getRenderEngine: function(){
 			// Determine what Rendering engine to use (Currently 'Canvas' or 'DOM')

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./KO"], function(jQuery, ko) {
+define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
 	return Gun = {
 		binding_element_id: "inventory_partial",
 		init: function(){
@@ -37,8 +37,7 @@ define(["./jQuery", "./KO"], function(jQuery, ko) {
     		}, this);
 		},*/
 		populateAmmo: function(){
-			// TODO: Extract in-use content pack from config
-			var contentpack = "default";
+			var contentpack = Config.get('game.content_pack', 'default');
 			jQuery.get('packages/inventory/inventory.xml', function(xml){
 				var json = jQuery.xml2json(xml);
 				
