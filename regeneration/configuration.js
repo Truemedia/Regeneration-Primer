@@ -48,14 +48,11 @@ define(["./jQuery", "./JSONpatch"], function(jQuery, JSONpatch) {
 			var value = new JSONpatch.JSONPointer(json_pointer).get(data);
 
 			if (value === undefined){
-				data = new JSONpatch.JSONPointer(json_pointer).add(data, supplied_value);
+				Config.files[file_name] = new JSONpatch.JSONPointer(json_pointer).add(data, supplied_value);
 			}
 			else {
-				data = new JSONpatch.JSONPointer(json_pointer).replace(data, supplied_value);
+				Config.files[file_name] = new JSONpatch.JSONPointer(json_pointer).replace(data, supplied_value);
 			}
-			
-			// Update stored data
-			Config.files[file_name] = data;
 		},
 		
 		/* Return a config json array matched to filename from inside the class */
