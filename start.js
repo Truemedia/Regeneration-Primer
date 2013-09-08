@@ -52,6 +52,9 @@ require.config({
         'Bootstrap': [
         	"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min"
         ], // Bootstrap
+        'JSONpatch': [
+            "dependencies/jsonpatch.min" // local
+        ], // JSON patch
         
         /* Main game (shabang code) */
         'game': "game", // Entire game instance and low level game instance control methods

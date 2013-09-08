@@ -7,20 +7,23 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/about/partial", "./Bootstrap"], function(view, jQuery) {
+define(["hgn!packages/about/partial", "./Bootstrap", "./Config"], function(view, jQuery, Config) {
 	return about = {
 			
 		// Partial loading location	
 		partial_block_element: 'about_partial',
 			
 	 	init: function(){
-
-			// Load view data via system's JSON
-			jQuery.getJSON("packages/about/data.json", function(data){
+	 		
+	 		// Build data
+	 		data = {
+	 			"version": Config.get('game.version'),
+	 			"game_name": Config.get('game.name')
+	 		};
 			
-				// Mustache
-       			document.getElementById(about.partial_block_element).innerHTML = view(data);
-			});
+			// Mustache
+       		document.getElementById(about.partial_block_element).innerHTML = view(data);
+       		
 			console.log("About PACKAGE loaded");
 		}
 	}
