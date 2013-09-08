@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/theme/partial", "./Bootstrap", "jQ.Datatables"], function(view, jQuery) {
+define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"], function(view, Config, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array
@@ -69,11 +69,10 @@ define(["hgn!packages/theme/partial", "./Bootstrap", "jQ.Datatables"], function(
 			jQuery('#current-theme').attr('src', theme_image_url);
 		},
 		
+		/* Function use to communicate with a CDN API, and download data for linking to resources */
 		cdnAPI: function(){
-		
-			// function use to communicate with a CDN API, and download data for linking to resources
-			// TODO: Move this line to config
-			cdn_api_url = "http://api.bootswatch.com";
+
+			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
 			
 			// Load list of BootSwatch themes via JSON API
 			jQuery.getJSON(cdn_api_url, function(data){
@@ -99,11 +98,9 @@ define(["hgn!packages/theme/partial", "./Bootstrap", "jQ.Datatables"], function(
 			})
 			// Fallback to function to only use statically set CDN and disable theme selector
 			.fail(function() { 
-				
-				// TODO: Make this temporary variable usable in a config
-				var bootstrap_version = '2';
+
 				console.log("CDN is down, diverting resources and disabling theme selector");
-				theme.load("http://bootswatch.com/"+bootstrap_version+"/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
+				theme.load("http://bootswatch.com/" + Config.get('services.bootswatch.version') + "/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
 			})
 		}
 	}
