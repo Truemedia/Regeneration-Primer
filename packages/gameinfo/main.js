@@ -16,7 +16,7 @@ define(["hgn!packages/gameinfo/partial", "./Bootstrap"], function(view, jQuery) 
 	 	init: function(){
 
 			// Load view data via system's JSON
-			jQuery.getJSON("packages/gameinfo/gameinfo.json", function(data){
+			jQuery.getJSON("packages/gameinfo/data.json", function(data){
 			
 				// Mustache
        			document.getElementById(gameinfo.partial_block_element).innerHTML = view(data);
