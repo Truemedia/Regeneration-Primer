@@ -28,22 +28,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
     			"sWrapper": "dataTables_wrapper form-inline"
 			});
 			
-			jQuery('#swatch-menu').dataTable({
-				// Pagination
-        		"bPaginate": true,
-        		//"sPaginationType": "bootstrap",
-        		"bLengthChange": false,
-        		
-        		// Limits
-        		"iDisplayLength": 5, 
-        		
-        		// Default overrides
-        		"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-        		"bFilter": false,
-        		"bSort": false,
-        		"bInfo": true,
-        		"bAutoWidth": false
-    		});
+			jQuery('#swatch-menu').dataTable(Config.instance('theme::datatable.all'));
 		},
 
 		registerEvents: function() { /* jQuery event handlers (for Theme) */
@@ -73,6 +58,12 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 		cdnAPI: function(){
 
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
+		
+			// Testing new config package functionality
+			var test_property_string = 'highscores::general.data_storage';
+			console.log(Config.get(test_property_string));
+			Config.set(test_property_string, 'the string containing local is now this');
+			console.log(Config.get(test_property_string));
 			
 			// Load list of BootSwatch themes via JSON API
 			jQuery.getJSON(cdn_api_url, function(data){

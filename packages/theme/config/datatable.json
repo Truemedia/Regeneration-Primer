@@ -1,0 +1,10 @@
+{
+	"bPaginate": true,
+	"bLengthChange": false,
+	"iDisplayLength": 5, 
+	"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+	"bFilter": false,
+	"bSort": false,
+	"bInfo": true,
+	"bAutoWidth": false
+}
