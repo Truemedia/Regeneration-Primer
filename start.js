@@ -179,7 +179,7 @@ require.config({
     // configure i18n! plugin
     config: {
         i18n: {
-            locale: 'jp'
+            locale: 'en'
         }
     }});
 // Run the game launcher (Game system - method)
