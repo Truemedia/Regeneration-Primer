@@ -70,6 +70,7 @@ require.config({
         'controls.PKG': "packages/controls/main", // Controls package
         'debug.PKG': "packages/debug/main", // Debugging package
         'diydie.PKG': "packages/maps/main", // Map package (Currently inline coded MAP only)
+        'feed.PKG': "packages/feed/main", // Feed package
         'footer.PKG': "packages/footer/main", // Footer package
         'gamedirector.PKG': "packages/gamedirector/main", // Game Director package
         'gameinfo.PKG': "packages/gameinfo/main", // Game Info package
@@ -107,7 +108,10 @@ require.config({
         /* jQuery UI files */
         'jQ.ui': "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min", // Core file
         
-        /* Libraries (For UI, FX, and API's) */
+        /* Formatting libraries */
+        'moment': "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min", // MomentJS (Date and time formatting)
+        
+        /* General Libraries (For UI, FX, and API's) */
         //'forkit': "libs/forkitJs/js/forkit", // ForkIt fancy link
         'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },

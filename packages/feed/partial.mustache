@@ -1,0 +1,24 @@
+<!-- Feed -->
+<div>
+	{{#entries}}
+	<div class="thumbnail">
+			<h4><strong><a href="#">{{title}}</a></strong></h4>
+			{{content}}
+			<br /><br />
+			<p><a class="btn btn-small" href="{{link}}" target="_blank">Read more</a></p>
+		<p class="pull-center">
+			<i class="icon-user"></i> by <a href="https://github.com/Truemedia">{{author}}</a>
+			| <i class="icon-calendar"></i> {{published}}
+			<!--| <i class="icon-comment"></i> <a href="#">3 Comments</a>-->
+			<!--| <i class="icon-share"></i> <a href="#">39 Shares</a>-->
+		</p>
+		<!--<p>
+			<i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
+			<a href="#"><span class="label label-info">Bootstrap</span></a>
+			<a href="#"><span class="label label-info">UI</span></a>
+			<a href="#"><span class="label label-info">growth</span></a>
+		</p>-->
+    </div>
+    <hr>
+    {{/entries}}
+</div>

@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Include everything
-define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', 'characterselection.PKG', 'mainmenu.PKG', 'gameinfo.PKG', 'about.PKG', 'theme.PKG', 'points.PKG', 'audio.PKG', 'Health.MOD', 'debug.PKG', 'init.PKG', 'sprites.PKG', 'controls.PKG', 'diydie.PKG', 'spawner.PKG', 'gameobjects.PKG', 'gamedirector.PKG', 'windows.PKG', 'Gun.MOD', 'notification.PKG', 'marquee.PKG', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', 'characterselection.PKG', 'mainmenu.PKG', 'gameinfo.PKG', 'about.PKG', 'feed.PKG', 'theme.PKG', 'points.PKG', 'audio.PKG', 'Health.MOD', 'debug.PKG', 'init.PKG', 'sprites.PKG', 'controls.PKG', 'diydie.PKG', 'spawner.PKG', 'gameobjects.PKG', 'gamedirector.PKG', 'windows.PKG', 'Gun.MOD', 'notification.PKG', 'marquee.PKG', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, feed, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
     		jQuery(document).ready( function(jQuery){
@@ -23,6 +23,7 @@ define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', '
 				mainmenu.init();
 				gameinfo.init();
 				about.init();
+				feed.init();
 	
 				// Load header and footer
 				header.init();

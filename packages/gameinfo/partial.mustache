@@ -1,23 +1,28 @@
 <!-- Game Info -->
-<div class="modal-header">
-	<h3 id="gameinfo-system-name">Game info</h3>
-</div>
-<div class="modal-body">
-	<ul class="thumbnails">
-    	<li class="span4">
-    		<div class="thumbnail">
-   				<img data-src="holder.js/300x200" alt="">
-    			<h3>{{gamename}}</h3>
-    			<p>{{gamedescription}}</p>
-    		</div>
-		</li>
-    </ul>
-	<!-- External links -->
-	<div class="btn-group">
-    	<button class="btn">Buy now</button>
-    	<button class="btn">Reviews</button>
-    	<button class="btn">Trailers</button>
-    	<button class="btn">Screenshots</button>
+<div class="modal-body" style="height: 1200px;">
+	<div class="span5">
+
+      <h3 id="tabs">{{gamename}} - {{gamedescription}}</h3>
+      <ul class="nav nav-tabs">
+      <li class=""><a data-toggle="tab" href="#feed_partial">News</a></li>
+        <li class=""><a data-toggle="tab" href="#changelog">Updates</a></li>
+<li class=""><a data-toggle="tab" href="#videos">Videos</a></li>
+<li class=""><a data-toggle="tab" href="#screenshots">Screenshots</a></li>
+      </ul>
+      <div class="tabbable">
+	  	<div class="tab-content">
+	        <div id="feed_partial" class="tab-pane active"></div>
+	        <div id="changelog" class="tab-pane">
+	        	<p>Change log goes here</p>
+	        </div>
+	        <div id="videos" class="tab-pane">
+	        	<p>Videos go here</p>
+	        </div>
+	        <div id="screenshots" class="tab-pane">
+	        	<p>Screenshots go here</p>
+	        </div>
+	    	</div>
+    	</div> <!-- /tabbable -->  
     </div>
 </div>
 <div class="modal-footer">
