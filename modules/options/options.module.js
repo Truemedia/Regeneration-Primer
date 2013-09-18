@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!modules/options/options.module", "./jQuery", "./KO", "./header.PKG", "./audio.PKG", "./marquee.PKG", "./controls.PKG", "./debug.PKG"], function(window, jQuery, ko, header, audio, marquee, controls, debug) {
+define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.PKG", "./audio.PKG", "./marquee.PKG", "./controls.PKG", "./debug.PKG"], function(window, jQuery, ko, header, audio, marquee, controls, debug) {
 	return Options = {
 	
 		parent_system: "header",
@@ -53,19 +53,19 @@ define(["hgn!modules/options/options.module", "./jQuery", "./KO", "./header.PKG"
 		
 		registerEvents: function() { /* jQuery event handlers (for Options menu) */
 			// Enable or disable debugging UI
-			jQuery("#debug_toggle").tooltip();
+			jQuery("#debug_toggle").popover();
 			jQuery("#"+Options.parent_system+"_partial").on("click", "#debug_toggle", function(event){
 				debug.initDebugger(event);
 			});
 			
 			// Mute or unmute audio
-			jQuery("#audio_toggle").tooltip();
+			jQuery("#audio_toggle").popover();
 			jQuery("#"+Options.parent_system+"_partial").on("click", "#audio_toggle", function(event){
 				audio.toggleAudio(event);
 			});
 			
 			// Hide or display unnecessary windows
-			jQuery("#header_toggle").tooltip();
+			jQuery("#header_toggle").popover();
 			jQuery("#"+Options.parent_system+"_partial").on("click", "#header_toggle", function(event){
 				marquee.toggleHeader();
 			});
@@ -92,7 +92,7 @@ define(["hgn!modules/options/options.module", "./jQuery", "./KO", "./header.PKG"
 			require("header.PKG").loadDOM();
 			
 			// Apply all KO bindings
-			Options.registerBindings();
+			/* Options.registerBindings(); */
 			
 			// Register jQuery event handlers
 			Options.registerEvents();
