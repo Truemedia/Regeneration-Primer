@@ -1,0 +1,45 @@
+<!-- Controls -->
+<div class="modal-header">
+	<h3 id="controls-system-name">Controls</h3>
+</div>
+<div class="modal-body">
+	<div class="span5">
+
+      <h3 id="tabs">Manage controls</h3>
+      <ul class="nav nav-tabs">
+      	<li class=""><a data-toggle="tab" href="#screens">Screens</a></li>
+        <li class=""><a data-toggle="tab" href="#player">Player</a></li>
+		<li class=""><a data-toggle="tab" href="#weapons">Weapons</a></li>
+      </ul>
+      <div class="tabbable">
+	  	<div class="tab-content">
+	        <div id="screens" class="tab-pane">
+	        	<p>
+		        	<span class="control_instruction"><span class="key_expression_hold">Hold </span><span class="key_hint">{{screens.view_scores}}</span> to view scores</span>
+	    			<span class="control_instruction"><span class="key_expression_press">Press </span><span class="key_hint">{{screens.toggle_inventory}}</span> to toggle inventory</span>
+	    		</p>
+	        </div>
+	        <div id="player" class="tab-pane active">
+	        	<p>
+	        		<span class="control_instruction"><span class="key_expression_hold">Hold </span><span class="key_hint">{{player.move_up}}</span> to move up</span>
+	        		<span class="control_instruction"><span class="key_expression_hold">Hold </span><span class="key_hint">{{player.move_left}}</span> to move left</span>
+	        		<span class="control_instruction"><span class="key_expression_hold">Hold </span><span class="key_hint">{{player.move_down}}</span> to move down</span>
+	        		<span class="control_instruction"><span class="key_expression_hold">Hold </span><span class="key_hint">{{player.move_right}}</span> to move right</span>
+	        	</p>
+	        </div>
+	        <div id="weapons" class="tab-pane">
+	        	<p>
+		        	<span class="control_instruction"><span class="key_hint">{{weapons.shoot}}</span> mouse to shoot<br /></span>
+				    <span class="control_instruction"><span class="key_expression_press">Press </span><span class="key_hint">{{weapons.throw_away_mag}}</span> to throw away mag</span>
+				    <span class="control_instruction"><span class="key_expression_press">Press </span><span class="key_hint">{{weapons.enter_new_mag}}</span> to enter new mag</span>
+				    <span class="control_instruction"><span class="key_expression_press">Press </span><span class="key_hint">{{weapons.reconnect_new_mag}}</span> to reconnect new mag</span>
+				    <span class="control_instruction"><span class="key_expression_press">Press </span><span class="key_hint">{{weapons.chamber}}</span> to chamber</span>
+				</p>
+	        </div>
+	    	</div>
+    	</div> <!-- /tabbable -->  
+    </div>
+</div>
+<div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>

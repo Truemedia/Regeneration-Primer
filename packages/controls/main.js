@@ -7,8 +7,41 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["hgn!packages/controls/partial", "./Bootstrap", "./Crafty"], function(view, jQuery, Crafty) {
 	return controls = {
+		
+		// Partial loading location	
+		partial_block_element: 'controls_partial',
+				
+		init: function(){
+		 		
+		 	// Build data
+		 	data = {
+		 		screens: {
+			 		"view_scores": "SHIFT",
+			 		"toggle_inventory": "SPACE"
+		 		},
+		 		player: {
+		 			"move_up": "W",
+		 			"move_left": "A",
+		 			"move_down": "S",
+		 			"move_right": "D"
+		 		},
+		 		weapons: {
+			 		"shoot": "LEFT CLICK",
+			 		"throw_away_mag": "T",
+			 		"enter_new_mag": "E",
+			 		"reconnect_new_mag": "R",
+			 		"chamber": "C"
+		 		}
+		 	};
+				
+			// Load view
+	       	document.getElementById(controls.partial_block_element).innerHTML = view(data);
+	       		
+			console.log("Controls PACKAGE loaded");
+		},
+			
 		mapper: function(){
 			Crafty.c("LeftControls", {
     			init: function() {

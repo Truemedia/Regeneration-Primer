@@ -31,6 +31,8 @@ define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', '
 				footer.init();
 				highscores.init();
 				
+				// Setup controls
+				controls.init();
 				// Setup theme/themes
 				theme.init();
 				

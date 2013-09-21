@@ -69,16 +69,6 @@ define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.P
 			jQuery("#"+Options.parent_system+"_partial").on("click", "#header_toggle", function(event){
 				marquee.toggleHeader();
 			});
-		
-			// Show control hints
-			var tooltip_content = "<span class='control_instruction'><span class='key_expression_hold'>Hold </span><span class='key_hint'>'SHIFT'</span> to view scores</span>"
-    						+"<span class='control_instruction'><span class='key_expression_press'>Press </span><span class='key_hint'>'SPACE'</span> to toggle inventory</span>"
-    						+"<span class='control_instruction'><span class='key_hint'>'LEFT CLICK'</span> mouse to shoot<br /></span>"
-    						+"<span class='control_instruction'><span class='key_expression_press'>Press </span><span class='key_hint'>'T'</span> to throw away mag</span>"
-    						+"<span class='control_instruction'><span class='key_expression_press'>Press </span><span class='key_hint'>'E'</span> to enter new mag</span>"
-    						+"<span class='control_instruction'><span class='key_expression_press'>Press </span><span class='key_hint'>'R'</span> to reconnect new mag</span>"
-    						+"<span class='control_instruction'><span class='key_expression_press'>Press </span><span class='key_hint'>'C'</span> to chamber</span>";
-			jQuery("#controls_tooltip").popover();
 			
 		/* jQuery event handlers (for Options menu) */ },
 		
