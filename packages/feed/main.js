@@ -53,8 +53,6 @@ define(["hgn!packages/feed/partial", "moment", "./Bootstrap"], function(view, mo
 	    		
 	    		var published_date = data.published.$t;
 	    		
-	    		console.log(feed.entry);
-	    		
 	    		entry = {
 	    			title: data.title.$t,
 	    			content: data.content.$t,

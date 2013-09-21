@@ -7,34 +7,13 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-// Include everything
-define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', 'characterselection.PKG', 'mainmenu.PKG', 'gameinfo.PKG', 'about.PKG', 'feed.PKG', 'theme.PKG', 'points.PKG', 'audio.PKG', 'Health.MOD', 'debug.PKG', 'init.PKG', 'sprites.PKG', 'controls.PKG', 'diydie.PKG', 'spawner.PKG', 'gameobjects.PKG', 'gamedirector.PKG', 'windows.PKG', 'Gun.MOD', 'notification.PKG', 'marquee.PKG', 'jQ.flyoff'], function(jQuery, Crafty, header, footer, highscores, characterselection, mainmenu, gameinfo, about, feed, theme, points, audio, health, debug, init, sprites, controls, diydie, spawner, gameobjects, gamedirector, windows, Gun, notification, marquee) {
+// Logic for the most important game events
+define(function(require, exports, module) {
 	return game = {
 		launch: function(){ // Game starts here (launcher)
+			
+			var jQuery = require('jQuery');
     		jQuery(document).ready( function(jQuery){
-    			// TODO: Add cleanup hidden process
-    			jQuery('#marquee_partial').toggle();
-    			jQuery('.partial-column').toggle();
-	
-				// Enable Music/Audio dialogue/Sounds
-				audio.initGameAudio();
-				
-				// Information screens made of modals
-				mainmenu.init();
-				gameinfo.init();
-				about.init();
-				feed.init();
-	
-				// Load header and footer
-				header.init();
-				characterselection.init();
-				footer.init();
-				highscores.init();
-				
-				// Setup controls
-				controls.init();
-				// Setup theme/themes
-				theme.init();
 				
 				/* CHARACTER SELECTION EVENT */
 				jQuery('#characterselection_partial').on("click", ".start_session", function(event){
@@ -54,49 +33,21 @@ define(['jQ.xslt', 'config.PKG', 'header.PKG', 'footer.PKG', 'highscores.PKG', '
 						});
 					}
 				});	
-	
-				return jQuery.noConflict(true);
 			});
 		},
 		startSession: function(event, characterselected){ // Startup the actual game environment (once the player is happy to start)
-			/* Delete selection screen */
-			jQuery("#characterselection_partial").remove();
+
+			/* Deactivate selection screen */
+			characterselection.deactivate();
 
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
+			var jQuery = require('jQuery');
     		jQuery('#marquee_partial').toggle();
     		
-			// Initializer
-			init.initGame();
-
-			// Setup all images as sprites
-			sprites.setup();
-
-			// Controls
-			controls.mapper();
-
-			// Generate Map
-			diydie.generateWorld();
-
-			// Put in the Game Objects
-			gameobjects.gameObjects(characterselected);
-	
-			// Initialize Game Director
-			gamedirector.initGameDirector(characterselected);
-	
-			// Initialize session partials
-			points.init();
-			windows.init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
-		
-			// Enable debugging (but hide from view)
-			debug.initDebugger(null);
-			
-			// New gun module interface 
-			// TODO: Use this standard for all other modules, or evolve upon it
-			Gun.init();
-			
-			// Setup notification system
-			notification.init();
+    		// Load session packages
+    		var app = require('app');
+    		app.session_packages(characterselected);
 		}
 	}
 });

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.xml2json", "./Crafty", "./Gun.MOD", "./social.PKG", "./debug.PKG", "./marquee.PKG", "./profile.PKG"], function(jQuery, Crafty, Gun, social, debug, marquee, profile) {
+define(["./Crafty", "./Gun.MOD", "./social.PKG", "./debug.PKG", "./marquee.PKG", "./profile.PKG", "./jQ.xml2json", "./jQ.xslt"], function(Crafty, Gun, social, debug, marquee, profile, jQuery) {
 	return windows = {
 		init: function(windowObject){
 			// Make chainable callback since XSLT plugin callback support is bugged

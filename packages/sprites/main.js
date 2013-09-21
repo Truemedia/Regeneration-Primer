@@ -11,8 +11,7 @@ define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
 	return sprites = {
 		
 		setup: function(){
-			var contentpack = Config.get('game.content_pack', 'default');
-			var sprites_dir = "multimedia/"+contentpack+"-contentpack/images/";
+			var sprites_dir = Config.get('resources.directories.multimedia.images');
 			var f = ".png"; // Only file format used at the moment
 		
 			// Load all sprites
@@ -40,8 +39,9 @@ define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
 		setupCharacters: function(sprites_dir, f){
 			/* Sprite maps for Characters */
 			// Directories
-			var characters_sprites_dir = characters_image_directory + default_sprite_filename_prefix;
-			var af = default_sprite_filename_suffix; // Alternative filename.fileformat
+			var characters_image_directory = sprites_dir + "characters/";
+			var characters_sprites_dir = characters_image_directory + Config.get('resources.sprites.default_sprite_filename_prefix');
+			var af = Config.get('resources.sprites.default_sprite_filename_suffix'); // Alternative filename.fileformat
 			
 			Crafty.sprite(characters_sprites_dir+"Coward"+af, { coward: [0, 0, 128, 256] }); /* Coward */
 			Crafty.sprite(characters_sprites_dir+"Criminal"+af, { criminal: [0, 0, 128, 256] }); /* Criminal */

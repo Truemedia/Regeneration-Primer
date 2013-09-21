@@ -12,37 +12,41 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 		initGameAudio: function(){
 			// Audio with only one format (using default audio file) TODO: Make filetype choice based on browser
 			var f = ".wav";
+			var audio_dir = Config.get('resources.directories.multimedia.audio');
 			
 			this.register_SFX(f);
-			jQuery.getJSON("packages/default_settings.json", function(audio_manager_defaults) {
-				// Load sound as resource
-				Crafty.audio.add(audio_manager_defaults['background_music'], audio_dir+audio_manager_defaults['background_music']+"/"+audio_manager_defaults['background_music']+f);
+			var audio_manager_defaults = Config.instance('controls::default.all');
+
+			// Load sound as resource
+			Crafty.audio.add(audio_manager_defaults.background_music, audio_dir+audio_manager_defaults.background_music+"/"+audio_manager_defaults.background_music+f);
 		
-				// Play sound through mixer API (only play when toggled, annoying for development)
-				//Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
-			});
+			// Play sound through mixer API (only play when toggled, annoying for development)
+			//Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
 		},
 		toggleAudio: function(event){ 
-			jQuery.getJSON("packages/default_settings.json", function(audio_manager_defaults) {
-				// Mute or unmute all audio
-				if(jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")){
-					/* Mute audio */
-					// Play sound through mixer API
-					Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],"0.0");
-					jQuery("#audio_toggle > span").removeClass("ui-icon-volume-on")
-						.addClass("ui-icon-volume-off");
-				}
-				else{
-					/* Unmute audio */
-					// Play sound through mixer API
-					Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
-					jQuery("#audio_toggle > span").removeClass("ui-icon-volume-off")
-						.addClass("ui-icon-volume-on");
-				}
-			});
+			var audio_manager_defaults = Config.instance('controls::default.all');
+
+			// Mute or unmute all audio
+			if(jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")){
+				/* Mute audio */
+				// Play sound through mixer API
+				Crafty.audio.play(audio_manager_defaults.background_music,audio_manager_defaults.loop_count,"0.0");
+				jQuery("#audio_toggle > span").removeClass("ui-icon-volume-on")
+					.addClass("ui-icon-volume-off");
+			}
+			else{
+				/* Unmute audio */
+				// Play sound through mixer API
+				Crafty.audio.play(audio_manager_defaults.background_music, audio_manager_defaults.loop_count, audio_manager_defaults.volume_percent);
+				jQuery("#audio_toggle > span").removeClass("ui-icon-volume-off")
+					.addClass("ui-icon-volume-on");
+			}
 		},
 		// Make sound effects audio files accessable
 		register_SFX: function(f){
+			
+			var audio_dir = Config.get('resources.directories.multimedia.audio');
+			
 			Crafty.audio.add("shoot", audio_dir+"ar-15/shot1"+f);
 			Crafty.audio.add("discard_mag", audio_dir+"ar-15/discarding_mag"+f);
 			Crafty.audio.add("insert_mag", audio_dir+"ar-15/loading_mag"+f);

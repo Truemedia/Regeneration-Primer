@@ -31,7 +31,9 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			jQuery('#swatch-menu').dataTable(Config.instance('theme::datatable.all'));
 		},
 
-		registerEvents: function() { /* jQuery event handlers (for Theme) */
+		// jQuery event handlers
+		registerEvents: function() {
+
 			// Trigger a change in theme
 			jQuery("#swatch-menu").on("click", ".bootswatch-theme", function (event){
 			
@@ -39,8 +41,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 				var theme_image_url = jQuery(this).children().attr('src');
 				theme.load(theme_stylesheet_url, theme_image_url);
 			});
-
-		/* jQuery event handlers (for Theme) */ },
+		},
 
 		load: function(theme_stylesheet_url, theme_image_url) {
 			
@@ -58,12 +59,6 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 		cdnAPI: function(){
 
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
-		
-			// Testing new config package functionality
-			var test_property_string = 'highscores::general.data_storage';
-			console.log(Config.get(test_property_string));
-			Config.set(test_property_string, 'the string containing local is now this');
-			console.log(Config.get(test_property_string));
 			
 			// Load list of BootSwatch themes via JSON API
 			jQuery.getJSON(cdn_api_url, function(data){
@@ -92,7 +87,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 
 				console.log("CDN is down, diverting resources and disabling theme selector");
 				theme.load("http://bootswatch.com/" + Config.get('services.bootswatch.version') + "/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
-			})
+			});
 		}
 	}
 });

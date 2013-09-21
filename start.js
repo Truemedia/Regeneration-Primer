@@ -56,8 +56,9 @@ require.config({
             "dependencies/jsonpatch.min" // local
         ], // JSON patch
         
-        /* Main game (shabang code) */
-        'game': "game", // Entire game instance and low level game instance control methods
+        /* Main files */
+        'app': "app", // Application instance and low level application instance control methods
+        'game': "game", // Game instance and low level game instance control methods
         
         /* Core classes */
         'Config': "regeneration/configuration", // Config class
@@ -182,7 +183,7 @@ require.config({
             locale: 'en'
         }
     }});
-// Run the game launcher (Game system - method)
-require(['game'], function(game){
-	game.launch();
+// Start the application (Run the main method)
+require(['app'], function(app){
+	app.start();
 });

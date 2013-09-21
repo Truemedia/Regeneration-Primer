@@ -32,6 +32,12 @@ define(["hgn!packages/characterselection/partial", "./jQuery", "./Crafty"], func
 			});
 		},
 		
+		// Deactivate package
+		deactivate: function(){
+
+			jQuery("#"+characterselection.partial_block_element).remove();
+		},
+		
 		registerEvents: function(){ /* jQuery event handlers (for Character Selection) */
 			
 			// New character select method
