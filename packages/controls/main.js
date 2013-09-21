@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "./Bootstrap", "./Crafty"], function(view, jQuery, Crafty) {
+define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty"], function(view, Config, jQuery, Crafty) {
 	return controls = {
 		
 		// Partial loading location	
@@ -16,25 +16,7 @@ define(["hgn!packages/controls/partial", "./Bootstrap", "./Crafty"], function(vi
 		init: function(){
 		 		
 		 	// Build data
-		 	data = {
-		 		screens: {
-			 		"view_scores": "SHIFT",
-			 		"toggle_inventory": "SPACE"
-		 		},
-		 		player: {
-		 			"move_up": "W",
-		 			"move_left": "A",
-		 			"move_down": "S",
-		 			"move_right": "D"
-		 		},
-		 		weapons: {
-			 		"shoot": "LEFT CLICK",
-			 		"throw_away_mag": "T",
-			 		"enter_new_mag": "E",
-			 		"reconnect_new_mag": "R",
-			 		"chamber": "C"
-		 		}
-		 	};
+		 	data = Config.instance('controls::default.all');
 				
 			// Load view
 	       	document.getElementById(controls.partial_block_element).innerHTML = view(data);
