@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./windows.PKG"], function(jQuery, Crafty, windows) {
+define(["./jQuery", "./Crafty", "./Package"], function(jQuery, Crafty, windows) {
 	return notification = {
 		init: function(){
 			/* TODO: consider using noty (jQuery plugin) for notifications enhancement */

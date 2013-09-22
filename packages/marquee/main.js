@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./windows.PKG", "./points.PKG", "./audio.PKG", "./controls.PKG", "./debug.PKG",], function(jQuery, Crafty, windows, points, audio, controls, debug) {
+define(["./jQuery", "./Crafty", "./Package", "./points.PKG", "./audio.PKG", "./controls.PKG", "./debug.PKG",], function(jQuery, Crafty, windows, points, audio, controls, debug) {
 	return marquee = {
 		toggleHeader: function(){
 			// Hide or show everything..

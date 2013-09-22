@@ -78,7 +78,7 @@ define(function(require, exports, module) {
 	
 			// Initialize session partials
 			require('points.PKG').init();
-			require('windows.PKG').init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
+			require('Package').init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
 		
 			// Enable debugging (but hide from view)
 			require('debug.PKG').initDebugger(null);

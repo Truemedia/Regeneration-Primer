@@ -62,6 +62,7 @@ require.config({
         
         /* Core classes */
         'Config': "regeneration/config", // Config class
+        'Package': "regeneration/package", // Package helper class
       
         /* Packages */
         'about.PKG': "packages/about/main", // About package
@@ -88,8 +89,6 @@ require.config({
         'spawner.PKG': "packages/spawner/main", // Spawner package
         'sprites.PKG': "packages/sprites/main", // Sprites package
         'theme.PKG': "packages/theme/main", // Theme package
-        /* TODO: Move this packages to regeneration core and rename */
-        'windows.PKG': "packages/windows", // AJAX-XSLT templates package
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module

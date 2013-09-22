@@ -1,7 +1,7 @@
 /* 
-* @file Windows PACKAGE
+* @file Package CLASS
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for loading windows, assigning window events, and general window maintenance (windows = widgets made of HTML,CSS and JavaScript)
+* @overview Core Regeneration Primer class used for package management and package instances
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
