@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/gameinfo/partial", "./Bootstrap"], function(view, jQuery) {
+define(["hgn!packages/gameinfo/partial", "./Bootstrap", 'Feed.MOD'], function(view, jQuery, feed) {
 	return gameinfo = {
 			
 		// Partial loading location	
@@ -18,8 +18,11 @@ define(["hgn!packages/gameinfo/partial", "./Bootstrap"], function(view, jQuery) 
 			// Load view data via system's JSON
 			jQuery.getJSON("packages/gameinfo/data.json", function(data){
 			
-				// Mustache
+				// Load view
        			document.getElementById(gameinfo.partial_block_element).innerHTML = view(data);
+       			
+       			// Run modules
+       			feed.init();
 			});
 			console.log("Game Info PACKAGE loaded");
 		}

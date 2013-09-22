@@ -71,9 +71,8 @@ require.config({
         'controls.PKG': "packages/controls/main", // Controls package
         'debug.PKG': "packages/debug/main", // Debugging package
         'diydie.PKG': "packages/maps/main", // Map package (Currently inline coded MAP only)
-        'feed.PKG': "packages/feed/main", // Feed package
         'footer.PKG': "packages/footer/main", // Footer package
-        'gamedirector.PKG': "packages/gamedirector/main", // Game Director package
+        'gamedirector.PKG': "packages/gamedirector/main", // Game Director package   
         'gameinfo.PKG': "packages/gameinfo/main", // Game Info package
         'gameobjects.PKG': "packages/gameobjects/main", // Game Objects package
         'header.PKG': "packages/header/main", // Header package
@@ -92,6 +91,7 @@ require.config({
         
         /* Game modules */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
+        'Feed.MOD': "packages/gameinfo/modules/feed/main", // Feed module
         'Health.MOD': "modules/health/health.module", // Health module
         'Options.MOD': "modules/options/options.module", // Options module
         'Score.MOD': "modules/score/score.module", // Score module

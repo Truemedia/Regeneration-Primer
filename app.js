@@ -38,7 +38,6 @@ define(function(require, exports, module) {
 			require('mainmenu.PKG').init();
 			require('gameinfo.PKG').init();
 			require('about.PKG').init();
-			require('feed.PKG').init();
 
 			// Load header and footer
 			require('header.PKG').init();

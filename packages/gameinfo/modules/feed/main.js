@@ -1,13 +1,13 @@
 /* 
-* @file Feed PACKAGE
+* @file Feed MODULE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used to display data from an external RSS feed source
+* @overview Module of game info package used to display data from an external RSS feed source
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/feed/partial", "moment", "./Bootstrap"], function(view, moment, jQuery) {
+define(["hgn!packages/gameinfo/modules/feed/partial", "moment", "./Bootstrap"], function(view, moment, jQuery) {
 	return feed = {
 		
 		/* Based on modified UI design posted on Bootsnipp (http://bootsnipp.com/snipps/blog-posts-with-picture) */	
