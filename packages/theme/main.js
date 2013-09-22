@@ -21,6 +21,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 		
 			// Fetch and load themes
 			theme.cdnAPI();
+   			console.log("Theme PACKAGE loaded");
 		},
 
 		dataTable: function(){
@@ -39,11 +40,73 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			
 				var theme_stylesheet_url = jQuery(this).attr('href');
 				var theme_image_url = jQuery(this).children().attr('src');
-				theme.load(theme_stylesheet_url, theme_image_url);
+				theme.stylesheet(theme_stylesheet_url, theme_image_url);
 			});
 		},
+		
+		// Load theme data, and intial theme based on game config or load random theme if not set
+		initialLoad: function(theme_data) {
+			
+			// Store theme data
+			theme.themes = theme_data;
+			
+			// Load initial theme
+			var theme_name = Config.get('game.theme', null);
+			if (theme_name !== null) {
+				
+				// Use theme set in config
+				console.log("Theme found in config")
+				theme.load(Config.get('game.theme'));
+			} else {
+				
+				// Use random theme
+				console.log("Theme not declared in config, using random theme");
+				theme.randomizr();
+			}
+		},
+		
+		// Load theme based on theme data
+		load: function(theme_name) {
+		
+			var initial_theme_stylesheet;
+			var initial_theme_image;
+			var themes = theme.themes;
+			
+			for (single_theme in themes) {
+				// Found passed theme
+			    if (themes[single_theme].name === theme_name) {
+			    	
+			    	console.log("Loading the theme: "+theme_name);
+			    	initial_theme_stylesheet = themes[single_theme].cssMin;
+					initial_theme_image = themes[single_theme].thumbnail;
+			    }
+			}
 
-		load: function(theme_stylesheet_url, theme_image_url) {
+			// Load theme
+			theme.stylesheet(initial_theme_stylesheet, initial_theme_image);
+		
+			// Load view
+   			document.getElementById(theme.partial_block_element).innerHTML = view(theme);
+   			
+   			// jQuery events
+   			theme.registerEvents();
+   			
+   			// Use themes as a datatable
+   			theme.dataTable();
+
+		},
+		
+		// Pick a theme at random to load up
+		randomizr: function() {
+			
+			var themes = theme.themes;
+			var random_theme = themes[Math.floor(Math.random()*themes.length)];
+
+			theme.load(random_theme.name);
+		},
+
+		// Load stylesheet for selected theme using URL and Theme thumbnail sources
+		stylesheet: function(theme_stylesheet_url, theme_image_url) {
 			
 			// remove current theme stylesheet
 			jQuery('#theme-stylesheet').remove();
@@ -56,37 +119,23 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 		},
 		
 		/* Function use to communicate with a CDN API, and download data for linking to resources */
-		cdnAPI: function(){
+		cdnAPI: function(cdn_url){
 
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
 			
 			// Load list of BootSwatch themes via JSON API
 			jQuery.getJSON(cdn_api_url, function(data){
-			
-				// Load initial theme (Cyborg)
-				initial_theme_stylesheet = data.themes[3].cssMin;
-				initial_theme_image = data.themes[3].thumbnail;
-				theme.load(initial_theme_stylesheet, initial_theme_image);
-			
-				// Mustache
-       			document.getElementById(theme.partial_block_element).innerHTML = view(data);
-       			
-       			// jQuery events
-       			theme.registerEvents();
-       			
-       			// Use themes as a datatable
-       			theme.dataTable();
-       			
-       			// Save themes in accessible array
-       			theme.themes = data.themes;
-       			
-       			console.log("Theme PACKAGE loaded");
+
+	   			// Load initial theme
+				theme.initialLoad(data.themes);
 			})
 			// Fallback to function to only use statically set CDN and disable theme selector
 			.fail(function() { 
 
-				console.log("CDN is down, diverting resources and disabling theme selector");
-				theme.load("http://bootswatch.com/" + Config.get('services.bootswatch.version') + "/cyborg/bootstrap.css", "http://bootswatch.com/cyborg/thumbnail.png");
+				console.log("CDN is down, falling back to cached resources");
+
+	   			// Load initial theme
+	   			theme.initialLoad(Config.get('theme::cached.all'));
 			});
 		}
 	}
