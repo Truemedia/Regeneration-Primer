@@ -115,7 +115,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
   					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })*/
   				);
   				/* Spawning bots gun */
-				Crafty.e("2D, "+render_engine+", wall_left, gun1, Tween, Text")
+				Crafty.e("2D, "+render_engine+", wall_left, gun1, Tween")
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id) + transitional_layer})
 					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300);
 			}
