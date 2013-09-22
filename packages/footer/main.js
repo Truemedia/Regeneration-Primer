@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Bootstrap.formhelpers.languages.codes", "./Bootstrap.formhelpers.languages"], function(view, lang, jQuery) {
+define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Bootstrap", "./Bootstrap.formhelpers.selectbox", "./Bootstrap.formhelpers.countries.en_US", "./Bootstrap.formhelpers.languages.codes", "./Bootstrap.formhelpers.languages"], function(view, lang, jQuery) {
 	return footer = {
 			
 		// Partial loading location	
