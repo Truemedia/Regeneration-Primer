@@ -1,1 +1,30 @@
-{{ ! TODO: Port XSLT code to Mustache }}
+{{#inventories}}
+		<div id="inventory_container">
+			{{#inventory}}
+			<ul class="inventory">
+				{{#items}}
+				<li class="inventory_item">
+					<h4 class="item_name">{{name}} ({{type}}) {{wield}} wield</h4>
+					<div class="item_sprite" 
+						 style="background:url('multimedia/default-contentpack/images/items/Guns/{{name}}.png') 0 0;">
+					</div>
+					{{#subitems}}
+					<dl class="subitem">
+						<dt class="subitem_attribute">{{text}}:</dt>
+						<dd class="subitem_value"><!-- data-bind="value: ammoCount" -->{{amount}}</dd>
+					</dl>
+					<ul class="actual_bullet_list"><!--  data-bind="value: ammo" -->
+					</ul>
+					{{/subitems}}
+					<div class="item_actions">
+						<a href="player_one" class="item_action">Equip</a>
+						<a href="#" class="item_action">Discard</a>
+						<a href="#" class="item_action">Give to a player</a>
+						<a href="#" class="item_tooltip">?</a>
+					</div>
+				</li>
+				{{/items}}
+			</ul>
+			{{/inventory}}
+		</div>
+{{/inventories}}

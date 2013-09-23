@@ -15,7 +15,6 @@ define(function(require, exports, module) {
 			
 			// TODO: Add cleanup hidden process
 			jQuery('#marquee_partial').toggle();
-			jQuery('.partial-column').toggle();
     		
 			// Wait for DOM
 			jQuery = require('jQuery');
@@ -77,13 +76,14 @@ define(function(require, exports, module) {
 	
 			// Initialize session partials
 			require('points.PKG').init();
-			require('Package').init({"inventory": '', "marquee": characterselected, "social": '', "debug": ''});
+			require('inventory.PKG').init();
+			require('Package').init({"marquee": characterselected, "social": '', "debug": ''});
 		
 			// Enable debugging (but hide from view)
 			require('debug.PKG').initDebugger(null);
 			
 			// New gun module interface 
-			require('Gun.MOD').init();
+			//require('Gun.MOD').init();
 			
 			// Setup notification system
 			require('notification.PKG').init();

@@ -1,5 +1,5 @@
 <div data-bind="ifnot: loggedin">
-	<h1 style="text-align: center; color: #505050; padding: 3px;">{{header}}</h1>
+	<h3 style="text-align: center; color: #505050; padding: 3px;">{{header}}</h3>
 
 	<form>
 		<label>Username:</label>
@@ -30,7 +30,7 @@
 
 <div data-bind="if: loggedin">
 	<div>
-		<h1 style="text-align: center; color: #505050; padding: 3px;">Hi, <span data-bind="text: username"></span></h1>
+		<h3 style="text-align: center; color: #505050; padding: 3px;">Hi, <span data-bind="text: username"></span></h3>
 	</div>
 	<!-- Stats -->
 	<div style="text-align: right;">

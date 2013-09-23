@@ -1,0 +1,34 @@
+{
+   "inventories" : [
+      {
+         "inventory" : {
+         	"items" : [
+         		{
+		          "name": "Glock",
+		          "type": "Gun",
+		          "wield": "Dual",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "47",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "name": "AR-15",
+		          "type": "Gun",
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "35",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        }
+         	] 
+         }
+      }
+   ]
+}

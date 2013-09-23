@@ -78,6 +78,7 @@ require.config({
         'header.PKG': "packages/header/main", // Header package
         'highscores.PKG': "packages/highscores/main", // Highscores package
         'init.PKG': "packages/init/main", // Initialization package
+        'inventory.PKG': "packages/inventory/main", // Inventory package
         'mainmenu.PKG': "packages/mainmenu/main", // Main Menu package
         'marquee.PKG': "packages/marquee/main", // Marquee package
         'notification.PKG': "packages/notification/main", // Notification package
