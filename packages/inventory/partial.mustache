@@ -5,15 +5,16 @@
 				{{#items}}
 				<li class="inventory_item">
 					<h4 class="item_name">{{name}} ({{type}}) {{wield}} wield</h4>
-					<div class="item_sprite" 
-						 style="background:url('multimedia/default-contentpack/images/items/Guns/{{name}}.png') 0 0;">
-					</div>
+					<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
 					{{#subitems}}
 					<dl class="subitem">
 						<dt class="subitem_attribute">{{text}}:</dt>
-						<dd class="subitem_value"><!-- data-bind="value: ammoCount" -->{{amount}}</dd>
+						<dd class="subitem_value" data-bind="text: ammoCount"></dd>
 					</dl>
-					<ul class="actual_bullet_list"><!--  data-bind="value: ammo" -->
+					<ul class="actual_bullet_list" data-bind="foreach: ammo">
+						<li>
+							<img src="{{img_dir}}items/Guns/Bullet.png" />
+						</li>
 					</ul>
 					{{/subitems}}
 					<div class="item_actions">

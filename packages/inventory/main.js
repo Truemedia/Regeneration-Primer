@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty"], function(view, jQuery, Crafty) {
+define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Config"], function(view, jQuery, Crafty, ko, Config) {
 	return inventory = {
 		
 		/* Stores entities */
@@ -15,6 +15,9 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty"], function(view
 		
 		// Partial loading location	
 		partial_block_element: 'inventory_partial',
+		
+		// Binding element class
+		binding_element_class: 'inventory_item',
 	
 		// Start the inventory package
 		init: function() {
@@ -22,15 +25,40 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty"], function(view
 			inventory.loadDOM();
 		},
 		
+		registerBindings: function(){
+			/* Iterate multiple binding instances with jQuery */
+			jQuery("."+inventory.binding_element_class).each(function(index) {
+				ko.applyBindings(new inventory.ViewModel(index), this);
+			});
+		},
+		ViewModel: function() { 
+			var self = this;
+			 
+		    self.ammo = ko.observableArray([
+		        { dmg: 1 },
+		        { dmg: 5 },
+		        { dmg: 3 }
+		    ]);
+			
+    		self.ammoCount = ko.computed(function() {
+        		return self.ammo().length;
+    		}, self);
+		},
+		
 		// Append the HTML for this package to the DOM
 		loadDOM: function() {
 
-			// Load highscores data
+			// Load initial inventory items
 			jQuery.getJSON("packages/inventory/data.json", function(data){
 			
-				// Mustache
+				// Append directories
+				data.img_dir = Config.get('resources.directories.multimedia.images');
+				
+				// Load view
        			document.getElementById(inventory.partial_block_element).innerHTML = view(data);
-
+       			
+       			// Register bindings
+       			inventory.registerBindings();
 			});
 			console.log("Inventory PACKAGE loaded");
 		}
