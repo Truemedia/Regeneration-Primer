@@ -34,15 +34,21 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 		ViewModel: function() { 
 			var self = this;
 			 
-		    self.ammo = ko.observableArray([
-		        { dmg: 1 },
-		        { dmg: 5 },
-		        { dmg: 3 }
-		    ]);
+		    self.ammo = ko.observableArray(inventory.loadRounds(50, 47));
 			
     		self.ammoCount = ko.computed(function() {
         		return self.ammo().length;
     		}, self);
+		},
+		
+		// Build array of bullets using range and damage (inherit same values)
+		loadRounds: function(dmg, amount) {
+			
+			rounds = [];
+			for (i=0; i<amount; i++) {
+				rounds[i] = dmg;
+			}
+			return rounds;
 		},
 		
 		// Append the HTML for this package to the DOM
