@@ -14,14 +14,14 @@ define(["hgn!packages/profile/partial", "jQuery", "KO"], function(view, jQuery, 
 		partial_block_element: 'profile_partial',	
 			
 		init: function(){
-			/* Lightweight template loader */
-			// TODO: Make window system use config to load this in single call
+			
+			// Get data
 			jQuery.getJSON("packages/profile/data.json", function(data){
 			
-				// Mustache
+				// Load view
        			document.getElementById(profile.partial_block_element).innerHTML = view(data);
        			
-       			// Knockout
+       			// Bind ViewModel collection
        			profile.registerBindings();
 			});
 		},
