@@ -39,6 +39,11 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
     		self.ammoCount = ko.computed(function() {
         		return self.ammo().length;
     		}, self);
+    		
+    		self.shoot = function() {
+
+    	        self.ammo.pop();
+    	    };
 		},
 		
 		// Build array of bullets using range and damage (inherit same values)

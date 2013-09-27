@@ -22,6 +22,7 @@ define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PK
 					// Draw the sprite
 					.attr({ x: 560, y: 20, z: (gameObjects.layers - 2) })
 					.bind('Click', function() {
+						console.log("Shot the enemy");
 						// Number of bullets
 						var current_bullets = jQuery(".actual_bullet_list:eq(0) > li").length;
 						if(current_bullets > 0){
