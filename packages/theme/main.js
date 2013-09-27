@@ -94,6 +94,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
    			// Use themes as a datatable
    			theme.dataTable();
 
+   			theme.sidebarFix(theme_name);
 		},
 		
 		// Pick a theme at random to load up
@@ -118,8 +119,40 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			jQuery('#current-theme').attr('src', theme_image_url);
 		},
 		
+		// Fix sidebar correctly in relation to theme
+		sidebarFix: function(theme_name) {
+			var offset;
+			
+			switch(theme_name) {
+				case 'Readable':
+					offset = '60';
+					break;
+				case 'Simplex':
+					offset = '40';
+					break;
+				case 'United':
+					offset = '40';
+					break;
+				case 'Slate':
+					offset = '40';
+					break;
+				case 'Spacelab':
+					offset = '40';
+					break;
+				case 'Superhero':
+					offset = '70';
+					break;
+			}
+			
+			offset += "px";
+			
+			// Reposition fixed sidebars
+			jQuery('#points_partial').css('top', offset);
+			jQuery('.partial-column').css('top', offset);
+		},
+		
 		/* Function use to communicate with a CDN API, and download data for linking to resources */
-		cdnAPI: function(cdn_url){
+		cdnAPI: function(cdn_url) {
 
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
 			
