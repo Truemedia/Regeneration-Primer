@@ -37,12 +37,12 @@ define(function(require, exports, module) {
 			require('mainmenu.PKG').init();
 			require('gameinfo.PKG').init();
 			require('about.PKG').init();
+			require('highscores.PKG').init();
 
 			// Load header and footer
 			require('header.PKG').init();
 			require('characterselection.PKG').init();
 			require('footer.PKG').init();
-			require('highscores.PKG').init();
 
 			// Setup controls
 			require('controls.PKG').init();
@@ -80,9 +80,10 @@ define(function(require, exports, module) {
 			// Initialize session partials
 			require('points.PKG').init();
 			require('inventory.PKG').init();
-			require('Package').init({"marquee": characterselected, "social": '', "debug": ''});
+			require('Package').init({"social": ''});
 		
 			// Enable debugging (but hide from view)
+			require('debug.PKG').init();
 			require('debug.PKG').initDebugger(null);
 			
 			// New gun module interface 

@@ -7,11 +7,22 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui", "./Crafty", "./points.PKG"], function(jQuery, Crafty, points) {
+define(["hgn!packages/debug/partial", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, jQuery, Crafty, points) {
 	return debug = {
-		registerEvents: function(){ /* jQuery event handlers (for Debug) */
-			// Activate debugging panels
-			//jQuery("#debug_panels").tabs();
+			
+		partial_block_element: "debug_partial",
+			
+		// Initialize debugging
+		init: function() {
+			
+			// Setup data
+			data = {};
+			
+			document.getElementById(debug.partial_block_element).innerHTML = view(data);
+		},	
+		
+		/* jQuery event handlers (for Debug) */
+		registerEvents: function(){ 
 		
 			// Give yourself points
 			jQuery("#debug_window").on("click", ".score_submit", function (event){
@@ -22,11 +33,13 @@ define(["./jQ.ui", "./Crafty", "./points.PKG"], function(jQuery, Crafty, points)
 			jQuery("#debug_window").on("click", "#points_incrementer", function (event){
 				points.incrementAllScores();
 			});
-		/* jQuery event handlers (for Debug) */ },
+		},
+
 		initDebugger: function(event){
 			debug.pointsDebugger(event);
 			debug.mouseDebugger(event);
 		},
+
 		pointsDebugger: function(event){
 			if (event != null){
 				if(jQuery("#debug_toggle > span").hasClass("ui-icon-gear")){
@@ -40,13 +53,9 @@ define(["./jQ.ui", "./Crafty", "./points.PKG"], function(jQuery, Crafty, points)
 						.addClass("ui-icon-gear");
 				}
 			}
-
-			// Hide or show global manual score incrementer
-			jQuery("#debug_panels").toggle();
 		},
+
 		mouseDebugger: function(event){
-			// Hide or show mouse debug panel
-			jQuery("#mouse_debug_panel").toggle();
 			
 			// Variables for tracking mouse
     		var mouseX, mouseY;

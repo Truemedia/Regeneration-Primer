@@ -1,1 +1,27 @@
-{{ ! TODO: Port XSLT code to Mustache }}
+<!-- Debugging panels -->
+<div id="debug_panels">
+   <ul class="nav nav-tabs">
+      <li class=""><a data-toggle="tab" href="#score_debugging_panel">Score</a></li>
+      <li class=""><a data-toggle="tab" href="#mouse_debugging_panel">Mouse</a></li>
+   </ul>
+   <div class="tabbable">
+      <div class="tab-content">
+         <div id="score_debugging_panel" class="tab-pane">
+            <p>Functionality to eventually incorporate</p>
+            <button class="btn">Show Total scores</button>
+            <button class="btn">Log scores</button>
+         </div>
+         <div id="mouse_debugging_panel" class="tab-pane active">
+            <dl>
+               <dt id="mouse_x_label">Mouse X Position:</dt>
+               <dd id="mouse_x_coords">Hover over canvas to see this change</dd>
+               <dt id="mouse_y_label">Mouse Y Position:</dt>
+               <dd id="mouse_y_coords">Hover over canvas to see this change</dd>
+            </dl>
+            <span id="mouse_clipboard_label">Mouse coords clipboard (Press Z to save current mouse coords)</span>
+            <span id="saved_mouse_coords"></span>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Debugging panels -->
