@@ -68,6 +68,7 @@ require.config({
         'about.PKG': "packages/about/main", // About package
         'audio.PKG': "packages/audio/main", // Audio package
         'characterselection.PKG': "packages/characterselection/main", // Controls package
+        'contentpack.PKG': "packages/contentpack/main", // Content Pack package
         'controls.PKG': "packages/controls/main", // Controls package
         'debug.PKG': "packages/debug/main", // Debugging package
         'diydie.PKG': "packages/maps/main", // Map package (Currently inline coded MAP only)

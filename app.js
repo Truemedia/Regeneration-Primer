@@ -46,6 +46,9 @@ define(function(require, exports, module) {
 
 			// Setup controls
 			require('controls.PKG').init();
+			
+			// Setup content pack
+			require('contentpack.PKG').init();
 
 			// Setup theme/themes
 			require('theme.PKG').init();
