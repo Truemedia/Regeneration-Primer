@@ -39,7 +39,7 @@ define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
 		setupCharacters: function(sprites_dir, f){
 			/* Sprite maps for Characters */
 			// Directories
-			var characters_image_directory = sprites_dir + "characters/";
+			var characters_image_directory = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters') + "/images/characters/";
 			var characters_sprites_dir = characters_image_directory + Config.get('resources.sprites.sprite_filename_prefix');
 			var af = Config.get('resources.sprites.sprite_filename_suffix'); // Alternative filename.fileformat
 			

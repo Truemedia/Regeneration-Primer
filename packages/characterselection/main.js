@@ -19,7 +19,8 @@ define(["hgn!packages/characterselection/partial", "./jQuery", "./Crafty"], func
 			// Load up list of characters to choose from
 			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 
-				// Mustache
+				// Load view
+				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
        			document.getElementById(characterselection.partial_block_element).innerHTML = view(data);
  				
  				jQuery(document).ready(function() {

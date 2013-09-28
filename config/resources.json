@@ -11,6 +11,7 @@
 		"libs": "libs",
 		"modules": "modules",
 		"multimedia": {
+			"root": "multimedia/",
 			"audio": "multimedia/default-contentpack/audio/",
 			"images": "multimedia/default-contentpack/images/",
 			"video": "multimedia/default-contentpack/video/"

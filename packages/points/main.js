@@ -20,7 +20,8 @@ define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.
 			
 			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 
-				// Mustache
+				// Load view
+				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
        			document.getElementById(points.partial_block_element).innerHTML = view(data);
  				
  				jQuery(document).ready(function() {
