@@ -25,13 +25,22 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 			inventory.loadDOM();
 		},
 		
-		registerBindings: function(){
+		/* Register jQuery events */
+		registerEvents: function() {
+			
+			jQuery("#AR-15_info").popover();
+			jQuery("#Glock_info").popover();
+		},
+		
+		registerBindings: function() {
 			/* Iterate multiple binding instances with jQuery */
 			jQuery("."+inventory.binding_element_class).each(function(index) {
 				ko.applyBindings(new inventory.ViewModel(index), this);
 			});
 		},
-		ViewModel: function() { 
+		
+		/* KnockoutJS View Model */
+		ViewModel: function() {
 			var self = this;
 			 
 		    self.ammo = ko.observableArray(inventory.loadRounds(50, 47));
@@ -44,6 +53,10 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 
     	        self.ammo.pop();
     	    };
+    	    
+    	    self.give = function() {
+    	    	console.log("Giving weapon to person");
+    	    }
 		},
 		
 		// Build array of bullets using range and damage (inherit same values)
@@ -65,11 +78,29 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 				// Append directories
 				data.img_dir = Config.get('resources.directories.multimedia.images');
 				
+				// Set ASYNC AJAX to false
+				jQuery.ajaxSetup({
+					async: false
+				});
+
+				// Append characters
+				jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(character_data) {
+					data.characters = character_data.characters;
+				});
+				
+				// Set ASYNC AJAX back to true
+				jQuery.ajaxSetup({
+					async: true
+				});
+				
 				// Load view
        			document.getElementById(inventory.partial_block_element).innerHTML = view(data);
        			
        			// Register bindings
        			inventory.registerBindings();
+       			
+       			// Register events
+       			inventory.registerEvents();
 			});
 			console.log("Inventory PACKAGE loaded");
 		}

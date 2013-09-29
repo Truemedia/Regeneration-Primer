@@ -4,7 +4,9 @@
          "inventory" : {
          	"items" : [
          		{
+         		  "item_id" : "1",
 		          "name": "Glock",
+		          "description": "Pistol with semi-automatic firing",
 		          "type": "Gun",
 		          "wield": "Dual",
 		          "subitems": [
@@ -16,7 +18,9 @@
 		          ]
 		        },
 		        {
+		          "item_id" : "2",
 		          "name": "AR-15",
+		          "description": "Standard issue rifle",
 		          "type": "Gun",
 		          "wield": "Single",
 		          "subitems": [

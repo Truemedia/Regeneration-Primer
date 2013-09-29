@@ -1,27 +1,64 @@
 {{#inventories}}
 		<div id="inventory_container">
 			{{#inventory}}
-			<ul class="inventory">
+			<ul id="my_inventory" class="inventory accordion">
 				{{#items}}
-				<li class="inventory_item">
-					<h4 class="item_name">{{name}} ({{type}}) {{wield}} wield</h4>
-					<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
-					{{#subitems}}
-					<dl class="subitem">
-						<dt class="subitem_attribute">{{text}}:</dt>
-						<dd class="subitem_value" data-bind="text: ammoCount"></dd>
-					</dl>
-					<ul class="actual_bullet_list" data-bind="foreach: ammo">
-						<li>
-							<img src="{{img_dir}}items/Guns/Bullet.png" />
-						</li>
-					</ul>
-					{{/subitems}}
-					<div class="item_actions">
-						<a href="player_one" class="item_action">Equip</a>
-						<a href="#" class="item_action" data-bind="click: shoot">Discard</a>
-						<a href="#" class="item_action">Give to a player</a>
-						<a href="#" class="item_tooltip">?</a>
+				<li class="inventory_item accordion-group">
+					<div class="accordion-heading">
+						<a class="item_name accordion-toggle" data-toggle="collapse" data-parent="#my_inventory" href="#{{name}}">
+							<span class="badge">{{item_id}}&nbsp;</span>&nbsp; {{name}} ({{type}}) {{wield}} wield
+						</a>
+					</div>
+					<div id="{{name}}" class="accordion-body collapse">
+						<div class="accordion-inner">
+							<div class="item_actions">
+								<a href="#" id="{{name}}_info" class="btn btn-info" data-toggle="popover" data-content="{{description}}" data-trigger="hover" data-placement="right">?</a>
+								<div class="btn-group">
+						            <a href="#" class="btn btn-important">Action</a>
+						            <a href="#" data-toggle="dropdown" class="btn btn-important dropdown-toggle"><span class="caret"></span></a>
+						            <ul class="dropdown-menu">
+						              <li>
+						              	<a href="#">Reload</a>
+						              </li>
+						              <li>
+						              	<a href="#">Chamber</a>
+						              </li>
+						              <li>
+						              	<a href="#">Throw away mag</a>
+						              </li>
+						              <li class="divider"></li>
+						              <li><a href="#">Put away</a></li>
+						            </ul>
+					          	</div>
+								<a href="#" class="btn btn-danger" data-bind="click: shoot">Discard</a>
+								<div class="btn-group">
+						            <a href="#" class="btn btn-primary" data-bind="click: give">Give to a player</a>
+						            <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
+						            <ul class="dropdown-menu">
+						            {{#characters}}
+						              <li>
+						              	<a href="#" data-bind="click: give" data-value="{{pid}}">{{full_name}}</a>
+						              </li>
+						            {{/characters}}
+						              <li class="divider"></li>
+						              <li><a href="#">Throw away</a></li>
+						            </ul>
+					          	</div>
+							</div>
+							<hr />
+							<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
+							{{#subitems}}
+							<dl class="subitem">
+								<dt class="subitem_attribute">{{text}}:</dt>
+								<dd class="subitem_value" data-bind="text: ammoCount"></dd>
+							</dl>
+							<ul class="actual_bullet_list" data-bind="foreach: ammo">
+								<li>
+									<img src="{{img_dir}}items/Guns/Bullet.png" />
+								</li>
+							</ul>
+							{{/subitems}}
+						</div>
 					</div>
 				</li>
 				{{/items}}
