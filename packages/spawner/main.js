@@ -32,23 +32,18 @@ define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inv
   					.textColor(this.characterColor(char_name), '1')
   					.textFont({ type: 'italic', family: 'Arial', weight: 'bold' })*/
   					.bind('KeyDown', function(e) {
-  						// Show quick info menu
+  						// Hiding or showing points panel
     					if(e.key == Crafty.keys['SHIFT']) {
-    						jQuery('#points_window').toggle();
-      						console.log("Showing quick info menu");
+    						jQuery('#points_partial').toggle();
+      						console.log("Hiding or showing points panel");
+    					}
+    					// Hiding or showing profile panel
+    					if(e.key == Crafty.keys['SPACE']) {
+    						jQuery('#profile_partial').toggle();
+      						console.log("Hiding or showing profile panel");
     					}
     				})
     				.bind('KeyUp', function(e) {
-  						// Hide quick info menu
-    					if(e.key == Crafty.keys['SHIFT']) {
-    						jQuery('#points_window').toggle();
-      						console.log("Hiding quick info menu");
-    					}
-    					// Hiding or showing inventory
-    					if(e.key == Crafty.keys['SPACE']) {
-    						jQuery('#inventory_window').toggle();
-      						console.log("Hiding or showing inventory");
-    					}
     					// Select/Unselect inventory item
     					if (e.key == Crafty.keys['1']) {
       						inventory.switchItem(1);

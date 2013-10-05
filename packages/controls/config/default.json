@@ -1,7 +1,7 @@
 {
 	"screens": {
-		"view_scores": "SHIFT",
-		"toggle_inventory": "SPACE"
+		"toggle_points": "SHIFT",
+		"toggle_profile": "SPACE"
 	},
 	"player": {
 		 "move_up": "W",
