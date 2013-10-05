@@ -1,6 +1,6 @@
 define({
 	"powered-by_phrs": "Powered by",
-	"packages_noun": "Packages",
+	"packages_noun": "Libraries",
 	"services_noun": "Services",
 	"contributors_noun": "Contributors",
 	"other-projects_sntc": "My other open source projects",

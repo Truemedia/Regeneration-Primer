@@ -1,6 +1,6 @@
 define({
 	"powered-by_phrs": "を搭載",
-	"packages_noun": "パッケージ",
+	"packages_noun": "ライブラリ",
 	"services_noun": "サービス",
 	"contributors_noun": "貢献者",
 	"other-projects_sntc": "私の他のプロジェクト",

@@ -1,7 +1,7 @@
 define({
     "root": {
     	"powered-by_phrs": "Powered By (Phrase)",
-    	"packages_noun": "Packages (Noun)",
+    	"packages_noun": "Libraries (Noun)",
     	"services_noun": "Services (Noun)",
     	"contributors_noun": "Contributors (Noun)",
     	"other-projects_sntc": "Other Projects (Sentence)",
