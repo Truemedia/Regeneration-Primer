@@ -7,16 +7,23 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/profile/partial", "jQuery", "KO"], function(view, jQuery, ko) {
+define(["hgn!packages/profile/partial", "jQuery", "KO", "./characterselection.PKG"], function(view, jQuery, ko) {
 	return profile = {
 			
 		// Partial loading location	
 		partial_block_element: 'profile_partial',	
 			
-		init: function(){
+		init: function(characterselected){
 			
 			// Get data
 			jQuery.getJSON("packages/profile/data.json", function(data){
+				
+				// Append content pack
+				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
+
+				// Get character info
+				var character_id = characterselection.getCharacterId(characterselected);
+				data.character = characterselection.getCharacterById(character_id);
 			
 				// Load view
        			document.getElementById(profile.partial_block_element).innerHTML = view(data);

@@ -1,5 +1,6 @@
 <!-- Original markup from http://bootsnipp.com/snipps/user-profile-in-tabs -->
-<div class="well">
+<!-- http://bootsnipp.com/snipps/user-profile-thumbnails -->
+<div>
 <ul class="nav nav-tabs">
    <li class="active"><a href="#login_tab" data-toggle="tab">Profile</a></li>
    <li><a href="#role_tab" data-toggle="tab">Roles</a></li>
@@ -7,27 +8,37 @@
 <div id="myTabContent" class="tab-content">
    <div class="tab-pane active in" id="login_tab">
       <form id="tab" data-bind="ifnot: loggedin">
-         <label>Username:</label>
-         <input type="text" name="username" value="jsmith" class="input-xlarge" data-bind="value: username" placeholder="Enter your username here" />
-         <label>Password:</label>
-         <input type="password" name="password" class="input-xlarge" placeholder="You don't need a password" />
-         <div>
+      <fieldset>
+      	<div class="span4">
+	         <label>Username:</label>
+	         <input type="text" name="username" value="jsmith" class="input-xlarge" data-bind="value: username" placeholder="Enter your username here" />
+	         <label>Password:</label>
+	         <input type="password" name="password" class="input-xlarge" placeholder="You don't need a password" />
+         </div>
+      </fieldset>
+      <fieldset>
+         <div class="span4">
             <button class="btn btn-primary" data-bind="click: loginAsUser">Login</button>
             <button class="btn btn-primary" data-bind="click: loginAsGuest">Quick play as guest</button>
          </div>
+         </fieldset>
       </form>
       <form id="tab" data-bind="if: loggedin">
-         <div>
-            <h5>Hi, <span data-bind="text: username"></span></h5>
-         </div>
-         <!-- Stats -->
-         <div>
-            <span id="my_points">
-            <span style="font-weight: bold; font-size: 1em; padding-left: 5px;">Points: </span><span id="my_score">{{scoredefault}}</span>
-            <span id="player_purgatory" class="alive"><span>Alive</span></span>
-            </span>
-         </div>
-         <!-- /Stats -->
+      	<div class="span1">
+    		<img src="{{content_pack}}/images/characters/({{character.identifierCamelCase}})_DefaultPose.png" alt="{{full_name}}" />
+    	</div>
+    	<div class="span4">
+		    <blockquote>
+		    <p>{{character.full_name}}</p>
+		    <small><cite title="Source Title"><span data-bind="text: username"></span>, Wade Penistone</cite></small>
+		    </blockquote>
+		    <!-- Stats -->
+		    <p>
+			    <i class="icon-heart"></i>&nbsp; <span id="player_purgatory" class="alive"><span>Alive</span></span> <br />
+			    <i class="icon-time"></i>&nbsp; Time elapsed: N/A <br />
+			    <i class="icon-magnet"></i>&nbsp; Points: <span id="my_score">{{scoredefault}}</span><br />
+		    </p>
+		</div>
       </form>
    </div>
    <div class="tab-pane fade" id="role_tab">

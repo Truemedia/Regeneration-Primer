@@ -9,9 +9,6 @@
 */
 define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG"], function(jQuery, Crafty, ko, spawner, profile) {
 	return player = {
-		loadProfile: function(){
-			profile.init();
-		},
 		killPlayer: function(player_id){
 			var real_id = player_id + 1;
 			console.log("Player "+real_id+" died");

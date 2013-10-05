@@ -30,6 +30,7 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 			
 			jQuery("#AR-15_info").popover();
 			jQuery("#Glock_info").popover();
+			jQuery("#AK-47_info").popover();
 		},
 		
 		registerBindings: function() {
@@ -57,6 +58,13 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
     	    self.give = function() {
     	    	console.log("Giving weapon to person");
     	    }
+		},
+		
+		// Simulate inventory item click
+		switchItem: function(item_number) {
+
+			var item_index = item_number - 1;
+			jQuery("#my_inventory > li:eq('"+item_index+"') > .accordion-heading > .accordion-toggle").click();
 		},
 		
 		// Build array of bullets using range and damage (inherit same values)

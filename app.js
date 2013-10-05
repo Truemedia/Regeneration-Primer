@@ -79,6 +79,7 @@ define(function(require, exports, module) {
 	
 			// Initialize session partials
 			require('points.PKG').init();
+			require('profile.PKG').init(characterselected);
 			require('inventory.PKG').init();
 			require('Package').init({"social": ''});
 		

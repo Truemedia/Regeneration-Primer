@@ -12,10 +12,10 @@
 					<div id="{{name}}" class="accordion-body collapse">
 						<div class="accordion-inner">
 							<div class="item_actions">
-								<a href="#" id="{{name}}_info" class="btn btn-info" data-toggle="popover" data-content="{{description}}" data-trigger="hover" data-placement="right">?</a>
+								<a href="#" id="{{name}}_info" class="btn btn-small btn-info" data-toggle="popover" data-content="{{description}}" data-trigger="hover" data-placement="right">?</a>
 								<div class="btn-group">
-						            <a href="#" class="btn btn-important">Action</a>
-						            <a href="#" data-toggle="dropdown" class="btn btn-important dropdown-toggle"><span class="caret"></span></a>
+						            <a href="#" class="btn btn-small btn-important">Action</a>
+						            <a href="#" data-toggle="dropdown" class="btn btn-small btn-important dropdown-toggle"><span class="caret"></span></a>
 						            <ul class="dropdown-menu">
 						              <li>
 						              	<a href="#">Reload</a>
@@ -30,10 +30,10 @@
 						              <li><a href="#">Put away</a></li>
 						            </ul>
 					          	</div>
-								<a href="#" class="btn btn-danger" data-bind="click: shoot">Discard</a>
+								<a href="#" class="btn btn-small btn-danger" data-bind="click: shoot">Discard</a>
 								<div class="btn-group">
-						            <a href="#" class="btn btn-primary" data-bind="click: give">Give to a player</a>
-						            <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
+						            <a href="#" class="btn btn-small btn-primary" data-bind="click: give">Give to a player</a>
+						            <a href="#" data-toggle="dropdown" class="btn btn-small btn-primary dropdown-toggle"><span class="caret"></span></a>
 						            <ul class="dropdown-menu">
 						            {{#characters}}
 						              <li>
@@ -48,15 +48,19 @@
 							<hr />
 							<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
 							{{#subitems}}
+							<div class="span2">
 							<dl class="subitem">
 								<dt class="subitem_attribute">{{text}}:</dt>
 								<dd class="subitem_value" data-bind="text: ammoCount"></dd>
 							</dl>
+							</div>
+							<div class="span2">
 							<ul class="actual_bullet_list" data-bind="foreach: ammo">
 								<li>
 									<img src="{{img_dir}}items/Guns/Bullet.png" />
 								</li>
 							</ul>
+							</div>
 							{{/subitems}}
 						</div>
 					</div>

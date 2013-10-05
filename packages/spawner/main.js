@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
+define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inventory) {
 	return spawner = {
 
 		layers: 6,
@@ -48,6 +48,37 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
     					if(e.key == Crafty.keys['SPACE']) {
     						jQuery('#inventory_window').toggle();
       						console.log("Hiding or showing inventory");
+    					}
+    					// Select/Unselect inventory item
+    					if (e.key == Crafty.keys['1']) {
+      						inventory.switchItem(1);
+    					}
+    					if (e.key == Crafty.keys['2']) {
+      						inventory.switchItem(2);
+    					}
+    					if (e.key == Crafty.keys['3']) {
+      						inventory.switchItem(3);
+    					}
+    					if (e.key == Crafty.keys['4']) {
+      						inventory.switchItem(4);
+    					}
+    					if (e.key == Crafty.keys['5']) {
+      						inventory.switchItem(5);
+    					}
+    					if (e.key == Crafty.keys['6']) {
+      						inventory.switchItem(6);
+    					}
+    					if (e.key == Crafty.keys['7']) {
+      						inventory.switchItem(7);
+    					}
+    					if (e.key == Crafty.keys['8']) {
+      						inventory.switchItem(8);
+    					}
+    					if (e.key == Crafty.keys['9']) {
+      						inventory.switchItem(9);
+    					}
+    					if (e.key == Crafty.keys['0']) {
+      						inventory.switchItem(0);
     					}
     					// Do a partial reload (insert mag into empty gun)
     					if(e.key == Crafty.keys['E']) {

@@ -33,6 +33,56 @@ define(["hgn!packages/characterselection/partial", "./jQuery", "./Crafty"], func
 			});
 		},
 		
+		/* Use a character identifier to get character id */
+		getCharacterId: function(character) {
+
+			// TODO: Find more efficient way to do this
+			var character_id = "";
+			
+			// Set ASYNC AJAX to false
+			jQuery.ajaxSetup({
+				async: false
+			});
+			
+			// Load up list of characters to choose from
+			jQuery.getJSON("packages/characterselection/info/inverse.json", function(data){
+
+				character_id = data[character];
+			});
+			
+			// Set ASYNC AJAX back to true
+			jQuery.ajaxSetup({
+				async: true
+			});
+			
+			return character_id;
+		},
+		
+		/* Get information for a particular character */
+		getCharacterById: function(character_id) {
+
+			var character_info = {};
+			var character_index = character_id - 1;
+			
+			// Set ASYNC AJAX to false
+			jQuery.ajaxSetup({
+				async: false
+			});
+			
+			// Load up list of characters to choose from
+			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
+
+				character_info = data.characters[character_index];
+			});
+			
+			// Set ASYNC AJAX back to true
+			jQuery.ajaxSetup({
+				async: true
+			});
+			
+			return character_info;
+		},
+		
 		// Deactivate package
 		deactivate: function(){
 

@@ -8,6 +8,7 @@
 		          "name": "Glock",
 		          "description": "Pistol with semi-automatic firing",
 		          "type": "Gun",
+		          "image": true,
 		          "wield": "Dual",
 		          "subitems": [
 		          	{
@@ -22,11 +23,131 @@
 		          "name": "AR-15",
 		          "description": "Standard issue rifle",
 		          "type": "Gun",
+		          "image": true,
 		          "wield": "Single",
 		          "subitems": [
 		          	{
 		            	"type": "disposable",
 		            	"amount": "35",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "3",
+		          "name": "AK-47",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "4",
+		          "name": "Auto-Shotgun",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "5",
+		          "name": "Farmers-Shotgun",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "6",
+		          "name": "Spaz-Shotgun",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },{
+		          "item_id" : "7",
+		          "name": "HK-79",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "8",
+		          "name": "Uzi",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Dual",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "9",
+		          "name": "M4Specter",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Single",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
+		            	"text": "Bullets"
+		          	}
+		          ]
+		        },
+		        {
+		          "item_id" : "10",
+		          "name": "Smithen-Wesson",
+		          "description": "Automatic machine gun",
+		          "type": "Gun",
+		          "image": false,
+		          "wield": "Dual",
+		          "subitems": [
+		          	{
+		            	"type": "disposable",
+		            	"amount": "64",
 		            	"text": "Bullets"
 		          	}
 		          ]

@@ -20,19 +20,6 @@
 	margin: 4px;
 }
 
-/* Players score, in top left */
-#my_points{
-	color: white;
-	background-color: black;
-	display: inline-block;
-	height: 32px;
-	padding-right: 5px;
-	border-right: 2px solid white;
-}
-#my_score{
-	font-size: 1.3em;
-}
-
 /* State styles */
 label.current{
 	color: seagreen;

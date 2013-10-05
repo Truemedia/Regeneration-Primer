@@ -1,10 +1,4 @@
 /* Inventory */
-#inventory_window{
-	border: 1px solid #DFDFDF;
-	opacity: 0.85;
-	padding: 0;
-	margin: 0 328px 0 0;
-}
 #inventory_container{
 	border: 1px solid grey;
 	background-color: #323232;
@@ -15,18 +9,6 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-}
-/* Item */
-.inventory_item{
-	background-color: #212121;
-	padding: 0;
-	margin: 15px 0 15px 0;
-}
-.item_name{
-	background-color: #6495ED; /* Cornflower blue (HTML colorname) */
-	color: #DCDCDC; /* Gainsboro (HTML colorname) */
-	margin: 0;
-	padding: 2px 0 0 2px;	
 }
 .item_sprite{
 /* Use css sprite for partial image */

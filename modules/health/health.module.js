@@ -98,7 +98,6 @@ define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.PKG"], function(jQuery
 		init: function(){
 			health.registerUI(); // Kickstart UI
 			health.registerEvents(); // Apply all jQuery event handlers
-			player.loadProfile();
 		},
 		HPcolor: function(element, hp){
 			/* Change progress bar colour, depending on value ranges */
