@@ -41,10 +41,10 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 		},
 		
 		/* KnockoutJS View Model */
-		ViewModel: function() {
+		ViewModel: function(index) {
 			var self = this;
 			 
-		    self.ammo = ko.observableArray(inventory.loadRounds(50, 47));
+		    self.ammo = ko.observableArray(inventory.loadRounds(index));
 			
     		self.ammoCount = ko.computed(function() {
         		return self.ammo().length;
@@ -68,7 +68,14 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 		},
 		
 		// Build array of bullets using range and damage (inherit same values)
-		loadRounds: function(dmg, amount) {
+		loadRounds: function(gun_index, dmg) {
+			
+			// Get default gun amount
+			var guns = Config.get('inventory::guns.guns');
+			var amount = guns[gun_index].subitems[0].amount;
+			
+			// Set damage to default if not set
+			if (dmg === undefined) dmg = guns[gun_index].subitems[0].damage;
 			
 			rounds = [];
 			for (i=0; i<amount; i++) {
