@@ -47,6 +47,9 @@ define(function(require, exports, module) {
 			// Setup controls
 			require('controls.PKG').init();
 			
+			// Setup audio
+			require('audio.PKG').init();
+			
 			// Setup content pack
 			require('contentpack.PKG').init();
 

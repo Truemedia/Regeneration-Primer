@@ -8,34 +8,41 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
-	return {
-		initGameAudio: function(){
+	return audio = {
+		init: function() {
 			// Audio with only one format (using default audio file) TODO: Make filetype choice based on browser
 			var f = ".wav";
 			var audio_dir = Config.get('resources.directories.multimedia.audio');
 			
 			this.register_SFX(f);
-			var audio_manager_defaults = Config.instance('controls::default.all');
+			var audio_manager_defaults = Config.instance('audio::default.all');
 
 			// Load sound as resource
 			Crafty.audio.add(audio_manager_defaults.background_music, audio_dir+audio_manager_defaults.background_music+"/"+audio_manager_defaults.background_music+f);
 		
 			// Play sound through mixer API (only play when toggled, annoying for development)
 			//Crafty.audio.play(audio_manager_defaults['background_music'],audio_manager_defaults['loop_count'],audio_manager_defaults['volume_percent']);
+			console.log("Audio PACKAGE loaded");
 		},
-		toggleAudio: function(event){ 
-			var audio_manager_defaults = Config.instance('controls::default.all');
+
+		toggleAudio: function(event) {
+
+			var audio_manager_defaults = Config.instance('audio::default.all');
 
 			// Mute or unmute all audio
-			if(jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")){
+			if (jQuery("#audio_toggle > span").hasClass("ui-icon-volume-on")) {
 				/* Mute audio */
+				console.log("Muting all audio");
+				
 				// Play sound through mixer API
 				Crafty.audio.play(audio_manager_defaults.background_music,audio_manager_defaults.loop_count,"0.0");
 				jQuery("#audio_toggle > span").removeClass("ui-icon-volume-on")
 					.addClass("ui-icon-volume-off");
 			}
-			else{
+			else {
 				/* Unmute audio */
+				console.log("Unmuting all audio");
+				
 				// Play sound through mixer API
 				Crafty.audio.play(audio_manager_defaults.background_music, audio_manager_defaults.loop_count, audio_manager_defaults.volume_percent);
 				jQuery("#audio_toggle > span").removeClass("ui-icon-volume-off")
@@ -43,7 +50,7 @@ define(["./jQuery", "./Crafty"], function(jQuery, Crafty) {
 			}
 		},
 		// Make sound effects audio files accessable
-		register_SFX: function(f){
+		register_SFX: function(f) {
 			
 			var audio_dir = Config.get('resources.directories.multimedia.audio');
 			
