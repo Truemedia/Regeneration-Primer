@@ -4,6 +4,7 @@ define({
 	"services_noun": "サービス",
 	"contributors_noun": "貢献者",
 	"other-projects_sntc": "私の他のプロジェクト",
+	"tools_noun": "ツール",
     "current-language_var": "日本語",
     "language_noun": "ランゲージ",
     "copyright-notice_sntc": "ワイエド ペニストーン",

@@ -5,6 +5,7 @@ define({
     	"services_noun": "Services (Noun)",
     	"contributors_noun": "Contributors (Noun)",
     	"other-projects_sntc": "Other Projects (Sentence)",
+    	"tools_noun": "Tools (Noun)",
         "current-language_var": "Current language (Variable)",
         "language_noun": "Language (Noun)",
         "copyright-notice_sntc": "Copyright Notice (Sentence)",

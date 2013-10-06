@@ -4,6 +4,7 @@ define({
 	"services_noun": "Services",
 	"contributors_noun": "Contributors",
 	"other-projects_sntc": "My other open source projects",
+	"tools_noun": "Tools",
     "current-language_var": "English",
     "language_noun": "Language",
     "copyright-notice_sntc": "Wade Penistone",
