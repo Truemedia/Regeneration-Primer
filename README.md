@@ -11,16 +11,6 @@ It may be broken, be patient while we are in the main development phase of pre 0
 * Git clone this repo to wherever you want to place it 
 * Set browser to file://LocationOfThisSoftwareFolder/index.html
 
-#### Also if your are modifying this locally, you may want to also do the following (to make development easier, and use the application offline)
-
-* Download the git repo and make sure submodules are loaded (git submodule init)
-
-* Make sure KnockoutJS is built (cd into software directory and run 'dependencies/knockout/build/build.sh')
-
-* Make sure javascript is enabled and enjoy
- 
-
-
 ## This is the documentation for Regen Primer, A moddable game software for client and/or server based HTML5 games. MIT licensed and open to modification on any basis
 
 Games based on this software:
