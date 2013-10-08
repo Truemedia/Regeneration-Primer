@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="scraproom" tilewidth="16" tileheight="16">
-  <image source="../multimedia/default-contentpack/images/tilesets/scraproom.png" width="16" height="16"/>
+  <image source="../multimedia/default-contentpack/images/tilesets/scraproom.png" width="64" height="128"/>
  </tileset>
- <layer name="Tile Layer 1" width="100" height="100">
+ <layer name="Floor" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKH7/qUHy6Hgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv8AX0MnEQ==
+  </data>
+ </layer>
+ <layer name="Backwalls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztxYEJADAIBLFHSun+E9cxBBM4rpKcrnzEb/fc3d3d3d3d3d3d3d3dfcUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmOkDJi4yZQ==
+  </data>
+ </layer>
+ <layer name="Windows" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztxcEJACAMALH+FRQUdP9J7RhFEjiuRUTPmpf4yKaX+cq2l/nJrpc5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwK8elBAbWQ==
+  </data>
+ </layer>
+ <layer name="Leftwalls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0zEBACAMwDAs7MC/Ve4poEeioE/nUHJ/B7DM7wAWf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7Q8xCcHbQ==
+  </data>
+ </layer>
+ <layer name="Rightwalls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0zERACAQwDA0MOBfKsf4CuiQKOjStajYvwMYzu8ABn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0+KPFHy3+aPFHiz9a/NHijxZ/tPijxR8t/mjxR4s/WvzR4o8Wf7T4o8UfLf5o8UeLP1r80eKPFn+0vD8ugiQH0Q==
+  </data>
+ </layer>
+ <layer name="Spawnpoints" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1rENADAIAzAW/n+5J3RDpbEPYCAKogoAAAAAAAAAAAAAYFYvmQmQxB3NJHcAAPiLH//OjiCLzsMbdBEAAAAAAAAAAAAAAAAAAAAAAAAAgK0O9I0AKQ==
   </data>
  </layer>
 </map>
