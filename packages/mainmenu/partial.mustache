@@ -1,18 +1,32 @@
 <!-- Main menu -->
 <div class="modal-header">
-	<h3 id="mainmenu-system-name">Main menu</h3>
+	<h3 id="mainmenu-system-name">{{lang.main-menu_phrs}}</h3>
 </div>
 <div class="modal-body">
 	<ul class="nav nav-tabs nav-stacked">
-		{{#menu_items}}
 		<li>
 			<p>
-				<a href="#highscores_partial" data-toggle="modal"><button class="btn btn-default btn-large btn-block" type="button">{{name}}</button></a>
+				<a href="#highscores_partial" data-toggle="modal">
+					<button class="btn btn-default btn-large btn-block" type="button">{{lang.highscores_phrs}}</button>
+				</a>
 			</p>
 		</li>
-		{{/menu_items}}
+		<li>
+			<p>
+				<a href="#">
+					<button class="btn btn-default btn-large btn-block" type="button">{{lang.restart-round_phrs}}</button>
+				</a>
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="#">
+					<button class="btn btn-default btn-large btn-block" type="button">{{lang.restart-game_phrs}}</button>
+				</a>
+			</p>
+		</li>
     </ul>
 </div>
 <div class="modal-footer">
-	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	<button class="btn" data-dismiss="modal" aria-hidden="true">{{lang.close-verb}}</button>
 </div>
