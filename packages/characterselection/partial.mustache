@@ -1,6 +1,6 @@
 <!-- Character selection (Main Area) --> 
 <div class="page-header">
-	<h1 style="text-align: center;">Choose a character</h1>
+	<h1 style="text-align: center;">{{lang.choose-character_phrs}}</h1>
 </div>
 <div id="main_area">
 
@@ -36,12 +36,12 @@
     					<div class="thumbnail clearfix" style="border: 5px solid {{characterColourScheme}};">
     						<div class="caption">
     							<button class="btn btn-primary icon pull-right char_select" value="{{identifierReference}}">
-    								<span>Select</span>
+    								<span>{{lang.select_verb}}</span>
     							</button>
     							<h4 style="color: {{characterColourScheme}};">{{full_name}}</h4>
-    							<span class="badge"><b style="color: black;">Occupation: </b>{{occupation}}</span>
+    							<span class="badge"><b style="color: black;">{{lang.occupation_noun}} </b>{{occupation}}</span>
     							<hr />
-								<h5 class="well well-small"><img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" /> About</h5>
+								<h5 class="well well-small"><img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" /> {{lang.about_adverb}}</h5>
 								<p class="mute"><em>{{about}}</em></p>
     						</div>
     					</div>
@@ -68,16 +68,16 @@
 			</ul>
 			<div class="row">
 				<div class="span3">
-					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>Play as selected character</button>
+					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>{{lang.play-as-selected_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button id="use_random_char" class="btn btn-primary btn-large start_session">Play as random character</button>
+					<button id="use_random_char" class="btn btn-primary btn-large start_session">{{lang.play-as-random_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button class="btn btn-info btn-large disabled">Wait for additional players</button>
+					<button class="btn btn-info btn-large disabled">{{lang.wait-for-players_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button class="btn btn-large disabled">Invite friends to session</button>
+					<button class="btn btn-large disabled">{{lang.invite-friends_phrs}}</button>
 				</div>
 			</div>
 		</div>

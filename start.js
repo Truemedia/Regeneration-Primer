@@ -174,7 +174,7 @@ require.config({
     // configure i18n! plugin
     config: {
         i18n: {
-            locale: 'en'
+            locale: 'jp'
         }
     }});
 // Start the application (Run the main method)
