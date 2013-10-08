@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/about/partial", "./Bootstrap", "./Config"], function(view, jQuery, Config) {
+define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "./Bootstrap", "./Config"], function(view, lang, jQuery, Config) {
 	return about = {
 			
 		// Partial loading location	
@@ -20,8 +20,11 @@ define(["hgn!packages/about/partial", "./Bootstrap", "./Config"], function(view,
 	 			"version": Config.get('game.version'),
 	 			"game_name": Config.get('game.name')
 	 		};
+	 		
+	 		// Append language strings to JSON data source
+			data.lang = lang;
 			
-			// Mustache
+			// Load view
        		document.getElementById(about.partial_block_element).innerHTML = view(data);
        		
 			console.log("About PACKAGE loaded");
