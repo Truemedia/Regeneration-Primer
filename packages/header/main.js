@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/header/partial", "./Bootstrap", "./Options.MOD"], function(view, jQuery, options) {
+define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Bootstrap", "./Options.MOD"], function(view, lang, jQuery, options) {
 	return header = {
 	
 		// Partial loading location	
@@ -34,11 +34,14 @@ define(["hgn!packages/header/partial", "./Bootstrap", "./Options.MOD"], function
 
 			// Load header data
 			jQuery.getJSON("packages/header/data.json", function(data){
+				
+				// Append language strings to JSON data source
+				data.lang = lang;
 			
 				// Append modules to view data
 				data.options = header.nested_view;
 			
-				// Mustache
+				// Load view
        			document.getElementById(header.partial_block_element).innerHTML = view(data);
 
 			});
