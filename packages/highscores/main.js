@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/highscores/partial", "./Bootstrap"], function(view, jQuery) {
+define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "./Bootstrap"], function(view, lang, jQuery) {
 	return highscores = {
 	
 		// Partial loading location	
@@ -26,7 +26,10 @@ define(["hgn!packages/highscores/partial", "./Bootstrap"], function(view, jQuery
 			// Load highscores data
 			jQuery.getJSON("packages/highscores/data.json", function(data){
 			
-				// Mustache
+				// Append language strings to JSON data source
+				data.lang = lang;
+				
+				// Load view
        			document.getElementById(highscores.partial_block_element).innerHTML = view(data);
 
 			});
