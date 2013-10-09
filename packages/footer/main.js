@@ -26,7 +26,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 			jQuery("#"+footer.partial_block_element).on("change", "#language", function(event) {
 				
 				var lang_code = jQuery(this).val();
-				var change = confirm("Are you sure you want to change language?, you will lose all progress and the game will be restarted with the selected language");
+				var change = confirm(strings.change_language);
 
 				if (change == true) {
 					Lang.setLocale(lang_code);
