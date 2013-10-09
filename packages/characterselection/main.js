@@ -100,8 +100,7 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);
 			});
-			
-		/* /jQuery event handlers (for Character Selection) */ },
+		},
 		
 		registerSounds: function(){
 			// TODO: Find appropriate sound and register then add case function to play

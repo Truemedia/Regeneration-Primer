@@ -62,6 +62,7 @@ require.config({
         
         /* Core classes */
         'Config': "regeneration/config", // Config class
+        'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
       
         /* Packages */
@@ -174,7 +175,7 @@ require.config({
     // configure i18n! plugin
     config: {
         i18n: {
-            locale: 'jp'
+            locale: localStorage['language'] || 'en'
         }
     }});
 // Start the application (Run the main method)

@@ -1,11 +1,11 @@
 <div class="row-fluid">
-	<h3>{{lang.powered-by_phrs}}</h3>
+	<h3>{{trans.powered-by_phrs}}</h3>
 </div>
 
 <footer class="row-fluid">
 
 	<div class="span3">
-    	<h4 class="line3 center standart-h4title"><span>{{lang.packages_noun}}</span></h4>
+    	<h4 class="line3 center standart-h4title"><span>{{trans.packages_noun}}</span></h4>
         <div class="bs-example">
         	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
         		{{#poweredby}}
@@ -25,7 +25,7 @@
     </div>
     
     <div class="span3">
-    	<h4 class="line3 center standart-h4title"><span>{{lang.services_noun}}</span></h4>
+    	<h4 class="line3 center standart-h4title"><span>{{trans.services_noun}}</span></h4>
     	<div class="bs-example">
         	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
             	<li><a href="https://github.com/" target="_blank">Github</a></li>
@@ -46,16 +46,16 @@
     </div> 
 	  
 	<div class="span3">
-    	<h4 class="line3 center standart-h4title"><span>{{lang.contributors_noun}}</span></h4>
+    	<h4 class="line3 center standart-h4title"><span>{{trans.contributors_noun}}</span></h4>
         <div class="bs-example">
         	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
             	<li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{lang.creator_name}} <span class="caret"></span></a>
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{trans.creator_name}} <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="https://github.com/Truemedia/Regeneration-Primer">GitHub</a></li>
                     <li><a href="http://www.youtube.com/user/MCOMediaCityOnline">YouTube</a></li>
                     <li class="divider"></li>
-                    <li><a href="https://github.com/Truemedia">{{lang.other-projects_sntc}}</a></li>
+                    <li><a href="https://github.com/Truemedia">{{trans.other-projects_sntc}}</a></li>
                   </ul>
             	</li>
             </ul>
@@ -63,7 +63,7 @@
     </div>
     
     <div class="span3">
-    <h4 class="line3 center standart-h4title"><span>{{lang.tools_noun}}</span></h4>
+    <h4 class="line3 center standart-h4title"><span>{{trans.tools_noun}}</span></h4>
     	<div class="bs-example">
         	<ul style="max-width: 300px;" class="nav nav-pills nav-stacked">
             	<li><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></li>
@@ -74,13 +74,13 @@
     </div>
 
     <div class="span12">
-    	<h4 class="line3 center standart-h4title"><span>{{lang.game-engine_name}}</span></h4>
+    	<h4 class="line3 center standart-h4title"><span>{{trans.game-engine_name}}</span></h4>
 			<p>
-				{{lang.original-credits_sntc}} <br/>
-				<a href="http://github.com/Truemedia">{{lang.creator_name}} (Truemedia)</a>
+				{{trans.original-credits_sntc}} <br/>
+				<a href="http://github.com/Truemedia">{{trans.creator_name}} (Truemedia)</a>
 			</p>
 			<p>
-				{{lang.sfx-credits_sntc}} <br />
+				{{trans.sfx-credits_sntc}} <br />
 				<a href="http://freesound.org">FreeSound</a>
 			</p>
     </div>
@@ -89,19 +89,19 @@
 		<hr>
 		<div class="row-fluid">
         	<div class="span6">
-        		<p>&copy; {{lang.copyright-notice_sntc}} 2013</p>
+        		<p>&copy; {{trans.copyright-notice_sntc}} 2013</p>
         	</div>
 			<div>
 				<p class="text-right">
-					<span class="label label-info">{{lang.language_noun}}</span>&nbsp;
+					<span class="label label-info">{{trans.language_noun}}</span>&nbsp;
 					<span></span>&nbsp;
 					<select id="language">
 						{{#languages}}
-						<option value="{{lang_code}}">{{lang_name}}</option>
+						<option {{lang_selected}}value="{{lang_code}}">{{lang_name}}</option>
 						{{/languages}}
 					</select>
-					<select class="input-medium bfh-languages" data-language="en_US" data-available="en_US,fr_CA,es_MX"></select>
-					<a href="https://github.com/Truemedia/Regeneration-Primer" class="btn btn-danger">{{lang.volunteer_sntc}}</a>
+					<!--<select class="input-medium bfh-languages" data-language="en_US" data-available="en_US,fr_CA,es_MX"></select>
+					<a href="https://github.com/Truemedia/Regeneration-Primer" class="btn btn-danger">{{trans.volunteer_sntc}}</a>-->
 				</p>
 			</div>
 		</div>
