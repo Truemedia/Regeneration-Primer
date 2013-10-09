@@ -95,7 +95,11 @@
 				<p class="text-right">
 					<span class="label label-info">{{lang.language_noun}}</span>&nbsp;
 					<span></span>&nbsp;
-					<select><option value="lang">{{lang.current-language_var}}</option></select>
+					<select id="language">
+						{{#languages}}
+						<option value="{{lang_code}}">{{lang_name}}</option>
+						{{/languages}}
+					</select>
 					<select class="input-medium bfh-languages" data-language="en_US" data-available="en_US,fr_CA,es_MX"></select>
 					<a href="https://github.com/Truemedia/Regeneration-Primer" class="btn btn-danger">{{lang.volunteer_sntc}}</a>
 				</p>

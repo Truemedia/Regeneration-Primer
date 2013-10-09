@@ -27,8 +27,11 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Bo
 				
 				// Append language strings to JSON data source
 				data.lang = lang;
+
+				// Get language selection dropdown options
+				data.languages = Config.get('languages');
 			
-				// Mustache
+				// Load view
        			document.getElementById(footer.partial_block_element).innerHTML = view(data);
 			});
 			console.log("Footer PACKAGE loaded");

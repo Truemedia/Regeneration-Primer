@@ -28,8 +28,14 @@ define(["./jQuery", "./JSONpatch"], function(jQuery, JSONpatch) {
 		    // Grab full config
 		    var data = Config.instance(property);
 			
-		    // Query JSON
-			var value = new JSONpatch.JSONPointer(json_pointer).get(data);
+		    // Query JSON file
+		    if (json_pointer !== '/') {
+		    	var value = new JSONpatch.JSONPointer(json_pointer).get(data);
+		    }
+		    // Pass back whole JSON file
+		    else {
+		    	var value = data;
+		    }
 
 			if (value === undefined) {
 				return default_value;
@@ -173,23 +179,53 @@ define(["./jQuery", "./JSONpatch"], function(jQuery, JSONpatch) {
 					break;
 				case 'file_name':
 					
+					var dot_location = property.indexOf(".");
+					
 					// Package config file
 					if (Config.property_origin(property) == 'package') {
 
 						var file_name_position = property.indexOf(package_indicator) + package_indicator.length;
-						extracted = property.substr(file_name_position, property.indexOf(".") - file_name_position);
+						
+						// Points to key inside JSON file
+						if (dot_location >= 0) {
+							
+							extracted = property.substr(file_name_position, dot_location - file_name_position);
+						}
+						// Points to a JSON file
+						else {
+							extracted = property.substr(file_name_position, property.length - file_name_position);
+						}
 					}
 					// Application config file
 					else {
 	
-						extracted = property.substr(0, property.indexOf("."));
+						// Points to key inside JSON file
+						if (dot_location >= 0) {
+							
+							extracted = property.substr(0, dot_location);
+						}
+						// Points to a JSON file
+						else {
+							extracted = property;
+						}	
 					}
 					break;
 				case 'json_pointer':
 					
 					// Package or Application JSON pointer
-					var string = property.substr(property.indexOf("."));
-					extracted = string.replace(/\./g, "/");
+					var dot_location = property.indexOf(".");
+					
+					// Points to key inside JSON file
+					if (dot_location >= 0) {
+						
+						var string = property.substr(dot_location);
+						extracted = string.replace(/\./g, "/");
+					}
+					// Points to a JSON file
+					else {
+						extracted = "/";
+					}
+					
 					break;
 				default:
 					extracted = property;
@@ -215,7 +251,7 @@ define(["./jQuery", "./JSONpatch"], function(jQuery, JSONpatch) {
 				// Application config file
 				property_origin = 'application';
 			}
-			
+
 			return property_origin;
 		}
 	}
