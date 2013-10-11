@@ -42,6 +42,7 @@ define(function(require, exports, module) {
 			// Load header and footer
 			require('header.PKG').init();
 			require('characterselection.PKG').init();
+			require('diydie.PKG').init();
 			require('footer.PKG').init();
 
 			// Setup controls

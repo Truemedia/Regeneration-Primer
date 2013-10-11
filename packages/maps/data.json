@@ -1,0 +1,32 @@
+{
+	"maps": [
+		{
+			"identifier": "scraproom",
+			"name": "Scraproom",
+			"desc": "A room in the Homemodz store where scrap materials and old equipment are stored.",
+			"location": "Homemodz DIY superstore, Castleford",
+			"disabled": ""
+		},
+		{
+			"identifier": "homemodz",
+			"name": "HomeModz",
+			"desc": "DIY superstore located on the outskirts of town in the popular local retail park.",
+			"location": "Intersect retail park, Castleford",
+			"disabled": " disabled"
+		},
+		{
+			"identifier": "apartment",
+			"name": "Apartment",
+			"desc": "The apartment of Reece's ex-girlfriend Sandra, near town center.",
+			"location": "13 Lake street drive, Castleford",
+			"disabled": " disabled"
+		},
+		{
+			"identifier": "trainstation",
+			"name": "Train Station",
+			"desc": "Train station adjacent to the largest building in the retail park.",
+			"location": "Intersect retail park, Castleford",
+			"disabled": " disabled"
+		}	
+	]
+}

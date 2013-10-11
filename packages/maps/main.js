@@ -7,12 +7,76 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./Config", "./init.PKG"], function(jQuery, Crafty, Config, init) {
+define(["hgn!packages/maps/partial", "./jQuery", "./Crafty", "./Config", "./init.PKG"], function(view, jQuery, Crafty, Config, init) {
 	return maps = {
 		
 		layers: 1,
+		
+		// Partial loading location	
+		partial_block_element: 'maps_partial',
+	
+		/* Load the package */
+		init: function() {
+
+			maps.loadDOM();
+			console.log("Maps PACKAGE loaded");
+		},
+		
+		/* Show map selection (based on a slightly modified design of this bootsnipp: http://bootsnipp.com/snipps/crowdfunding-grid) */
+		loadDOM: function() {
 			
-		generateWorld: function(){
+			// Load up list of maps to choose from
+			jQuery.getJSON("packages/maps/data.json", function(data){
+			
+				// Load view
+				document.getElementById(maps.partial_block_element).innerHTML = view(data);
+				
+				// Register events
+				maps.registerEvents();
+			});
+		},
+		
+		/* Register jQuery event handlers */
+		registerEvents: function() {
+			
+			// Mouse over animation for map selection
+			jQuery("#"+maps.partial_block_element).on("mouseover", ".map_select", function(event) {
+
+				var enabled = !jQuery(this).hasClass("disabled");
+				if (enabled) {
+					jQuery(this).addClass("btn-success");
+				}
+				else {
+					jQuery(this).children("span").html("Not available");
+				}
+			});
+
+			// Mouse leave animation for map selection
+			jQuery("#"+maps.partial_block_element).on("mouseleave", ".map_select", function(event) {
+
+				var enabled = !jQuery(this).hasClass("disabled");
+				if (enabled) {
+					jQuery(this).removeClass("btn-success");
+				}
+				else {
+					jQuery(this).children("span").html("Select map");
+				}
+			});
+			
+			// Map has been choosen
+			jQuery("#"+maps.partial_block_element).on("click", ".map_select", function(event) {
+
+				var map = jQuery(this).val();
+				var enabled = !jQuery(this).hasClass("disabled");
+				
+				// Map is enabled, will now load
+				if (enabled) {
+					console.log("Map has been choosen: "+map);
+				}
+			});
+		},
+			
+		generateWorld: function() {
 
 			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
 		

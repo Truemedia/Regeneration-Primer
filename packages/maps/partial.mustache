@@ -1,0 +1,37 @@
+<hr />
+<div class="page-header">
+   <h1 style="text-align: center;">Choose a map</h1>
+</div>
+<div class="container">
+   <div class="row-fluid">
+      <ul class="thumbnails">
+      	{{#maps}}
+         <li class="span3">
+            <div class="thumbnail" style="padding: 0">
+               <div style="padding:4px">
+                  <img alt="300x200" style="width: 100%" src="http://placehold.it/200x150">
+               </div>
+               <div class="caption">
+                  <h2>{{name}}</h2>
+                  <p>{{desc}}</p>
+                  <p><i class="icon icon-map-marker"></i> {{location}}</p>
+               </div>
+               <div class="modal-footer" style="text-align: left">
+                  <div class="progress" style="background: #ddd">
+                     <div class="bar bar-success" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-fluid">
+                     <div class="span6"><b>Truemedia</b><br><small>CREATED BY</small></div>
+                     <div class="span6"><b>N/A</b><br><small>LIKES</small></div>
+                  </div>
+                  <hr>
+                  <div class="well">
+                     <button class="btn btn-large map_select{{disabled}}" value="{{identifier}}"><i class="icon-plane"></i> <span>Select Map</span></button>
+                  </div>
+               </div>
+            </div>
+         </li>
+         {{/maps}}
+      </ul>
+   </div>
+</div>
