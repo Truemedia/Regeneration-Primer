@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/maps/partial", "./jQuery", "./Crafty", "./Config", "./init.PKG"], function(view, jQuery, Crafty, Config, init) {
+define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./jQuery"], function(view, Crafty, Config, init, jQuery) {
 	return maps = {
 		
 		layers: 1,
@@ -59,21 +59,15 @@ define(["hgn!packages/maps/partial", "./jQuery", "./Crafty", "./Config", "./init
 					jQuery(this).removeClass("btn-success");
 				}
 				else {
-					jQuery(this).children("span").html("Select map");
+					jQuery(this).children("span").html("Play map");
 				}
 			});
-			
-			// Map has been choosen
-			jQuery("#"+maps.partial_block_element).on("click", ".map_select", function(event) {
+		},
+		
+		// Deactivate package
+		deactivate: function(){
 
-				var map = jQuery(this).val();
-				var enabled = !jQuery(this).hasClass("disabled");
-				
-				// Map is enabled, will now load
-				if (enabled) {
-					console.log("Map has been choosen: "+map);
-				}
-			});
+			jQuery("#"+maps.partial_block_element).remove();
 		},
 			
 		generateWorld: function() {

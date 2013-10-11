@@ -10,18 +10,29 @@
 // Logic for the most important game events
 define(function(require, exports, module) {
 	return game = {
-		launch: function(){ // Game starts here (launcher)
+			
+		// Session variables
+		session: {},
+		
+		/* Game starts here (launcher) */
+		launch: function() {
+			
+			game.chooseCharacter();
+		},
+		
+		/* Choose character (Step 1) */
+		chooseCharacter: function() {
 			
 			var jQuery = require('jQuery');
-    		jQuery(document).ready( function(jQuery){
+    		jQuery(document).ready( function(jQuery) {
 				
-				/* CHARACTER SELECTION EVENT */
+				// CHARACTER SELECTION EVENT
 				jQuery('#characterselection_partial').on("click", ".start_session", function(event){
 
 					// Specific character chosen
 					if(jQuery(this).attr("id") == "use_picked_char"){
 						console.log("Using players choosen character: "+this.value);
-						game.startSession(event, this.value);
+						game.session.character = this.value;
 					} else {
 					// Choose a random character for the player
 						console.log("Using random character");
@@ -29,17 +40,49 @@ define(function(require, exports, module) {
 							number_of_chars = all_characters_info.characters.length - 1;
 							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
 							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
-							game.startSession(event, random_char_name);
+							game.session.character = random_char_name;
 						});
 					}
+					
+					// Deactivate selection screen
+					require('characterselection.PKG').deactivate();
+					
+					// Activate next step
+					game.chooseMap();
 				});	
 			});
 		},
-		startSession: function(event, characterselected){ // Startup the actual game environment (once the player is happy to start)
+		
+		/* Choose map (Step 2) */
+		chooseMap: function() {
 
-			/* Deactivate selection screen */
-			characterselection.deactivate();
-
+			require('diydie.PKG').init();
+			
+			var jQuery = require('jQuery');
+    		jQuery(document).ready( function(jQuery) {
+				
+				// MAP SELECTION EVENT
+				jQuery('#maps_partial').on("click", ".map_select", function(event){
+					
+					var map = jQuery(this).val();
+					var enabled = !jQuery(this).hasClass("disabled");
+					
+					// Map is enabled, will now load
+					if (enabled) {
+						
+						// Deactivate selection screen
+						require('diydie.PKG').deactivate();
+						
+						// Start session
+						console.log("Map has been choosen: "+map);
+						game.startSession(game.session.character);
+					}
+				});
+			});
+		},
+		
+		/* Startup the actual game environment (once the player is happy to start) */
+		startSession: function(characterselected) {
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
 			var jQuery = require('jQuery');
