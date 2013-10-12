@@ -131,7 +131,8 @@ define(function(require, exports, module) {
 			me.input.bindKey(me.input.KEY.A, "a");
 			me.input.bindKey(me.input.KEY.S, "s");
 			me.input.bindKey(me.input.KEY.D, "d");
-			me.input.bindKey(me.input.KEY.ENTER, "enter");
+			me.input.bindKey(me.input.KEY.SPACE, "space", true);
+			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
 
 			// start the game
 			me.state.change(me.state.PLAY);
@@ -181,9 +182,19 @@ define(function(require, exports, module) {
 				// Force redraw
 				me.game.repaint();
 			}
+			
+			// Hiding or showing points panel
+			if (me.input.isKeyPressed('shift')) {
 
-			if (me.input.isKeyPressed('enter')) {
-				me.game.viewport.shake(16, 500);
+				jQuery('#points_partial').toggle();
+				console.log("Hiding or showing points panel");
+			}
+			
+			// Hiding or showing profile & inventory panels
+			if (me.input.isKeyPressed('space')) {
+
+				jQuery('.partial-column').toggle();
+				console.log("Hiding or showing profile & inventory panels");
 			}
 
 			// Update the frame counter
