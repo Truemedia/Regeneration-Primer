@@ -64,7 +64,7 @@ define(function(require, exports, module) {
 				// MAP SELECTION EVENT
 				jQuery('#maps_partial').on("click", ".map_select", function(event){
 					
-					var map = jQuery(this).val();
+					game.session.map = jQuery(this).val();
 					var enabled = !jQuery(this).hasClass("disabled");
 					
 					// Map is enabled, will now load
@@ -74,7 +74,7 @@ define(function(require, exports, module) {
 						require('diydie.PKG').deactivate();
 						
 						// Start session
-						console.log("Map has been choosen: "+map);
+						console.log("Map has been choosen: "+game.session.map);
 						game.startSession(game.session.character);
 					}
 				});
@@ -91,6 +91,109 @@ define(function(require, exports, module) {
     		// Load session packages
     		var app = require('app');
     		app.session_packages(characterselected);
+    		
+    		// Start up MelonJS instance
+    		window.onReady(function() 
+    		{
+    			game.onload();
+    		});
+		},
+		
+		/* Load up the game map and object instances */
+		onload: function() {
+			
+			// Setup canvas
+			var height_scroller_width = 15;
+			if (!me.video.init('stage', parseInt(document.body.clientWidth) - height_scroller_width, 720)) {
+				alert("Sorry but your browser does not support html 5 canvas. Please try with another one!");
+				return;
+			}
+			
+			// Build maps and map resources
+			var maps = require('diydie.PKG').compileMaps();
+			
+			// Setup human interface devices input
+			me.loader.onload = game.loaded.bind(this);
+			
+			// Setup all image and map data resources
+			me.loader.preload(maps);
+
+			// Load everything & display a loading screen
+			me.state.change(me.state.LOADING);
+		},
+		
+		loaded: function() {
+			// set the "Play/Ingame" Screen Object
+			me.state.set(me.state.PLAY, this);
+
+			// enable the keyboard (to navigate in the map)
+			me.input.bindKey(me.input.KEY.W, "w");
+			me.input.bindKey(me.input.KEY.A, "a");
+			me.input.bindKey(me.input.KEY.S, "s");
+			me.input.bindKey(me.input.KEY.D, "d");
+			me.input.bindKey(me.input.KEY.ENTER, "enter");
+
+			// start the game
+			me.state.change(me.state.PLAY);
+		},
+		
+		reset: function()
+		{	
+			me.game.reset();
+			
+			// Load a level/map
+			me.levelDirector.loadLevel(game.session.map);		
+		},
+
+		
+		/* Actions performed while game is running */
+		onUpdateFrame: function()
+		{
+		
+			// Keyboard input
+			if (me.input.isKeyPressed('a'))
+			{
+				me.game.viewport.move(-(me.game.currentLevel.tilewidth/2),0);
+
+				// Force redraw
+				me.game.repaint();
+				
+			}
+			else if (me.input.isKeyPressed('d'))
+	      {
+				me.game.viewport.move(me.game.currentLevel.tilewidth/2,0);
+
+				// Force redraw
+				me.game.repaint();
+			}
+					
+			if (me.input.isKeyPressed('w'))
+			{
+				me.game.viewport.move(0,-(me.game.currentLevel.tileheight/2));
+				
+				// Force redraw
+				me.game.repaint();
+			}
+			else if (me.input.isKeyPressed('s'))
+	      {
+				me.game.viewport.move(0,me.game.currentLevel.tileheight/2);
+				
+				// Force redraw
+				me.game.repaint();
+			}
+
+			if (me.input.isKeyPressed('enter')) {
+				me.game.viewport.shake(16, 500);
+			}
+
+			// Update the frame counter
+			me.timer.update();
+
+			// Update our sprites
+			me.game.update();
+		
+			// Draw the rest of the game
+			me.game.draw();
 		}
 	}
 });

@@ -63,7 +63,7 @@ define(function(require, exports, module) {
 			console.log("Loading session packages...");
 			
 			// Initializer
-			require('init.PKG').initGame();
+			/*require('init.PKG').initGame();
 
 			// Setup all images as sprites
 			require('sprites.PKG').setup();
@@ -78,7 +78,7 @@ define(function(require, exports, module) {
 			require('gameobjects.PKG').gameObjects(characterselected);
 	
 			// Initialize Game Director
-			require('gamedirector.PKG').initGameDirector(characterselected);
+			require('gamedirector.PKG').initGameDirector(characterselected);*/
 	
 			// Initialize session partials
 			require('points.PKG').init();

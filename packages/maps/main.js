@@ -69,6 +69,52 @@ define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./jQ
 
 			jQuery("#"+maps.partial_block_element).remove();
 		},
+		
+		/* Format maps into array suitable for melonJS */
+		compileMaps: function(maps) {
+			
+			var maps = [];
+			
+			// Set ASYNC AJAX to false
+			jQuery.ajaxSetup({
+				async: false
+			});
+			
+			// Load up list of maps to choose from
+			jQuery.getJSON("packages/maps/data.json", function(data){
+				
+				jQuery.each(data.maps, function(index, map) {
+					if (jQuery.trim(map.disabled) !== "disabled") {
+						
+						// Set directory for map resources
+						var map_dir = map.identifier;
+						
+						// Images
+						var map_tileset = {
+								name: "tileset",
+								type: "image",
+								src: "maps/"+map_dir+"/tileset.png"
+						};
+		               	// TMX map
+						var map_data = {
+								name: map_dir,
+								type: "tmx",
+								src: "maps/"+map_dir+"/map.tmx"
+						};
+						
+						maps.push(map_tileset);
+						maps.push(map_data);
+					}
+				});
+			});
+			
+			// Set ASYNC AJAX back to true
+			jQuery.ajaxSetup({
+				async: true
+			});
+			
+			return maps;
+		},
 			
 		generateWorld: function() {
 

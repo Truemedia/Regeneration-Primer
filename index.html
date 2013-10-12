@@ -5,6 +5,7 @@
 		<link rel="apple-touch-icon-precomposed" href="app_icon.png"/>
 		<script data-main="start" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
 		<script> window.require || document.write('<script data-main="start" src="dependencies/requirejs/require.js">\x3C/script>'); </script>
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/melonjs/0.9.8/melonJS.min.js"></script>
 		<title>Regen Primer</title>
 	</head>
 	<body>
@@ -21,13 +22,17 @@
 			<div id="marquee_partial"></div>
 			<div id="social_partial"></div>
 			<div id="points_partial"></div>
-			<div id="canvas_overlay_partial"></div>
-
-			<!-- Canvas -->
-			<div id="canvas_partial">
-				<div id="cr-stage"></div>
-			</div>
 			
+		</div>
+		
+		<div id="canvas_overlay_partial"></div>
+		<!-- Canvas -->
+		<div id="canvas_partial">
+			<div id="cr-stage"></div>
+		</div>
+		<div id="stage"></div>
+		
+		<div class="container">	
 			<!-- Map selection -->
 			<div id="maps_partial"></div>
 			
