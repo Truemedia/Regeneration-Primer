@@ -1,0 +1,114 @@
+[
+	{
+		"gas_identifier": "nitrogen",
+		"gas_name": "Nitrogen",
+		"symbol": "N2",
+		"real_ppmv": "780,840",
+		"real_percent": "78.084"
+	},
+	{
+		"gas_identifier": "oxygen",
+		"gas_name": "Oxygen",
+		"symbol": "O2",
+		"real_ppmv": "209,460",
+		"real_percent": "20.946"
+	},
+	{
+		"gas_identifier": "argon",
+		"gas_name": "Argon",
+		"symbol": "Ar",
+		"real_ppmv": "9,340",
+		"real_percent": "0.9340"
+	},
+	{
+		"gas_identifier": "carbondioxide",
+		"gas_name": "Carbon dioxide",
+		"symbol": "CO2",
+		"real_ppmv": "397",
+		"real_percent": "0.0397"
+	},
+	{
+		"gas_identifier": "neon",
+		"gas_name": "Neon",
+		"symbol": "Ne",
+		"real_ppmv": "18.18",
+		"real_percent": "0.001818"
+	},
+	{
+		"gas_identifier": "helium",
+		"gas_name": "Helium",
+		"symbol": "He",
+		"real_ppmv": "5.24",
+		"real_percent": "0.000524"
+	},
+	{
+		"gas_identifier": "methane",
+		"gas_name": "Methane",
+		"symbol": "CH4",
+		"real_ppmv": "1.79",
+		"real_percent": "0.000179"
+	},
+	{
+		"gas_identifier": "krypton",
+		"gas_name": "Krypton",
+		"symbol": "Kr",
+		"real_ppmv": "1.14",
+		"real_percent": "0.000114"
+	},
+	{
+		"gas_identifier": "hydrogen",
+		"gas_name": "Hydrogen",
+		"symbol": "H2",
+		"real_ppmv": "0.55",
+		"real_percent": "0.000055"
+	},
+	{
+		"gas_identifier": "nitrousoxide",
+		"gas_name": "Nitrous oxide",
+		"symbol": "N2O",
+		"real_ppmv": "0.325",
+		"real_percent": "0.0000325"
+	},
+	{
+		"gas_identifier": "carbonmonoxide",
+		"gas_name": "Carbon monoxide",
+		"symbol": "CO",
+		"real_ppmv": "0.1",
+		"real_percent": "0.00001"
+	},
+	{
+		"gas_identifier": "xenon",
+		"gas_name": "Xenon",
+		"symbol": "Xe",
+		"real_ppmv": "0.09",
+		"real_percent": "0.000009"
+	},
+	{
+		"gas_identifier": "ozone",
+		"gas_name": "Ozone",
+		"symbol": "O3",
+		"real_ppmv": "0.07",
+		"real_percent": "7×10−6"
+	},
+	{
+		"gas_identifier": "nitrogendioxide",
+		"gas_name": "Nitrogen dioxide",
+		"symbol": "NO2",
+		"real_ppmv": "0.02",
+		"real_percent": "0.000002"
+	},
+	{
+		"gas_identifier": "iodine",
+		"gas_name": "Iodine",
+		"symbol": "I2",
+		"real_ppmv": "0.01",
+		"real_percent": "0.000001"
+	},
+	{
+		"gas_identifier": "ammonia",
+		"gas_name": "Ammonia",
+		"symbol": "NH3",
+		"real_ppmv": "trace",
+		"real_percent": "trace"
+	}
+]

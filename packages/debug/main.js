@@ -15,10 +15,16 @@ define(["hgn!packages/debug/partial", "./Bootstrap", "./Crafty", "./points.PKG"]
 		// Initialize debugging
 		init: function() {
 			
-			// Setup data
-			data = {};
+			// Load package data
+			jQuery.getJSON("packages/debug/data.json", function(data) {
 			
-			document.getElementById(debug.partial_block_element).innerHTML = view(data);
+				data = {
+					"gases": data	
+				};
+				
+				// Load view
+				document.getElementById(debug.partial_block_element).innerHTML = view(data);
+			});
 		},	
 		
 		/* jQuery event handlers (for Debug) */

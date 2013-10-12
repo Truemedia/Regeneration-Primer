@@ -1,8 +1,9 @@
 <!-- Debugging panels -->
 <div id="debug_panels">
    <ul class="nav nav-tabs">
-      <li class=""><a data-toggle="tab" href="#score_debugging_panel">Score</a></li>
-      <li class=""><a data-toggle="tab" href="#mouse_debugging_panel">Mouse</a></li>
+      <li><a data-toggle="tab" href="#score_debugging_panel">Score</a></li>
+      <li><a data-toggle="tab" href="#mouse_debugging_panel">Mouse</a></li>
+      <li><a data-toggle="tab" href="#atmosphere_debugging_panel">Atmosphere</a></li>
    </ul>
    <div class="tabbable">
       <div class="tab-content">
@@ -11,7 +12,7 @@
             <button class="btn">Show Total scores</button>
             <button class="btn">Log scores</button>
          </div>
-         <div id="mouse_debugging_panel" class="tab-pane active">
+         <div id="mouse_debugging_panel" class="tab-pane">
             <dl>
                <dt id="mouse_x_label">Mouse X Position:</dt>
                <dd id="mouse_x_coords">Hover over canvas to see this change</dd>
@@ -20,6 +21,13 @@
             </dl>
             <span id="mouse_clipboard_label">Mouse coords clipboard (Press Z to save current mouse coords)</span>
             <span id="saved_mouse_coords"></span>
+         </div>
+         <div id="atmosphere_debugging_panel" class="tab-pane">
+         	{{#gases}}
+         	<label for="{{gas_identifier}}">{{gas_name}} ({{symbol}})</label>
+         	<input type="text" id="{{gas_identifier}}" value="{{real_ppmv}}" /> &nbsp;PPVM
+         	<span>({{real_percent}}%)</span>
+         	{{/gases}}
          </div>
       </div>
    </div>
