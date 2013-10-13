@@ -68,9 +68,6 @@ define(function(require, exports, module) {
 			// Setup all images as sprites
 			require('sprites.PKG').setup();
 
-			// Controls
-			require('controls.PKG').mapper();
-
 			// Generate Map
 			require('diydie.PKG').generateWorld();
 

@@ -107,20 +107,6 @@ define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", 
 			else if (me.input.isKeyPressed('0')) {
 				inventory.switchItem(0);
 			}
-		},
-			
-		/* Crafty WASD movement mapping */
-		mapper: function(){
-			Crafty.c("LeftControls", {
-    			init: function() {
-       				this.requires('Multiway');
-    			},
-    
-    			leftControls: function(speed) {
-        			this.multiway(speed, {W: -90, S: 90, D: 0, A: 180})
-        			return this;
-   				}  
-			});
 		}
 	}
 });
