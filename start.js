@@ -55,6 +55,9 @@ require.config({
         'JSONpatch': [
             "dependencies/jsonpatch.min" // local
         ], // JSON patch
+        'Buzz': [
+            "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min"
+        ], // Buzz
         
         /* Main files */
         'app': "app", // Application instance and low level application instance control methods
@@ -132,6 +135,9 @@ require.config({
         },
         'KO': {
             exports: 'KO'
+        },
+        'Buzz': {
+            exports: 'buzz'
         },
         'Modernizr': {
             exports: 'Modernizr'
