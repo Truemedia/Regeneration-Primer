@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG"], function(view, Config, jQuery, Crafty, inventory, player) {
+define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG"], function(view, Config, Page, jQuery, Crafty, inventory, player) {
 	return controls = {
 		
 		// Partial loading location	
@@ -62,18 +62,14 @@ define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", 
 				player.move('right');
 			}
 			
-			// Hiding or showing points panel
+			// Hiding or showing left sidebar
 			else if (me.input.isKeyPressed('shift')) {
-
-				jQuery('#points_partial').toggle();
-				console.log("Hiding or showing points panel");
+				Page.sidebar('left', 'toggle');
 			}
 			
-			// Hiding or showing profile & inventory panels
+			// Hiding or showing right sidebar
 			else if (me.input.isKeyPressed('space')) {
-
-				jQuery('.partial-column').toggle();
-				console.log("Hiding or showing profile & inventory panels");
+				Page.sidebar('right', 'toggle');
 			}
 
 			// Select/Unselect inventory items
