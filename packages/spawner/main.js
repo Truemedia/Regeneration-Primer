@@ -31,50 +31,7 @@ define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inv
 					/*.text("YOU")
   					.textColor(this.characterColor(char_name), '1')
   					.textFont({ type: 'italic', family: 'Arial', weight: 'bold' })*/
-  					.bind('KeyDown', function(e) {
-  						// Hiding or showing points panel
-    					if(e.key == Crafty.keys['SHIFT']) {
-    						jQuery('#points_partial').toggle();
-      						console.log("Hiding or showing points panel");
-    					}
-    					// Hiding or showing profile panel
-    					if(e.key == Crafty.keys['SPACE']) {
-    						jQuery('#profile_partial').toggle();
-      						console.log("Hiding or showing profile panel");
-    					}
-    				})
     				.bind('KeyUp', function(e) {
-    					// Select/Unselect inventory item
-    					if (e.key == Crafty.keys['1']) {
-      						inventory.switchItem(1);
-    					}
-    					if (e.key == Crafty.keys['2']) {
-      						inventory.switchItem(2);
-    					}
-    					if (e.key == Crafty.keys['3']) {
-      						inventory.switchItem(3);
-    					}
-    					if (e.key == Crafty.keys['4']) {
-      						inventory.switchItem(4);
-    					}
-    					if (e.key == Crafty.keys['5']) {
-      						inventory.switchItem(5);
-    					}
-    					if (e.key == Crafty.keys['6']) {
-      						inventory.switchItem(6);
-    					}
-    					if (e.key == Crafty.keys['7']) {
-      						inventory.switchItem(7);
-    					}
-    					if (e.key == Crafty.keys['8']) {
-      						inventory.switchItem(8);
-    					}
-    					if (e.key == Crafty.keys['9']) {
-      						inventory.switchItem(9);
-    					}
-    					if (e.key == Crafty.keys['0']) {
-      						inventory.switchItem(0);
-    					}
     					// Do a partial reload (insert mag into empty gun)
     					if(e.key == Crafty.keys['E']) {
     						Crafty.audio.play("insert_mag",1,1);

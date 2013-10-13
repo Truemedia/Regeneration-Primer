@@ -127,12 +127,7 @@ define(function(require, exports, module) {
 			me.state.set(me.state.PLAY, this);
 
 			// enable the keyboard (to navigate in the map)
-			me.input.bindKey(me.input.KEY.W, "w");
-			me.input.bindKey(me.input.KEY.A, "a");
-			me.input.bindKey(me.input.KEY.S, "s");
-			me.input.bindKey(me.input.KEY.D, "d");
-			me.input.bindKey(me.input.KEY.SPACE, "space", true);
-			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
+			require('controls.PKG').bindKeyboard();
 
 			// start the game
 			me.state.change(me.state.PLAY);
@@ -151,51 +146,8 @@ define(function(require, exports, module) {
 		onUpdateFrame: function()
 		{
 		
-			// Keyboard input
-			if (me.input.isKeyPressed('a'))
-			{
-				me.game.viewport.move(-(me.game.currentLevel.tilewidth/2),0);
-
-				// Force redraw
-				me.game.repaint();
-				
-			}
-			else if (me.input.isKeyPressed('d'))
-	      {
-				me.game.viewport.move(me.game.currentLevel.tilewidth/2,0);
-
-				// Force redraw
-				me.game.repaint();
-			}
-					
-			if (me.input.isKeyPressed('w'))
-			{
-				me.game.viewport.move(0,-(me.game.currentLevel.tileheight/2));
-				
-				// Force redraw
-				me.game.repaint();
-			}
-			else if (me.input.isKeyPressed('s'))
-	      {
-				me.game.viewport.move(0,me.game.currentLevel.tileheight/2);
-				
-				// Force redraw
-				me.game.repaint();
-			}
-			
-			// Hiding or showing points panel
-			if (me.input.isKeyPressed('shift')) {
-
-				jQuery('#points_partial').toggle();
-				console.log("Hiding or showing points panel");
-			}
-			
-			// Hiding or showing profile & inventory panels
-			if (me.input.isKeyPressed('space')) {
-
-				jQuery('.partial-column').toggle();
-				console.log("Hiding or showing profile & inventory panels");
-			}
+			// Check for any interaction with keyboard
+			require('controls.PKG').observeKeyboard();
 
 			// Update the frame counter
 			me.timer.update();
