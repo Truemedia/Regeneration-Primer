@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", "inventory.PKG"], function(view, Config, jQuery, Crafty, inventory) {
+define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG"], function(view, Config, jQuery, Crafty, inventory, player) {
 	return controls = {
 		
 		// Partial loading location	
@@ -48,36 +48,18 @@ define(["hgn!packages/controls/partial", "./Config", "./Bootstrap", "./Crafty", 
 		/* Observe any keys being pressed and trigger their relative events */
 		observeKeyboard: function() {
 			
-			// Keyboard input
-			if (me.input.isKeyPressed('a'))
-			{
-				me.game.viewport.move(-(me.game.currentLevel.tilewidth/2),0);
-
-				// Force redraw
-				me.game.repaint();
-				
+			// Moving player
+			if (me.input.isKeyPressed('w')) {
+				player.move('up');
 			}
-			else if (me.input.isKeyPressed('d'))
-			{
-				me.game.viewport.move(me.game.currentLevel.tilewidth/2,0);
-
-				// Force redraw
-				me.game.repaint();
+			else if (me.input.isKeyPressed('a')) {
+				player.move('left');
 			}
-					
-			if (me.input.isKeyPressed('w'))
-			{
-				me.game.viewport.move(0,-(me.game.currentLevel.tileheight/2));
-				
-				// Force redraw
-				me.game.repaint();
+			else if (me.input.isKeyPressed('s')) {
+				player.move('down');
 			}
-			else if (me.input.isKeyPressed('s'))
-			{
-				me.game.viewport.move(0,me.game.currentLevel.tileheight/2);
-				
-				// Force redraw
-				me.game.repaint();
+			else if (me.input.isKeyPressed('d')) {
+				player.move('right');
 			}
 			
 			// Hiding or showing points panel

@@ -9,6 +9,8 @@
 */
 define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG"], function(jQuery, Crafty, ko, spawner, profile) {
 	return player = {
+			
+		/* Kill player using player_id as reference */
 		killPlayer: function(player_id){
 			var real_id = player_id + 1;
 			console.log("Player "+real_id+" died");
@@ -40,6 +42,30 @@ define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG"], funct
 				jQuery('.score_container:eq('+player_id+') > dl > dt > span').css({ 'fontSize': "1em" });
 			}
 			jQuery('.score_container:eq('+player_id+') > dl').css({ 'backgroundColor': bg });
+		},
+		
+		/* Move your own character */
+		move: function(direction) {
+			
+			// Move screen based on direction
+			switch (direction) {
+			
+				case 'up':
+					me.game.viewport.move(0,-(me.game.currentLevel.tileheight/2));
+				break;
+				case 'right':
+					me.game.viewport.move(me.game.currentLevel.tilewidth/2,0);
+				break;
+				case 'down':
+					me.game.viewport.move(0,me.game.currentLevel.tileheight/2);
+				break;
+				case 'left':
+					me.game.viewport.move(-(me.game.currentLevel.tilewidth/2),0);
+				break;
+			}
+			
+			// Force redraw
+			me.game.repaint();
 		}
 	}
 });
