@@ -27,33 +27,7 @@ define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inv
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: transitional_layer})
 					// Add controls to this object
 					.leftControls(3)
-					// CraftyJS bug causing text to interfere with characters sprite?
-					/*.text("YOU")
-  					.textColor(this.characterColor(char_name), '1')
-  					.textFont({ type: 'italic', family: 'Arial', weight: 'bold' })*/
     				.bind('KeyUp', function(e) {
-    					// Do a partial reload (insert mag into empty gun)
-    					if(e.key == Crafty.keys['E']) {
-    						Crafty.audio.play("insert_mag",1,1);
-      						console.log("Loaded a mag");
-    					}
-    					// Do a full reload (discard mag, and insert new mag)
-    					if(e.key == Crafty.keys['R']) {
-    						Crafty.audio.play("lock_inserted_mag",1,1);
-    						//Crafty.audio.play("insert_mag",1,1);
-							//Crafty.audio.play("load_chamber",1,1);
-      						console.log("Connected a mag");
-    					}
-    					// Throw away magazine
-    					if(e.key == Crafty.keys['T']) {
-    						Crafty.audio.play("discard_mag",1,1);
-      						console.log("Removed a mag");
-    					}
-    					// Load chamber
-    					if(e.key == Crafty.keys['C']) {
-    						Crafty.audio.play("load_chamber",1,1);
-      						console.log("Loaded chamber");
-    					}
     					// Save X Y coords (one instance shown in debug toolbar)
     					if(e.key == Crafty.keys['Z']) {
     						var x = jQuery("#mouse_x_coords").html();

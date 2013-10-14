@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG"], function(view, Config, Page, jQuery, Crafty, inventory, player) {
+define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG", "audio.PKG"], function(view, Config, Page, jQuery, Crafty, inventory, player, audio) {
 	return controls = {
 		
 		// Partial loading location	
@@ -26,13 +26,8 @@ define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", ".
 		
 		/* Bind keyboard keys to array keys */
 		bindKeyboard: function() {
-
-			me.input.bindKey(me.input.KEY.W, "w");
-			me.input.bindKey(me.input.KEY.A, "a");
-			me.input.bindKey(me.input.KEY.S, "s");
-			me.input.bindKey(me.input.KEY.D, "d");
-			me.input.bindKey(me.input.KEY.SPACE, "space", true);
-			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
+			
+			// 1st row of keys
 			me.input.bindKey(me.input.KEY.NUM0, "0", true);
 			me.input.bindKey(me.input.KEY.NUM1, "1", true);
 			me.input.bindKey(me.input.KEY.NUM2, "2", true);
@@ -43,6 +38,22 @@ define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", ".
 			me.input.bindKey(me.input.KEY.NUM7, "7", true);
 			me.input.bindKey(me.input.KEY.NUM8, "8", true);
 			me.input.bindKey(me.input.KEY.NUM9, "9", true);
+
+			// 2nd row of keys
+			me.input.bindKey(me.input.KEY.W, "w");
+			me.input.bindKey(me.input.KEY.E, "e", true);
+			me.input.bindKey(me.input.KEY.R, "r", true);
+			me.input.bindKey(me.input.KEY.T, "t", true);
+			me.input.bindKey(me.input.KEY.A, "a");
+			me.input.bindKey(me.input.KEY.S, "s");
+			me.input.bindKey(me.input.KEY.D, "d");
+			
+			// 3rd row of keys
+			me.input.bindKey(me.input.KEY.C, "c", true);
+			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
+			
+			// 4th row of keys
+			me.input.bindKey(me.input.KEY.SPACE, "space", true);
 		},
 		
 		/* Observe any keys being pressed and trigger their relative events */
@@ -60,6 +71,26 @@ define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", ".
 			}
 			else if (me.input.isKeyPressed('d')) {
 				player.move('right');
+			}
+			
+			// Handling gun
+			else if (me.input.isKeyPressed('t')) {
+				audio.sampler.play("discard_mag");
+				console.log("Removed a mag");
+			}
+			else if (me.input.isKeyPressed('e')) {
+				audio.sampler.play("insert_mag");
+				console.log("Loaded a mag");
+			}
+			else if (me.input.isKeyPressed('r')) {
+				audio.sampler.play("lock_inserted_mag");
+				//audio.play.sample("insert_mag");
+				//audio.play.sample("load_chamber");
+				console.log("Connected a mag");
+			}
+			else if (me.input.isKeyPressed('c')) {
+				audio.sampler.play("load_chamber");
+				console.log("Loaded chamber");
 			}
 			
 			// Hiding or showing left sidebar
