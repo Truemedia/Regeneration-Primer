@@ -117,9 +117,28 @@ define(function(require, exports, module) {
 			
 			// Setup all image and map data resources
 			me.loader.preload(maps);
+			
+			// Load settings
+			game.settings();
+			
 
 			// Load everything & display a loading screen
 			me.state.change(me.state.LOADING);
+			
+			
+		},
+		
+		/* Settings used by the game instance specific to the game library */
+		settings: function() {
+			
+			// Turn off gravity (for this type of game)
+			me.sys.gravity = 0;
+			
+			// Show hitbox if user has development role
+			var debugging = false;
+			if (debugging) {
+				me.debug.renderHitBox = true;
+			}
 		},
 		
 		loaded: function() {
@@ -175,7 +194,7 @@ define(function(require, exports, module) {
 		        this.parent(x, y, settings);
 		 
 		        // set the default horizontal & vertical speed (accel vector)
-		        this.setVelocity(3, 15);
+		        this.setVelocity(10, 10);
 		 
 		        // set the display to follow our position on both axis
 		        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -189,29 +208,29 @@ define(function(require, exports, module) {
 		    ------ */
 		    update: function() {
 		 
-		        if (me.input.isKeyPressed('left')) {
+		        if (me.input.isKeyPressed('a')) {
 		            // flip the sprite on horizontal axis
 		            this.flipX(true);
 		            // update the entity velocity
 		            this.vel.x -= this.accel.x * me.timer.tick;
-		        } else if (me.input.isKeyPressed('right')) {
+		        } else if (me.input.isKeyPressed('d')) {
 		            // unflip the sprite
 		            this.flipX(false);
 		            // update the entity velocity
 		            this.vel.x += this.accel.x * me.timer.tick;
+		        } else if (me.input.isKeyPressed('w')) {
+		            // flip the sprite on horizontal axis
+		            this.flipY(true);
+		            // update the entity velocity
+		            this.vel.y -= this.accel.y * me.timer.tick;
+		        } else if (me.input.isKeyPressed('s')) {
+		            // unflip the sprite
+		            this.flipY(false);
+		            // update the entity velocity
+		            this.vel.y += this.accel.y * me.timer.tick;
 		        } else {
 		            this.vel.x = 0;
-		        }
-		        if (me.input.isKeyPressed('jump')) {
-		            // make sure we are not already jumping or falling
-		            if (!this.jumping && !this.falling) {
-		                // set current vel to the maximum defined value
-		                // gravity will then do the rest
-		                this.vel.y = -this.maxVel.y * me.timer.tick;
-		                // set the jumping flag
-		                this.jumping = true;
-		            }
-		 
+		            this.vel.y = 0;
 		        }
 		 
 		        // check & update player movement
