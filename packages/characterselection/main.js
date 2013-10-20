@@ -152,6 +152,27 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 				
 			// Update carousel
 			jQuery('#carousel-text').html(jQuery('#slide-content-'+selected_char).html());
+		},
+		
+		/* Get character image filename (with full directory path) based on character name and pose */
+		getCharacterImage: function(character_name, pose) {
+			
+			if (pose === undefined) {
+				pose = Config.get('resources.sprites.sprite_filename_suffix');
+			} else {
+				pose += ")_" + pose + ".png";
+			}
+			
+			// Main image directory
+			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters') + "/images/";
+			
+			// Character images directory 
+			var characters_sprites_dir = image_dir + "characters/";
+			
+			// Build filename based on character name and pose
+			var character_sprite = characters_sprites_dir + Config.get('resources.sprites.sprite_filename_prefix') + character_name + pose;
+			
+			return character_sprite;
 		}
 	}
 });

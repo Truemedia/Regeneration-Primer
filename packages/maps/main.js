@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./jQuery"], function(view, Crafty, Config, init, jQuery) {
+define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./characterselection.PKG", "./jQuery"], function(view, Crafty, Config, init, characterselection, jQuery) {
 	return maps = {
 		
 		layers: 1,
@@ -91,19 +91,27 @@ define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./jQ
 						
 						// Images
 						var map_tileset = {
-								name: "tileset",
-								type: "image",
-								src: "maps/"+map_dir+"/tileset.png"
+							name: "tileset",
+							type: "image",
+							src: "maps/" + map_dir + "/tileset.png"
 						};
 		               	// TMX map
 						var map_data = {
-								name: map_dir,
-								type: "tmx",
-								src: "maps/"+map_dir+"/map.tmx"
+							name: map_dir,
+							type: "tmx",
+							src: "maps/" + map_dir + "/map.tmx"
 						};
+
+						// Player sprite
+						var player_sprite = {
+							name: "player_sprite",
+							type: "image",
+							src: characterselection.getCharacterImage("Coward")
+						}
 						
 						maps.push(map_tileset);
 						maps.push(map_data);
+						maps.push(player_sprite);
 					}
 				});
 			});
