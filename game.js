@@ -207,26 +207,20 @@ define(function(require, exports, module) {
 		 
 		    ------ */
 		    update: function() {
-		 
+
 		        if (me.input.isKeyPressed('a')) {
-		            // flip the sprite on horizontal axis
+
 		            this.flipX(true);
-		            // update the entity velocity
 		            this.vel.x -= this.accel.x * me.timer.tick;
 		        } else if (me.input.isKeyPressed('d')) {
-		            // unflip the sprite
+
 		            this.flipX(false);
-		            // update the entity velocity
 		            this.vel.x += this.accel.x * me.timer.tick;
 		        } else if (me.input.isKeyPressed('w')) {
-		            // flip the sprite on horizontal axis
-		            this.flipY(true);
-		            // update the entity velocity
+
 		            this.vel.y -= this.accel.y * me.timer.tick;
 		        } else if (me.input.isKeyPressed('s')) {
-		            // unflip the sprite
-		            this.flipY(false);
-		            // update the entity velocity
+
 		            this.vel.y += this.accel.y * me.timer.tick;
 		        } else {
 		            this.vel.x = 0;
