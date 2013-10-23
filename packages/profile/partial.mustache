@@ -2,24 +2,24 @@
 <!-- http://bootsnipp.com/snipps/user-profile-thumbnails -->
 <div>
 <ul class="nav nav-tabs">
-   <li class="active"><a href="#login_tab" data-toggle="tab">Profile</a></li>
-   <li><a href="#role_tab" data-toggle="tab">Roles</a></li>
+   <li class="active"><a href="#login_tab" data-toggle="tab">{{trans.profile_phrs}}</a></li>
+   <li><a href="#role_tab" data-toggle="tab">{{trans.roles_phrs}}</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
    <div class="tab-pane active in" id="login_tab">
       <form id="tab" data-bind="ifnot: loggedin">
       <fieldset>
       	<div class="span4">
-	         <label>Username:</label>
-	         <input type="text" name="username" value="jsmith" class="input-xlarge" data-bind="value: username" placeholder="Enter your username here" />
-	         <label>Password:</label>
-	         <input type="password" name="password" class="input-xlarge" placeholder="You don't need a password" />
+	         <label>{{trans.username_phrs}}</label>
+	         <input type="text" name="username" value="jsmith" class="input-xlarge" data-bind="value: username" placeholder="{{trans.enter-username_sntc}}" />
+	         <label>{{trans.password_phrs}}</label>
+	         <input type="password" name="password" class="input-xlarge" placeholder="{{trans.enter-password_sntc}}" />
          </div>
       </fieldset>
       <fieldset>
          <div class="span4">
-            <button class="btn btn-primary" data-bind="click: loginAsUser">Login</button>
-            <button class="btn btn-primary" data-bind="click: loginAsGuest">Quick play as guest</button>
+            <button class="btn btn-primary" data-bind="click: loginAsUser">{{trans.login_phrs}}</button>
+            <button class="btn btn-primary" data-bind="click: loginAsGuest">{{trans.quick-play_sntc}}</button>
          </div>
          </fieldset>
       </form>
@@ -34,9 +34,9 @@
 		    </blockquote>
 		    <!-- Stats -->
 		    <p>
-			    <i class="icon-heart"></i>&nbsp; <span id="player_purgatory" class="alive"><span>Alive</span></span> <br />
-			    <i class="icon-time"></i>&nbsp; Time elapsed: N/A <br />
-			    <i class="icon-magnet"></i>&nbsp; Points: <span id="my_score">{{scoredefault}}</span><br />
+			    <i class="icon-heart"></i>&nbsp; <span id="player_purgatory" class="alive"><span>{{trans.alive_verb}}</span></span> <br />
+			    <i class="icon-time"></i>&nbsp; {{trans.time-elapsed_phrs}} N/A <br />
+			    <i class="icon-magnet"></i>&nbsp; {{trans.points_phrs}} <span id="my_score">{{scoredefault}}</span><br />
 		    </p>
 		</div>
       </form>
@@ -45,43 +45,43 @@
       <form id="tab2">
          <fieldset>
             <div class="control-group">
-               <label for="optionsCheckbox" class="control-label">Roles <br />(UI Permissions change based on this)</label>
+               <label for="optionsCheckbox" class="control-label">{{trans.roles_phrs}} <br />({{trans.ui-prompt_sntc}})</label>
                <div class="controls">
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="general_rbac">
-                  	General player
+                  	{{trans.general-player_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="admin_rbac">
-                  	Administrator
+                  	{{trans.administrator_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="mod_rbac">
-                  	Moderator
+                  	{{trans.moderator_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="frontdev_rbac">
-                  	Front end web developer
+                  	{{trans.frontend-webdev_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="backdev_rbac">
-                  	Back end web developer
+                  	{{trans.backend-webdev_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="gfx_rbac">
-                  	Graphic designer
+                  	{{trans.graphic-designer_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="audio_rbac">
-                  	Audio Engineer
+                  	{{trans.audio-engineer_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="dbman_rbac">
-                  	Database manager
+                  	{{trans.database-manager_phrs}}
                   </label>
                   <label class="checkbox">
                   	<input type="checkbox" value="1" id="owner_rbac">
-                  	Owner
+                  	{{trans.owner_phrs}}
                   </label>
                </div>
             </div>

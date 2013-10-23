@@ -1,3 +1,23 @@
 define({
-    "": ""
+	"profile_phrs": "プロフィール",
+	"roles_phrs": "役割",
+	"username_phrs": "ユーザ名",
+    "password_phrs": "パスワード",
+    "enter-username_sntc": "あなたのユーザー名をここに入力してください",
+    "enter-password_sntc": "パスワードは必要ありません",
+    "login_phrs": "ログイン",
+    "quick-play_sntc": "ゲストとしてクイック再生",
+    "alive_verb": "生きている",
+    "time-elapsed_phrs": "時間が経過",
+    "points_phrs": "点数",
+    "ui-prompt_sntc": "UIの権限はこれに基づいて変化",
+    "general-player_phrs": "一般プレーヤー",
+    "administrator_phrs":  "管理者",
+    "moderator_phrs": "司会",
+    "frontend-webdev_phrs": "フロントエンドWeb開発者",
+    "backend-webdev_phrs": "戻るWeb開発を終了",
+    "graphic-designer_phrs": "グラフィックデザイナー",
+    "audio-engineer_phrs": "オーディオエンジニア",
+    "database-manager_phrs": "データベースマネージャ",
+    "owner_phrs": "所有者"
 });

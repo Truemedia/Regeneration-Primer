@@ -1,3 +1,23 @@
 define({
-    "": ""
+	"profile_phrs": "Profile",
+	"roles_phrs": "Roles",
+	"username_phrs": "Username:",
+    "password_phrs": "Password:",
+    "enter-username_sntc": "Enter your username here",
+    "enter-password_sntc": "You don't need a password",
+    "login_phrs": "Login",
+    "quick-play_sntc": "Quick play as guest",
+    "alive_verb": "Alive",
+    "time-elapsed_phrs": "Time elapsed:",
+    "points_phrs": "Points:",
+    "ui-prompt_sntc": "UI Permissions change based on this",
+    "general-player_phrs": "General player",
+    "administrator_phrs":  "Administrator",
+    "moderator_phrs": "Moderator",
+    "frontend-webdev_phrs": "Front end web developer",
+    "backend-webdev_phrs": "Back end web developer",
+    "graphic-designer_phrs": "Graphic designer",
+    "audio-engineer_phrs": "Audio Engineer",
+    "database-manager_phrs": "Database manager",
+    "owner_phrs": "Owner"
 });
