@@ -101,17 +101,9 @@ define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./ch
 							type: "tmx",
 							src: "maps/" + map_dir + "/map.tmx"
 						};
-
-						// Player sprite
-						var player_sprite = {
-							name: "player_sprite",
-							type: "image",
-							src: characterselection.getCharacterImage("Coward")
-						}
 						
 						maps.push(map_tileset);
 						maps.push(map_data);
-						maps.push(player_sprite);
 					}
 				});
 			});

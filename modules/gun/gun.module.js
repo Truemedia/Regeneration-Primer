@@ -7,9 +7,18 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
+define(["./jQuery", "./KO", "./Config", "./Gun.GOD"], function(jQuery, ko, Config, gun_object) {
 	return Gun = {
+
 		binding_element_id: "inventory_partial",
+		
+		/* Create a new gun object instance */
+		spawn: function() {
+			
+			// Get game object definition and add entity in the entity pool
+			me.game.add(gun_object, z);
+		},
+
 		init: function(){
 			// TODO: Ammo count viewmodel (in progress)
 			/*jQuery('.inventory_item').each(function(itemIteration, item) {
@@ -18,6 +27,7 @@ define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
 			// Setup test view model
 			ko.applyBindings(new Gun.TestViewModel("Player", "Name"), document.getElementById(Gun.binding_element_id)); // This makes Knockout get to work
 		},
+
 		// Here's my data model
 		TestViewModel: function(first, last){
 			this.firstName = ko.observable(first);
@@ -28,14 +38,7 @@ define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
         		return this.firstName() + " " + this.lastName();
     		}, this);
     	},
-		/*ViewModel: function() { 
-			this.ammo = ko.observableArray();
-		
-    		this.ammoCount = ko.computed(function() {
-        		// It knows to change when this event returns a result different from the previous result
-        		return ViewModel.ammo().length;
-    		}, this);
-		},*/
+
 		populateAmmo: function(){
 			var contentpack = Config.get('game.content_pack', 'default');
 			jQuery.get('packages/inventory/inventory.xml', function(xml){
@@ -57,7 +60,8 @@ define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
 				});
 			});
 		},
-		// TODO: Find the memory leak bug in this function, and use to spawn guns when fixed
+		
+		/* Create a new gun object instance and bind to player object */
 		wield: function(gun_sprite, single_or_dual, dimensions){
 			if(single_or_dual == "dual"){
 				var gun_count = 2;
@@ -65,8 +69,16 @@ define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
 			else{
 				var gun_count = 1;
 			}
+
+			var objectLayer = me.game.currentLevel.getLayerByName('Rightwalls');
+			var z = objectLayer.z;
+			alert("Z-index = "+z);
+			
+			// Add an instance of the object to the canvas
+			Gun.spawn();
+			
 			// Default dimension offsets
-			var weapon_layer = 6;
+			/*var weapon_layer = 6;
 			
 			for(var gun_counter = 1; gun_counter <= gun_count; gun_counter++){
 				if(gun_counter == 2){
@@ -80,7 +92,26 @@ define(["./jQuery", "./KO", "./Config"], function(jQuery, ko, Config) {
 				.attr({x: gun_x, y: 98, z: weapon_layer})
 				// Add controls to this object
 				.leftControls(3);
+			}*/
+		},
+		
+		/* Get gun image filename (with full directory path) based on gun name */
+		getImage: function(gun_name, file_ext) {
+			
+			if (file_ext === undefined) {
+				file_ext = ".png"
 			}
+			
+			// Main image directory
+			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.guns') + "/images/";
+			
+			// Gun images directory 
+			var guns_sprites_dir = image_dir + "items/Guns/";
+			
+			// Build filename based on gun name and provided file extension
+			var gun_image = guns_sprites_dir + gun_name + file_ext;
+			
+			return gun_image;
 		}
 	}
 });

@@ -99,6 +99,29 @@ define(function(require, exports, module) {
     		});
 		},
 		
+		/* Call all compile methods for any packages */
+		compileResources: function() {
+
+			// Build maps and map resources
+			var resources = require('diydie.PKG').compileMaps();
+			
+			// Player sprite
+			resources.push({
+				name: "player_sprite",
+				type: "image",
+				src: characterselection.getCharacterImage("Coward")
+			});
+			
+			// Players gun
+			resources.push({
+				name: "gun_sprite",
+				type: "image",
+				src: require('Gun.MOD').getImage("Glock")
+			});
+			
+			return resources;
+		},
+		
 		/* Load up the game map and object instances */
 		onload: function() {
 			
@@ -109,18 +132,17 @@ define(function(require, exports, module) {
 				return;
 			}
 			
-			// Build maps and map resources
-			var maps = require('diydie.PKG').compileMaps();
+			// Compile resources
+			var resources = game.compileResources();
 			
 			// Setup human interface devices input
 			me.loader.onload = game.loaded.bind(this);
 			
 			// Setup all image and map data resources
-			me.loader.preload(maps);
+			me.loader.preload(resources);
 			
 			// Load settings
 			game.settings();
-			
 
 			// Load everything & display a loading screen
 			me.state.change(me.state.LOADING);
@@ -142,17 +164,20 @@ define(function(require, exports, module) {
 		},
 		
 		loaded: function() {
-			// set the "Play/Ingame" Screen Object
+			// Set the "Play/Ingame" Screen Object
 			me.state.set(me.state.PLAY, this);
 			     
-			// add our player entity in the entity pool
-			me.entityPool.add("mainPlayer", game.playerEntity);
+			// Spawn main player
+			require('player.PKG').spawn();
 
-			// enable the keyboard (to navigate in the map)
+			// Enable the keyboard (to navigate in the map)
 			require('controls.PKG').bindKeyboard();
 
-			// start the game
+			// Start the game
 			me.state.change(me.state.PLAY);
+			
+			// Wield gun
+		    //Gun.wield('Glock', 'single');
 		},
 		
 		reset: function()
@@ -179,69 +204,6 @@ define(function(require, exports, module) {
 		
 			// Draw the rest of the game
 			me.game.draw();
-		},
-		
-		playerEntity: me.ObjectEntity.extend({
-			 
-		    /* -----
-		 
-		    constructor
-		 
-		    ------ */
-		 
-		    init: function(x, y, settings) {
-		        // call the constructor
-		        this.parent(x, y, settings);
-		 
-		        // set the default horizontal & vertical speed (accel vector)
-		        this.setVelocity(10, 10);
-		 
-		        // set the display to follow our position on both axis
-		        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-		 
-		    },
-		 
-		    /* -----
-		 
-		    update the player pos
-		 
-		    ------ */
-		    update: function() {
-
-		        if (me.input.isKeyPressed('a')) {
-
-		            this.flipX(true);
-		            this.vel.x -= this.accel.x * me.timer.tick;
-		        } else if (me.input.isKeyPressed('d')) {
-
-		            this.flipX(false);
-		            this.vel.x += this.accel.x * me.timer.tick;
-		        } else if (me.input.isKeyPressed('w')) {
-
-		            this.vel.y -= this.accel.y * me.timer.tick;
-		        } else if (me.input.isKeyPressed('s')) {
-
-		            this.vel.y += this.accel.y * me.timer.tick;
-		        } else {
-		            this.vel.x = 0;
-		            this.vel.y = 0;
-		        }
-		 
-		        // check & update player movement
-		        this.updateMovement();
-		 
-		        // update animation if necessary
-		        if (this.vel.x!=0 || this.vel.y!=0) {
-		            // update object animation
-		            this.parent();
-		            return true;
-		        }
-		         
-		        // else inform the engine we did not perform
-		        // any update (e.g. position, animation)
-		        return false;
-		    }
-		 
-		})
+		}
 	}
 });

@@ -7,8 +7,15 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG"], function(jQuery, Crafty, ko, spawner, profile) {
+define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD"], function(jQuery, Crafty, ko, spawner, profile, Gun, human_object) {
 	return player = {
+			
+		/* Create a new player object instance */
+		spawn: function() {
+
+			// Get game object definition and add entity in the entity pool
+			me.entityPool.add("mainPlayer", human_object);
+		},
 			
 		/* Kill player using player_id as reference */
 		killPlayer: function(player_id){

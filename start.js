@@ -63,13 +63,13 @@ require.config({
         'app': "app", // Application instance and low level application instance control methods
         'game': "game", // Game instance and low level game instance control methods
         
-        /* Core classes */
+        /* Core classes (CLS files) */
         'Config': "regeneration/config", // Config class
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
         'Page': "regeneration/page", // Page class
       
-        /* Packages */
+        /* Packages (PKG files) */
         'about.PKG': "packages/about/main", // About package
         'audio.PKG': "packages/audio/main", // Audio package
         'characterselection.PKG': "packages/characterselection/main", // Controls package
@@ -96,12 +96,16 @@ require.config({
         'sprites.PKG': "packages/sprites/main", // Sprites package
         'theme.PKG': "packages/theme/main", // Theme package
         
-        /* Game modules */
+        /* Modules (MOD files) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         'Feed.MOD': "packages/gameinfo/modules/feed/main", // Feed module
         'Health.MOD': "modules/health/health.module", // Health module
         'Options.MOD': "modules/options/options.module", // Options module
         'Score.MOD': "modules/score/score.module", // Score module
+        
+        /* Game object definitions (GOD files) */
+        'Gun.GOD': "gameobjects/gun",
+        'Human.GOD': "gameobjects/human",
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
