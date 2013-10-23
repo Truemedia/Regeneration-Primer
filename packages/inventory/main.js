@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Config"], function(view, jQuery, Crafty, ko, Config) {
+define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty", "./KO"], function(view, nls, Config, Lang, jQuery, Crafty, ko) {
 	return inventory = {
 		
 		/* Stores entities */
@@ -19,10 +19,57 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 		// Binding element class
 		binding_element_class: 'inventory_item',
 	
-		// Start the inventory package
+		// Translations
+		trans: {},
+			
+		/* Load this package */
 		init: function() {
 
+			// Load translations
+			inventory.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
 			inventory.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
+
+			// Load initial inventory items
+			jQuery.getJSON("packages/inventory/data.json", function(data){
+			
+				// Append directories
+				data.img_dir = Config.get('resources.directories.multimedia.images');
+				
+				// Set ASYNC AJAX to false
+				jQuery.ajaxSetup({
+					async: false
+				});
+
+				// Append characters
+				jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(character_data) {
+					data.characters = character_data.characters;
+				});
+				
+				// Append language strings to JSON data source
+				data.trans = inventory.trans;
+				
+				// Set ASYNC AJAX back to true
+				jQuery.ajaxSetup({
+					async: true
+				});
+				
+				// Load view
+       			document.getElementById(inventory.partial_block_element).innerHTML = view(data);
+       			
+       			// Register bindings
+       			inventory.registerBindings();
+       			
+       			// Register events
+       			inventory.registerEvents();
+			});
+
+			console.log("Inventory PACKAGE loaded");
 		},
 		
 		/* Register jQuery events */
@@ -82,42 +129,6 @@ define(["hgn!packages/inventory/partial", "./jQuery", "./Crafty", "./KO", "Confi
 				rounds[i] = dmg;
 			}
 			return rounds;
-		},
-		
-		// Append the HTML for this package to the DOM
-		loadDOM: function() {
-
-			// Load initial inventory items
-			jQuery.getJSON("packages/inventory/data.json", function(data){
-			
-				// Append directories
-				data.img_dir = Config.get('resources.directories.multimedia.images');
-				
-				// Set ASYNC AJAX to false
-				jQuery.ajaxSetup({
-					async: false
-				});
-
-				// Append characters
-				jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(character_data) {
-					data.characters = character_data.characters;
-				});
-				
-				// Set ASYNC AJAX back to true
-				jQuery.ajaxSetup({
-					async: true
-				});
-				
-				// Load view
-       			document.getElementById(inventory.partial_block_element).innerHTML = view(data);
-       			
-       			// Register bindings
-       			inventory.registerBindings();
-       			
-       			// Register events
-       			inventory.registerEvents();
-			});
-			console.log("Inventory PACKAGE loaded");
 		}
 	}
 });

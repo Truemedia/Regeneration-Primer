@@ -1,6 +1,6 @@
-<!-- Character selection (Main Area) --> 
+<!-- Character selection (Main Area) /* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */ --> 
 <div class="page-header">
-	<h1 style="text-align: center;">{{lang.choose-character_phrs}}</h1>
+	<h1 style="text-align: center;">{{trans.choose-character_phrs}}</h1>
 </div>
 <div id="main_area">
 
@@ -36,12 +36,12 @@
     					<div class="thumbnail clearfix" style="border: 5px solid {{characterColourScheme}};">
     						<div class="caption">
     							<button class="btn btn-primary icon pull-right char_select" value="{{identifierReference}}">
-    								<span>{{lang.select_verb}}</span>
+    								<span>{{trans.select_verb}}</span>
     							</button>
     							<h4 style="color: {{characterColourScheme}};">{{full_name}}</h4>
-    							<span class="badge"><b style="color: black;">{{lang.occupation_noun}} </b>{{occupation}}</span>
+    							<span class="badge"><b style="color: black;">{{trans.occupation_noun}} </b>{{occupation}}</span>
     							<hr />
-								<h5 class="well well-small"><img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" /> {{lang.about_adverb}}</h5>
+								<h5 class="well well-small"><img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" /> {{trans.about_adverb}}</h5>
 								<p class="mute"><em>{{about}}</em></p>
     						</div>
     					</div>
@@ -68,16 +68,16 @@
 			</ul>
 			<div class="row">
 				<div class="span3">
-					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>{{lang.play-as-selected_phrs}}</button>
+					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>{{trans.play-as-selected_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button id="use_random_char" class="btn btn-primary btn-large start_session">{{lang.play-as-random_phrs}}</button>
+					<button id="use_random_char" class="btn btn-primary btn-large start_session">{{trans.play-as-random_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button class="btn btn-info btn-large disabled">{{lang.wait-for-players_phrs}}</button>
+					<button class="btn btn-info btn-large disabled">{{trans.wait-for-players_phrs}}</button>
 				</div>
 				<div class="span3">
-					<button class="btn btn-large disabled">{{lang.invite-friends_phrs}}</button>
+					<button class="btn btn-large disabled">{{trans.invite-friends_phrs}}</button>
 				</div>
 			</div>
 		</div>

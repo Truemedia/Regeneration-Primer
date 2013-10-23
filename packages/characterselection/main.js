@@ -7,20 +7,33 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "./jQuery", "./Crafty"], function(view, lang, jQuery, Crafty) {
+define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty"], function(view, nls, Config, Lang, jQuery, Crafty) {
 	return characterselection = {
 			
 		// Partial loading location	
 		partial_block_element: 'characterselection_partial',
+		
+		// Translations
+		trans: {},
 
-		/* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */
+		/* Load this package */
 		init: function(){
+			
+			// Load translations
+			characterselection.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
+			characterselection.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
 			
 			// Load up list of characters to choose from
 			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.lang = lang;
+				data.trans = characterselection.trans;
 
 				// Load view
 				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./characterselection.PKG", "./jQuery"], function(view, Crafty, Config, init, characterselection, jQuery) {
+define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "./Config", "./Lang", "./Crafty", "./init.PKG", "./characterselection.PKG", "./jQuery"], function(view, nls, Config, Lang, Crafty, init, characterselection, jQuery) {
 	return maps = {
 		
 		layers: 1,
@@ -15,18 +15,27 @@ define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./ch
 		// Partial loading location	
 		partial_block_element: 'maps_partial',
 	
-		/* Load the package */
-		init: function() {
-
+		// Translations
+		trans: {},
+			
+		/* Load this package */
+	 	init: function() {
+	 		
+	 		// Load translations
+			maps.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
 			maps.loadDOM();
-			console.log("Maps PACKAGE loaded");
 		},
-		
-		/* Show map selection (based on a slightly modified design of this bootsnipp: http://bootsnipp.com/snipps/crowdfunding-grid) */
+
+		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
 			// Load up list of maps to choose from
 			jQuery.getJSON("packages/maps/data.json", function(data){
+				
+				// Append language strings to JSON data source
+				data.trans = maps.trans;
 			
 				// Load view
 				document.getElementById(maps.partial_block_element).innerHTML = view(data);
@@ -34,6 +43,8 @@ define(["hgn!packages/maps/partial", "./Crafty", "./Config", "./init.PKG", "./ch
 				// Register events
 				maps.registerEvents();
 			});
+			
+			console.log("Maps PACKAGE loaded");
 		},
 		
 		/* Register jQuery event handlers */

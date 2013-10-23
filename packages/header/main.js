@@ -7,36 +7,43 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Bootstrap", "./Options.MOD"], function(view, lang, jQuery, options) {
+define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Config", "./Lang", "./Bootstrap", "./Options.MOD"], function(view, nls, Config, Lang, jQuery, options) {
 	return header = {
 	
 		// Partial loading location	
 		partial_block_element: 'header_partial',
+		
+		// Translations
+		trans: {},
 			
 		// Variable containing all html from modules
 		nested_view: "",
 	
-		// Load the header system
+		/* Load this package */
 		init: function() {
 
+			// Load translations
+			header.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
 			header.loadModules();
 		},
 		
-		// Load modules relevant to this system
+		/* Load modules relevant to this package */
 		loadModules: function() {
 
 			// Run options view (expect callback to trigger rendering itself)
 			Options.view();
 		},
 		
-		// Append the HTML for this system to the DOM
+		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 
 			// Load header data
 			jQuery.getJSON("packages/header/data.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.lang = lang;
+				data.trans = header.trans;
 			
 				// Append modules to view data
 				data.options = header.nested_view;
@@ -45,6 +52,7 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Bo
        			document.getElementById(header.partial_block_element).innerHTML = view(data);
 
 			});
+
 			console.log("Header PACKAGE loaded");
 		}
 	}

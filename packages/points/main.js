@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, jQuery, Crafty, ko, health, score) {
+define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "./Config", "./Lang", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, nls, Config, Lang, jQuery, Crafty, ko, health, score) {
 	return points = {
 			
 		// Partial loading location	
@@ -16,12 +16,31 @@ define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.
 		// defaults
 		binding_element_class: "score_container",
 		
-		init: function(){
+		// Translations
+		trans: {},
+			
+		/* Load this package */
+	 	init: function() {
+	 		
+	 		// Load translations
+			points.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
+			points.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
 			
 			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
 
-				// Load view
+				// Build data
 				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
+				
+				// Append language strings to JSON data source
+				data.trans = points.trans;
+				
+				// Load view
        			document.getElementById(points.partial_block_element).innerHTML = view(data);
  				
  				jQuery(document).ready(function() {
@@ -29,26 +48,36 @@ define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.
  					points.registerBindings(); // Apply all KO bindings
  					/* Start up modules */
  					health.init();
- 					console.log("Points PACKAGE loaded");
  					
  					// Hide points debugging (TODO: Make hidden via KO)
  					jQuery('.debug_controls').toggle();
  					jQuery('.debug_controls:first').toggle();
 				}); 
 			});
+			
+			console.log("Points PACKAGE loaded");
 		},
-		registerBindings: function(){
-			/* Iterate multiple binding instances with jQuery */
+
+		/* Register ViewModel with DOM elements */
+		registerBindings: function() {
+
+			// Iterate multiple binding instances with jQuery
 			jQuery("."+points.binding_element_class).each(function(index) {
 				ko.applyBindings(new points.ViewModel(index), this);
 			});
 		},
+
+		/* ViewModel for this package */
 		ViewModel: function(player_id) { 
-			// Modules with ViewModels for this System
+
+			// Modules with ViewModels for this package
 			this.score = new score.ViewModel();
     		this.health = new health.ViewModel(player_id);
 		},
+
+		/* Visually differentiate the player of this game instance from other players */
 		highlightMainPlayer: function(character){
+
 			// Move current character to top of list (shown as highlighted)
 			jQuery("#points_partial .score_container:first").before(
 				jQuery('#points_partial > .score_container > input.player_object[value='+character+']').parent()
@@ -67,17 +96,26 @@ define(["hgn!packages/points/partial", "./jQ.ui", "./Crafty", "./KO", "./Health.
 				}
 			});
 		},
-		incrementScore: function(player_id){ // KnockOut function call via Crafty
-			/* Execute ViewModel function for this element */
+
+		/* KnockOut function call via Crafty */
+		incrementScore: function(player_id) {
+
+			// Execute ViewModel function for this element
 			var firstPlayerScore = jQuery("."+points.binding_element_class+":eq("+player_id+")").get(0);
 			var vm = ko.dataFor(firstPlayerScore);
     		vm.score.incrementScore();
 		},
-		incrementMyScore: function(){ // Execute main score function
+
+		/* Execute main score function */
+		incrementMyScore: function() {
+
 			points.incrementScore(0);
 		},
-		incrementAllScores: function(){ // Execute main score function// KnockOut function call via Crafty
-			/* Execute ViewModel function for all elements */
+
+		/* Execute main score function/KnockOut function call via Crafty */
+		incrementAllScores: function() {
+
+			// Execute ViewModel function for all elements
 			jQuery("#points_partial .score_container").each(function(charIteration){
 				points.incrementScore(charIteration);
 			});

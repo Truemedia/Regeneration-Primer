@@ -7,16 +7,33 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "./Config", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG", "audio.PKG"], function(view, Config, Page, jQuery, Crafty, inventory, player, audio) {
+define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "./Config", "./Lang", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG", "audio.PKG"], function(view, nls, Config, Lang, Page, jQuery, Crafty, inventory, player, audio) {
 	return controls = {
 		
 		// Partial loading location	
 		partial_block_element: 'controls_partial',
+		
+		// Translations
+		trans: {},
 				
-		init: function(){
+		/* Load this package */
+		init: function() {
+	 		
+	 		// Load translations
+			controls.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
+			controls.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
 		 		
 		 	// Build data
 		 	data = Config.instance('controls::default.all');
+		 	
+		 	// Append language strings to JSON data source
+			data.trans = controls.trans;
 				
 			// Load view
 	       	document.getElementById(controls.partial_block_element).innerHTML = view(data);

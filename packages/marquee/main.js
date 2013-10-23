@@ -9,7 +9,9 @@
 */
 define(["./jQuery", "./Crafty", "./Package", "./points.PKG", "./audio.PKG", "./controls.PKG", "./debug.PKG",], function(jQuery, Crafty, windows, points, audio, controls, debug) {
 	return marquee = {
-		toggleHeader: function(){
+
+		toggleHeader: function() {
+
 			// Hide or show everything..
 			jQuery("#header_window").toggle();
 			jQuery("#marquee_window").toggle();
@@ -32,7 +34,10 @@ define(["./jQuery", "./Crafty", "./Package", "./points.PKG", "./audio.PKG", "./c
 				});
 			}
 		},
-		registerEvents: function (){ /* jQuery event handlers (for Marquee) */
-		/* /jQuery event handlers (for Marquee) */ }
+		
+		/* jQuery event handlers */
+		registerEvents: function() { 
+		
+		}
 	}
 });

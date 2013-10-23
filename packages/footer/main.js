@@ -7,41 +7,33 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, strings, Config, Lang, jQuery) {
+define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return footer = {
 			
 		// Partial loading location	
 		partial_block_element: 'footer_partial',
+		
+		// Translations
+		trans: {},
 	
-		// Load the footer system
+		/* Load this package */
 		init: function() {
 
+			// Load translations
+			footer.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
 			footer.loadDOM();
 		},
-		
-		/* Register jQuery events handlers */
-		registerEvents: function() {
 
-			// Language selector
-			jQuery("#"+footer.partial_block_element).on("change", "#language", function(event) {
-				
-				var lang_code = jQuery(this).val();
-				var change = confirm(strings.change_language);
-
-				if (change == true) {
-					Lang.setLocale(lang_code);
-				}
-			});
-		},
-
-		// Append the HTML for this system to the DOM
+		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 
 			// Load package data
 			jQuery.getJSON("sample_package.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.trans = Lang.getTrans(strings);
+				data.trans = footer.trans;
 
 				// Get language selection dropdown options
 				data.languages = Config.get('languages');
@@ -60,6 +52,21 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
        			footer.registerEvents();
 			});
 			console.log("Footer PACKAGE loaded");
+		},
+		
+		/* Register jQuery events handlers */
+		registerEvents: function() {
+
+			// Language selector
+			jQuery("#"+footer.partial_block_element).on("change", "#language", function(event) {
+				
+				var lang_code = jQuery(this).val();
+				var change = confirm(footer.trans.change_language);
+
+				if (change == true) {
+					Lang.setLocale(lang_code);
+				}
+			});
 		}
 	}
 });

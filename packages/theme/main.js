@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"], function(view, Config, jQuery) {
+define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Config", "./Lang", "./Bootstrap", "jQ.Datatables"], function(view, nls, Config, Lang, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array
@@ -16,15 +16,31 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 	 	// Partial loading location	
 		partial_block_element: 'theme_partial',
 	
-		// Load the theme system
-		init: function() {
+		// Translations
+		trans: {},
+			
+		/* Load this package */
+	 	init: function() {
+	 		
+	 		// Load translations
+			theme.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
+			theme.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
 		
 			// Fetch and load themes
 			theme.cdnAPI();
+
    			console.log("Theme PACKAGE loaded");
 		},
 
-		dataTable: function(){
+		/* Transform table into datatable using UI config settings */
+		dataTable: function() {
+
 			jQuery.extend( jQuery.fn.dataTableExt.oStdClasses, {
     			"sWrapper": "dataTables_wrapper form-inline"
 			});
@@ -32,7 +48,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			jQuery('#swatch-menu').dataTable(Config.instance('theme::datatable.all'));
 		},
 
-		// jQuery event handlers
+		/* jQuery event handlers */
 		registerEvents: function() {
 
 			// Trigger a change in theme
@@ -44,7 +60,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			});
 		},
 		
-		// Load theme data, and intial theme based on game config or load random theme if not set
+		/* Load theme data, and initial theme based on game config or load random theme if not set */
 		initialLoad: function(theme_data) {
 			
 			// Store theme data
@@ -65,7 +81,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			}
 		},
 		
-		// Load theme based on theme data
+		/* Load theme based on theme data */
 		load: function(theme_name) {
 		
 			var initial_theme_stylesheet;
@@ -97,7 +113,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
    			theme.sidebarFix(theme_name);
 		},
 		
-		// Pick a theme at random to load up
+		/* Pick a theme at random to load up */
 		randomizr: function() {
 			
 			var themes = theme.themes;
@@ -106,7 +122,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			theme.load(random_theme.name);
 		},
 
-		// Load stylesheet for selected theme using URL and Theme thumbnail sources
+		/* Load stylesheet for selected theme using URL and Theme thumbnail sources */
 		stylesheet: function(theme_stylesheet_url, theme_image_url) {
 			
 			// remove current theme stylesheet
@@ -119,7 +135,7 @@ define(["hgn!packages/theme/partial", "./Config", "./Bootstrap", "jQ.Datatables"
 			jQuery('#current-theme').attr('src', theme_image_url);
 		},
 		
-		// Fix sidebar correctly in relation to theme
+		/* Fix sidebar correctly in relation to theme */
 		sidebarFix: function(theme_name) {
 			var offset;
 			

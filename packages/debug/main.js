@@ -7,25 +7,43 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/debug/partial", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, jQuery, Crafty, points) {
+define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Config", "./Lang", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, nls, Config, Lang, jQuery, Crafty, points) {
 	return debug = {
 			
+		// Partial loading location	
 		partial_block_element: "debug_partial",
 			
-		// Initialize debugging
+		// Translations
+		trans: {},
+			
+		/* Load this package */
 		init: function() {
+			
+			// Load translations
+			debug.trans = Lang.getTrans(nls);
+			
+			// Load the package onto current web-page
+			debug.loadDOM();
+		},
+		
+		/* Append the HTML for this package to the DOM */
+		loadDOM: function() {
 			
 			// Load package data
 			jQuery.getJSON("packages/debug/data.json", function(data) {
 			
+				// Build data
 				data = {
 					"gases": data	
 				};
 				
+				// Append language strings to JSON data source
+				data.trans = debug.trans;
+				
 				// Load view
 				document.getElementById(debug.partial_block_element).innerHTML = view(data);
 			});
-		},	
+		},
 		
 		/* jQuery event handlers (for Debug) */
 		registerEvents: function(){ 

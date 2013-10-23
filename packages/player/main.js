@@ -18,7 +18,8 @@ define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG", "./Gun
 		},
 			
 		/* Kill player using player_id as reference */
-		killPlayer: function(player_id){
+		killPlayer: function(player_id) {
+
 			var real_id = player_id + 1;
 			console.log("Player "+real_id+" died");
 			
