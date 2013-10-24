@@ -10,9 +10,6 @@
 // Logic for the most important game events
 define(function(require, exports, module) {
 	return game = {
-			
-		// Session variables
-		session: {},
 		
 		/* Game starts here (launcher) */
 		launch: function() {
@@ -30,17 +27,19 @@ define(function(require, exports, module) {
 				jQuery('#characterselection_partial').on("click", ".start_session", function(event){
 
 					// Specific character chosen
-					if(jQuery(this).attr("id") == "use_picked_char"){
+					if (jQuery(this).attr("id") == "use_picked_char") {
 						console.log("Using players choosen character: "+this.value);
-						game.session.character = this.value;
-					} else {
+						require('Session').set('character', this.value);
+					}
+					
 					// Choose a random character for the player
+					else {
 						console.log("Using random character");
 						jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(all_characters_info) {
 							number_of_chars = all_characters_info.characters.length - 1;
 							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
 							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
-							game.session.character = random_char_name;
+							require('Session').set('character', random_char_name);
 						});
 					}
 					
@@ -62,9 +61,9 @@ define(function(require, exports, module) {
     		jQuery(document).ready( function(jQuery) {
 				
 				// MAP SELECTION EVENT
-				jQuery('#maps_partial').on("click", ".map_select", function(event){
+				jQuery('#maps_partial').on("click", ".map_select", function(event) {
 					
-					game.session.map = jQuery(this).val();
+					require('Session').set('map', jQuery(this).val());
 					var enabled = !jQuery(this).hasClass("disabled");
 					
 					// Map is enabled, will now load
@@ -74,15 +73,15 @@ define(function(require, exports, module) {
 						require('diydie.PKG').deactivate();
 						
 						// Start session
-						console.log("Map has been choosen: "+game.session.map);
-						game.startSession(game.session.character);
+						console.log("Map has been choosen: "+require('Session').get('map'));
+						game.startSession();
 					}
 				});
 			});
 		},
 		
 		/* Startup the actual game environment (once the player is happy to start) */
-		startSession: function(characterselected) {
+		startSession: function() {
 			/* ..and Start the game up */
 			// TODO: Hide Dev notices nicer
 			var jQuery = require('jQuery');
@@ -90,7 +89,7 @@ define(function(require, exports, module) {
     		
     		// Load session packages
     		var app = require('app');
-    		app.session_packages(characterselected);
+    		app.session_packages(require('Session').get('character'));
     		
     		// Start up MelonJS instance
     		window.onReady(function() 
@@ -105,14 +104,10 @@ define(function(require, exports, module) {
 			// Build maps and map resources
 			var resources = require('diydie.PKG').compileMaps();
 			
-			// Player sprite
-			resources.push({
-				name: "player_sprite",
-				type: "image",
-				src: characterselection.getCharacterImage("Coward")
-			});
+			// Get all character sprites
+			var resources = resources.concat(require('sprites.PKG').setupCharacters());
 			
-			// Players gun
+			// Gun sprite
 			resources.push({
 				name: "gun_sprite",
 				type: "image",
@@ -185,7 +180,7 @@ define(function(require, exports, module) {
 			me.game.reset();
 			
 			// Load a level/map
-			me.levelDirector.loadLevel(game.session.map);		
+			me.levelDirector.loadLevel(require('Session').get('map'));		
 		},
 
 		

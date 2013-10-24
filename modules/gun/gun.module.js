@@ -16,7 +16,14 @@ define(["./jQuery", "./KO", "./Config", "./Gun.GOD"], function(jQuery, ko, Confi
 		spawn: function() {
 			
 			// Get game object definition and add entity in the entity pool
-			me.game.add(gun_object, z);
+			console.log(me.game.getEntityByName('mainPlayer'));
+			// Create a new player object
+			/*var obj = me.entityPool.newInstanceOf("mainPlayer", '200', '200', {
+				spritewidth : 72,
+				spriteheight : 92
+			});
+			me.game.add(obj, 4);
+			me.game.sort();*/
 		},
 
 		init: function(){
@@ -47,10 +54,6 @@ define(["./jQuery", "./KO", "./Config", "./Gun.GOD"], function(jQuery, ko, Confi
 			else{
 				var gun_count = 1;
 			}
-
-			var objectLayer = me.game.currentLevel.getLayerByName('Rightwalls');
-			var z = objectLayer.z;
-			alert("Z-index = "+z);
 			
 			// Add an instance of the object to the canvas
 			Gun.spawn();

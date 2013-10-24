@@ -66,6 +66,7 @@ require.config({
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
         'Page': "regeneration/page", // Page class
+        'Session': "regeneration/session", // Session class
       
         /* Packages (PKG files) */
         'about.PKG': "packages/about/main", // About package

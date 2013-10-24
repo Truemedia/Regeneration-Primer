@@ -7,10 +7,13 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery"], function(jQuery) {
+define(["./jQuery", "./Session"], function(jQuery, Session) {
 	return me.ObjectEntity.extend({
 
 		init: function(x, y, settings) {
+			
+			// Set image based on character name in session
+			settings.image = Session.get('character');
 			
 			// call the constructor
 		    this.parent(x, y, settings);

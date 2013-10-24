@@ -14,7 +14,8 @@ define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG", "./Gun
 		spawn: function() {
 
 			// Get game object definition and add entity in the entity pool
-			me.entityPool.add("mainPlayer", human_object);
+			var current_player = me.entityPool.add("spawnPoint", human_object, true);
+			//var bot_player = me.entityPool.newInstanceOf("mainPlayer", 200, 200, 90);
 		},
 			
 		/* Kill player using player_id as reference */

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
+define(["./jQuery", "./Crafty", "./Config", "./characterselection.PKG"], function(jQuery, Crafty, Config, characterselection) {
 	return sprites = {
 		
 		setup: function(){
@@ -36,21 +36,59 @@ define(["./jQuery", "./Crafty", "./Config"], function(jQuery, Crafty, Config) {
 			Crafty.sprite(1, storage_sprites_dir+"MetalContainer"+f, { container: [0, 0, 128, 128] }); /* General supplies box */
 			Crafty.sprite(1, swords_sprites_dir+"Katana"+f, { katana: [0, 0, 128, 256] }); /* Katana */
 		},
-		setupCharacters: function(sprites_dir, f){
+		setupCharacters: function(){
 			/* Sprite maps for Characters */
-			// Directories
-			var characters_image_directory = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters') + "/images/characters/";
-			var characters_sprites_dir = characters_image_directory + Config.get('resources.sprites.sprite_filename_prefix');
-			var af = Config.get('resources.sprites.sprite_filename_suffix'); // Alternative filename.fileformat
-			
-			Crafty.sprite(characters_sprites_dir+"Coward"+af, { coward: [0, 0, 128, 256] }); /* Coward */
-			Crafty.sprite(characters_sprites_dir+"Criminal"+af, { criminal: [0, 0, 128, 256] }); /* Criminal */
-			Crafty.sprite(characters_sprites_dir+"Mother"+af, { mother: [0, 0, 128, 256] }); /* Mother */
-			Crafty.sprite(characters_sprites_dir+"NextDoorNeighbor"+af, { nextdoorneighbor: [0, 0, 128, 256] }); /* Next Door Neighbor */
-			Crafty.sprite(characters_sprites_dir+"PsychoticWorker"+af, { psychoticworker: [0, 0, 128, 256] }); /* Psychotic Worker */
-			Crafty.sprite(characters_sprites_dir+"StoreOwner"+af, { storeowner: [0, 0, 128, 256] }); /* Store Owner */
-			Crafty.sprite(characters_sprites_dir+"StoreOwnerWife"+af, { storeownerwife: [0, 0, 128, 256] }); /* Store Owner Wife */
-			Crafty.sprite(characters_sprites_dir+"WomanHelicopterPilot"+af, { womanhelicopterpilot: [0, 0, 128, 256] }); /* Woman Helicopter Pilot */
+
+			return [
+			    // Coward
+				{
+					name: "coward",
+					type: "image",
+					src: characterselection.getCharacterImage("Coward")
+				},
+				// Criminal
+				{
+					name: "criminal",
+					type: "image",
+					src: characterselection.getCharacterImage("Criminal")
+				},
+				// Mother
+				{
+					name: "mother",
+					type: "image",
+					src: characterselection.getCharacterImage("Mother")
+				},
+				// Next Door Neighbor
+				{
+					name: "nextdoorneighbor",
+					type: "image",
+					src: characterselection.getCharacterImage("NextDoorNeighbor")
+				},
+				// Psychotic Worker
+				{
+					name: "psychoticworker",
+					type: "image",
+					src: characterselection.getCharacterImage("PsychoticWorker")
+				},
+				// Store Owner
+				{
+					name: "storeowner",
+					type: "image",
+					src: characterselection.getCharacterImage("StoreOwner")
+				},
+				// Store Owner Wife
+				{
+					name: "storeownerwife",
+					type: "image",
+					src: characterselection.getCharacterImage("StoreOwnerWife")
+				},
+				// Woman Helicopter Pilot
+				{
+					name: "womanhelicopterpilot",
+					type: "image",
+					src: characterselection.getCharacterImage("WomanHelicopterPilot")
+				}
+			];
 		},
 		setupEnemies: function(sprites_dir, f){
 			/* Sprite maps for Enemies */
