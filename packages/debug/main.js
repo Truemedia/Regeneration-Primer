@@ -42,6 +42,9 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 				
 				// Load view
 				document.getElementById(debug.partial_block_element).innerHTML = view(data);
+				
+				// Start debugging
+				debug.initDebugger(null);
 			});
 		},
 		

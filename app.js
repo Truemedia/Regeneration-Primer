@@ -83,9 +83,10 @@ define(function(require, exports, module) {
 			require('profile.PKG').init(characterselected);
 			require('inventory.PKG').init();
 		
-			// Enable debugging (but hide from view)
-			require('debug.PKG').init();
-			require('debug.PKG').initDebugger(null);
+			// Run debugging (if requested)
+			if (document.location.hash === "#debug") {
+				require('debug.PKG').init();
+			}
 			
 			// New gun module interface 
 			//require('Gun.MOD').init();
