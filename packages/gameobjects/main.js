@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PKG", "./notification.PKG"], function(jQuery, Crafty, ko, Gun, points, audio, notification) {
+define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PKG"], function(jQuery, Crafty, ko, Gun, points, audio) {
 	return gameObjects = {
 			
 		layers: 4,
@@ -29,7 +29,8 @@ define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PK
 							Gun.fire();
 						}
 						else{
-							notification.error("OUT OF AMMO", "Retrieve more by clicking the supplies box");
+							// DEPRECATED PACKAGE FUNCTION CALL, use Bootstrap library as alternative
+							//notification.error("OUT OF AMMO", "Retrieve more by clicking the supplies box");
 							console.log("no bullets left (you should switch weapon or find ammo)");
 							Crafty.audio.play("out_of_ammo",1,1);
 						}
@@ -40,7 +41,8 @@ define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PK
 				 Crafty.e("2D, "+render_engine+", Mouse, storageBox")
 	    			.attr({ x: 1080, y: 150, z: (gameObjects.layers - 2) })
 	    			.bind('Click', function() {
-	    				notification.highlight("MAX AMMO", "Found ammo from supplies box");
+	    				// DEPRECATED PACKAGE FUNCTION CALL, use Bootstrap library as alternative
+	    				//notification.highlight("MAX AMMO", "Found ammo from supplies box");
 	    				console.log("Gave yourself maximum ammunition");
 	    				Gun.populateAmmo();
 	    			})

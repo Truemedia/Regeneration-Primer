@@ -39,8 +39,6 @@ require.config({
        		"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min", // cdn 
         	"dependencies/jqueryUI/jquery-1.9.1" // local
         ], // jQuery core
-        'jQ.xslt': "libs/jquery.xslt", // jQuery XSLT plugin (JXON)
-        'jQ.xml2json': "libs/jquery.xml2json", // jQuery XML2JSON plugin (JXON)
         'KO': [
         	"http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1", // cdn
         	"dependencies/knockout/build/output/knockout-latest" // local
@@ -87,7 +85,6 @@ require.config({
         'inventory.PKG': "packages/inventory/main", // Inventory package
         'mainmenu.PKG': "packages/mainmenu/main", // Main Menu package
         'marquee.PKG': "packages/marquee/main", // Marquee package
-        'notification.PKG': "packages/notification/main", // Notification package
         'player.PKG': "packages/player/main", // Player package
         'points.PKG': "packages/points/main", // Points package
         'profile.PKG': "packages/profile/main", // Profile package
@@ -125,7 +122,6 @@ require.config({
         'moment': "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min", // MomentJS (Date and time formatting)
         
         /* General Libraries (For UI, FX, and API's) */
-        //'forkit': "libs/forkitJs/js/forkit", // ForkIt fancy link
         'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },
     shim: {
@@ -148,14 +144,6 @@ require.config({
         },
 
         // jQuery plugins
-        'jQ.xslt': {
-            deps: ['jQuery'],
-            exports: 'jQuery'
-        },
-        'jQ.xml2json': {
-            deps: ['jQuery'],
-            exports: 'jQuery'
-        },
         'jQ.flyoff': {
             deps: ['jQuery'],
             exports: 'jQuery'

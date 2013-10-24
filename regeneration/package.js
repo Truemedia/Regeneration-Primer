@@ -7,30 +7,8 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./Crafty", "./Gun.MOD", "./social.PKG", "./debug.PKG", "./marquee.PKG", "./profile.PKG", "./jQ.xml2json", "./jQ.xslt"], function(Crafty, Gun, social, debug, marquee, profile, jQuery) {
+define(["./Crafty", "./Gun.MOD", "./debug.PKG", "./marquee.PKG", "./profile.PKG", "./jQuery"], function(Crafty, Gun, debug, marquee, profile, jQuery) {
 	return windows = {
-
-		init: function(windowObject){
-			// Make chainable callback since XSLT plugin callback support is bugged
-			jQuery.fn.windowLoadCallback = function(windowName, callbackValue)
-			{
-    			windows.callbacks(windowName, callbackValue);
-			}
-			
-			/* Load the XHTML for a window */
-			jQuery.each(windowObject, function(windowName, callbackValue){
-				var windowDirFilePrefix = 'packages/'+windowName+'/'+windowName+'.';
-				// Load each window
-				var windowHTML = jQuery.xslt({xmlUrl: windowDirFilePrefix+'xml', xslUrl: windowDirFilePrefix+'xsl'});
-				jQuery('#'+windowName+'_partial').html(windowHTML)
-					.windowLoadCallback(windowName, callbackValue);
-			});
-		},
-		
-		callbacks: function(windowName, callbackValue){
-			/* Function list to call based on specific package, after package has loaded */
-			console.log(windows.realName(windowName)+" PACKAGE loaded");
-		},
 		
 		realName: function(windowName){
 			// Return package name shown to humans (capitalized first letter)

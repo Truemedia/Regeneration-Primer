@@ -23,14 +23,8 @@
 /* Marquee stylesheet */
 @import url('../../../packages/marquee/style.css');
 
-/* Notification stylesheet */
-@import url('../../../packages/notification/style.css');
-
 /* Points stylesheet */
 @import url('../../../packages/points/style.css');
-
-/* Social stylesheet */
-@import url('../../../packages/social/style.css');
 
 .window-column{
 	display: inline-block;

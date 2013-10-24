@@ -10,9 +10,6 @@
 [submodule "dependencies/knockout"]
 	path = dependencies/knockout
 	url = https://github.com/SteveSanderson/knockout.git
-[submodule "libs/forkitJs"]
-	path = libs/forkitJs
-	url = https://github.com/hakimel/forkit.js.git
 [submodule "dependencies/modernizr"]
 	path = dependencies/modernizr
 	url = https://github.com/Modernizr/Modernizr.git

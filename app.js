@@ -43,6 +43,7 @@ define(function(require, exports, module) {
 			require('header.PKG').init();
 			require('characterselection.PKG').init();
 			require('footer.PKG').init();
+			require('social.PKG').init();
 
 			// Setup controls
 			require('controls.PKG').init();
@@ -81,7 +82,6 @@ define(function(require, exports, module) {
 			require('points.PKG').init();
 			require('profile.PKG').init(characterselected);
 			require('inventory.PKG').init();
-			require('Package').init({"social": ''});
 		
 			// Enable debugging (but hide from view)
 			require('debug.PKG').init();
@@ -89,9 +89,6 @@ define(function(require, exports, module) {
 			
 			// New gun module interface 
 			//require('Gun.MOD').init();
-			
-			// Setup notification system
-			require('notification.PKG').init();
 		}
 	}
 });

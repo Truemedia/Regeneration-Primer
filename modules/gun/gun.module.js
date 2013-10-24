@@ -38,28 +38,6 @@ define(["./jQuery", "./KO", "./Config", "./Gun.GOD"], function(jQuery, ko, Confi
         		return this.firstName() + " " + this.lastName();
     		}, this);
     	},
-
-		populateAmmo: function(){
-			var contentpack = Config.get('game.content_pack', 'default');
-			jQuery.get('packages/inventory/inventory.xml', function(xml){
-				var json = jQuery.xml2json(xml);
-				
-				jQuery.each(json.inventory.item, function(itemIteration, item) {
-  					// Get amount of bullets and use to populate DOM relevant to item
-  					var ammoCount = jQuery(".subitem_value:eq("+itemIteration+")").html(item.subitem.amount);
-  					// Number of current bullets
-					var current_bullets = jQuery(".actual_bullet_list:eq("+itemIteration+") > li").length;
-					var bullets_needed = item.subitem.amount - current_bullets;
-  					var bulletList = '';
-  					for(i=1; i <= bullets_needed; i++){
-  						bulletList += '<li><img src="multimedia/'+contentpack+'-contentpack/images/items/Guns/Bullet.png" /></li>';
-  					}
-  					jQuery('.inventory_item:eq('+itemIteration+') .actual_bullet_list').append(bulletList);
-  					// Log the items we aqquired
-  					console.log("Loaded "+item.subitem.amount+" bullets for "+item.name+" (item "+itemIteration+")");
-				});
-			});
-		},
 		
 		/* Create a new gun object instance and bind to player object */
 		wield: function(gun_sprite, single_or_dual, dimensions){
