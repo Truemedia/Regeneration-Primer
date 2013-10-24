@@ -30,9 +30,30 @@ define(["./jQuery"], function(jQuery) {
 		},
 		
 		/* Add or update a session variable (same as Laravel class) */
-		set: function(property, supplied_value) {
+		put: function(property, supplied_value) {
 			
 			Session.variables[property] = supplied_value;
+		},
+		
+		/* Deletes a specific session variable (same as Laravel class) */
+		forget: function(property) {
+			
+			if (Session.variables[property] !== undefined) {
+				
+				delete Session.variables[property];
+			}
+		},
+		
+		/* Retrive all session data (same as Laravel class) */
+		all: function() {
+			
+			return Session.variables;
+		},
+		
+		/* Delete all session data (same as Laravel class) */
+		flush: function() {
+			
+			Session.variables = {};
 		}
 	}
 });

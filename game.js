@@ -29,7 +29,7 @@ define(function(require, exports, module) {
 					// Specific character chosen
 					if (jQuery(this).attr("id") == "use_picked_char") {
 						console.log("Using players choosen character: "+this.value);
-						require('Session').set('character', this.value);
+						require('Session').put('character', this.value);
 					}
 					
 					// Choose a random character for the player
@@ -39,7 +39,7 @@ define(function(require, exports, module) {
 							number_of_chars = all_characters_info.characters.length - 1;
 							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
 							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
-							require('Session').set('character', random_char_name);
+							require('Session').put('character', random_char_name);
 						});
 					}
 					
@@ -63,7 +63,7 @@ define(function(require, exports, module) {
 				// MAP SELECTION EVENT
 				jQuery('#maps_partial').on("click", ".map_select", function(event) {
 					
-					require('Session').set('map', jQuery(this).val());
+					require('Session').put('map', jQuery(this).val());
 					var enabled = !jQuery(this).hasClass("disabled");
 					
 					// Map is enabled, will now load

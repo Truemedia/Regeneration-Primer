@@ -30,7 +30,7 @@ define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG", "./Gun
 			var falling_direction  = Math.round(Math.random());
 			
 			// Backwards (Forwards default)
-			if(falling_direction == 0){
+			if (falling_direction == 0) {
 				flat_player = "-" + flat_player;
 			}
 			
