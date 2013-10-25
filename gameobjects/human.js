@@ -9,11 +9,23 @@
 */
 define(["./jQuery", "./Session"], function(jQuery, Session) {
 	return me.ObjectEntity.extend({
+		
+		bot: null,
 
 		init: function(x, y, settings) {
 			
+			// Setup bot reference
+			this.bot = settings.bot;
+			
 			// Set image based on character name in session
-			settings.image = Session.get('character');
+			var main_character = Session.get('character');
+			
+			// Map character sprite based on spawn point
+			if (this.bot == false) {
+				settings.image = main_character;
+			} else {
+				settings.image = "coward";
+			}
 			
 			// call the constructor
 		    this.parent(x, y, settings);
@@ -22,30 +34,39 @@ define(["./jQuery", "./Session"], function(jQuery, Session) {
 		    this.setVelocity(10, 10);
 		 
 		    // set the display to follow our position on both axis
-		    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+		    if (this.bot !== true) {
+
+		    	me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+		    }
 		},
 
 		update: function() {
 
 			// move player based on keyboard keys
-			if (me.input.isKeyPressed('a')) {
-
-				this.flipX(true);
-			    this.vel.x -= this.accel.x * me.timer.tick;
-			} else if (me.input.isKeyPressed('d')) {
-
-			    this.flipX(false);
-			    this.vel.x += this.accel.x * me.timer.tick;
-			} else if (me.input.isKeyPressed('w')) {
-
-			    this.vel.y -= this.accel.y * me.timer.tick;
-			} else if (me.input.isKeyPressed('s')) {
-
-			  this.vel.y += this.accel.y * me.timer.tick;
+			if (this.bot !== true) {
+				
+				if (me.input.isKeyPressed('a')) {
+	
+					this.flipX(true);
+				    this.vel.x -= this.accel.x * me.timer.tick;
+				} else if (me.input.isKeyPressed('d')) {
+	
+				    this.flipX(false);
+				    this.vel.x += this.accel.x * me.timer.tick;
+				} else if (me.input.isKeyPressed('w')) {
+	
+				    this.vel.y -= this.accel.y * me.timer.tick;
+				} else if (me.input.isKeyPressed('s')) {
+	
+				  this.vel.y += this.accel.y * me.timer.tick;
+				} else {
+	
+				  this.vel.x = 0;
+				  this.vel.y = 0;
+				}
 			} else {
-
-			  this.vel.x = 0;
-			  this.vel.y = 0;
+				
+				// move bot
 			}
 			 
 			// check & update player movement
