@@ -49,6 +49,28 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 			});
 		},
 		
+		/* Get all characters and all their associated data */
+		getCharacters: function() {
+			
+			// Set ASYNC AJAX to false
+			jQuery.ajaxSetup({
+				async: false
+			});
+			
+			// Load up list of characters to choose from
+			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
+				characters = data.characters;
+			});
+			
+			// Set ASYNC AJAX back to true
+			jQuery.ajaxSetup({
+				async: true
+			});
+			
+			// Send back character data
+			return characters;
+		},
+		
 		/* Use a character identifier to get character id */
 		getCharacterId: function(character) {
 

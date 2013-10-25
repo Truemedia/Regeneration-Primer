@@ -7,13 +7,31 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inventory) {
+define(["./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"], function(jQuery, Crafty, inventory, characterselection) {
 	return spawner = {
 
 		layers: 6,
+		
+		// List of entities waiting to be spawned
+		purgatory: {},
 			
 		/* Stored entities */
 		characters: [],
+		
+		/* Queue purgatory with list of characters */
+		spawnPlayers: function() {
+		
+			// Populate spawning list
+			spawner.purgatory = characterselection.getCharacters();
+		},
+		
+		/* Get player instance due to be spawned next */
+		spawnPlayer: function() {
+			
+			var random_character = spawner.purgatory.pop();
+			var character_name = random_character.identifierReference;
+			return character_name;
+		},
 		
 		spawnCharacter: function(char_name, players_char_name, char_id){
 			// Layer constants
@@ -77,6 +95,7 @@ define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inv
 					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300);
 			}
 		},
+		
 		characterColor: function(character){
 			// Color of characters name over character
 			switch(character){
@@ -109,15 +128,18 @@ define(["./jQuery", "./Crafty", "./inventory.PKG"], function(jQuery, Crafty, inv
 					break;
 			}
 		},
+		
 		spawnEnemies: function(spawn_amount){
 			// Code to add monster/s on screen
 			/*for(i=1;  i<=spawn_amount; i++){
 				spawnEnemy(480, 480);
 			}*/
 		},
+		
 		spawnEnemy: function(){
 			//craft draw stuff
 		},
+		
 		randomSpawnCoordinates: function(max_x, max_y){
 			//random()
 		}

@@ -7,14 +7,16 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD"], function(jQuery, Crafty, ko, spawner, profile, Gun, human_object) {
+define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./characterselection.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD"], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object) {
 	return player = {
 			
-		/* Create a new player object instance */
+		/* Create a new player object instance (method alias) */
 		spawn: function() {
-
+			
+			spawner.spawnPlayers();
+			
 			// Get game object definition and add entity in the entity pool
-			var current_player = me.entityPool.add("spawnPoint", human_object, true);
+			var players = me.entityPool.add("spawnPoint", human_object, true);
 			//var bot_player = me.entityPool.newInstanceOf("mainPlayer", 200, 200, 90);
 		},
 			
