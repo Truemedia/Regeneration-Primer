@@ -10,12 +10,8 @@
 define(["./jQuery"], function(jQuery) {
 	return me.ObjectEntity.extend({
 		init: function(x, y, settings) {
-			
-			settings.image = "gun_sprite";
-			settings.spritewidth = 128;
-			settings.spriteheight = 128;
 
-			this.parent(50, 50, settings);
+			this.parent(x, y, settings);
 		},
 		
 		update: function() {

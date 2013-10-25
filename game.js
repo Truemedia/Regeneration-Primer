@@ -111,7 +111,7 @@ define(function(require, exports, module) {
 			resources.push({
 				name: "gun_sprite",
 				type: "image",
-				src: require('Gun.MOD').getImage("Glock")
+				src: require('Gun.MOD').getImage("AR-15")
 			});
 			
 			return resources;
