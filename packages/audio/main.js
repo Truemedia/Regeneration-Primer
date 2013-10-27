@@ -107,7 +107,7 @@ define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
 			var audio_dir = audio.directory + "ar-15/";
 			
 			console.log(audio_dir+"discarding_mag");
-			audio.sampler.samples.shoot = new buzz.sound(audio_dir+"shot1", {formats: [audio.format]});
+			audio.sampler.samples.shoot = new buzz.sound(audio_dir+"shoot", {formats: [audio.format]});
 			audio.sampler.samples.discard_mag = new buzz.sound(audio_dir+"discarding_mag", {formats: [audio.format]});
 			audio.sampler.samples.insert_mag = new buzz.sound(audio_dir+"loading_mag", {formats: [audio.format]});
 			audio.sampler.samples.lock_inserted_mag = new buzz.sound(audio_dir+"locking_mag", {formats: [audio.format]});

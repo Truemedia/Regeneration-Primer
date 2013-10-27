@@ -30,7 +30,7 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 		loadDOM: function() {
 		 		
 		 	// Build data
-		 	data = Config.instance('controls::default.all');
+		 	data = Config.instance('controls::default');
 		 	
 		 	// Append language strings to JSON data source
 			data.trans = controls.trans;
@@ -41,7 +41,23 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			console.log("Controls PACKAGE loaded");
 		},
 		
-		/* Bind keyboard keys to array keys */
+		/* Bind all Human interface Devices (physical controllers) to the game */
+		bindHumanInterfaceDevices: function() {
+			
+			// Traditional controllers
+			controls.bindKeyboard();
+			controls.bindMouse();
+		},
+		
+		/* Bind mouse buttons and scroll wheel to game action hooks */
+		bindMouse: function() {
+			
+			// Primary mouse buttons
+			me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.O);
+			me.input.bindMouse(me.input.mouse.RIGHT, me.input.KEY.P);
+		},
+		
+		/* Bind keyboard keys to game action hooks */
 		bindKeyboard: function() {
 			
 			// 1st row of keys
@@ -61,16 +77,20 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			me.input.bindKey(me.input.KEY.E, "e", true);
 			me.input.bindKey(me.input.KEY.R, "r", true);
 			me.input.bindKey(me.input.KEY.T, "t", true);
+			me.input.bindKey(me.input.KEY.O, "operate", true);
+			me.input.bindKey(me.input.KEY.P, "push", true);
+			
+			// 3rd row of keys
 			me.input.bindKey(me.input.KEY.A, "a");
 			me.input.bindKey(me.input.KEY.S, "s");
 			me.input.bindKey(me.input.KEY.D, "d");
 			
-			// 3rd row of keys
+			// 4th row of keys
 			me.input.bindKey(me.input.KEY.Z, "z", true);
 			me.input.bindKey(me.input.KEY.C, "c", true);
 			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
 			
-			// 4th row of keys
+			// 5th row of keys
 			me.input.bindKey(me.input.KEY.SPACE, "space", true);
 		},
 		
@@ -92,6 +112,12 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			}
 			
 			// Handling gun
+			else if (me.input.isKeyPressed('operate')) {
+				audio.sampler.play("shoot");
+			}
+			else if (me.input.isKeyPressed('push')) {
+				audio.sampler.play("fired_bullet_shelldrop");
+			}
 			else if (me.input.isKeyPressed('t')) {
 				audio.sampler.play("discard_mag");
 				console.log("Removed a mag");

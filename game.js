@@ -165,8 +165,8 @@ define(function(require, exports, module) {
 			// Spawn main player
 			require('player.PKG').spawn();
 
-			// Enable the keyboard (to navigate in the map)
-			require('controls.PKG').bindKeyboard();
+			// Setup physical controllers
+			require('controls.PKG').bindHumanInterfaceDevices();
 
 			// Start the game
 			me.state.change(me.state.PLAY);
