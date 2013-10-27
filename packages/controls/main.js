@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "./Config", "./Lang", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG", "audio.PKG"], function(view, nls, Config, Lang, Page, jQuery, Crafty, inventory, player, audio) {
+define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "./Config", "./Lang", "./Page", "./Bootstrap", "./Crafty", "inventory.PKG", "player.PKG", "audio.PKG", "debug.PKG"], function(view, nls, Config, Lang, Page, jQuery, Crafty, inventory, player, audio, debug) {
 	return controls = {
 		
 		// Partial loading location	
@@ -66,6 +66,7 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			me.input.bindKey(me.input.KEY.D, "d");
 			
 			// 3rd row of keys
+			me.input.bindKey(me.input.KEY.Z, "z", true);
 			me.input.bindKey(me.input.KEY.C, "c", true);
 			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
 			
@@ -150,6 +151,11 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			}
 			else if (me.input.isKeyPressed('0')) {
 				inventory.switchItem(0);
+			}
+			
+			// Debugging
+			else if (me.input.isKeyPressed('z')) {
+				debug.saveCoords();
 			}
 		}
 	}

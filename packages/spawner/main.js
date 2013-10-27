@@ -45,15 +45,6 @@ define(["./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"], 
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: transitional_layer})
 					// Add controls to this object
 					.leftControls(3)
-    				.bind('KeyUp', function(e) {
-    					// Save X Y coords (one instance shown in debug toolbar)
-    					if(e.key == Crafty.keys['Z']) {
-    						var x = jQuery("#mouse_x_coords").html();
-    						var y = jQuery("#mouse_y_coords").html();
-    						jQuery("#saved_mouse_coords").html(x+","+y);
-      						console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
-    					}
-    				})
     				.bind('Moved', function(from) { // Restrict movement across solid objects
     					if(this.hit('solid')){
         					this.attr({x: from.x, y: from.y});
@@ -84,10 +75,6 @@ define(["./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"], 
 					.attr({x: (80+(60*char_id)), y: (40*char_id), z: (1*char_id)})
 					// Bot paths (currently implemented as single static path using tween)
   					.tween({x: (130*char_id), y: (430+(6*char_id))}, 300)
-  					// CraftyJS bug causing text to interfere with characters sprite?
-					/*.text(char_name+" (Bot)")
-  					.textColor(this.characterColor(char_name), '0.9')
-  					.textFont({ type: 'italic', family: 'Arial', size: '20px', weight: 'bold' })*/
   				);
   				/* Spawning bots gun */
 				Crafty.e("2D, "+render_engine+", wall_left, gun1, Tween")

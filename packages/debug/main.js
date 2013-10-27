@@ -48,8 +48,18 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 			});
 		},
 		
+		/* Save X and Y coordinates of mouse position */
+		saveCoords: function() {
+			
+			// Instance shown in debug toolbar
+			var x = jQuery("#mouse_x_coords").html();
+			var y = jQuery("#mouse_y_coords").html();
+			jQuery("#saved_mouse_coords").html(x+","+y);
+			console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
+		},
+		
 		/* jQuery event handlers (for Debug) */
-		registerEvents: function(){ 
+		registerEvents: function() { 
 		
 			// Give yourself points
 			jQuery("#debug_window").on("click", ".score_submit", function (event){
@@ -86,7 +96,7 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 			
 			// Variables for tracking mouse
     		var mouseX, mouseY;
-    		var canvas = jQuery('#cr-stage').get(0);
+    		var canvas = jQuery('#stage').get(0);
    			
    			// Realtime mouse coords debugging
    			canvas.addEventListener('mousemove', function (mouse) {
