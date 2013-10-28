@@ -56,18 +56,18 @@ define(["./jQuery", "./Session", "./spawner.PKG"], function(jQuery, Session, spa
 			// move player based on keyboard keys
 			if (this.bot !== true) {
 				
-				if (me.input.isKeyPressed('a')) {
+				if (me.input.isKeyPressed('moveleft')) {
 	
 					this.flipX(true);
 				    this.vel.x -= this.accel.x * me.timer.tick;
-				} else if (me.input.isKeyPressed('d')) {
+				} else if (me.input.isKeyPressed('moveright')) {
 	
 				    this.flipX(false);
 				    this.vel.x += this.accel.x * me.timer.tick;
-				} else if (me.input.isKeyPressed('w')) {
+				} else if (me.input.isKeyPressed('moveup')) {
 	
 				    this.vel.y -= this.accel.y * me.timer.tick;
-				} else if (me.input.isKeyPressed('s')) {
+				} else if (me.input.isKeyPressed('movedown')) {
 	
 				  this.vel.y += this.accel.y * me.timer.tick;
 				} else {

@@ -61,53 +61,54 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 		bindKeyboard: function() {
 			
 			// 1st row of keys
-			me.input.bindKey(me.input.KEY.NUM0, "0", true);
-			me.input.bindKey(me.input.KEY.NUM1, "1", true);
-			me.input.bindKey(me.input.KEY.NUM2, "2", true);
-			me.input.bindKey(me.input.KEY.NUM3, "3", true);
-			me.input.bindKey(me.input.KEY.NUM4, "4", true);
-			me.input.bindKey(me.input.KEY.NUM5, "5", true);
-			me.input.bindKey(me.input.KEY.NUM6, "6", true);
-			me.input.bindKey(me.input.KEY.NUM7, "7", true);
-			me.input.bindKey(me.input.KEY.NUM8, "8", true);
-			me.input.bindKey(me.input.KEY.NUM9, "9", true);
+			me.input.bindKey(me.input.KEY.NUM1, "itemone", true);
+			me.input.bindKey(me.input.KEY.NUM2, "itemtwo", true);
+			me.input.bindKey(me.input.KEY.NUM3, "itemthree", true);
+			me.input.bindKey(me.input.KEY.NUM4, "itemfour", true);
+			me.input.bindKey(me.input.KEY.NUM5, "itemfive", true);
+			me.input.bindKey(me.input.KEY.NUM6, "itemsix", true);
+			me.input.bindKey(me.input.KEY.NUM7, "itemseven", true);
+			me.input.bindKey(me.input.KEY.NUM8, "itemeight", true);
+			me.input.bindKey(me.input.KEY.NUM9, "itemnine", true);
+			me.input.bindKey(me.input.KEY.NUM0, "itemten", true)
 
 			// 2nd row of keys
-			me.input.bindKey(me.input.KEY.W, "w");
-			me.input.bindKey(me.input.KEY.E, "e", true);
-			me.input.bindKey(me.input.KEY.R, "r", true);
-			me.input.bindKey(me.input.KEY.T, "t", true);
+			me.input.bindKey(me.input.KEY.W, "moveup");
+			me.input.bindKey(me.input.KEY.E, "entermag", true);
+			me.input.bindKey(me.input.KEY.R, "reload", true);
+			me.input.bindKey(me.input.KEY.T, "throwmag", true);
 			me.input.bindKey(me.input.KEY.O, "operate", true);
 			me.input.bindKey(me.input.KEY.P, "push", true);
 			
 			// 3rd row of keys
-			me.input.bindKey(me.input.KEY.A, "a");
-			me.input.bindKey(me.input.KEY.S, "s");
-			me.input.bindKey(me.input.KEY.D, "d");
+			me.input.bindKey(me.input.KEY.A, "moveleft");
+			me.input.bindKey(me.input.KEY.S, "movedown");
+			me.input.bindKey(me.input.KEY.D, "moveright");
 			
 			// 4th row of keys
-			me.input.bindKey(me.input.KEY.Z, "z", true);
-			me.input.bindKey(me.input.KEY.C, "c", true);
-			me.input.bindKey(me.input.KEY.SHIFT, "shift", true);
+			me.input.bindKey(me.input.KEY.Z, "coords", true);
+			me.input.bindKey(me.input.KEY.X, "pickup", true);
+			me.input.bindKey(me.input.KEY.C, "chamber", true);
+			me.input.bindKey(me.input.KEY.SHIFT, "toggleleftsidebar", true);
 			
 			// 5th row of keys
-			me.input.bindKey(me.input.KEY.SPACE, "space", true);
+			me.input.bindKey(me.input.KEY.SPACE, "togglerightsidebar", true);
 		},
 		
 		/* Observe any keys being pressed and trigger their relative events */
 		observeKeyboard: function() {
 			
 			// Moving player
-			if (me.input.isKeyPressed('w')) {
+			if (me.input.isKeyPressed('moveup')) {
 				player.move('up');
 			}
-			else if (me.input.isKeyPressed('a')) {
+			else if (me.input.isKeyPressed('moveleft')) {
 				player.move('left');
 			}
-			else if (me.input.isKeyPressed('s')) {
+			else if (me.input.isKeyPressed('movedown')) {
 				player.move('down');
 			}
-			else if (me.input.isKeyPressed('d')) {
+			else if (me.input.isKeyPressed('moveright')) {
 				player.move('right');
 			}
 			
@@ -118,69 +119,69 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			else if (me.input.isKeyPressed('push')) {
 				audio.sampler.play("fired_bullet_shelldrop");
 			}
-			else if (me.input.isKeyPressed('t')) {
+			else if (me.input.isKeyPressed('throwmag')) {
 				audio.sampler.play("discard_mag");
 				console.log("Removed a mag");
 			}
-			else if (me.input.isKeyPressed('e')) {
+			else if (me.input.isKeyPressed('entermag')) {
 				audio.sampler.play("insert_mag");
 				console.log("Loaded a mag");
 			}
-			else if (me.input.isKeyPressed('r')) {
+			else if (me.input.isKeyPressed('reload')) {
 				audio.sampler.play("lock_inserted_mag");
 				//audio.play.sample("insert_mag");
 				//audio.play.sample("load_chamber");
 				console.log("Connected a mag");
 			}
-			else if (me.input.isKeyPressed('c')) {
+			else if (me.input.isKeyPressed('chamber')) {
 				audio.sampler.play("load_chamber");
 				console.log("Loaded chamber");
 			}
 			
 			// Hiding or showing left sidebar
-			else if (me.input.isKeyPressed('shift')) {
+			else if (me.input.isKeyPressed('toggleleftsidebar')) {
 				Page.sidebar('left', 'toggle');
 			}
 			
 			// Hiding or showing right sidebar
-			else if (me.input.isKeyPressed('space')) {
+			else if (me.input.isKeyPressed('togglerightsidebar')) {
 				Page.sidebar('right', 'toggle');
 			}
 
 			// Select/Unselect inventory items
-			else if (me.input.isKeyPressed('1')) {
+			else if (me.input.isKeyPressed('itemone')) {
 				inventory.switchItem(1);
 			}
-			else if (me.input.isKeyPressed('2')) {
+			else if (me.input.isKeyPressed('itemtwo')) {
 				inventory.switchItem(2);
 			}
-			else if (me.input.isKeyPressed('3')) {
+			else if (me.input.isKeyPressed('itemthree')) {
 				inventory.switchItem(3);
 			}
-			else if (me.input.isKeyPressed('4')) {
+			else if (me.input.isKeyPressed('itemfour')) {
 				inventory.switchItem(4);
 			}
-			else if (me.input.isKeyPressed('5')) {
+			else if (me.input.isKeyPressed('itemfive')) {
 				inventory.switchItem(5);
 			}
-			else if (me.input.isKeyPressed('6')) {
+			else if (me.input.isKeyPressed('itemsix')) {
 				inventory.switchItem(6);
 			}
-			else if (me.input.isKeyPressed('7')) {
+			else if (me.input.isKeyPressed('itemseven')) {
 				inventory.switchItem(7);
 			}
-			else if (me.input.isKeyPressed('8')) {
+			else if (me.input.isKeyPressed('itemeight')) {
 				inventory.switchItem(8);
 			}
-			else if (me.input.isKeyPressed('9')) {
+			else if (me.input.isKeyPressed('itemnine')) {
 				inventory.switchItem(9);
 			}
-			else if (me.input.isKeyPressed('0')) {
+			else if (me.input.isKeyPressed('itemten')) {
 				inventory.switchItem(0);
 			}
 			
 			// Debugging
-			else if (me.input.isKeyPressed('z')) {
+			else if (me.input.isKeyPressed('coords')) {
 				debug.saveCoords();
 			}
 		}
