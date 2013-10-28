@@ -7,8 +7,23 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./spawner.PKG"], function(jQuery, Crafty, spawner) {
+define(["./Toastr", "./Crafty", "./spawner.PKG", "./Config"], function(toastr, Crafty, spawner, Config) {
 	return gamedirector = {
+			
+		// Round/Wave number
+		round_number: 0,
+			
+		/* Warn player that next round is commencing */
+		roundCall: function() {
+			
+			// Increment round number
+			gamedirector.round_number++;
+			
+			// Display notification
+			toastr.options = Config.get('gamedirector::toastr');
+			toastr.error("Prepare to fight", "Round "+gamedirector.round_number);
+		},
+			
 		initGameDirector: function(character){
 			// Spawn players
 			jQuery.getJSON("packages/characterselection/info/characters.json", function(all_characters_info) {

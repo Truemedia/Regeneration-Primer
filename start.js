@@ -56,6 +56,9 @@ require.config({
         'Buzz': [
             "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min"
         ], // Buzz
+        'Toastr': [
+            "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min"
+        ], // Toastr
         
         /* Main files */
         'app': "app", // Application instance and low level application instance control methods
@@ -104,6 +107,7 @@ require.config({
         /* Game object definitions (GOD files) */
         'Gun.GOD': "gameobjects/gun",
         'Human.GOD': "gameobjects/human",
+        'Hud.GOD': "gameobjects/hud",
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
@@ -158,6 +162,12 @@ require.config({
         
         // Bootstrap
         'Bootstrap': {
+            deps: ['jQuery'],
+            exports: 'jQuery'
+        },
+        
+        // Toastr
+        'Toastr': {
             deps: ['jQuery'],
             exports: 'jQuery'
         },

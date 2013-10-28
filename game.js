@@ -114,6 +114,14 @@ define(function(require, exports, module) {
 				src: require('Gun.MOD').getImage("AR-15")
 			});
 			
+			// Game font
+			// TODO: Convert font to PNG
+			/*resources.push({
+				name: "32x32_font",
+				type: "image",
+				src: "multimedia/default-contentpack/fonts/visitor/32x32_font.ttf"
+			}); */
+			
 			return resources;
 		},
 		
@@ -140,9 +148,7 @@ define(function(require, exports, module) {
 			game.settings();
 
 			// Load everything & display a loading screen
-			me.state.change(me.state.LOADING);
-			
-			
+			me.state.change(me.state.LOADING);	
 		},
 		
 		/* Settings used by the game instance specific to the game library */
@@ -173,6 +179,9 @@ define(function(require, exports, module) {
 			
 			// Wield gun
 		    //Gun.wield('Glock', 'single');
+			
+			// Start 1st round
+			require('gamedirector.PKG').roundCall();
 		},
 		
 		reset: function()

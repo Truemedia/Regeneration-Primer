@@ -25,6 +25,9 @@
 /* Datatables Base stylesheet */
 @import url('http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css');
 
+/* Toastr Base stylesheet */
+@import url('http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css');
+
 /* Modules stylesheet */
 @import url('modules/modules.css');
 
