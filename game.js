@@ -198,7 +198,7 @@ define(function(require, exports, module) {
 		{
 		
 			// Check for any interaction with keyboard
-			require('controls.PKG').observeKeyboard();
+			require('Keyboard.MOD').observeControls();
 
 			// Update the frame counter
 			me.timer.update();

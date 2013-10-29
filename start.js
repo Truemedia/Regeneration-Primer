@@ -100,7 +100,9 @@ require.config({
         /* Modules (MOD files) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         'Feed.MOD': "packages/gameinfo/modules/feed/main", // Feed module
+        'Keyboard.MOD': "packages/controls/modules/keyboard/main", // Keyboard module
         'Health.MOD': "modules/health/health.module", // Health module
+        'Mouse.MOD': "packages/controls/modules/mouse/main", // Mouse module
         'Options.MOD': "modules/options/options.module", // Options module
         'Score.MOD': "modules/score/score.module", // Score module
         
