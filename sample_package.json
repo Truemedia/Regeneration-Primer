@@ -19,12 +19,16 @@
             	{
 	          		"website": "http://modernizr.com",
 	          		"name": "Modernizr"
+	        	},
+	        	{
+	          		"website": "https://github.com/CodeSeven/toastr",
+	          		"name": "Toastr"
 	        	}
 			]
 		},
 		{
-        	"coreDependency": "Crafty",
-        	"website": "http://craftyjs.com/"
+        	"coreDependency": "MelonJS",
+        	"website": "http://melonjs.org/"
       	},
       	{
         	"coreDependency": "RequireJS",
