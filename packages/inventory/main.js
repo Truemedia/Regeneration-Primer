@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty", "./KO"], function(view, nls, Config, Lang, jQuery, Crafty, ko) {
+define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty", "./KO", "./Toastr"], function(view, nls, Config, Lang, jQuery, Crafty, ko, toastr) {
 	return inventory = {
 		
 		/* Stores entities */
@@ -107,14 +107,25 @@ define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings",
     	    }
 		},
 		
-		// Simulate inventory item click
+		/* Equip an item into the interaction slot of the player inventory */
+		equip: function(item_name) {
+			
+			// Display notification
+			toastr.options = Config.get('inventory::toastr');
+			toastr.warning("Now equipped with a "+item_name, "Picked up an item");
+			
+			// Switch as upper most inventory item (and make active)
+			inventory.switchItem(1);
+		},
+		
+		/* Simulate inventory item click */
 		switchItem: function(item_number) {
 
 			var item_index = item_number - 1;
 			jQuery("#my_inventory > li:eq('"+item_index+"') > .accordion-heading > .accordion-toggle").click();
 		},
 		
-		// Build array of bullets using range and damage (inherit same values)
+		/* Build array of bullets using range and damage (inherit same values) */
 		loadRounds: function(gun_index, dmg) {
 			
 			// Get default gun amount

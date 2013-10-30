@@ -7,10 +7,14 @@
 		 "move_up": "W",
 		 "move_left": "A",
 		 "move_down": "S",
-		 "move_right": "D"
+		 "move_right": "D",
+		 "pickup": "X"
 	},
 	"weapons": {
-		"shoot": "LEFT CLICK",
+		"operate": "LEFT CLICK",
+		"operate_alt": "O",
+		"push": "RIGHT CLICK",
+		"push_alt": "P",
 		"throw_away_mag": "T",
 		"enter_new_mag": "E",
 		"reconnect_new_mag": "R",

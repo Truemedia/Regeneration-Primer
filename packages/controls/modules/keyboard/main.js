@@ -133,6 +133,11 @@ define(function(require, exports, module) {
 				require('inventory.PKG').switchItem(0);
 			}
 			
+			// Handling items
+			else if (me.input.isKeyPressed('pickup')) {
+				require('inventory.PKG').equip("Gun");
+			}
+			
 			// Debugging
 			else if (me.input.isKeyPressed('coords')) {
 				require('debug.PKG').saveCoords();
