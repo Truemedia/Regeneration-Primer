@@ -5,7 +5,7 @@ define({
     "player_phrs": "Player",
     "weapons_phrs": "Weapons",
     "or_phrs": "OR",
-    "mouse_noun": "mouse"
+    "mouse_noun": "mouse",
     "press_verb": "Press",
     "hold_verb": "Hold",
     "close_verb": "Close",
