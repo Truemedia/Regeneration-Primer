@@ -13,6 +13,8 @@ define(function(require, exports, module) {
 		/* Bind keyboard keys to game action hooks */
 		bindControls: function() {
 			
+			console.log(me.input.KEY);
+			
 			// 1st row of keys
 			me.input.bindKey(me.input.KEY.NUM1, "itemone", true);
 			me.input.bindKey(me.input.KEY.NUM2, "itemtwo", true);
@@ -42,10 +44,12 @@ define(function(require, exports, module) {
 			me.input.bindKey(me.input.KEY.Z, "coords", true);
 			me.input.bindKey(me.input.KEY.X, "pickup", true);
 			me.input.bindKey(me.input.KEY.C, "chamber", true);
-			me.input.bindKey(me.input.KEY.SHIFT, "toggleleftsidebar", true);
 			
 			// 5th row of keys
-			me.input.bindKey(me.input.KEY.SPACE, "togglerightsidebar", true);
+			me.input.bindKey(me.input.KEY.LEFT, "toggleleftsidebar", true);
+			me.input.bindKey(me.input.KEY.RIGHT, "togglerightsidebar", true);
+			me.input.bindKey(me.input.KEY.UP, "toggleheader", true);
+			me.input.bindKey(me.input.KEY.DOWN, "togglefooter", true);
 		},
 		
 		/* Observe any keys being pressed and trigger their relative events */
@@ -99,6 +103,28 @@ define(function(require, exports, module) {
 			// Hiding or showing right sidebar
 			else if (me.input.isKeyPressed('togglerightsidebar')) {
 				require('Page').sidebar('right', 'toggle');
+			}
+			
+			// Hiding or showing header
+			else if (me.input.isKeyPressed('toggleheader')) {
+
+				if (require('header.PKG').active == false) {
+					require('header.PKG').activate();
+				} else {
+					require('header.PKG').deactivate();
+				}
+			}
+			
+			// Hiding or showing footer
+			else if (me.input.isKeyPressed('togglefooter')) {
+
+				if (require('footer.PKG').active == false) {
+					require('footer.PKG').activate();
+					require('social.PKG').init();
+				} else {
+					require('footer.PKG').deactivate();
+					document.getElementById('social_partial').innerHTML = "";
+				}
 			}
 
 			// Select/Unselect inventory items

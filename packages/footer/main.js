@@ -13,6 +13,9 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 		// Partial loading location	
 		partial_block_element: 'footer_partial',
 		
+		// Activation indication
+		active: false,
+		
 		// Translations
 		trans: {},
 	
@@ -24,6 +27,26 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 			
 			// Load the package onto current web-page
 			footer.loadDOM();
+		},
+		
+		/* Activate this package and associated modules */
+		activate: function() {
+			
+			// Show as active
+			footer.active = true;
+			
+			// Reload DOM
+			footer.loadDOM();
+		},
+		
+		/* Deactivate this package and associated modules */
+		deactivate: function() {
+			
+			// Show as inactive
+			footer.active = false;
+			
+			// Clear DOM
+			document.getElementById(footer.partial_block_element).innerHTML = "";
 		},
 
 		/* Append the HTML for this package to the DOM */

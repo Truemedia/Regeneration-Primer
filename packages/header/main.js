@@ -13,6 +13,9 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 		// Partial loading location	
 		partial_block_element: 'header_partial',
 		
+		// Activation indication
+		active: false,
+		
 		// Translations
 		trans: {},
 			
@@ -25,8 +28,28 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 			// Load translations
 			header.trans = Lang.getTrans(nls);
 			
-			// Load the package onto current web-page
+			// Activate the package on current web-page
+			header.activate();
+		},
+		
+		/* Activate this package and associated modules */
+		activate: function() {
+			
+			// Show as active
+			header.active = true;
+			
+			// Load modules relevant to this package
 			header.loadModules();
+		},
+		
+		/* Deactivate this package and associated modules */
+		deactivate: function() {
+			
+			// Show as inactive
+			header.active = false;
+			
+			// Clear DOM
+			document.getElementById(header.partial_block_element).innerHTML = "";
 		},
 		
 		/* Load modules relevant to this package */
