@@ -28,6 +28,9 @@ require.config({
         ],
         /* Internalization */
         i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
+        
+        /* Autoloader */
+        conditioner: 'dependencies/conditioner',
 	
 		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
@@ -196,7 +199,14 @@ require.config({
         i18n: {
             locale: localStorage['language'] || 'en'
         }
-    }});
+    }
+});
+
+// start the autoloader
+requirejs(['conditioner'],function(conditioner) {
+	conditioner.init();
+});
+
 // Start the application (Run the main method)
 require(['app'], function(app){
 	app.start();

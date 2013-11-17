@@ -42,7 +42,6 @@ define(function(require, exports, module) {
 			// Load header and footer
 			require('header.PKG').init();
 			require('characterselection.PKG').init();
-			require('footer.PKG').init();
 			require('social.PKG').init();
 
 			// Setup controls

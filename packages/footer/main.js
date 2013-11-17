@@ -10,8 +10,8 @@
 define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return footer = {
 			
-		// Partial loading location	
-		partial_block_element: 'footer_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Activation indication
 		active: false,
@@ -28,6 +28,21 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 			// Load the package onto current web-page
 			footer.loadDOM();
 		},
+		
+		/* Autoloaded startup method */
+        load: function(element, options) {
+        	
+        	// Store the element binder
+        	footer.element_binding = element;
+        	
+            footer.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        	console.log("Unload function of the footer package");
+        },
 		
 		/* Activate this package and associated modules */
 		activate: function() {
@@ -46,7 +61,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 			footer.active = false;
 			
 			// Clear DOM
-			document.getElementById(footer.partial_block_element).innerHTML = "";
+			jQuery(footer.element_binding).html("");
 		},
 
 		/* Append the HTML for this package to the DOM */
@@ -69,7 +84,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 				});
 			
 				// Load view
-       			document.getElementById(footer.partial_block_element).innerHTML = view(data);
+       			jQuery(footer.element_binding).html(view(data));
        			
        			// Register events
        			footer.registerEvents();
@@ -81,7 +96,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 		registerEvents: function() {
 
 			// Language selector
-			jQuery("#"+footer.partial_block_element).on("change", "#language", function(event) {
+			jQuery(footer.element_binding).on("change", "#language", function(event) {
 				
 				var lang_code = jQuery(this).val();
 				var change = confirm(footer.trans.change_language);
