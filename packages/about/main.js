@@ -10,8 +10,8 @@
 define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return about = {
 			
-		// Partial loading location	
-		partial_block_element: 'about_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "./Conf
 			about.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	about.element_binding = element;
+        	    	
+        	about.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
@@ -39,7 +53,7 @@ define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "./Conf
 			data.trans = about.trans;
 			
 			// Load view
-       		document.getElementById(about.partial_block_element).innerHTML = view(data);
+       		jQuery(about.element_binding).html( view(data) );
        		
 			console.log("About PACKAGE loaded");
 		}

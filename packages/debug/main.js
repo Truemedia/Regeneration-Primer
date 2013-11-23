@@ -11,7 +11,7 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 	return debug = {
 			
 		// Partial loading location	
-		partial_block_element: "debug_partial",
+		element_binding: null,
 			
 		// Translations
 		trans: {},
@@ -19,12 +19,28 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 		/* Load this package */
 		init: function() {
 			
+			debug.element_binding = '#debug_partial';
+			
 			// Load translations
 			debug.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
 			debug.loadDOM();
 		},
+		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	debug.element_binding = element;
+        	
+        	debug.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
 		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
@@ -41,7 +57,7 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 				data.trans = debug.trans;
 				
 				// Load view
-				document.getElementById(debug.partial_block_element).innerHTML = view(data);
+				jQuery(debug.element_binding).html( view(data) );
 				
 				// Start debugging
 				debug.initDebugger(null);

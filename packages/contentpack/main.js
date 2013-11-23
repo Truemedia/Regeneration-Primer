@@ -10,8 +10,8 @@
 define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return contentpack = {
 		
-		// Partial loading location	
-		partial_block_element: 'contentpack_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strin
 			contentpack.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	contentpack.element_binding = element;
+        	    	
+        	contentpack.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
@@ -38,7 +52,7 @@ define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strin
 			data.trans = contentpack.trans;
 				
 			// Load view
-	       	document.getElementById(contentpack.partial_block_element).innerHTML = view(data);
+	       	jQuery(contentpack.element_binding).html( view(data) );
 
 			console.log("Content Pack PACKAGE loaded");
 		}

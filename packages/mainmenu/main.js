@@ -10,8 +10,8 @@
 define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return mainmenu = {
 
-		// Partial loading location	
-		partial_block_element: 'mainmenu_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "
 			mainmenu.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	mainmenu.element_binding = element;
+
+        	mainmenu.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
@@ -36,7 +50,7 @@ define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "
 				data.trans = mainmenu.trans;
 			
 				// Load view
-       			document.getElementById(mainmenu.partial_block_element).innerHTML = view(data);
+       			jQuery(mainmenu.element_binding).html( view(data) );
 			});
 
 			console.log("Main menu PACKAGE loaded");

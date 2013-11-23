@@ -29,10 +29,10 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 			footer.loadDOM();
 		},
 		
-		/* Autoloaded startup method */
+		/* Autoloading hook */
         load: function(element, options) {
         	
-        	// Store the element binder
+        	// Store the element binding
         	footer.element_binding = element;
         	
             footer.init();
@@ -41,7 +41,6 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
         /* Autoloader terminate method */
         unload: function() {
 
-        	console.log("Unload function of the footer package");
         },
 		
 		/* Activate this package and associated modules */

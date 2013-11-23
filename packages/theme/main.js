@@ -13,8 +13,8 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 	 	// Themes JSON array
 	 	themes: [],
 	 	
-	 	// Partial loading location	
-		partial_block_element: 'theme_partial',
+	 	// Data attribute binded element
+	 	element_binding: null,
 	
 		// Translations
 		trans: {},
@@ -28,6 +28,22 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 			// Load the package onto current web-page
 			theme.loadDOM();
 		},
+		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	console.log("Loading correctly");
+        	
+        	// Store the element binding
+        	theme.element_binding = element;
+        	    	
+        	theme.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
 		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
@@ -72,7 +88,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 				
 				// Use theme set in config
 				console.log("Theme found in config")
-				theme.load(Config.get('game.theme'));
+				theme.activate(Config.get('game.theme'));
 			} else {
 				
 				// Use random theme
@@ -81,8 +97,8 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 			}
 		},
 		
-		/* Load theme based on theme data */
-		load: function(theme_name) {
+		/* Activate theme based on theme data */
+		activate: function(theme_name) {
 		
 			var initial_theme_stylesheet;
 			var initial_theme_image;
@@ -102,7 +118,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 			theme.stylesheet(initial_theme_stylesheet, initial_theme_image);
 		
 			// Load view
-   			document.getElementById(theme.partial_block_element).innerHTML = view(theme);
+   			jQuery(theme.element_binding).html( view(theme) );
    			
    			// jQuery events
    			theme.registerEvents();
@@ -119,7 +135,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 			var themes = theme.themes;
 			var random_theme = themes[Math.floor(Math.random()*themes.length)];
 
-			theme.load(random_theme.name);
+			theme.activate(random_theme.name);
 		},
 
 		/* Load stylesheet for selected theme using URL and Theme thumbnail sources */

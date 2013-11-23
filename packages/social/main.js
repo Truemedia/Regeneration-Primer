@@ -9,9 +9,9 @@
 */
 define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return social = {
-	
-		// Partial loading location	
-		partial_block_element: 'social_partial',
+
+		// Data attribute binded element
+		element_binding: null,
 	
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Co
 			social.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	social.element_binding = element;
+
+        	social.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 
@@ -36,7 +50,7 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Co
 				data.trans = social.trans;
 				
 				// Load view
-       			document.getElementById(social.partial_block_element).innerHTML = view(data);
+       			jQuery(social.element_binding).html( view(data) );
 
 			});
 

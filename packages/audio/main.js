@@ -44,6 +44,17 @@ define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
 			console.log("Audio PACKAGE loaded");
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	audio.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Load audio tracks for mixer */
 		loadChannels: function() {
 			
@@ -105,8 +116,7 @@ define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
 		registerSFX: function() {
 			
 			var audio_dir = audio.directory + "ar-15/";
-			
-			console.log(audio_dir+"discarding_mag");
+
 			audio.sampler.samples.shoot = new buzz.sound(audio_dir+"shoot", {formats: [audio.format]});
 			audio.sampler.samples.discard_mag = new buzz.sound(audio_dir+"discarding_mag", {formats: [audio.format]});
 			audio.sampler.samples.insert_mag = new buzz.sound(audio_dir+"loading_mag", {formats: [audio.format]});

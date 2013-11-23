@@ -10,8 +10,8 @@
 define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
 	return highscores = {
 	
-		// Partial loading location	
-		partial_block_element: 'highscores_partial',
+		// Data attribute binded element
+		element_binding: null,
 	
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings
 			highscores.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	highscores.element_binding = element;
+        	    	
+        	highscores.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 
@@ -36,7 +50,7 @@ define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings
 				data.trans = highscores.trans;
 				
 				// Load view
-       			document.getElementById(highscores.partial_block_element).innerHTML = view(data);
+       			jQuery(highscores.element_binding).html( view(data) );
 
 			});
 

@@ -24,7 +24,7 @@ define(function(require, exports, module) {
     		jQuery(document).ready( function(jQuery) {
 				
 				// CHARACTER SELECTION EVENT
-				jQuery('#characterselection_partial').on("click", ".start_session", function(event){
+				jQuery("[data-module='characterselection.PKG']").on("click", ".start_session", function(event){
 
 					// Specific character chosen
 					if (jQuery(this).attr("id") == "use_picked_char") {

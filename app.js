@@ -10,8 +10,8 @@
 define(function(require, exports, module) {
 	return app = {
 			
-		// Application startup method
-		start: function(){
+		/* Application startup method */
+		start: function() {
 			
 			// TODO: Add cleanup hidden process
 			jQuery('#marquee_partial').toggle();
@@ -20,45 +20,13 @@ define(function(require, exports, module) {
 			jQuery = require('jQuery');
 			jQuery(document).ready( function(){
 				
-				// Loadup starting packages
-				app.initial_packages();
-				
 				// Launch game
 				require('game').launch();
 			});
 		},
-
-		// Load packages when application starts
-		initial_packages: function(){
-
-			console.log("Loading initial packages...");
-			
-			// Information screens made of modals
-			require('mainmenu.PKG').init();
-			require('gameinfo.PKG').init();
-			require('about.PKG').init();
-			require('highscores.PKG').init();
-
-			// Load header and footer
-			require('header.PKG').init();
-			require('characterselection.PKG').init();
-			require('social.PKG').init();
-
-			// Setup controls
-			require('controls.PKG').init();
-			
-			// Setup audio
-			require('audio.PKG').init();
-			
-			// Setup content pack
-			require('contentpack.PKG').init();
-
-			// Setup theme/themes
-			require('theme.PKG').init();
-		},
 		
 		// Load packages when session starts
-		session_packages: function(characterselected){
+		session_packages: function(characterselected) {
 			
 			console.log("Loading session packages...");
 			
@@ -81,7 +49,7 @@ define(function(require, exports, module) {
 			require('points.PKG').init();
 			require('profile.PKG').init(characterselected);
 			require('inventory.PKG').init();
-		
+			
 			// Run debugging (if requested)
 			if (document.location.hash === "#debug") {
 				require('debug.PKG').init();

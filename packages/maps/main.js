@@ -27,6 +27,16 @@ define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "./Config
 			// Load the package onto current web-page
 			maps.loadDOM();
 		},
+		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
 
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {

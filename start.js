@@ -202,7 +202,7 @@ require.config({
     }
 });
 
-// start the autoloader
+// Run the autoloader
 requirejs(['conditioner'],function(conditioner) {
 	conditioner.init();
 });

@@ -26,6 +26,16 @@ define(["hgn!packages/profile/partial", "i18n!packages/profile/nls/strings", "./
 			profile.loadDOM(characterselected);
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function(characterselected) {
 			

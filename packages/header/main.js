@@ -11,7 +11,7 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 	return header = {
 	
 		// Partial loading location	
-		partial_block_element: 'header_partial',
+		element_binding: null,
 		
 		// Activation indication
 		active: false,
@@ -32,6 +32,20 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 			header.activate();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	header.element_binding = element;
+        	
+        	header.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Activate this package and associated modules */
 		activate: function() {
 			
@@ -49,7 +63,7 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 			header.active = false;
 			
 			// Clear DOM
-			document.getElementById(header.partial_block_element).innerHTML = "";
+			jQuery(header.element_binding).html("");
 		},
 		
 		/* Load modules relevant to this package */
@@ -72,7 +86,7 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 				data.options = header.nested_view;
 			
 				// Load view
-       			document.getElementById(header.partial_block_element).innerHTML = view(data);
+       			jQuery(header.element_binding).html( view(data) );
 
 			});
 

@@ -10,8 +10,8 @@
 define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty"], function(view, nls, Config, Lang, jQuery, Crafty) {
 	return characterselection = {
 			
-		// Partial loading location	
-		partial_block_element: 'characterselection_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 			characterselection.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	characterselection.element_binding = element;
+        	
+        	characterselection.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
@@ -37,7 +51,7 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 
 				// Load view
 				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-       			document.getElementById(characterselection.partial_block_element).innerHTML = view(data);
+       			jQuery(characterselection.element_binding).html( view(data) );
  				
  				jQuery(document).ready(function() {
  					// Setup UI
@@ -124,13 +138,13 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 		// Deactivate package
 		deactivate: function(){
 
-			jQuery("#"+characterselection.partial_block_element).remove();
+			jQuery(characterselection.element_binding).remove();
 		},
 		
 		registerEvents: function(){ /* jQuery event handlers (for Character Selection) */
 			
 			// New character select method
-			jQuery("#characterselection_partial").on("click", ".char_select", function(event) {
+			jQuery(characterselection.element_binding).on("click", ".char_select", function(event) {
 
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);

@@ -14,12 +14,12 @@
 		<div class="container">
 		
 			<!-- Header -->
-			<div id="header_partial"></div>
+			<div data-module="header.PKG"></div>
 			<div style="height: 64px;"></div>
-			<div id="debug_partial"></div>
+			<div id="debug_partial"><!-- data-module="debug.PKG" --></div>
 			
 			<!-- Character selection -->
-			<div id="characterselection_partial"></div>
+			<div data-module="characterselection.PKG"></div>
 
 			<div id="marquee_partial"></div>
 			<div id="points_partial"></div>
@@ -44,16 +44,17 @@
 			
 			<!-- Footer -->
 			<div data-module="footer.PKG"></div>
-			<div id="social_partial"></div>
+			<div data-module="social.PKG"></div>
 			
 			<!-- Modals -->
-			<div id="about_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-system-name" aria-hidden="true"></div>
-			<div id="gameinfo_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="gameinfo-system-name" aria-hidden="true"></div>
-			<div id="mainmenu_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mainmenu-system-name" aria-hidden="true"></div>
-			<div id="controls_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="controls-system-name" aria-hidden="true"></div>
-			<div id="contentpack_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="contentpack-system-name" aria-hidden="true"></div>
-			<div id="theme_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="theme-system-name" aria-hidden="true"></div>
-			<div style="width: 800px;" id="highscores_partial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="highscores-system-name" aria-hidden="true"></div>
+			<div data-module="about.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-system-name" aria-hidden="true"></div>
+			<div data-module="gameinfo.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="gameinfo-system-name" aria-hidden="true"></div>
+			<div data-module="mainmenu.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mainmenu-system-name" aria-hidden="true"></div>
+			<div data-module="controls.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="controls-system-name" aria-hidden="true"></div>
+			<div data-module="contentpack.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="contentpack-system-name" aria-hidden="true"></div>
+			<div data-module="theme.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="theme-system-name" aria-hidden="true"></div>
+			<div data-module="highscores.PKG" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="highscores-system-name" aria-hidden="true" style="width: 800px;"></div>
+			<div data-module="audio.PKG"></div>
 		</div>
 	</body>
 </html>

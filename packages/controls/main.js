@@ -10,8 +10,8 @@
 define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "./Config", "./Lang", "./Bootstrap", "Keyboard.MOD", "Mouse.MOD"], function(view, nls, Config, Lang, jQuery, keyboard, mouse) {
 	return controls = {
 		
-		// Partial loading location	
-		partial_block_element: 'controls_partial',
+		// Data attribute binded element
+		element_binding: null,
 		
 		// Translations
 		trans: {},
@@ -26,6 +26,20 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			controls.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        	// Store the element binding
+        	controls.element_binding = element;
+        	    	
+        	controls.init();
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 		 		
@@ -36,7 +50,7 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			data.trans = controls.trans;
 				
 			// Load view
-	       	document.getElementById(controls.partial_block_element).innerHTML = view(data);
+	       	jQuery(controls.element_binding).html( view(data) );
 	       		
 			console.log("Controls PACKAGE loaded");
 		},

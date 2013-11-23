@@ -29,6 +29,16 @@ define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "./Co
 			points.loadDOM();
 		},
 		
+		/* Autoloading hook */
+        load: function(element, options) {
+        	
+        },
+
+        /* Autoloader terminate method */
+        unload: function() {
+
+        },
+		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 			
