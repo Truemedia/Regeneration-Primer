@@ -32,8 +32,6 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	console.log("Loading correctly");
-        	
         	// Store the element binding
         	theme.element_binding = element;
         	    	

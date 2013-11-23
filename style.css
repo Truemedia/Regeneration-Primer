@@ -40,7 +40,7 @@ body{
 div.pixel_space {
 	height: 64px;
 }
-div.partial_column {
+div.partial-column {
 	position: fixed;
 	z-index: 20;
 	top: 50px;
