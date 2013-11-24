@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
+define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
 	return social = {
 
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Co
 			
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('social');
 
 			// Load translations
 			social.trans = Lang.getTrans(nls);
@@ -53,8 +56,6 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "./Co
        			jQuery(social.element_binding).html( view(data) );
 
 			});
-
-			console.log("Social PACKAGE loaded");
 		}
 	}
 });

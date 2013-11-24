@@ -1,0 +1,11 @@
+{
+	"name": "Profile",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package which allows displaying and setting of information specific to a user",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

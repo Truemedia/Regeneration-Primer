@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
+define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
 	return highscores = {
 	
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings
 			
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('highscores');
 
 			// Load translations
 			highscores.trans = Lang.getTrans(nls);
@@ -51,10 +54,7 @@ define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings
 				
 				// Load view
        			jQuery(highscores.element_binding).html( view(data) );
-
 			});
-
-			console.log("Highscores PACKAGE loaded");
 		}
 	}
 });

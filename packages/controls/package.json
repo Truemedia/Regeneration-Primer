@@ -1,0 +1,11 @@
+{
+	"name": "Controls",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for making complex interactions with DOM or Canvas using most common HID's (Human interface devices) ",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

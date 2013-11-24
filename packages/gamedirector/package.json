@@ -1,0 +1,11 @@
+{
+	"name": "Game Director",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for balancing the difficultly of the game where implemented to a reasonable level where the difficulty can gradually progress",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

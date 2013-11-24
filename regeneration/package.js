@@ -7,23 +7,67 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./Crafty", "./Gun.MOD", "./debug.PKG", "./marquee.PKG", "./profile.PKG", "./jQuery"], function(Crafty, Gun, debug, marquee, profile, jQuery) {
-	return windows = {
+define(["./bootbox", "./Bootstrap", "jQ.Datatables"], function(bootbox, jQuery) {
+	return Package = {
+			
+		packages: [],
 		
-		realName: function(windowName){
-			// Return package name shown to humans (capitalized first letter)
-    		return windowName.charAt(0).toUpperCase() + windowName.slice(1);
+		/* Register a package with the package manager */
+		register: function(package_name) {
+
+			// Get package data
+			jQuery.getJSON("packages/" + package_name + "/package.json", function(data) {
+				
+				// Add package icon as package info
+				data.icon = '<img src="packages/' + package_name + '/icon.png" alt="' + data.name + ' package" />';
+				
+				// Append to package manager
+				Package.packages.push(data);
+
+				// Debug to console
+				console.log(data.name + " PACKAGE loaded");
+			});
 		},
-		
-		assignPlayerNameDOM: function(player_name){
-			// Add player_id to dom where-ever needed
-			jQuery('#my_score').addClass(player_name+"-colorscheme");
-			jQuery(".score_container").each( function( index ){
-				if(jQuery(this).has('#'+player_name+'_score_color').length > 0){
-					// Setup our own players score debugging tool
-					player_id = jQuery('#'+player_name+'_score_submit').val();
-					jQuery('#self_incrementer').val(player_id);
-				}
+	
+		/* Procedurally generated list of packages */
+		list: function() {
+
+			bootbox.dialog({
+				message: "<table></table>",
+				title: "Packages"
+			});
+			jQuery('.bootbox-body > table').dataTable({
+					"bPaginate": true,
+					"bLengthChange": false,
+					"iDisplayLength": 2, 
+					"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+					"bFilter": false,
+					"bSort": false,
+					"bInfo": true,
+					"bAutoWidth": false,
+			        "aaData": Package.packages,
+			        "aoColumns": [
+			                    { 
+			                    	"sTitle": "Icon",
+			                    	"mData": "icon"
+			                    },
+			                    {
+			                    	"sTitle": "Package name",
+			                    	"mData": "name"
+			                    },
+			                    {
+			                    	"sTitle": "Author",
+			                    	"mData": "author"
+			                    },
+			                    {
+			                    	"sTitle": "Description",
+			                    	"mData": "description"
+			                    },
+			                    {
+			                    	"sTitle": "License",
+			                    	"mData": "license"
+			                    }
+			        ]
 			});
 		}
 	}

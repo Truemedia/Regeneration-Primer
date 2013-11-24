@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
+define(["./jQuery", "./Crafty", "./Buzz", "Package"], function(jQuery, Crafty, buzz, Package) {
 	return audio = {
 			
 		directory: "",	
@@ -30,6 +30,9 @@ define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
 		},
 			
 		init: function() {
+			
+			// Register package
+			Package.register('audio');
 
 			// Setup file type and directory TODO: Make filetype choice based on browser
 			audio.format = "wav";
@@ -40,8 +43,6 @@ define(["./jQuery", "./Crafty", "./Buzz"], function(jQuery, Crafty, buzz) {
 			
 			// Load sound resources for sampler
 			audio.loadSamples();
-
-			console.log("Audio PACKAGE loaded");
 		},
 		
 		/* Autoloading hook */

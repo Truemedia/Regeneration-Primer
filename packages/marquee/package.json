@@ -1,0 +1,11 @@
+{
+	"name": "Marquee",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for displaying important information in a style mimicking a real-life marquee",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

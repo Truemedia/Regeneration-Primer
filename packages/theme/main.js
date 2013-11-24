@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Config", "./Lang", "./Bootstrap", "jQ.Datatables"], function(view, nls, Config, Lang, jQuery) {
+define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "jQ.Datatables"], function(view, nls, Config, Lang, Package, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array
@@ -21,6 +21,9 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 			
 		/* Load this package */
 	 	init: function() {
+	 		
+	 		// Register package
+			Package.register('theme');
 	 		
 	 		// Load translations
 			theme.trans = Lang.getTrans(nls);
@@ -48,8 +51,6 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "./Conf
 		
 			// Fetch and load themes
 			theme.cdnAPI();
-
-   			console.log("Theme PACKAGE loaded");
 		},
 
 		/* Transform table into datatable using UI config settings */

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "./Config", "./Lang", "./Crafty", "./init.PKG", "./characterselection.PKG", "./jQuery"], function(view, nls, Config, Lang, Crafty, init, characterselection, jQuery) {
+define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "Config", "Lang", "Package", "./Crafty", "./init.PKG", "./characterselection.PKG", "./jQuery"], function(view, nls, Config, Lang, Package, Crafty, init, characterselection, jQuery) {
 	return maps = {
 		
 		layers: 1,
@@ -20,6 +20,9 @@ define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "./Config
 			
 		/* Load this package */
 	 	init: function() {
+	 		
+	 		// Register package
+			Package.register('maps');
 	 		
 	 		// Load translations
 			maps.trans = Lang.getTrans(nls);
@@ -53,8 +56,6 @@ define(["hgn!packages/maps/partial", "i18n!packages/maps/nls/strings", "./Config
 				// Register events
 				maps.registerEvents();
 			});
-			
-			console.log("Maps PACKAGE loaded");
 		},
 		
 		/* Register jQuery event handlers */

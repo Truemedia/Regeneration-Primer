@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
+define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
 	return contentpack = {
 		
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strin
 		
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('contentpack');
 		 		
 			// Load translations
 			contentpack.trans = Lang.getTrans(nls);
@@ -53,8 +56,6 @@ define(["hgn!packages/contentpack/partial", "i18n!packages/contentpack/nls/strin
 				
 			// Load view
 	       	jQuery(contentpack.element_binding).html( view(data) );
-
-			console.log("Content Pack PACKAGE loaded");
 		}
 	}
 });

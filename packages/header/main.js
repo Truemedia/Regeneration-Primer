@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Config", "./Lang", "./Bootstrap", "./Options.MOD"], function(view, nls, Config, Lang, jQuery, options) {
+define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Options.MOD"], function(view, nls, Config, Lang, Package, jQuery, options) {
 	return header = {
 	
 		// Partial loading location	
@@ -24,6 +24,9 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 	
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('header');
 
 			// Load translations
 			header.trans = Lang.getTrans(nls);
@@ -87,10 +90,7 @@ define(["hgn!packages/header/partial", "i18n!packages/header/nls/strings", "./Co
 			
 				// Load view
        			jQuery(header.element_binding).html( view(data) );
-
 			});
-
-			console.log("Header PACKAGE loaded");
 		}
 	}
 });

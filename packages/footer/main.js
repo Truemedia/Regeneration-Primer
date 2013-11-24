@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Config", "./Lang", "./Bootstrap"], function(view, nls, Config, Lang, jQuery) {
+define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
 	return footer = {
 			
 		// Data attribute binded element
@@ -21,6 +21,9 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
 	
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('footer');
 
 			// Load translations
 			footer.trans = Lang.getTrans(nls);
@@ -88,7 +91,6 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "./Co
        			// Register events
        			footer.registerEvents();
 			});
-			console.log("Footer PACKAGE loaded");
 		},
 		
 		/* Register jQuery events handlers */

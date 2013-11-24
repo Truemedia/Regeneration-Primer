@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "./Config", "./Lang", "./Bootstrap", 'Feed.MOD'], function(view, nls, Config, Lang, jQuery, feed) {
+define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "Config", "Lang", "Package", "./Bootstrap", 'Feed.MOD'], function(view, nls, Config, Lang, Package, jQuery, feed) {
 	return gameinfo = {
 			
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
 			
 		/* Load this package */
 	 	init: function() {
+	 		
+	 		// Register package
+			Package.register('gameinfo');
 	 		
 	 		// Load translations
 			gameinfo.trans = Lang.getTrans(nls);
@@ -47,7 +50,7 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
 			jQuery.getJSON("packages/gameinfo/data.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.trans = about.trans;
+				data.trans = gameinfo.trans;
 			
 				// Load view
        			jQuery(gameinfo.element_binding).html( view(data) );
@@ -55,8 +58,6 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
        			// Run modules
        			feed.init();
 			});
-
-			console.log("Game Info PACKAGE loaded");
 		}
 	}
 });

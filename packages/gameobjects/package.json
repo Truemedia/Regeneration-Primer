@@ -1,0 +1,11 @@
+{
+	"name": "Game Objects",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for spawning static (assisting) game objects used by friendlies or enemies",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

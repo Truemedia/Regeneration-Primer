@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty"], function(view, nls, Config, Lang, jQuery, Crafty) {
+define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "Config", "Lang", "Package", "./jQuery"], function(view, nls, Config, Lang, Package, jQuery) {
 	return characterselection = {
 			
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 
 		/* Load this package */
 		init: function(){
+			
+			// Register package
+			Package.register('characterselection');
 			
 			// Load translations
 			characterselection.trans = Lang.getTrans(nls);
@@ -58,7 +61,6 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
  					characterselection.selectionScreen();
  					// Setup UI handlers
  					characterselection.registerEvents();
- 					console.log("Character Selection PACKAGE loaded");
 				}); 
 			});
 		},
@@ -149,11 +151,6 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);
 			});
-		},
-		
-		registerSounds: function(){
-			// TODO: Find appropriate sound and register then add case function to play
-			//Crafty.audio.play("char_hover",1,0.2);
 		},
 		
 		/* Produces the UI for character selection screen */

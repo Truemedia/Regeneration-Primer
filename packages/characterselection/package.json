@@ -1,0 +1,11 @@
+{
+	"name": "Character Selection",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for selecting a character to play as",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

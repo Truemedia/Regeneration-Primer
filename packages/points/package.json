@@ -1,0 +1,11 @@
+{
+	"name": "Points",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used as CRUDL API of various point mechanisms relevant to players",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

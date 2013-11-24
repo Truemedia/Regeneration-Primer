@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Config", "./Lang", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, nls, Config, Lang, jQuery, Crafty, points) {
+define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
 	return debug = {
 			
 		// Partial loading location	
@@ -18,6 +18,9 @@ define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "./Conf
 			
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('debug');
 			
 			debug.element_binding = '#debug_partial';
 			

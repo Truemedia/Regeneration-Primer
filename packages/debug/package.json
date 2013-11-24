@@ -1,0 +1,11 @@
+{
+	"name": "Debug",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for debugging all aspects of the game (only useful to developers)",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

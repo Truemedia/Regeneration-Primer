@@ -1,0 +1,11 @@
+{
+	"name": "Main Menu",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for navigating across the difference scenes, models, and levels of a game",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "./Config", "./Lang", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, nls, Config, Lang, jQuery, Crafty, ko, health, score) {
+define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "Config", "Lang", "Package", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"], function(view, nls, Config, Lang, Package, jQuery, Crafty, ko, health, score) {
 	return points = {
 			
 		// Partial loading location	
@@ -21,6 +21,9 @@ define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "./Co
 			
 		/* Load this package */
 	 	init: function() {
+	 		
+	 		// Register package
+			Package.register('points');
 	 		
 	 		// Load translations
 			points.trans = Lang.getTrans(nls);
@@ -64,8 +67,6 @@ define(["hgn!packages/points/partial", "i18n!packages/points/nls/strings", "./Co
  					jQuery('.debug_controls:first').toggle();
 				}); 
 			});
-			
-			console.log("Points PACKAGE loaded");
 		},
 
 		/* Register ViewModel with DOM elements */

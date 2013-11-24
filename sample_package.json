@@ -59,6 +59,10 @@
 	        	{
 	            	"website": "http://bootswatch.com/",
 	            	"name": "Bootswatch"
+	            },
+	            {
+	            	"website": "http://bootboxjs.com/",
+	            	"name": "Bootbox"
 	            }
 	      	]
 	    }  

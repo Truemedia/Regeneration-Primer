@@ -7,10 +7,10 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.PKG", "./audio.PKG", "./marquee.PKG", "./controls.PKG", "./debug.PKG"], function(window, jQuery, ko, header, audio, marquee, controls, debug) {
+define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.PKG", "./audio.PKG", "./marquee.PKG", "./controls.PKG", "./debug.PKG", "Package"], function(window, jQuery, ko, header, audio, marquee, controls, debug, Package) {
 	return Options = {
 	
-		parent_system: "header",
+		parent_element_binding: "[data-module='header.PKG']",
 		binding_element_class: "option-item",	
 	
 		// Return the options view (used by system)
@@ -51,26 +51,32 @@ define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.P
 			});
 		},
 		
-		registerEvents: function() { /* jQuery event handlers (for Options menu) */
+		/* Register event bindings */
+		registerEvents: function() {
+
 			// Enable or disable debugging UI
 			jQuery("#debug_toggle").popover();
-			jQuery("#"+Options.parent_system+"_partial").on("click", "#debug_toggle", function(event){
+			jQuery(Options.parent_element_binding).on("click", "#debug_toggle", function(event){
 				debug.initDebugger(event);
 			});
 			
 			// Mute or unmute audio
 			jQuery("#audio_toggle").popover();
-			jQuery("#"+Options.parent_system+"_partial").on("click", "#audio_toggle", function(event){
+			jQuery(Options.parent_element_binding).on("click", "#audio_toggle", function(event){
 				audio.toggleAudio(event);
 			});
 			
-			// Hide or display unnecessary windows
+			// Hide or display unnecessary panels
 			jQuery("#header_toggle").popover();
-			jQuery("#"+Options.parent_system+"_partial").on("click", "#header_toggle", function(event){
+			jQuery(Options.parent_element_binding).on("click", "#header_toggle", function(event){
 				marquee.toggleHeader();
 			});
 			
-		/* jQuery event handlers (for Options menu) */ },
+			// Generate package list modal
+			jQuery(Options.parent_element_binding).on("click", "#packages_list", function(event) {
+				Package.list();
+			});
+		},
 		
 		// Make a callback to the parent system (in this case the header)
 		systemCallback: function(data) {

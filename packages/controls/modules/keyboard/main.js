@@ -13,8 +13,6 @@ define(function(require, exports, module) {
 		/* Bind keyboard keys to game action hooks */
 		bindControls: function() {
 			
-			console.log(me.input.KEY);
-			
 			// 1st row of keys
 			me.input.bindKey(me.input.KEY.NUM1, "itemone", true);
 			me.input.bindKey(me.input.KEY.NUM2, "itemtwo", true);

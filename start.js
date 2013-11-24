@@ -119,6 +119,7 @@ require.config({
         'jQ.Datatables': "http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min", // Datatables
         
         /* Bootstrap helpers */
+        'bootbox': "http://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.0.0/bootbox.min", // Bootbox (simpler bootstrap modals)
         'FuelUX': "http://cdn.jsdelivr.net/fuelux/2.4.0", // FuelUX (Bootstrap extended UI library)
         'Bootstrap.formhelpers.selectbox': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-selectbox", // Bootstrap form helper (for select boxes)
         'Bootstrap.formhelpers.countries.en_US': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US", // Bootstrap form helper (for country selection)
@@ -171,13 +172,19 @@ require.config({
             exports: 'jQuery'
         },
         
+        // bootbox
+        'bootbox': {
+            deps: ['jQuery', 'Bootstrap'],
+            exports: 'bootbox'
+        },
+        
         // Toastr
         'Toastr': {
             deps: ['jQuery'],
             exports: 'jQuery'
         },
         
-        // Bootstrap
+        // FuelUX
         'FuelUX': {
             deps: ['jQuery'],
             exports: 'jQuery'

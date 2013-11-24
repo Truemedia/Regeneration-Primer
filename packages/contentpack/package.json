@@ -1,0 +1,11 @@
+{
+	"name": "Content Pack",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package used for managing/customizing content (audio, images, videos) in the game",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

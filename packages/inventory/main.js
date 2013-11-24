@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings", "./Config", "./Lang", "./jQuery", "./Crafty", "./KO", "./Toastr"], function(view, nls, Config, Lang, jQuery, Crafty, ko, toastr) {
+define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings", "Config", "Lang", "Package", "./jQuery", "./Crafty", "./KO", "./Toastr"], function(view, nls, Config, Lang, Package, jQuery, Crafty, ko, toastr) {
 	return inventory = {
 		
 		/* Stores entities */
@@ -24,6 +24,9 @@ define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings",
 			
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('inventory');
 
 			// Load translations
 			inventory.trans = Lang.getTrans(nls);
@@ -78,8 +81,6 @@ define(["hgn!packages/inventory/partial", "i18n!packages/inventory/nls/strings",
        			// Register events
        			inventory.registerEvents();
 			});
-
-			console.log("Inventory PACKAGE loaded");
 		},
 		
 		/* Register jQuery events */

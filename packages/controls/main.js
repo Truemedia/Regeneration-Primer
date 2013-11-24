@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "./Config", "./Lang", "./Bootstrap", "Keyboard.MOD", "Mouse.MOD"], function(view, nls, Config, Lang, jQuery, keyboard, mouse) {
+define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "Keyboard.MOD", "Mouse.MOD"], function(view, nls, Config, Lang, Package, jQuery, keyboard, mouse) {
 	return controls = {
 		
 		// Data attribute binded element
@@ -18,6 +18,9 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 				
 		/* Load this package */
 		init: function() {
+			
+			// Register package
+			Package.register('controls');
 	 		
 	 		// Load translations
 			controls.trans = Lang.getTrans(nls);
@@ -51,8 +54,6 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 				
 			// Load view
 	       	jQuery(controls.element_binding).html( view(data) );
-	       		
-			console.log("Controls PACKAGE loaded");
 		},
 		
 		/* Bind all Human interface Devices (physical controllers) to the game */

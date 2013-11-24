@@ -1,0 +1,11 @@
+{
+	"name": "Header",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package which provides a website header for navigation and actions",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

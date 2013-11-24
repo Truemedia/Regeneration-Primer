@@ -1,0 +1,11 @@
+{
+	"name": "Highscores",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package which provides an ordered overview of scores from past gaming sessions",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

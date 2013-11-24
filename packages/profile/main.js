@@ -1,13 +1,13 @@
 /* 
 * @file Profile PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview FIRST TEST PACKAGE IMPLEMENTING Hogan + JSON + Mustache templating
+* @overview Core Regeneration Primer package which allows displaying and setting of information specific to a user
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/profile/partial", "i18n!packages/profile/nls/strings", "./Config", "./Lang", "jQuery", "KO", "./characterselection.PKG"], function(view, nls, Config, Lang, jQuery, ko) {
+define(["hgn!packages/profile/partial", "i18n!packages/profile/nls/strings", "Config", "Lang", "Package", "jQuery", "KO", "./characterselection.PKG"], function(view, nls, Config, Lang, Package, jQuery, ko) {
 	return profile = {
 			
 		// Partial loading location	
@@ -18,6 +18,9 @@ define(["hgn!packages/profile/partial", "i18n!packages/profile/nls/strings", "./
 			
 		/* Load this package */
 		init: function(characterselected) {
+			
+			// Register package
+			Package.register('profile');
 	 		
 	 		// Load translations
 			profile.trans = Lang.getTrans(nls);
