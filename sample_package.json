@@ -27,9 +27,19 @@
 			]
 		},
 		{
-        	"coreDependency": "MelonJS",
-        	"website": "http://melonjs.org/"
-      	},
+	        "coreDependency": "Bootstrap",
+	        "website": "http://twitter.github.io/bootstrap/",
+	        "dependencyPlugins": [
+	        	{
+	            	"website": "http://bootswatch.com/",
+	            	"name": "Bootswatch"
+	            },
+	            {
+	            	"website": "http://bootboxjs.com/",
+	            	"name": "Bootbox"
+	            }
+	      	]
+	    },
       	{
         	"coreDependency": "RequireJS",
         	"website": "http://requirejs.org/",
@@ -49,22 +59,22 @@
         	]
 	    },
 	    {
+	        "coreDependency": "Backbone",
+	        "website": "http://backbonejs.org/",
+        	"dependencyPlugins": [
+        		{
+	          		"website": "http://marionettejs.com/",
+	          		"name": "Marionette"
+	        	}
+        	]
+	    },
+	    {
 	        "coreDependency": "KnockoutJS",
 	        "website": "http://knockoutjs.com/"
 	    },
 	    {
-	        "coreDependency": "Bootstrap",
-	        "website": "http://twitter.github.io/bootstrap/",
-	        "dependencyPlugins": [
-	        	{
-	            	"website": "http://bootswatch.com/",
-	            	"name": "Bootswatch"
-	            },
-	            {
-	            	"website": "http://bootboxjs.com/",
-	            	"name": "Bootbox"
-	            }
-	      	]
-	    }  
+        	"coreDependency": "MelonJS",
+        	"website": "http://melonjs.org/"
+      	}
 	]
 }

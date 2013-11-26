@@ -42,6 +42,9 @@ require.config({
        		"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min", // cdn 
         	"dependencies/jqueryUI/jquery-1.9.1" // local
         ], // jQuery core
+        'Backbone': [
+            "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min"
+        ], // Backbone core
         'KO': [
         	"http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1", // cdn
         	"dependencies/knockout/build/output/knockout-latest" // local
@@ -62,6 +65,9 @@ require.config({
         'Toastr': [
             "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min"
         ], // Toastr
+        'Underscore': [
+              "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
+        ], // Underscore
         
         /* Main files */
         'app': "app", // Application instance and low level application instance control methods
@@ -153,6 +159,17 @@ require.config({
         'Modernizr': {
             exports: 'Modernizr'
         },
+        
+        // Backbone
+        'Backbone': {
+            deps: ['Underscore', 'jQuery'],
+            exports: 'Backbone'
+        },
+        
+        // Underscore
+        'Underscore': {
+            exports: '_'
+        },
 
         // jQuery plugins
         'jQ.flyoff': {
@@ -210,7 +227,7 @@ require.config({
 });
 
 // Run the autoloader
-requirejs(['conditioner'],function(conditioner) {
+requirejs(['conditioner'], function(conditioner) {
 	conditioner.init();
 });
 

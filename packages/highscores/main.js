@@ -7,11 +7,10 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Backbone"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
 	return highscores = {
-	
-		// Data attribute binded element
-		element_binding: null,
 	
 		// Translations
 		trans: {},
@@ -24,37 +23,58 @@ define(["hgn!packages/highscores/partial", "i18n!packages/highscores/nls/strings
 
 			// Load translations
 			highscores.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			highscores.loadDOM();
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
-        	
-        	// Store the element binding
-        	highscores.element_binding = element;
         	    	
+        	// Run initial load-up procedure if first time function is called
         	highscores.init();
+        	
+        	// Load the package onto current web-page
+			new highscores.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
-		
-		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+        
+        /* Data collection */
+        collection: Backbone.Collection.extend({
 
-			// Load highscores data
-			jQuery.getJSON("packages/highscores/data.json", function(data){
-			
-				// Append language strings to JSON data source
-				data.trans = highscores.trans;
-				
-				// Load view
-       			jQuery(highscores.element_binding).html( view(data) );
-			});
-		}
+            model: Backbone.Model.extend(),
+            url: 'packages/highscores/data.json',
+            parse: function(data) {
+            	return data.items
+            }
+        }),
+        
+        /* Append the HTML for this package to the DOM */
+        view: Backbone.View.extend({
+        	
+            initialize: function() {
+            	
+            	this.collection = new highscores.collection();
+            	this.render();
+            },
+
+            render: function() {
+            	var self = this;
+
+            	// Load highscores data
+            	this.collection.fetch().done( function() {
+            		
+            		// Compose data for view
+            		var data = {
+            			items: self.collection.toJSON(),
+            			trans: highscores.trans
+            		}
+    				
+            		// Render content
+            		self.$el.html( template(data) );
+            	});
+            }
+    	})
 	}
 });
