@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./bootbox", "./Bootstrap", "jQ.Datatables"], function(bootbox, jQuery) {
+define(["bootbox", "jQuery"], function(bootbox, jQuery) {
 	return Package = {
 			
 		packages: [],

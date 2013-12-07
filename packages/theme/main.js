@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "jQ.Datatables"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "jQ.Datatables"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return theme = {
 	 
 	 	// Themes JSON array
@@ -29,7 +31,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "Config
 			theme.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			theme.loadDOM();
+			theme.view();
 		},
 		
 		/* Autoloading hook */
@@ -47,7 +49,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "Config
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 		
 			// Fetch and load themes
 			theme.cdnAPI();
@@ -117,7 +119,7 @@ define(["hgn!packages/theme/partial", "i18n!packages/theme/nls/strings", "Config
 			theme.stylesheet(initial_theme_stylesheet, initial_theme_image);
 		
 			// Load view
-   			jQuery(theme.element_binding).html( view(theme) );
+   			jQuery(theme.element_binding).html( template(theme) );
    			
    			// jQuery events
    			theme.registerEvents();

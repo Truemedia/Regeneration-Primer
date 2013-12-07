@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return social = {
 
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "Conf
 			social.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			social.loadDOM();
+			social.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "Conf
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 
 			// Load social data
 			jQuery.getJSON("packages/social/data.json", function(data){
@@ -53,7 +55,7 @@ define(["hgn!packages/social/partial", "i18n!packages/social/nls/strings", "Conf
 				data.trans = social.trans;
 				
 				// Load view
-       			jQuery(social.element_binding).html( view(data) );
+       			jQuery(social.element_binding).html( template(data) );
 
 			});
 		}

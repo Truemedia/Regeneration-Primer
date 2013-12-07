@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return footer = {
 			
 		// Data attribute binded element
@@ -29,7 +31,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Conf
 			footer.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			footer.loadDOM();
+			footer.view();
 		},
 		
 		/* Autoloading hook */
@@ -53,7 +55,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Conf
 			footer.active = true;
 			
 			// Reload DOM
-			footer.loadDOM();
+			footer.view();
 		},
 		
 		/* Deactivate this package and associated modules */
@@ -67,7 +69,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Conf
 		},
 
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 
 			// Load package data
 			jQuery.getJSON("sample_package.json", function(data){
@@ -86,7 +88,7 @@ define(["hgn!packages/footer/partial", "i18n!packages/footer/nls/strings", "Conf
 				});
 			
 				// Load view
-       			jQuery(footer.element_binding).html(view(data));
+       			jQuery(footer.element_binding).html( template(data) );
        			
        			// Register events
        			footer.registerEvents();

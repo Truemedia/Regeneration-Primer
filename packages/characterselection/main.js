@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/characterselection/partial", "i18n!packages/characterselection/nls/strings", "Config", "Lang", "Package", "./jQuery"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Session", "jQuery"
+], function(template, nls, Config, Lang, Game, Package, Session, jQuery) {
 	return characterselection = {
 			
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 			characterselection.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			characterselection.loadDOM();
+			characterselection.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 			
 			// Load up list of characters to choose from
 			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
@@ -54,7 +56,7 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 
 				// Load view
 				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-       			jQuery(characterselection.element_binding).html( view(data) );
+       			jQuery(characterselection.element_binding).html( template(data) );
  				
  				jQuery(document).ready(function() {
  					// Setup UI
@@ -138,12 +140,12 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 		},
 		
 		// Deactivate package
-		deactivate: function(){
+		deactivate: function() {
 
 			jQuery(characterselection.element_binding).remove();
 		},
 		
-		registerEvents: function(){ /* jQuery event handlers (for Character Selection) */
+		registerEvents: function() { /* jQuery event handlers (for Character Selection) */
 			
 			// New character select method
 			jQuery(characterselection.element_binding).on("click", ".char_select", function(event) {
@@ -151,10 +153,37 @@ define(["hgn!packages/characterselection/partial", "i18n!packages/characterselec
 				var selected_char = jQuery('.item.active').data('slide-number');
 				characterselection.selectCharacter(selected_char);
 			});
+			
+			// CHARACTER SELECTION EVENT
+			jQuery("[data-package='characterselection']").on("click", ".start_session", function(event){
+
+				// Specific character chosen
+				if (jQuery(this).attr("id") == "use_picked_char") {
+					console.log("Using players choosen character: "+this.value);
+					Session.put('character', this.value);
+				}
+				
+				// Choose a random character for the player
+				else {
+					console.log("Using random character");
+					jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(all_characters_info) {
+						number_of_chars = all_characters_info.characters.length - 1;
+						var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
+						var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
+						Session.put('character', random_char_name);
+					});
+				}
+				
+				// Deactivate selection screen
+				characterselection.deactivate();
+				
+				// Activate next step
+				Game.proceed();
+			});
 		},
 		
 		/* Produces the UI for character selection screen */
-		selectionScreen: function(){
+		selectionScreen: function() {
 			jQuery('#myCarousel').carousel({
 				interval: 5000
 			});

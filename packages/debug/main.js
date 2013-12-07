@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/debug/partial", "i18n!packages/debug/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"
+], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
 	return debug = {
 			
 		// Partial loading location	

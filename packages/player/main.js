@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./characterselection.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD", "./Gun.GOD"], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object, gun_object) {
+define([
+	"./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./characterselection.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD", "./Gun.GOD"
+], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object, gun_object) {
 	return player = {
 			
 		/* Create a new player object instance (method alias) */

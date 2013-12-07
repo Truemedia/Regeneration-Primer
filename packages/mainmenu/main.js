@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return mainmenu = {
 
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "
 			mainmenu.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			mainmenu.loadDOM();
+			mainmenu.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 			
 			// Load view data via system's JSON
 			jQuery.getJSON("packages/mainmenu/data.json", function(data){
@@ -53,7 +55,7 @@ define(["hgn!packages/mainmenu/partial", "i18n!packages/mainmenu/nls/strings", "
 				data.trans = mainmenu.trans;
 			
 				// Load view
-       			jQuery(mainmenu.element_binding).html( view(data) );
+       			jQuery(mainmenu.element_binding).html( template(data) );
 			});
 		}
 	}

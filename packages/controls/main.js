@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "Config", "Lang", "Package", "./Bootstrap", "Keyboard.MOD", "Mouse.MOD"], function(view, nls, Config, Lang, Package, jQuery, keyboard, mouse) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", //"./modules/keyboard/main", "./modules/mouse/main"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return controls = {
 		
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			controls.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			controls.loadDOM();
+			controls.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 		 		
 		 	// Build data
 		 	data = Config.instance('controls::default');
@@ -53,15 +55,15 @@ define(["hgn!packages/controls/partial", "i18n!packages/controls/nls/strings", "
 			data.trans = controls.trans;
 				
 			// Load view
-	       	jQuery(controls.element_binding).html( view(data) );
+	       	jQuery(controls.element_binding).html( template(data) );
 		},
 		
 		/* Bind all Human interface Devices (physical controllers) to the game */
 		bindHumanInterfaceDevices: function() {
 			
 			// PC gaming hardware
-			keyboard.bindControls();
-			mouse.bindControls();
+			//keyboard.bindControls();
+			//mouse.bindControls();
 		}
 	}
 });

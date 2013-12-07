@@ -7,20 +7,22 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.PKG", "./audio.PKG", "./marquee.PKG", "./controls.PKG", "./debug.PKG", "Package"], function(window, jQuery, ko, header, audio, marquee, controls, debug, Package) {
+define([
+	"stache!./options.module", "Package", "Bootstrap", "KO", "header", "audio"
+], function(template, Package, jQuery, ko, header, audio) {
 	return Options = {
 	
-		parent_element_binding: "[data-module='header.PKG']",
-		binding_element_class: "option-item",	
+		parent_element_binding: "[data-package='header']",
+		binding_element_class: "option-item",
 	
-		// Return the options view (used by system)
+		// Return the options view (used by parent package)
 		view: function() {
 
 			// Load mustache (JSON currently used as static language file)
-		 	var output = jQuery.getJSON("modules/options/options.json", function(data){
+		 	var output = jQuery.getJSON("packages/header/modules/options/options.json", function(data){
 			
-				// Inject template with data into parent system as nested view (using mustache {{{ }}} for nesting)
-				var nested_view = window(data);
+				// Inject template with data into parent package as nested view (using mustache {{{ }}} for nesting)
+				var nested_view = template(data);
 
 				// Load parent view into DOM
 				// TODO: Get this to trigger through parent automatically in loadModules function
@@ -55,10 +57,10 @@ define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.P
 		registerEvents: function() {
 
 			// Enable or disable debugging UI
-			jQuery("#debug_toggle").popover();
+			/*jQuery("#debug_toggle").popover();
 			jQuery(Options.parent_element_binding).on("click", "#debug_toggle", function(event){
 				debug.initDebugger(event);
-			});
+			});*/
 			
 			// Mute or unmute audio
 			jQuery("#audio_toggle").popover();
@@ -67,10 +69,10 @@ define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.P
 			});
 			
 			// Hide or display unnecessary panels
-			jQuery("#header_toggle").popover();
+			/*jQuery("#header_toggle").popover();
 			jQuery(Options.parent_element_binding).on("click", "#header_toggle", function(event){
 				marquee.toggleHeader();
-			});
+			});*/
 			
 			// Generate package list modal
 			jQuery(Options.parent_element_binding).on("click", "#packages_list", function(event) {
@@ -82,16 +84,18 @@ define(["hgn!modules/options/options.module", "./Bootstrap", "./KO", "./header.P
 		systemCallback: function(data) {
 		
 			// Inject template with data into parent system as nested view (using mustache {{{ }}} for nesting)
-			require("header.PKG").nested_view += data;
+			require("header").nested_view += data;
 			
 			// Note: Using require due to circular dependency (a needs b, b needs a)
-			require("header.PKG").loadDOM();
+			require("header").loadDOM();
 			
 			// Apply all KO bindings
 			/* Options.registerBindings(); */
 			
 			// Register jQuery event handlers
 			Options.registerEvents();
+			
+			console.log("Options MODULE loaded");
 		}
 	}
 });

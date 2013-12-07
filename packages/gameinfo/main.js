@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "Config", "Lang", "Package", "./Bootstrap", 'Feed.MOD'], function(view, nls, Config, Lang, Package, jQuery, feed) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", './modules/feed/main'
+], function(template, nls, Config, Lang, Package, jQuery, feed) {
 	return gameinfo = {
 			
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
 			gameinfo.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			gameinfo.loadDOM();
+			gameinfo.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 
 			// Load view data via system's JSON
 			jQuery.getJSON("packages/gameinfo/data.json", function(data){
@@ -53,7 +55,7 @@ define(["hgn!packages/gameinfo/partial", "i18n!packages/gameinfo/nls/strings", "
 				data.trans = gameinfo.trans;
 			
 				// Load view
-       			jQuery(gameinfo.element_binding).html( view(data) );
+       			jQuery(gameinfo.element_binding).html( template(data) );
        			
        			// Run modules
        			feed.init();

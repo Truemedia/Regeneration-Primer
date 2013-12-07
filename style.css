@@ -50,6 +50,6 @@ div#profile_partial {
 	background-color: #BEBEBE;
 	border: 1px solid #505050;
 }
-div[data-module="highscores.PKG"] {
+div[data-package="highscores"] {
 	width: 800px;
 }

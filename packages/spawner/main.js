@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"], function(jQuery, Crafty, inventory, characterselection) {
+define([
+	"./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"
+], function(jQuery, Crafty, inventory, characterselection) {
 	return spawner = {
 
 		layers: 6,

@@ -7,14 +7,17 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/gameinfo/modules/feed/partial", "moment", "./Bootstrap"], function(view, moment, jQuery) {
+define([
+	"stache!./partial", "moment", "Bootstrap"
+], function(template, moment, jQuery) {
 	return feed = {
 		
 		/* Based on modified UI design posted on Bootsnipp (http://bootsnipp.com/snipps/blog-posts-with-picture) */	
 	 	init: function(){
 			
 	 		// Display posts
-			feed.displayPosts('regeneration-news', '.co.uk');
+	 		// TODO: Investigate why the API is now giving a 500 internal server error
+			//feed.displayPosts('regeneration-news', '.co.uk');
 		},
 		
 		/* Get RSS feed from specified URL (blogger support only) */
@@ -36,8 +39,8 @@ define(["hgn!packages/gameinfo/modules/feed/partial", "moment", "./Bootstrap"], 
 	            	var blog_feed = data.feed;
 	    	        
 	    	    	// Load view
-	       			document.getElementById('feed_partial').innerHTML = view(feed.formatPosts(blog_feed));
-					console.log("Feed PACKAGE loaded");
+	       			document.getElementById('feed_partial').innerHTML = template(feed.formatPosts(blog_feed));
+					console.log("Feed MODULE loaded");
 	            },
 	            data: params
 	        });

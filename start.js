@@ -12,22 +12,16 @@ require.config({
 	baseUrl: "",
 	paths: {
 		// Require JS plugins
-		/* Hogan/Mustache */
-		hgn : [
-			'dependencies/hgn', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
-			'dependencies/requirejs-hogan/hgn' 
-		],
+		/* Templating */
         text : [
-            'dependencies/text',
-            'dependencies/requirejs-hogan/text',
-        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text'
+        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text' // Generic text file loader
         ],
-        hogan : [
-        	'dependencies/hogan', // No CDN copy available, this needs to stay in main repo for ZERO setup config ..for now
-        	'dependencies/requirejs-hogan/hogan'
+        stache : [
+            'http://cdnjs.cloudflare.com/ajax/libs/requirejs-mustache/0.0.2/stache' // Mustache
         ],
+
         /* Internalization */
-        i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
+        i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n", // NLS string loader
         
         /* Autoloader */
         conditioner: 'dependencies/conditioner',
@@ -68,51 +62,22 @@ require.config({
         'Underscore': [
               "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
         ], // Underscore
-        
-        /* Main files */
-        'app': "app", // Application instance and low level application instance control methods
-        'game': "game", // Game instance and low level game instance control methods
+        'Mustache': [
+              "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min"
+        ],
         
         /* Core classes (CLS files) */
+        'App': "regeneration/app", // Application instance class
         'Config': "regeneration/config", // Config class
+        'Game': "regeneration/game", // Game instance class
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
         'Page': "regeneration/page", // Page class
         'Session': "regeneration/session", // Session class
-      
-        /* Packages (PKG files) */
-        'about.PKG': "packages/about/main", // About package
-        'audio.PKG': "packages/audio/main", // Audio package
-        'characterselection.PKG': "packages/characterselection/main", // Controls package
-        'contentpack.PKG': "packages/contentpack/main", // Content Pack package
-        'controls.PKG': "packages/controls/main", // Controls package
-        'debug.PKG': "packages/debug/main", // Debugging package
-        'diydie.PKG': "packages/maps/main", // Map package (Currently inline coded MAP only)
-        'footer.PKG': "packages/footer/main", // Footer package
-        'gamedirector.PKG': "packages/gamedirector/main", // Game Director package   
-        'gameinfo.PKG': "packages/gameinfo/main", // Game Info package
-        'gameobjects.PKG': "packages/gameobjects/main", // Game Objects package
-        'header.PKG': "packages/header/main", // Header package
-        'highscores.PKG': "packages/highscores/main", // Highscores package
-        'init.PKG': "packages/init/main", // Initialization package
-        'inventory.PKG': "packages/inventory/main", // Inventory package
-        'mainmenu.PKG': "packages/mainmenu/main", // Main Menu package
-        'marquee.PKG': "packages/marquee/main", // Marquee package
-        'player.PKG': "packages/player/main", // Player package
-        'points.PKG': "packages/points/main", // Points package
-        'profile.PKG': "packages/profile/main", // Profile package
-        'social.PKG': "packages/social/main", // Social package
-        'spawner.PKG': "packages/spawner/main", // Spawner package
-        'sprites.PKG': "packages/sprites/main", // Sprites package
-        'theme.PKG': "packages/theme/main", // Theme package
         
         /* Modules (MOD files) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
-        'Feed.MOD': "packages/gameinfo/modules/feed/main", // Feed module
-        'Keyboard.MOD': "packages/controls/modules/keyboard/main", // Keyboard module
         'Health.MOD': "modules/health/health.module", // Health module
-        'Mouse.MOD': "packages/controls/modules/mouse/main", // Mouse module
-        'Options.MOD': "modules/options/options.module", // Options module
         'Score.MOD': "modules/score/score.module", // Score module
         
         /* Game object definitions (GOD files) */
@@ -122,7 +87,7 @@ require.config({
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
-        'jQ.Datatables': "http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min", // Datatables
+        'jQ.Datatables': "http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min", // Datatables
         
         /* Bootstrap helpers */
         'bootbox': "http://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.0.0/bootbox.min", // Bootbox (simpler bootstrap modals)
@@ -211,13 +176,46 @@ require.config({
         'bindings.ko': {
             deps: ['jQ.ui', 'KO'],
             exports: 'KO'
+        },
+        
+        // Inject regeneration classes into autoloader
+        'conditioner': {
+            deps: ['App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Session'],
+            exports: 'conditioner'
         }
     },
+    
+    /* Packages (/packages directory) */
+    packages: [
+               'about',
+               'audio',
+               'characterselection',
+               'contentpack',
+               'controls',
+               'debug',
+               'diydie',
+               'footer',
+               'gamedirector',
+               'gameinfo',
+               'gameobjects',
+               'header',
+               'highscores',
+               'init',
+               'inventory',
+               'mainmenu',
+               'marquee',
+               'player',
+               'points',
+               'profile',
+               'social',
+               'spawner',
+               'sprites',
+               'theme'
+	],
 
-    // configure hgn! plugin
-    hgn : {
-        templateExtension : '.mustache'
-    },
+    // configure stache! plugin
+    stache: { extension: '.mustache' },
+
     // configure i18n! plugin
     config: {
         i18n: {
@@ -226,12 +224,19 @@ require.config({
     }
 });
 
-// Run the autoloader
+// Autoloading procedure
 requirejs(['conditioner'], function(conditioner) {
+
+	// Reset the base URL to package directory
+	require.config({
+		baseUrl: "packages/"
+	});
+	
+	// Run the package autoloader
 	conditioner.init();
 });
 
 // Start the application (Run the main method)
-require(['app'], function(app){
+/*require(['app'], function(app){
 	app.start();
-});
+});*/

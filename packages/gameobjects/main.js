@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PKG"], function(jQuery, Crafty, ko, Gun, points, audio) {
+define([
+	"./jQuery", "./Crafty", "./KO", "./Gun.MOD", "./points.PKG", "./audio.PKG"
+], function(jQuery, Crafty, ko, Gun, points, audio) {
 	return gameObjects = {
 			
 		layers: 4,

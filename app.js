@@ -31,28 +31,28 @@ define(function(require, exports, module) {
 			console.log("Loading session packages...");
 			
 			// Initializer
-			/*require('init.PKG').initGame();
+			/*require('init').initGame();
 
 			// Setup all images as sprites
-			require('sprites.PKG').setup();
+			require('sprites').setup();
 
 			// Generate Map
-			require('diydie.PKG').generateWorld();
+			require('diydie').generateWorld();
 
 			// Put in the Game Objects
-			require('gameobjects.PKG').gameObjects(characterselected);
+			require('gameobjects').gameObjects(characterselected);
 	
 			// Initialize Game Director
-			require('gamedirector.PKG').initGameDirector(characterselected);*/
+			require('gamedirector').initGameDirector(characterselected);*/
 	
 			// Initialize session partials
-			require('points.PKG').init();
-			require('profile.PKG').init(characterselected);
-			require('inventory.PKG').init();
+			require('points').init();
+			require('profile').init(characterselected);
+			require('inventory').init();
 			
 			// Run debugging (if requested)
 			if (document.location.hash === "#debug") {
-				require('debug.PKG').init();
+				require('debug').init();
 			}
 			
 			// New gun module interface 

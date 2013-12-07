@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./JSONpatch"], function(jQuery, JSONpatch) {
+define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 	return Config = {
 			
 		// Variable to store all configuration files (original and modifications) as nested JSON when needed

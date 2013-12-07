@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./Modernizr", "./Config"], function(jQuery, Crafty, Modernizr, Config) {
+define([
+	"./jQuery", "./Crafty", "./Modernizr", "./Config"
+], function(jQuery, Crafty, Modernizr, Config) {
 	return init = {
 		initGame: function(){
 

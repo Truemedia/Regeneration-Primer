@@ -24,7 +24,7 @@ define(function(require, exports, module) {
     		jQuery(document).ready( function(jQuery) {
 				
 				// CHARACTER SELECTION EVENT
-				jQuery("[data-module='characterselection.PKG']").on("click", ".start_session", function(event){
+				jQuery("[data-package='characterselection']").on("click", ".start_session", function(event){
 
 					// Specific character chosen
 					if (jQuery(this).attr("id") == "use_picked_char") {
@@ -44,7 +44,7 @@ define(function(require, exports, module) {
 					}
 					
 					// Deactivate selection screen
-					require('characterselection.PKG').deactivate();
+					require('characterselection').deactivate();
 					
 					// Activate next step
 					game.chooseMap();
@@ -55,7 +55,7 @@ define(function(require, exports, module) {
 		/* Choose map (Step 2) */
 		chooseMap: function() {
 
-			require('diydie.PKG').init();
+			require('diydie').init();
 			
 			var jQuery = require('jQuery');
     		jQuery(document).ready( function(jQuery) {
@@ -70,7 +70,7 @@ define(function(require, exports, module) {
 					if (enabled) {
 						
 						// Deactivate selection screen
-						require('diydie.PKG').deactivate();
+						require('diydie').deactivate();
 						
 						// Start session
 						console.log("Map has been choosen: "+require('Session').get('map'));
@@ -102,10 +102,10 @@ define(function(require, exports, module) {
 		compileResources: function() {
 
 			// Build maps and map resources
-			var resources = require('diydie.PKG').compileMaps();
+			var resources = require('diydie').compileMaps();
 			
 			// Get all character sprites
-			var resources = resources.concat(require('sprites.PKG').setupCharacters());
+			var resources = resources.concat(require('sprites').setupCharacters());
 			
 			// Gun sprite
 			resources.push({
@@ -169,10 +169,10 @@ define(function(require, exports, module) {
 			me.state.set(me.state.PLAY, this);
 			     
 			// Spawn main player
-			require('player.PKG').spawn();
+			require('player').spawn();
 
 			// Setup physical controllers
-			require('controls.PKG').bindHumanInterfaceDevices();
+			require('controls').bindHumanInterfaceDevices();
 
 			// Start the game
 			me.state.change(me.state.PLAY);
@@ -181,7 +181,7 @@ define(function(require, exports, module) {
 		    //Gun.wield('Glock', 'single');
 			
 			// Start 1st round
-			require('gamedirector.PKG').roundCall();
+			require('gamedirector').roundCall();
 		},
 		
 		reset: function()

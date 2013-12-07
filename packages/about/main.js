@@ -7,7 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "Config", "Lang", "Package", "./Bootstrap"], function(view, nls, Config, Lang, Package, jQuery) {
+define([
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
+], function(template, nls, Config, Lang, Package, jQuery) {
 	return about = {
 			
 		// Data attribute binded element
@@ -26,7 +28,7 @@ define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "Config
 			about.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			about.loadDOM();
+			about.view();
 		},
 		
 		/* Autoloading hook */
@@ -44,7 +46,7 @@ define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "Config
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
+		view: function() {
 			
 			// Build data
 	 		data = {
@@ -56,7 +58,7 @@ define(["hgn!packages/about/partial", "i18n!packages/about/nls/strings", "Config
 			data.trans = about.trans;
 			
 			// Load view
-       		jQuery(about.element_binding).html( view(data) );
+       		jQuery(about.element_binding).html( template(data) );
 		}
 	}
 });
