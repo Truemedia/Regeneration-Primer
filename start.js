@@ -11,62 +11,27 @@
 require.config({
 	baseUrl: "",
 	paths: {
-		// Require JS plugins
-		/* Templating */
-        text : [
-        	'http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text' // Generic text file loader
-        ],
-        stache : [
-            'http://cdnjs.cloudflare.com/ajax/libs/requirejs-mustache/0.0.2/stache' // Mustache
-        ],
-
-        /* Internalization */
-        i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n", // NLS string loader
-        
-        /* Autoloader */
+		/* Require JS plugins */
+        text : "http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text",
+        stache : "http://cdnjs.cloudflare.com/ajax/libs/requirejs-mustache/0.0.2/stache",
+        i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
         conditioner: 'dependencies/conditioner',
 	
-		// All JavaScript files used in the game (paths arranged alphabetically)
 		/* Core dependencies */
-		'Crafty': [
-			"http://cdn.craftycomponents.com/crafty-release", // cdn
-			"dependencies/craftyjs/crafty-local" // local
-		], // Crafty core
-        'jQuery': [
-       		"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min", // cdn 
-        	"dependencies/jqueryUI/jquery-1.9.1" // local
-        ], // jQuery core
-        'Backbone': [
-            "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min"
-        ], // Backbone core
-        'KO': [
-        	"http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1", // cdn
-        	"dependencies/knockout/build/output/knockout-latest" // local
-        ], // KnockoutJS core 
-        'Modernizr': [
-       		"http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min", // cdn 
-        	"dependencies/modernizr/src/Modernizr" // local
-        ], // Modernizr core
-        'Bootstrap': [
-        	"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min"
-        ], // Bootstrap
-        'JSONpatch': [
-            "dependencies/jsonpatch.min" // local
-        ], // JSON patch
-        'Buzz': [
-            "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min"
-        ], // Buzz
-        'Toastr': [
-            "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min"
-        ], // Toastr
-        'Underscore': [
-              "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
-        ], // Underscore
-        'Mustache': [
-              "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min"
-        ],
+        'Backbone': "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min",
+        'Bootstrap': "http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min",
+        'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
+		'Crafty': "http://cdn.craftycomponents.com/crafty-release",
+		'JSONpatch': "dependencies/jsonpatch.min",
+        'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
+        'KO': "http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1",
+        'Marionette': "http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.1.0-bundled/backbone.marionette.min",
+        'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min",
+        'Mustache': "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min",
+        'Toastr': "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min",
+        'Underscore': "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min",
         
-        /* Core classes (CLS files) */
+        /* Core classes */
         'App': "regeneration/app", // Application instance class
         'Config': "regeneration/config", // Config class
         'Game': "regeneration/game", // Game instance class
@@ -75,12 +40,12 @@ require.config({
         'Page': "regeneration/page", // Page class
         'Session': "regeneration/session", // Session class
         
-        /* Modules (MOD files) */
+        /* Modules (Will soon be deprecated) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         'Health.MOD': "modules/health/health.module", // Health module
         'Score.MOD': "modules/score/score.module", // Score module
         
-        /* Game object definitions (GOD files) */
+        /* Game object definitions */
         'Gun.GOD': "gameobjects/gun",
         'Human.GOD': "gameobjects/human",
         'Hud.GOD': "gameobjects/hud",
@@ -134,6 +99,11 @@ require.config({
         // Underscore
         'Underscore': {
             exports: '_'
+        },
+        
+        'Marionette' : {
+            deps : ['jQuery', 'Underscore', 'Backbone'],
+            exports : 'Marionette'
         },
 
         // jQuery plugins
