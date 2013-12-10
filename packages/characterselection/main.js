@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Session", "jQuery"
-], function(template, nls, Config, Lang, Game, Package, Session, jQuery) {
+	"stache!./views/partial", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery"
+], function(template, nls, App, Config, Lang, Package, Session, jQuery) {
 	return characterselection = {
 			
 		// Data attribute binded element
@@ -178,7 +178,6 @@ define([
 				characterselection.deactivate();
 				
 				// Activate next step
-				Game.proceed();
 			});
 		},
 		

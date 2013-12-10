@@ -7,11 +7,23 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery"], function(jQuery) {
+define([
+	'text!views/layout.html', 'jQuery', 'Marionette'
+], function(layoutTemplate, jQuery, Marionette) {
 	return App = {
-			
-		method: function() {
-			alert("App method called");
-		}
-	}
+	
+		layout: Backbone.Marionette.Layout.extend({
+
+			/* Render layout and regions */
+			el: "#layout",
+			template: _.template(layoutTemplate),
+			 
+			regions: {
+				header: "#header",
+				//sidebarLeft: "#sidebar_left",
+				//sidebarRight: "#sidebar_right",
+				footer: "#footer"
+			}
+		})
+	};
 });

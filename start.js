@@ -196,6 +196,10 @@ require.config({
 
 // Autoloading procedure
 requirejs(['conditioner'], function(conditioner) {
+	
+	// Setup layout
+	var layout = new App.layout();
+	layout.render();
 
 	// Reset the base URL to package directory
 	require.config({
