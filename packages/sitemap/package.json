@@ -1,0 +1,11 @@
+{
+	"name": "Sitemap",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package which provides an area for complete site navigation and general site actions",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

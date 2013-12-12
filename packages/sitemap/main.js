@@ -1,7 +1,7 @@
 /* 
-* @file Footer PACKAGE
+* @file Sitemap PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which provides a website footer for navigation and actions
+* @overview Core Regeneration Primer package which provides an area for complete site navigation and general site actions
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
@@ -10,7 +10,7 @@
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
 ], function(template, nls, Config, Lang, Package, jQuery) {
-	return footer = {
+	return sitemap = {
 			
 		// Data attribute binded element
 		element_binding: null,
@@ -25,22 +25,22 @@ define([
 		init: function() {
 			
 			// Register package
-			Package.register('footer');
+			Package.register('sitemap');
 
 			// Load translations
-			footer.trans = Lang.getTrans(nls);
+			sitemap.trans = Lang.getTrans(nls);
 			
 			// Load the package onto current web-page
-			footer.view();
+			sitemap.view();
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
         	// Store the element binding
-        	footer.element_binding = element;
+        	sitemap.element_binding = element;
         	
-            footer.init();
+            sitemap.init();
         },
 
         /* Autoloader terminate method */
@@ -52,20 +52,20 @@ define([
 		activate: function() {
 			
 			// Show as active
-			footer.active = true;
+			sitemap.active = true;
 			
 			// Reload DOM
-			footer.view();
+			sitemap.view();
 		},
 		
 		/* Deactivate this package and associated modules */
 		deactivate: function() {
 			
 			// Show as inactive
-			footer.active = false;
+			sitemap.active = false;
 			
 			// Clear DOM
-			jQuery(footer.element_binding).html("");
+			jQuery(sitemap.element_binding).html("");
 		},
 
 		/* Append the HTML for this package to the DOM */
@@ -75,7 +75,7 @@ define([
 			jQuery.getJSON("sample_package.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.trans = footer.trans;
+				data.trans = sitemap.trans;
 
 				// Get language selection dropdown options
 				data.languages = Config.get('languages');
@@ -88,10 +88,10 @@ define([
 				});
 			
 				// Load view
-       			jQuery(footer.element_binding).html( template(data) );
+       			jQuery(sitemap.element_binding).html( template(data) );
        			
        			// Register events
-       			footer.registerEvents();
+       			sitemap.registerEvents();
 			});
 		},
 		
@@ -99,10 +99,10 @@ define([
 		registerEvents: function() {
 
 			// Language selector
-			jQuery(footer.element_binding).on("change", "#language", function(event) {
+			jQuery(sitemap.element_binding).on("change", "#language", function(event) {
 				
 				var lang_code = jQuery(this).val();
-				var change = confirm(footer.trans.change_language);
+				var change = confirm(sitemap.trans.change_language);
 
 				if (change == true) {
 					Lang.setLocale(lang_code);

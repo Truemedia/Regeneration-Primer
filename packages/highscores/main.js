@@ -22,14 +22,14 @@ define([
 			Package.register('highscores');
 
 			// Load translations
-			highscores.trans = Lang.getTrans(nls);
+			this.trans = Lang.getTrans(nls);
 		},
 			
 		/* Autoloading hook */
 	    load: function(element, options) {
 	        	    	
 	        // Run initial load-up procedure if first time function is called
-	        highscores.init();
+	        this.init();
 	        	
 	        // Load the package onto current web-page
 			new highscores.view({el: element});

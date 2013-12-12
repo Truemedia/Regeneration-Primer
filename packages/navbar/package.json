@@ -1,7 +1,7 @@
 {
-	"name": "Footer",
+	"name": "Navbar",
 	"author": "Wade Penistone <johndoe@website.com>",
-	"description": "Core Regeneration Primer package which provides a website footer for navigation and actions",
+	"description": "Core Regeneration Primer package which provides a website navigation bar for prioritized pages/actions",
 	"contributors": [
 		{
 			"name": "Wade Penistone (Truemedia)"

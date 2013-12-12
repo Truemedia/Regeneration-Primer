@@ -1,7 +1,7 @@
 /* 
-* @file Header PACKAGE
+* @file Navbar PACKAGE
 * @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which provides a website header for navigation and actions
+* @overview Core Regeneration Primer package which provides a website navigation bar for prioritized pages/actions
 * @copyright Wade Penistone 2013
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
@@ -10,7 +10,7 @@
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "./modules/options/main"
 ], function(view, nls, Config, Lang, Package, jQuery, options) {
-	return header = {
+	return navbar = {
 	
 		// Partial loading location	
 		element_binding: null,
@@ -28,22 +28,22 @@ define([
 		init: function() {
 			
 			// Register package
-			Package.register('header');
+			Package.register('navbar');
 
 			// Load translations
-			header.trans = Lang.getTrans(nls);
+			navbar.trans = Lang.getTrans(nls);
 			
 			// Activate the package on current web-page
-			header.activate();
+			navbar.activate();
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
         	// Store the element binding
-        	header.element_binding = element;
+        	navbar.element_binding = element;
         	
-        	header.init();
+        	navbar.init();
         },
 
         /* Autoloader terminate method */
@@ -55,20 +55,20 @@ define([
 		activate: function() {
 			
 			// Show as active
-			header.active = true;
+			navbar.active = true;
 			
 			// Load modules relevant to this package
-			header.loadModules();
+			navbar.loadModules();
 		},
 		
 		/* Deactivate this package and associated modules */
 		deactivate: function() {
 			
 			// Show as inactive
-			header.active = false;
+			navbar.active = false;
 			
 			// Clear DOM
-			jQuery(header.element_binding).html("");
+			jQuery(navbar.element_binding).html("");
 		},
 		
 		/* Load modules relevant to this package */
@@ -81,17 +81,17 @@ define([
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function() {
 
-			// Load header data
-			jQuery.getJSON("packages/header/data.json", function(data){
+			// Load navbar data
+			jQuery.getJSON("packages/navbar/data.json", function(data){
 				
 				// Append language strings to JSON data source
-				data.trans = header.trans;
+				data.trans = navbar.trans;
 			
 				// Append modules to view data
-				data.options = header.nested_view;
+				data.options = navbar.nested_view;
 			
 				// Load view
-       			jQuery(header.element_binding).html( view(data) );
+       			jQuery(navbar.element_binding).html( view(data) );
 			});
 		}
 	}

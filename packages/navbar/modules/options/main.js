@@ -8,18 +8,18 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./options.module", "Package", "Bootstrap", "KO", "header", "audio"
-], function(template, Package, jQuery, ko, header, audio) {
+	"stache!./options.module", "Package", "Bootstrap", "KO", "navbar", "audio"
+], function(template, Package, jQuery, ko, navbar, audio) {
 	return Options = {
 	
-		parent_element_binding: "[data-package='header']",
+		parent_element_binding: "[data-package='navbar']",
 		binding_element_class: "option-item",
 	
 		// Return the options view (used by parent package)
 		view: function() {
 
 			// Load mustache (JSON currently used as static language file)
-		 	var output = jQuery.getJSON("packages/header/modules/options/options.json", function(data){
+		 	var output = jQuery.getJSON("packages/navbar/modules/options/options.json", function(data){
 			
 				// Inject template with data into parent package as nested view (using mustache {{{ }}} for nesting)
 				var nested_view = template(data);
@@ -69,8 +69,8 @@ define([
 			});
 			
 			// Hide or display unnecessary panels
-			/*jQuery("#header_toggle").popover();
-			jQuery(Options.parent_element_binding).on("click", "#header_toggle", function(event){
+			/*jQuery("#navbar_toggle").popover();
+			jQuery(Options.parent_element_binding).on("click", "#navbar_toggle", function(event){
 				marquee.toggleHeader();
 			});*/
 			
@@ -80,14 +80,14 @@ define([
 			});
 		},
 		
-		// Make a callback to the parent system (in this case the header)
+		// Make a callback to the parent system (in this case the navbar)
 		systemCallback: function(data) {
 		
 			// Inject template with data into parent system as nested view (using mustache {{{ }}} for nesting)
-			require("header").nested_view += data;
+			require("navbar").nested_view += data;
 			
 			// Note: Using require due to circular dependency (a needs b, b needs a)
-			require("header").loadDOM();
+			require("navbar").loadDOM();
 			
 			// Apply all KO bindings
 			/* Options.registerBindings(); */
