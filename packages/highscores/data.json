@@ -2,12 +2,27 @@
     "identifier": "title",
     "items": [
         {
-            "name": "Wade",
-            "score": "18595"
+            
+            "usernameAndFullname": "Truemedia (Wade Penistone)",
+	        "playingAs": "Reece Neadham",
+	        "rounds": "56",
+	        "kills": "1097",
+	        "assists": "543",
+	        "downs": "13",
+	        "revives": "48",
+	        "playedFor": "3 hours 16 minutes 3 seconds",
+	        "deathBy": "Gored by brutal"
         },
         {
-            "title": "Wade2",
-            "tag": "19"
+            "usernameAndFullname": "Gamer (John Doe)",
+	        "playingAs": "Damian Esterson",
+	        "rounds": "3",
+	        "kills": "11",
+	        "assists": "2",
+	        "downs": "1",
+	        "revives": "4",
+	        "playedFor": "6 minutes 47 seconds",
+	        "deathBy": "Committed suicide"
         }
     ]
 }

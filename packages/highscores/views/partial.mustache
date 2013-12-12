@@ -27,28 +27,19 @@
 	                     </tr>
 	                  </thead>
 	                  <tbody style="color: grey;">
+	                     {{#items}}
 	                     <tr>
-	                        <td>Truemedia (Wade Penistone)</td>
-	                        <td>Reece Neadham</td>
-	                        <td>56</td>
-	                        <td>1097</td>
-	                        <td>543</td>
-	                        <td>13</td>
-	                        <td>48</td>
-	                        <td>3 hours 16 minutes 3 seconds</td>
-	                        <td>Gored by brutal</td>
+	                     	<td>{{usernameAndFullname}}</td>
+	                        <td>{{playingAs}}</td>
+	                        <td>{{rounds}}</td>
+	                        <td>{{kills}}</td>
+	                        <td>{{assists}}</td>
+	                        <td>{{downs}}</td>
+	                        <td>{{revives}}</td>
+	                        <td>{{playedFor}}</td>
+	                        <td>{{deathBy}}</td>
 	                     </tr>
-	                     <tr>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                        <td>-</td>
-	                     </tr>
+	                     {{/items}}
 	                  </tbody>
 	               </table>
 	            </div>
