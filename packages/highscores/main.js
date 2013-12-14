@@ -15,7 +15,7 @@ define([
 		// Translations
 		trans: {},
 				
-		/* Load this package */
+		/* Initial load-up procedure if first time package is loaded */
 		init: function() {
 				
 			// Register package
@@ -27,12 +27,10 @@ define([
 			
 		/* Autoloading hook */
 	    load: function(element, options) {
-	        	    	
-	        // Run initial load-up procedure if first time function is called
-	        this.init();
 	        	
 	        // Load the package onto current web-page
-			new highscores.view({el: element});
+	    	this.init();
+			new this.view({el: element});
 	    },
 
 	    /* Autoloader terminate method */
@@ -45,9 +43,7 @@ define([
 
 	        model: Backbone.Model.extend(),
 	        url: 'packages/highscores/data.json',
-	        parse: function(data) {
-	        	return data.items
-	        }
+	        parse: function(data) { return data.items; }
 	    }),
 	        
 	    /* Append the HTML for this package to the DOM */
@@ -60,9 +56,9 @@ define([
 	        },
 
 	        render: function() {
-	            var self = this;
 
-	            // Load highscores data
+	            // Load package stored data
+	        	var self = this;
 	            this.collection.fetch().done( function() {
 	            		
 	            	// Compose data for view

@@ -8,36 +8,29 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
-], function(template, nls, Config, Lang, Package, jQuery) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
 	return mainmenu = {
-
-		// Data attribute binded element
-		element_binding: null,
 		
 		// Translations
 		trans: {},
 			
-		/* Load this package */
+		/* Initial load-up procedure if first time package is loaded */
 		init: function() {
 			
 			// Register package
 			Package.register('mainmenu');
 	 		
 	 		// Load translations
-			mainmenu.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			mainmenu.view();
+			this.trans = Lang.getTrans(nls);
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	// Store the element binding
-        	mainmenu.element_binding = element;
-
-        	mainmenu.init();
+        	// Load the package onto current web-page
+	    	this.init();
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
@@ -45,18 +38,39 @@ define([
 
         },
 		
-		/* Append the HTML for this package to the DOM */
-		view: function() {
-			
-			// Load view data via system's JSON
-			jQuery.getJSON("packages/mainmenu/data.json", function(data){
-				
-				// Append language strings to JSON data source
-				data.trans = mainmenu.trans;
-			
-				// Load view
-       			jQuery(mainmenu.element_binding).html( template(data) );
-			});
-		}
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
+
+	        model: Backbone.Model.extend(),
+	        url: 'packages/mainmenu/data.json',
+	        parse: function(data) { return data.items; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new mainmenu.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		items: self.collection.toJSON(),
+	            		trans: mainmenu.trans
+	            	}
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+	            });
+	        }
+	    })
 	}
 });

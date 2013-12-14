@@ -8,64 +8,76 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery"
-], function(template, nls, App, Config, Lang, Package, Session, jQuery) {
+	"stache!./views/partial", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
+], function(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone) {
 	return characterselection = {
-			
-		// Data attribute binded element
-		element_binding: null,
 		
 		// Translations
 		trans: {},
 
-		/* Load this package */
+		/* Initial load-up procedure if first time package is loaded */
 		init: function(){
 			
 			// Register package
 			Package.register('characterselection');
 			
 			// Load translations
-			characterselection.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			characterselection.view();
+			this.trans = Lang.getTrans(nls);
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	// Store the element binding
-        	characterselection.element_binding = element;
-        	
-        	characterselection.init();
+        	// Load the package onto current web-page
+	    	this.init();
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
-		
-		/* Append the HTML for this package to the DOM */
-		view: function() {
-			
-			// Load up list of characters to choose from
-			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
-				
-				// Append language strings to JSON data source
-				data.trans = characterselection.trans;
+        
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
 
-				// Load view
-				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-       			jQuery(characterselection.element_binding).html( template(data) );
- 				
- 				jQuery(document).ready(function() {
- 					// Setup UI
- 					characterselection.selectionScreen();
- 					// Setup UI handlers
- 					characterselection.registerEvents();
-				}); 
-			});
-		},
+	        model: Backbone.Model.extend(),
+	        url: 'packages/characterselection/info/characters_advanced.json',
+	        parse: function(data) { return data; }
+	    }),
+	    
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new highscores.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		items: self.collection.toJSON(),
+	            		trans: characterselection.trans,
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters')
+	            	}
+	    				
+	            	// Render content
+	            	self.$el.html( template(data), function(){
+	            		
+	            		// Setup UI and UI handlers
+	                	characterselection.selectionScreen();
+	                	characterselection.registerEvents();
+	            	});
+	            });
+	        }
+	    }),
 		
 		/* Get all characters and all their associated data */
 		getCharacters: function() {

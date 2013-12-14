@@ -12,54 +12,69 @@ define([
 ], function(template, nls, Config, Lang, Package, jQuery, feed) {
 	return gameinfo = {
 			
-		// Data attribute binded element
-		element_binding: null,
-			
 		// Translations
 		trans: {},
 			
-		/* Load this package */
+		/* Initial load-up procedure if first time package is loaded */
 	 	init: function() {
 	 		
 	 		// Register package
 			Package.register('gameinfo');
 	 		
 	 		// Load translations
-			gameinfo.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			gameinfo.view();
+			this.trans = Lang.getTrans(nls);
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	// Store the element binding
-        	gameinfo.element_binding = element;
-        	    	
-        	gameinfo.init();
+        	// Load the package onto current web-page
+	    	this.init();
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
-		
-		/* Append the HTML for this package to the DOM */
-		view: function() {
+        
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
 
-			// Load view data via system's JSON
-			jQuery.getJSON("packages/gameinfo/data.json", function(data){
-				
-				// Append language strings to JSON data source
-				data.trans = gameinfo.trans;
-			
-				// Load view
-       			jQuery(gameinfo.element_binding).html( template(data) );
-       			
-       			// Run modules
-       			feed.init();
-			});
-		}
+	        model: Backbone.Model.extend(),
+	        url: 'packages/gameinfo/data.json',
+	        parse: function(data) { return data; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new gameinfo.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var game_information = self.collection.toJSON()
+	            	var data = {
+	            		items: game_information[0],
+	            		trans: gameinfo.trans
+	            	};
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+
+	            	// Run modules
+	       			feed.init();
+	            });
+	        }
+	    })
 	}
 });

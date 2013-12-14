@@ -8,16 +8,15 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./partial", "moment", "Bootstrap"
-], function(template, moment, jQuery) {
+	"stache!./partial", "moment", "Bootstrap", "Backbone"
+], function(template, moment, jQuery, Backbone) {
 	return feed = {
 		
 		/* Based on modified UI design posted on Bootsnipp (http://bootsnipp.com/snipps/blog-posts-with-picture) */	
 	 	init: function(){
 			
 	 		// Display posts
-	 		// TODO: Investigate why the API is now giving a 500 internal server error
-			//feed.displayPosts('regeneration-news', '.co.uk');
+			feed.displayPosts('regeneration-news', '.co.uk');
 		},
 		
 		/* Get RSS feed from specified URL (blogger support only) */

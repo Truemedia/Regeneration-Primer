@@ -8,55 +8,69 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", //"./modules/keyboard/main", "./modules/mouse/main"
-], function(template, nls, Config, Lang, Package, jQuery) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone" //"./modules/keyboard/main", "./modules/mouse/main"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
 	return controls = {
-		
-		// Data attribute binded element
-		element_binding: null,
 		
 		// Translations
 		trans: {},
 				
-		/* Load this package */
+		/* Initial load-up procedure if first time package is loaded */
 		init: function() {
 			
 			// Register package
 			Package.register('controls');
 	 		
 	 		// Load translations
-			controls.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			controls.view();
+			this.trans = Lang.getTrans(nls);
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	// Store the element binding
-        	controls.element_binding = element;
-        	    	
-        	controls.init();
+        	// Load the package onto current web-page
+	    	this.init();
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
-		
-		/* Append the HTML for this package to the DOM */
-		view: function() {
-		 		
-		 	// Build data
-		 	data = Config.instance('controls::default');
-		 	
-		 	// Append language strings to JSON data source
-			data.trans = controls.trans;
-				
-			// Load view
-	       	jQuery(controls.element_binding).html( template(data) );
-		},
+        
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
+
+	        model: Backbone.Model.extend(),
+	        url: 'packages/controls/data.json',
+	        parse: function(data) { return data.items; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new controls.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = Config.instance('controls::default');
+	            	data.items = self.collection.toJSON();
+	            	data.trans = controls.trans;
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+	            });
+	        }
+	    }),
 		
 		/* Bind all Human interface Devices (physical controllers) to the game */
 		bindHumanInterfaceDevices: function() {
