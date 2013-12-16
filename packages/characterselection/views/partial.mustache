@@ -1,17 +1,17 @@
-<!-- Character selection (Main Area) /* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */ --> 
+<!-- Character selection (Main Area) /* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */ 
 <div class="page-header">
 	<h1 style="text-align: center;">{{trans.choose-character_phrs}}</h1>
 </div>
 <div id="main_area">
 
-	<!-- Slider -->
+	<!-- Slider 
 	<div class="row">
 		<div class="span12" id="slider">
 			<div class="row">
 				<div class="span8" id="carousel-bounding-box">
 					<div id="myCarousel" class="carousel slide">
 
-						<!-- Carousel items -->
+						<!-- Carousel items 
 						<div class="carousel-inner hover_char">
 							{{#characters}}
 							<div class="item{{active}}" data-slide-number="{{pid}}">
@@ -20,16 +20,16 @@
 							{{/characters}}
 						</div>
 
-						<!-- Carousel navigation -->
+						<!-- Carousel navigation 
 						<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
 						<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 					</div>
 				</div>
 				
-				<!-- Current carousel item content -->
+				<!-- Current carousel item content 
 				<div class="span4" id="carousel-text" style="height: 300px;"></div>
 				
-				<!-- All carousel items content -->
+				<!-- All carousel items content 
  				<div style="display: none;" id="slide-content">
 					{{#characters}}
 					<div id="slide-content-{{pid}}">
@@ -52,11 +52,11 @@
  		</div>
 	</div>
 	
-	<!-- Thumbnails -->
+	<!-- Thumbnails 
  	<div class="row hidden-phone" id="slider-thumbs">
 		<div class="span12">
 
-			<!-- Bottom switcher of slider -->
+			<!-- Bottom switcher of slider 
 			<ul class="thumbnails">
 				{{#characters}}
 				<li class="span2">
@@ -66,20 +66,70 @@
 				</li>
 				{{/characters}}
 			</ul>
-			<div class="row">
-				<div class="span3">
-					<button id="use_picked_char" class="btn btn-success btn-large start_session" value="" disabled>{{trans.play-as-selected_phrs}}</button>
-				</div>
-				<div class="span3">
-					<button id="use_random_char" class="btn btn-primary btn-large start_session">{{trans.play-as-random_phrs}}</button>
-				</div>
-				<div class="span3">
-					<button class="btn btn-info btn-large disabled">{{trans.wait-for-players_phrs}}</button>
-				</div>
-				<div class="span3">
-					<button class="btn btn-large disabled">{{trans.invite-friends_phrs}}</button>
-				</div>
+		</div>
+	</div>
+</div>-->
+<div class="page-header">
+	<h1 style="text-align: center;">{{trans.choose-character_phrs}}</h1>
+</div>
+
+<div id="myCarousel" class="carousel slide">
+
+	<ol class="carousel-indicators">
+		{{#items}}
+    	<li data-target="#myCarousel" data-slide-to="{{pid}}" class="{{active}}"></li>
+    	{{/items}}
+    </ol>   
+
+    <!-- Carousel items -->
+    <div class="carousel-inner"> 
+    	{{#items}}
+		<div class="item{{active}} col-lg-12" style="border: 5px solid {{characterColourScheme}};">
+			<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<img src="{{content_pack}}/images/characters/({{identifierCamelCase}})_DefaultPose.png" alt="{{full_name}}" />
 			</div>
+			<div class="col-md-4">
+				<br />
+				<div class="row">
+	    			<div class="tabbable">
+	  					<ul class="nav nav-pills">
+	  						<li class="active char_select" value="{{identifierReference}}">
+				    			<a data-toggle="tab" href="#">{{trans.select_verb}}</a>
+				    		</li>
+			    		</ul>
+			    	</div>
+			    </div>
+			    <br />
+			    <div class="row well">
+			    <img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" />
+					<h5 style="color: {{characterColourScheme}};">
+						{{full_name}}
+					</h5>
+					<span class="badge"><b style="color: black;">{{trans.occupation_noun}} </b>{{occupation}}</span>
+				</div>
+    		</div>
+    		<div class="col-md-2">
+    			<h5>{{trans.about_adverb}}</h5>
+    			<p class="mute"><em>{{about}}</em></p>
+    		</div>
+    		<div class="col-md-2"></div>
+    	</div>
+		{{/items}}
+    </div>
+
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<br />
+<div class="row">
+	<div class="col-lg-12">
+		<div class="btn-group btn-group-justified btn-group-lg">
+			<a id="use_picked_char" class="btn btn-success start_session" value="" disabled>{{trans.play-as-selected_phrs}}</a>
+			<a id="use_random_char" class="btn btn-primary start_session">{{trans.play-as-random_phrs}}</a>
+			<a class="btn btn-info disabled">{{trans.wait-for-players_phrs}}</a>
+			<a class="btn disabled">{{trans.invite-friends_phrs}}</a>
 		</div>
 	</div>
 </div>

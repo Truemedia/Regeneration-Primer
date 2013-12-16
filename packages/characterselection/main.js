@@ -43,7 +43,7 @@ define([
 
 	        model: Backbone.Model.extend(),
 	        url: 'packages/characterselection/info/characters_advanced.json',
-	        parse: function(data) { return data; }
+	        parse: function(data) { return data.characters; }
 	    }),
 	    
 	    /* Append the HTML for this package to the DOM */
@@ -51,7 +51,7 @@ define([
 	        	
 	        initialize: function() {
 	            	
-	            this.collection = new highscores.collection();
+	            this.collection = new characterselection.collection();
 	            this.render();
 	        },
 
