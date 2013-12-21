@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
+	"stache!./views/step", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
 ], function(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone) {
 	return characterselection = {
 		

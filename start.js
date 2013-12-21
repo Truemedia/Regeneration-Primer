@@ -56,7 +56,7 @@ require.config({
         
         /* Bootstrap helpers */
         'bootbox': "http://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.0.0/bootbox.min", // Bootbox (simpler bootstrap modals)
-        'FuelUX': "http://cdn.jsdelivr.net/fuelux/2.4.0", // FuelUX (Bootstrap extended UI library)
+        'fuelux': "http://cdn.jsdelivr.net/fuelux/2.4.0/wizard", // FuelUX (Bootstrap extended UI library)
         'Bootstrap.formhelpers.selectbox': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-selectbox", // Bootstrap form helper (for select boxes)
         'Bootstrap.formhelpers.countries.en_US': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US", // Bootstrap form helper (for country selection)
         'Bootstrap.formhelpers.languages.codes': "http://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-languages.codes", // Bootstrap form helper (for language codes)
@@ -137,7 +137,7 @@ require.config({
         },
         
         // FuelUX
-        'FuelUX': {
+        'fuelux': {
             deps: ['jQuery'],
             exports: 'jQuery'
         },
@@ -163,7 +163,6 @@ require.config({
                'contentpack',
                'controls',
                'debug',
-               'diydie',
                'gamedirector',
                'gameinfo',
                'gameobjects',
@@ -171,6 +170,7 @@ require.config({
                'init',
                'inventory',
                'mainmenu',
+               'maps',
                'marquee',
                'navbar',
                'player',

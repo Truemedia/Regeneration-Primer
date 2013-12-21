@@ -28,6 +28,9 @@
 /* Toastr Base stylesheet */
 @import url('http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css');
 
+/* FuelUX stylesheet */
+@import url('http://cdn.jsdelivr.net/fuelux/2.4.0/css/fuelux.min.css');
+
 /* Modules stylesheet */
 @import url('modules/modules.css');
 

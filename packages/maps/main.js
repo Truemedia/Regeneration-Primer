@@ -8,14 +8,11 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Crafty", "./init.PKG", "./characterselection.PKG", "./jQuery"
-], function(view, nls, Config, Lang, Package, Crafty, init, characterselection, jQuery) {
+	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Crafty", "jQuery"
+], function(template, nls, Config, Lang, Package, Crafty, jQuery) {
 	return maps = {
 		
 		layers: 1,
-		
-		// Partial loading location	
-		partial_block_element: 'maps_partial',
 	
 		// Translations
 		trans: {},
@@ -36,6 +33,7 @@ define([
 		/* Autoloading hook */
         load: function(element, options) {
         	
+        	this.init();
         },
 
         /* Autoloader terminate method */
@@ -53,7 +51,7 @@ define([
 				data.trans = maps.trans;
 			
 				// Load view
-				document.getElementById(maps.partial_block_element).innerHTML = view(data);
+				jQuery("[data-package='maps']").html( template(data) );
 				
 				// Register events
 				maps.registerEvents();
@@ -64,7 +62,7 @@ define([
 		registerEvents: function() {
 			
 			// Mouse over animation for map selection
-			jQuery("#"+maps.partial_block_element).on("mouseover", ".map_select", function(event) {
+			jQuery("[data-package='maps']").on("mouseover", ".map_select", function(event) {
 
 				var enabled = !jQuery(this).hasClass("disabled");
 				if (enabled) {
@@ -76,7 +74,7 @@ define([
 			});
 
 			// Mouse leave animation for map selection
-			jQuery("#"+maps.partial_block_element).on("mouseleave", ".map_select", function(event) {
+			jQuery("[data-package='maps']").on("mouseleave", ".map_select", function(event) {
 
 				var enabled = !jQuery(this).hasClass("disabled");
 				if (enabled) {
@@ -91,7 +89,7 @@ define([
 		// Deactivate package
 		deactivate: function(){
 
-			jQuery("#"+maps.partial_block_element).remove();
+			jQuery("[data-package='maps']").remove();
 		},
 		
 		/* Format maps into array suitable for melonJS */
