@@ -34,7 +34,13 @@ define(["bootbox", "jQuery"], function(bootbox, jQuery) {
 
 			bootbox.dialog({
 				message: "<table></table>",
-				title: "Packages"
+				title: "Packages",
+				buttons: {
+					close: {
+						label: "Close",
+						className: "btn-default"
+					}
+				}
 			});
 			jQuery('.bootbox-body > table').dataTable({
 					"bPaginate": true,

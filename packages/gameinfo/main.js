@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", './modules/feed/main'
+	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", './modules/feed/main'
 ], function(template, nls, Config, Lang, Package, jQuery, feed) {
 	return gameinfo = {
 			

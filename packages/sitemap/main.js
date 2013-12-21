@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap"
-], function(template, nls, Config, Lang, Package, jQuery) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "bootbox"
+], function(template, nls, Config, Lang, Package, jQuery, bootbox) {
 	return sitemap = {
 			
 		// Data attribute binded element
@@ -102,11 +102,26 @@ define([
 			jQuery(sitemap.element_binding).on("change", "#language", function(event) {
 				
 				var lang_code = jQuery(this).val();
-				var change = confirm(sitemap.trans.change_language);
-
-				if (change == true) {
-					Lang.setLocale(lang_code);
-				}
+				bootbox.dialog({
+					message: sitemap.trans.change_language,
+					title: "Change Current Language",
+					buttons: {
+						cancel: {
+							label: "Cancel",
+							className: "btn-default",
+							callback: function() {
+								// TODO: Reset select option to original language choice
+							}
+						},
+						proceed: {
+							label: "Ok",
+							className: "btn-primary",
+							callback: function() {
+								Lang.setLocale(lang_code);
+							}
+						}
+					}
+				});
 			});
 		}
 	}
