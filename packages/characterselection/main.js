@@ -69,13 +69,13 @@ define([
 	            	}
 	    				
 	            	// Render content
-	            	self.$el.html( template(data), function(){
-	            		
-	            		// Setup UI and UI handlers
-	                	characterselection.selectionScreen();
-	                	characterselection.registerEvents();
-	            	});
+	            	self.$el.html( template(data) );
+	            	self.afterRender();
 	            });
+	        },
+	        afterRender: function() {
+	        	characterselection.selectionScreen();
+	        	characterselection.registerEvents();
 	        }
 	    }),
 		
@@ -154,16 +154,16 @@ define([
 		// Deactivate package
 		deactivate: function() {
 
-			jQuery(characterselection.element_binding).remove();
+			jQuery("[data-package='characterselection']").remove();
 		},
 		
 		registerEvents: function() { /* jQuery event handlers (for Character Selection) */
 			
 			// New character select method
-			jQuery(characterselection.element_binding).on("click", ".char_select", function(event) {
+			jQuery("[data-package='characterselection']").on("click", ".char_select", function(event) {
 
-				var selected_char = jQuery('.item.active').data('slide-number');
-				characterselection.selectCharacter(selected_char);
+				var element = $(this);
+				characterselection.selectCharacter(element);
 			});
 			
 			// CHARACTER SELECTION EVENT
@@ -216,8 +216,7 @@ define([
 			});	
 		},
 		
-		selectCharacter: function(selected_char) {
-			var selected_element = jQuery('#slide-content-'+selected_char+' > .thumbnail > .caption > .char_select');
+		selectCharacter: function(element) {
 			
 			// Cleanup old selections
 			jQuery('.char_select')
@@ -226,7 +225,7 @@ define([
 				.html("<span>Select</span>");
 		
 			// Transform the button
-			jQuery(selected_element)
+			jQuery(element)
 				.removeClass("btn-primary")
 				.addClass("btn-success")
 				.html("<span>Selected</span>");
@@ -234,10 +233,7 @@ define([
 			// Transfer the stored value
 			jQuery("#use_picked_char")
 				.removeAttr('disabled')
-				.val(jQuery(selected_element).val());
-				
-			// Update carousel
-			jQuery('#carousel-text').html(jQuery('#slide-content-'+selected_char).html());
+				.val(jQuery(element).val());
 		},
 		
 		/* Get character image filename (with full directory path) based on character name and pose */

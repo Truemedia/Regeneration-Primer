@@ -1,74 +1,3 @@
-<!-- Character selection (Main Area) /* Based on modified UI design posted on Bootsnipp (https://bootsnipp.com/snipps/carousel-extended) */ 
-<div class="page-header">
-	<h1 style="text-align: center;">{{trans.choose-character_phrs}}</h1>
-</div>
-<div id="main_area">
-
-	<!-- Slider 
-	<div class="row">
-		<div class="span12" id="slider">
-			<div class="row">
-				<div class="span8" id="carousel-bounding-box">
-					<div id="myCarousel" class="carousel slide">
-
-						<!-- Carousel items 
-						<div class="carousel-inner hover_char">
-							{{#characters}}
-							<div class="item{{active}}" data-slide-number="{{pid}}">
-								<img src="{{content_pack}}/images/characters/({{identifierCamelCase}})_SelectionScreen.png" alt="{{full_name}}" />
-    						</div>
-							{{/characters}}
-						</div>
-
-						<!-- Carousel navigation 
-						<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-						<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
-					</div>
-				</div>
-				
-				<!-- Current carousel item content 
-				<div class="span4" id="carousel-text" style="height: 300px;"></div>
-				
-				<!-- All carousel items content 
- 				<div style="display: none;" id="slide-content">
-					{{#characters}}
-					<div id="slide-content-{{pid}}">
-    					<div class="thumbnail clearfix" style="border: 5px solid {{characterColourScheme}};">
-    						<div class="caption">
-    							<button class="btn btn-primary icon pull-right char_select" value="{{identifierReference}}">
-    								<span>{{trans.select_verb}}</span>
-    							</button>
-    							<h4 style="color: {{characterColourScheme}};">{{full_name}}</h4>
-    							<span class="badge"><b style="color: black;">{{trans.occupation_noun}} </b>{{occupation}}</span>
-    							<hr />
-								<h5 class="well well-small"><img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" /> {{trans.about_adverb}}</h5>
-								<p class="mute"><em>{{about}}</em></p>
-    						</div>
-    					</div>
-    				</div>
-					{{/characters}}
-				</div>
-			</div>
- 		</div>
-	</div>
-	
-	<!-- Thumbnails 
- 	<div class="row hidden-phone" id="slider-thumbs">
-		<div class="span12">
-
-			<!-- Bottom switcher of slider 
-			<ul class="thumbnails">
-				{{#characters}}
-				<li class="span2">
-					<a class="thumbnail" id="carousel-selector-{{pid}}">
-						<img src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" />
-					</a>
-				</li>
-				{{/characters}}
-			</ul>
-		</div>
-	</div>
-</div>-->
 <div class="page-header">
 	<h1 style="text-align: center;">{{trans.choose-character_phrs}}</h1>
 </div>
@@ -94,8 +23,8 @@
 				<div class="row">
 	    			<div class="tabbable">
 	  					<ul class="nav nav-pills">
-	  						<li class="active char_select" value="{{identifierReference}}">
-				    			<a data-toggle="tab" href="#">{{trans.select_verb}}</a>
+	  						<li class="active">
+				    			<button type="button" class="btn btn-primary char_select" value="{{pid}}">{{trans.select_verb}}</button>
 				    		</li>
 			    		</ul>
 			    	</div>
@@ -112,6 +41,8 @@
     		<div class="col-md-2">
     			<h5>{{trans.about_adverb}}</h5>
     			<p class="mute"><em>{{about}}</em></p>
+    			<h5>Stats</h5>
+    			<p class="mute"><em>Stats to be updated</em></p>
     		</div>
     		<div class="col-md-2"></div>
     	</div>
