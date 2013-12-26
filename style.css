@@ -1,3 +1,6 @@
+/* Bootstrap base */
+@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
+
 /* Characters stylesheet (Coward) */
 @import url('stylesheets/default-theme/character_styling/coward.css');
 /* Characters stylesheet (Criminal) */
