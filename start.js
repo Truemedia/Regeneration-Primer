@@ -21,7 +21,7 @@ require.config({
         'Backbone': "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min",
         'Bootstrap': "http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min",
         'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
-		'Crafty': "http://cdn.craftycomponents.com/crafty-release",
+		'Crafty': "http://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min",
 		'JSONpatch': "dependencies/jsonpatch.min",
         'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
         'KO': "http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1",
