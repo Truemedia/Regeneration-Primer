@@ -180,6 +180,7 @@ require.config({
                'social',
                'spawner',
                'sprites',
+               'stage',
                'theme'
 	],
 

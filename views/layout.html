@@ -18,11 +18,11 @@
 		</div>
 	</div>
 	<div class="step-content">
-		<div class="step-pane active" id="step1">This is step 1</div>
-		<div class="step-pane" id="step2">This is step 2</div>
-		<div class="step-pane" id="step3">This is step 3</div>
-		<div class="step-pane" id="step4">This is step 4</div>
-		<div class="step-pane" id="step5">This is step 5</div>
+		<div class="step-pane active" id="step1">Choose game mode</div>
+		<div class="step-pane" id="step2">Choose game settings</div>
+		<div class="step-pane" id="step3">Choose character</div>
+		<div class="step-pane" id="step4">Choose map</div>
+		<div class="step-pane" id="step5">Ready to play</div>
 	</div>-->
 	
 	<ul class="nav pills nav-justified thumbnail">
@@ -38,6 +38,12 @@
 				<p class="list-group-item-text">Choose a map</p>
 			</a>
 		</li>
+		<li>
+			<a data-toggle="tab" href="#step3">
+				<h4 class="list-group-item-heading">Ready to play</h4>
+				<p class="list-group-item-text">Game is loading</p>
+			</a>
+		</li>
 	</ul>
 	<div class="tabbable">
 		<div class="tab-content">
@@ -46,6 +52,9 @@
 			</div>
 			<div id="step2" class="tab-pane">
 				<div data-package="maps"></div>
+			</div>
+			<div id="step3" class="tab-pane">
+				<div data-package="stage"></div>
 			</div>
 		</div>
 	</div>

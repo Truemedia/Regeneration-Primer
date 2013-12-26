@@ -1,7 +1,7 @@
 {
-	"name": "Canvas",
+	"name": "Stage",
 	"author": "Wade Penistone <johndoe@website.com>",
-	"description": "Core Regeneration Primer package used for showing application content",
+	"description": "Core Regeneration Primer package used for handling 3D/2D game context virtual world",
 	"contributors": [
 		{
 			"name": "Wade Penistone (Truemedia)"
