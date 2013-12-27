@@ -190,7 +190,7 @@ define([
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
 			
 			// Load list of BootSwatch themes via JSON API
-			jQuery.getJSON(cdn_api_url, function(data){
+			jQuery.getJSON(cdn_api_url, function(data) {
 
 	   			// Load initial theme
 				theme.initialLoad(data.themes);

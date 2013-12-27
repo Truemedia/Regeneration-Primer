@@ -1,5 +1,6 @@
 /* Bootstrap base */
-@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
+@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
 
 /* Characters stylesheet (Coward) */
 @import url('stylesheets/default-theme/character_styling/coward.css');
@@ -40,6 +41,14 @@
 /* General */
 body{
 	background-color: black;	
+}
+
+/* Bootstrap additions */
+i[class*="icon-"] {
+    display: inline-block;
+    width: 16px;
+    margin-right: 1em;
+    text-align: center;
 }
 
 /* Temporary CSS (To be deleted once botostrap 3 is implemented) */

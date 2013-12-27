@@ -1,47 +1,70 @@
 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Options <b class="caret"></b></a>
 <ul class="dropdown-menu">
-	<li class="nav-header">{{main_options}}</li>
+	<li class="nav-header">
+        <h4 class="text-warning">&nbsp; {{main_options}}</h4>
+    </li>
     <li class="divider"></li>
             	 		
     <!-- Main buttons -->
     <li class="option-item">
-        <a href="#" id="debug_toggle" data-toggle="popover" data-content="Click to show or hide debugging tools (Developers only)" data-trigger="hover">
-			<span class="label label-warning"><i data-bind="css: currentIcon" class="icon-white"></i></span> Enable/Disable Debugging
+        <a href="#"
+           id="debug_toggle"
+           data-toggle="popover"
+           data-content="Click to show or hide debugging tools (Developers only)"
+           data-trigger="hover">
+            <i class="icon-bug"></i>
+            <h4 class="label label-warning">Enable/Disable Debugging</h4>
 		</a>
     </li>
     <li class="option-item">
-    	<a href="#" id="audio_toggle" data-toggle="popover" data-content="Click to mute or unmute the background music" data-trigger="hover">
-			<span class="label label-info"><i class="icon-volume-off icon-white"></i></span> Mute/unmute background music
+    	<a href="#"
+           id="audio_toggle"
+           data-toggle="popover"
+           data-content="Click to mute or unmute the background music"
+           data-trigger="hover">
+            <i class="icon-headphones"></i>
+            <h4 class="label label-info">Mute/unmute background music</h4>
 		</a>
     </li>
     <li class="option-item">
-    	<a href="#" id="header_toggle" data-toggle="popover" data-content="Click to hide or show the header" data-trigger="hover">
-			<span class="label"><i class="icon-circle-arrow-up icon-white"></i></span> Hide header
+    	<a href="#"
+           id="header_toggle"
+           data-toggle="popover"
+           data-content="Click to hide or show the header"
+           data-trigger="hover">
+			<i class="icon-level-up"></i>
+            <h4 class="label label-info">Hide header</h4>
 		</a>
 	</li>
     <li class="divider"></li>
-    <li class="nav-header">{{customize}}</li>
+    <li class="nav-header">
+        <h4 class="text-warning">&nbsp; {{customize}}</h4>
+    </li>
     <li class="divider"></li>
               				
     <!-- Customizations -->
     <li class="option-item">
         <a href="[data-package='controls']" data-toggle="modal">
-			<span class="label label-important"><i class="icon-question-sign icon-white"></i></span> Controls
+			<i class="icon-keyboard"></i>
+            <h4 class="label label-warning">Controls</h4>
 		</a>
 	</li>
 	<li class="option-item">
         <a href="[data-package='contentpack']" data-toggle="modal">
-        	<span class="label label-info"><i class="icon-book icon-white"></i></span> Content pack
+        	<i class="icon-globe"></i>
+            <h4 class="label label-info">Content pack</h4>
         </a>
     </li>
     <li class="option-item">
         <a id="packages_list" href="#">
-        	<span class="label label-info"><i class="icon-briefcase icon-white"></i></span> Packages
+        	<i class="icon-suitcase"></i>
+            <h4 class="label label-info">Packages</h4>
         </a>
     </li>
     <li class="option-item">
         <a href="[data-package='theme']" data-toggle="modal">
-        	<span class="label label-inverse"><i class="icon-eye-open icon-white"></i></span> Theme
+            <i class="icon-tint"></i>
+            <h4 class="label label-default">Theme</h4>
         </a>
     </li>
 </ul> 
