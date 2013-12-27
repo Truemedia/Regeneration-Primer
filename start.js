@@ -167,7 +167,6 @@ require.config({
                'gameinfo',
                'gameobjects',
                'highscores',
-               'init',
                'inventory',
                'mainmenu',
                'maps',
