@@ -201,6 +201,9 @@ requirejs(['conditioner'], function(conditioner) {
 	var layout = new App.layout();
 	layout.render();
 
+    // Start the application (Run the main method)
+    App.start();
+
 	// Reset the base URL to package directory
 	require.config({
 		baseUrl: "packages/"
@@ -209,8 +212,3 @@ requirejs(['conditioner'], function(conditioner) {
 	// Run the package autoloader
 	conditioner.init();
 });
-
-// Start the application (Run the main method)
-/*require(['app'], function(app){
-	app.start();
-});*/

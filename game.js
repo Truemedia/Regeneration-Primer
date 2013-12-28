@@ -13,43 +13,7 @@ define(function(require, exports, module) {
 		
 		/* Game starts here (launcher) */
 		launch: function() {
-			
-			game.chooseCharacter();
-		},
-		
-		/* Choose character (Step 1) */
-		chooseCharacter: function() {
-			
-			var jQuery = require('jQuery');
-    		jQuery(document).ready( function(jQuery) {
-				
-				// CHARACTER SELECTION EVENT
-				jQuery("[data-package='characterselection']").on("click", ".start_session", function(event){
 
-					// Specific character chosen
-					if (jQuery(this).attr("id") == "use_picked_char") {
-						console.log("Using players choosen character: "+this.value);
-						require('Session').put('character', this.value);
-					}
-					
-					// Choose a random character for the player
-					else {
-						console.log("Using random character");
-						jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(all_characters_info) {
-							number_of_chars = all_characters_info.characters.length - 1;
-							var random_char_id = Math.floor((Math.random()*number_of_chars)+1);
-							var random_char_name = all_characters_info.characters[random_char_id].identifierReference;
-							require('Session').put('character', random_char_name);
-						});
-					}
-					
-					// Deactivate selection screen
-					require('characterselection').deactivate();
-					
-					// Activate next step
-					game.chooseMap();
-				});	
-			});
 		},
 		
 		/* Choose map (Step 2) */

@@ -9,21 +9,6 @@
 */
 define(function(require, exports, module) {
 	return app = {
-			
-		/* Application startup method */
-		start: function() {
-			
-			// TODO: Add cleanup hidden process
-			jQuery('#marquee_partial').toggle();
-    		
-			// Wait for DOM
-			jQuery = require('jQuery');
-			jQuery(document).ready( function(){
-				
-				// Launch game
-				require('game').launch();
-			});
-		},
 		
 		// Load packages when session starts
 		session_packages: function(characterselected) {

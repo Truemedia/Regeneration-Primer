@@ -12,6 +12,7 @@ define([
 ], function(layoutTemplate, Marionette, jQuery) {
 	return App = {
 	
+		/* Define core layout and contained regions */
 		layout: Backbone.Marionette.Layout.extend({
 
 			/* Render layout and regions */
@@ -24,6 +25,20 @@ define([
 				//sidebarRight: "#sidebar_right",
 				footer: "#footer"
 			}
-		})
+		}),
+
+		/* Function to register events which tie together multiple packages to start the game */
+		hooks: function() {
+
+			jQuery('a[href="#step3"]').on('click', function(e) {
+				console.log("Launching game");
+			});
+		},
+
+		/* Application startup method */
+		start: function() {
+
+			this.hooks();
+		}
 	};
 });
