@@ -4,21 +4,6 @@
 	height: 35px;
 	border: 1px dashed lightgrey;
 }
-.key_hint{
-	color: red;
-}
-.key_expression_press{
-	font-weight: bold;
-	color: deepskyblue;
-}
-.key_expression_hold{
-	font-weight: bold;
-	color: orange;
-}
-.control_instruction{
-	display: block;
-	margin: 4px;
-}
 
 /* State styles */
 label.current{

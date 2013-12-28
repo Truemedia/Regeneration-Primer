@@ -9,47 +9,101 @@
 			<h3 id="tabs">{{trans.controls_heading_phrs}}</h3>
 			<ul class="nav nav-tabs">
 				<li>
-					<a data-toggle="tab" href="#screens">{{trans.screens_phrs}}</a>
+					<a data-toggle="tab" href="#screens"><i class="icon-tablet"></i>{{trans.screens_phrs}}</a>
 				</li>
 				<li>
-					<a data-toggle="tab" href="#player">{{trans.player_phrs}}</a>
+					<a data-toggle="tab" href="#player"><i class="icon-male"></i>{{trans.player_phrs}}</a>
 				</li>
 				<li>
-					<a data-toggle="tab" href="#weapons">{{trans.weapons_phrs}}</a>
+					<a data-toggle="tab" href="#weapons"><i class="icon-rocket"></i>{{trans.weapons_phrs}}</a>
 				</li>
 			</ul>
 			<div class="tabbable">
 				<div class="tab-content">
 					<div id="screens" class="tab-pane">
 						<p>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{screens.toggle_points}}</span> {{trans.toggle-points_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{screens.toggle_profile}}</span> {{trans.toggle-profile_phrs}}</span>
+							<ul style="list-style: none;">
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{screens.toggle_points}}</b> <em>{{trans.toggle-points_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-warning">{{trans.press_verb}}</b>
+									<b class="text-primary">{{screens.toggle_profile}}</b> <em>{{trans.toggle-profile_phrs}}</em>
+								</li>
+							</ul>
 						</p>
 					</div>
 					<div id="player" class="tab-pane active">
 						<p>
-							<span class="control_instruction"><span class="key_expression_hold">{{trans.hold_verb}} </span><span class="key_hint">{{player.move_up}}</span> {{trans.move-up_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_hold">{{trans.hold_verb}} </span><span class="key_hint">{{player.move_left}}</span> {{trans.move-left_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_hold">{{trans.hold_verb}} </span><span class="key_hint">{{player.move_down}}</span> {{trans.move-down_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_hold">{{trans.hold_verb}} </span><span class="key_hint">{{player.move_right}}</span> {{trans.move-right_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{player.pickup}}</span> {{trans.pickup_phrs}}</span>
+							<ul style="list-style: none;">
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-warning">{{trans.hold_verb}}</b>
+									<b class="text-primary">{{player.move_up}}</b> <em>{{trans.move-up_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-warning">{{trans.hold_verb}}</b>
+									<b class="text-primary">{{player.move_left}}</b> <em>{{trans.move-left_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-warning">{{trans.hold_verb}} </b>
+									<b class="text-primary">{{player.move_down}}</b> <em>{{trans.move-down_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-warning">{{trans.hold_verb}} </b>
+									<b class="text-primary">{{player.move_right}}</b> <em>{{trans.move-right_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}} </b>
+									<b class="text-primary">{{player.pickup}}</b> <em>{{trans.pickup_phrs}}</em>
+								</li>
+							</ul>
 						</p>
 					</div>
 					<div id="weapons" class="tab-pane">
 						<p>
-							<span class="control_instruction">
-								<span class="key_hint">{{weapons.operate}}</span> {{trans.mouse_noun}} <b>{{trans.or_phrs}}</b>
-								<span class="key_expression_press">{{trans.press_verb}} </span>
-								<span class="key_hint">{{weapons.operate_alt}}</span><br /> {{trans.to-shoot_phrs}}
-							</span>
-							<span class="control_instruction">
-								<span class="key_hint">{{weapons.push}}</span> {{trans.mouse_noun}} <b>{{trans.or_phrs}}</b>
-								<span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{weapons.push_alt}}</span><br /> {{trans.to-punch_phrs}}
-							</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{weapons.throw_away_mag}}</span> {{trans.to-throw-away-mag_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{weapons.enter_new_mag}}</span> {{trans.to-enter-new-mag_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{weapons.reconnect_new_mag}}</span> {{trans.to-reconnect-new-mag_phrs}}</span>
-							<span class="control_instruction"><span class="key_expression_press">{{trans.press_verb}} </span><span class="key_hint">{{weapons.chamber}}</span> {{trans.to-chamber_phrs}}</span>
+							<ul style="list-style: none;">
+								<li>
+									<i class="icon-laptop"></i>
+									<b class="text-primary">{{weapons.operate}}</b> <em>{{trans.mouse_noun}}</em>
+									<b>{{trans.or_phrs}}</b>
+									<br />
+									<i class="icon-keyboard"></i>
+									<b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.operate_alt}}</b> <em>{{trans.to-shoot_phrs}}</em>
+									<hr />
+								</li>
+								<li>
+									<i class="icon-laptop"></i>
+									<b class="text-primary">{{weapons.push}}</b> <em>{{trans.mouse_noun}}</em>
+									<b>{{trans.or_phrs}}</b>
+									<br />
+									<i class="icon-keyboard"></i>
+									<b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.push_alt}}</b> <em>{{trans.to-punch_phrs}}</em>
+									<hr />
+								</li>
+							</ul>
+						</p>
+						<p>
+							<ul style="list-style: none;">
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.throw_away_mag}}</b> <em>{{trans.to-throw-away-mag_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.enter_new_mag}}</b> <em>{{trans.to-enter-new-mag_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.reconnect_new_mag}}</b> <em>{{trans.to-reconnect-new-mag_phrs}}</em>
+								</li>
+								<li>
+									<i class="icon-keyboard"></i> <b class="text-danger">{{trans.press_verb}}</b>
+									<b class="text-primary">{{weapons.chamber}}</b> <em>{{trans.to-chamber_phrs}}</em>
+								</li>
+							</ul>
 						</p>
 					</div>
 				</div>
