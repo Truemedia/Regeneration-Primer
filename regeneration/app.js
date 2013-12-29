@@ -31,14 +31,43 @@ define([
 		hooks: function() {
 
 			jQuery('a[href="#step3"]').on('click', function(e) {
-				console.log("Launching game");
+				App.regenerate();
 			});
 		},
 
 		/* Application startup method */
 		start: function() {
 
+			// Setup layout
+			var layout = new this.layout();
+			layout.render();
+
+			this.autoloader();
 			this.hooks();
+		},
+
+		/* Regenerate the applications packages/data */
+		regenerate: function() {
+
+			// TODO: Load queued regions
+
+			// Run the autoloader
+			App.autoloader();
+		},
+
+		/* Autoloading procedure */
+		autoloader: function() {
+			
+			requirejs(['conditioner'], function(conditioner) {
+
+				// Reset the base URL to package directory
+				require.config({
+					baseUrl: "packages/"
+				});
+	
+				// Run the package autoloader
+				conditioner.init();
+			});
 		}
 	};
 });

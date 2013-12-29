@@ -197,19 +197,7 @@ require.config({
 
 // Autoloading procedure
 requirejs(['conditioner'], function(conditioner) {
-	
-	// Setup layout
-	var layout = new App.layout();
-	layout.render();
 
     // Start the application (Run the main method)
     App.start();
-
-	// Reset the base URL to package directory
-	require.config({
-		baseUrl: "packages/"
-	});
-	
-	// Run the package autoloader
-	conditioner.init();
 });
