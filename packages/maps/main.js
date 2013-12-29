@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Crafty", "jQuery"
-], function(template, nls, Config, Lang, Package, Crafty, jQuery) {
+	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Crafty", "jQuery", "Leaflet"
+], function(template, nls, Config, Lang, Package, Crafty, jQuery, L) {
 	return maps = {
 		
 		layers: 1,
@@ -52,6 +52,28 @@ define([
 			
 				// Load view
 				jQuery("[data-package='maps']").html( template(data) );
+
+				// Load map views
+				jQuery.getJSON('maps/scraproom/geo.json', function(geojsonFeature) {
+					jQuery.each(data.maps, function(index, map_info) {
+
+						var map = L.map(map_info.identifier);
+
+						L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+							attribution: '2 hours after outbreak'
+						}).addTo(map);
+						map.setView([53.71082, -1.33450], 13);
+						L.geoJson(geojsonFeature).addTo(map);
+
+						// Disable map interaction
+						map.dragging.disable();
+						map.touchZoom.disable();
+						map.doubleClickZoom.disable();
+						map.scrollWheelZoom.disable();
+						map.boxZoom.disable();
+						map.keyboard.disable();
+					});
+				});
 				
 				// Register events
 				maps.registerEvents();

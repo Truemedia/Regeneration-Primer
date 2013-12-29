@@ -24,6 +24,7 @@ require.config({
 		'Crafty': "http://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min",
 		'JSONpatch': "dependencies/jsonpatch.min",
         'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
+        'Leaflet': "http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.1/leaflet",
         'KO': "http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1",
         'Marionette': "http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.1.0-bundled/backbone.marionette.min",
         'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min",

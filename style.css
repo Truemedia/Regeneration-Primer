@@ -2,6 +2,9 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 @import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
 
+/* LeafletJS */
+@import url('http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css');
+
 /* Characters stylesheet (Coward) */
 @import url('stylesheets/default-theme/character_styling/coward.css');
 /* Characters stylesheet (Criminal) */
