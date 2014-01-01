@@ -8,39 +8,43 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "jQuery", "KO", "./characterselection.PKG"
-], function(view, nls, Config, Lang, Package, jQuery, ko) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko) {
 	return profile = {
-			
-		// Partial loading location	
-		partial_block_element: 'profile_partial',
 		
 		// Translations
 		trans: {},
 			
 		/* Load this package */
-		init: function(characterselected) {
+		init: function() {
 			
 			// Register package
 			Package.register('profile');
 	 		
 	 		// Load translations
-			profile.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			profile.loadDOM(characterselected);
+			this.trans = Lang.getTrans(nls);
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	alert("Profile package loaded");
+        	// Load the package onto current web-page
+	    	this.init();
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
+
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
+
+	        model: Backbone.Model.extend(),
+	        url: 'packages/profile/data.json',
+	        parse: function(data) { return data; }
+	    }),
 		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function(characterselected) {
@@ -50,10 +54,6 @@ define([
 				
 				// Append content pack
 				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-
-				// Get character info
-				var character_id = characterselection.getCharacterId(characterselected);
-				data.character = characterselection.getCharacterById(character_id);
 				
 				// Append language strings to JSON data source
 				data.trans = profile.trans;
@@ -66,11 +66,36 @@ define([
 			});
 		},
 
-		/* Register ViewModel with DOM elements */
-		registerBindings: function() {
+		 /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new profile.collection();
+	            this.render();
+	        },
 
-			ko.applyBindings(new profile.ViewModel(), document.getElementById(profile.partial_block_element));
-		},
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		items: self.collection.toJSON(),
+	            		trans: profile.trans,
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters')
+	            	};
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+
+	            	// Register view model
+	            	ko.applyBindings(new profile.ViewModel(), this.el);
+	            });
+	        }
+	    }),
 		
 		/* ViewModel for this package */
 		ViewModel: function() {

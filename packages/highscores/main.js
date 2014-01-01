@@ -65,7 +65,7 @@ define([
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: highscores.trans
-	            	}
+	            	};
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );

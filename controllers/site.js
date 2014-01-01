@@ -20,10 +20,11 @@ define(['Marionette', 'jQuery'], function(Marionette, jQuery) {
 		game: function() {
 
 			console.log("Game page");
+
 			// Append profile package
-			/* console.log("Launching game");
-			var inventory_html = '<div data-package="profile"></div>';
-			jQuery('#layout').append(inventory_html); */
+			console.log("Launching game");
+			var profile_html = '<div data-package="profile"></div>';
+			jQuery('#layout').append(profile_html);
 		}
 	}
 });

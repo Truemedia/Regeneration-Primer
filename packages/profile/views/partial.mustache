@@ -11,7 +11,12 @@
       <fieldset>
       	<div class="span4">
 	         <label>{{trans.username_phrs}}</label>
-	         <input type="text" name="username" value="jsmith" class="input-xlarge" data-bind="value: username" placeholder="{{trans.enter-username_sntc}}" />
+	         <input type="text"
+                   name="username"
+                   value="jsmith"
+                   class="input-xlarge"
+                   data-bind="value: username"
+                   placeholder="{{trans.enter-username_sntc}}" />
 	         <label>{{trans.password_phrs}}</label>
 	         <input type="password" name="password" class="input-xlarge" placeholder="{{trans.enter-password_sntc}}" />
          </div>
@@ -25,11 +30,11 @@
       </form>
       <form id="tab" data-bind="if: loggedin">
       	<div class="span1">
-    		<img src="{{content_pack}}/images/characters/({{character.identifierCamelCase}})_DefaultPose.png" alt="{{full_name}}" />
+    		<img src="{{content_pack}}/images/characters/({{*character.identifierCamelCase*}})_DefaultPose.png" alt="{{full_name}}" />
     	</div>
     	<div class="span4">
 		    <blockquote>
-		    <p>{{character.full_name}}</p>
+		    <p>{{*character.full_name*}}</p>
 		    <small><cite title="Source Title"><span data-bind="text: username"></span>, Wade Penistone</cite></small>
 		    </blockquote>
 		    <!-- Stats -->
