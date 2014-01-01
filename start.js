@@ -2,7 +2,7 @@
 * @file Starting file/script
 * @author Wade Penistone (Truemedia)
 * @overview Base script included in the HTML of any game page, for none compiled games
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
@@ -17,7 +17,7 @@ require.config({
         i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
         conditioner: 'dependencies/conditioner',
 	
-		/* Core dependencies */
+		/* Third party libraries */
         'Backbone': "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min",
         'Bootstrap': "http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min",
         'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
@@ -39,6 +39,7 @@ require.config({
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
         'Page': "regeneration/page", // Page class
+        'Router': "regeneration/router", // Router class
         'Session': "regeneration/session", // Session class
         
         /* Modules (Will soon be deprecated) */
@@ -151,37 +152,39 @@ require.config({
         
         // Inject regeneration classes into autoloader
         'conditioner': {
-            deps: ['App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Session'],
+            deps: [
+                'App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Router', 'Session'
+            ],
             exports: 'conditioner'
         }
     },
     
     /* Packages (/packages directory) */
     packages: [
-               'about',
-               'audio',
-               'characterselection',
-               'contentpack',
-               'controls',
-               'debug',
-               'gamedirector',
-               'gameinfo',
-               'gameobjects',
-               'highscores',
-               'inventory',
-               'mainmenu',
-               'maps',
-               'marquee',
-               'navbar',
-               'player',
-               'points',
-               'profile',
-               'sitemap',
-               'social',
-               'spawner',
-               'sprites',
-               'stage',
-               'theme'
+        'about',
+        'audio',
+        'characterselection',
+        'contentpack',
+        'controls',
+        'debug',
+        'gamedirector',
+        'gameinfo',
+        'gameobjects',
+        'highscores',
+        'inventory',
+        'mainmenu',
+        'maps',
+        'marquee',
+        'navbar',
+        'player',
+        'points',
+        'profile',
+        'sitemap',
+        'social',
+        'spawner',
+        'sprites',
+        'stage',
+        'theme'
 	],
 
     // configure stache! plugin

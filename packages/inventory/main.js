@@ -40,6 +40,7 @@ define([
 		/* Autoloading hook */
         load: function(element, options) {
         	
+        	alert("Inventory package loaded");
         },
 
         /* Autoloader terminate method */

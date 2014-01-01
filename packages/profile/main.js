@@ -34,6 +34,7 @@ define([
 		/* Autoloading hook */
         load: function(element, options) {
         	
+        	alert("Profile package loaded");
         },
 
         /* Autoloader terminate method */

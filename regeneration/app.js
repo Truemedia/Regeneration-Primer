@@ -2,14 +2,14 @@
 * @file Application file/script
 * @author Wade Penistone (Truemedia)
 * @overview Base script containing application instance and methods for controlling all the low levels functions of the application (file handling, server side integration)
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	'text!views/layout.html', 'Marionette', 'jQuery', 'fuelux'
-], function(layoutTemplate, Marionette, jQuery) {
+	'text!views/layout.html', 'controllers/site', 'Marionette', 'jQuery', 'fuelux'
+], function(layoutTemplate, Site_Controller, Marionette, jQuery) {
 	return App = {
 	
 		/* Define core layout and contained regions */
@@ -27,14 +27,6 @@ define([
 			}
 		}),
 
-		/* Function to register events which tie together multiple packages to start the game */
-		hooks: function() {
-
-			jQuery('a[href="#step3"]').on('click', function(e) {
-				App.regenerate();
-			});
-		},
-
 		/* Application startup method */
 		start: function() {
 
@@ -42,17 +34,27 @@ define([
 			var layout = new this.layout();
 			layout.render();
 
+			// Setup routing and general MVC
+			var MVC = new Backbone.Marionette.Application();
+			MVC.on('initialize:after', function() {
+
+		        new Router({ controller: Site_Controller });
+		        Backbone.history.start();
+		    });
+		    MVC.start();
+
+		    // Run autoloader for packages
 			this.autoloader();
-			this.hooks();
 		},
 
 		/* Regenerate the applications packages/data */
 		regenerate: function() {
 
-			// TODO: Load queued regions
-
-			// Run the autoloader
-			App.autoloader();
+			requirejs(['conditioner'], function(conditioner) {
+	
+				// Rerun autoloader
+				conditioner.parse(document);
+			});
 		},
 
 		/* Autoloading procedure */
