@@ -23,7 +23,7 @@
 @import url('stylesheets/default-theme/character_styling/womanhelicopterpilot.css');
 
 /* All window stylesheets */
-@import url('stylesheets/default-theme/themeroller_styling/windows.css');
+@import url('stylesheets/default-theme/themeroller_styling/additional.css');
 
 /* jQuery UI Base Stylesheet (none-modified) */
 @import url('http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css');

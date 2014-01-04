@@ -24,7 +24,7 @@ define(['Marionette', 'jQuery'], function(Marionette, jQuery) {
 			// Append profile package
 			console.log("Launching game");
 			var profile_html = '<div data-package="profile"></div>';
-			jQuery('#layout').append(profile_html);
+			jQuery('#sidebar_right').append(profile_html);
 		}
 	}
 });
