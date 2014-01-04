@@ -8,8 +8,12 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	'text!views/layout.html', 'controllers/site', 'Marionette', 'jQuery', 'fuelux'
-], function(layoutTemplate, Site_Controller, Marionette, jQuery) {
+	'text!views/layout.html',
+	'text!views/regions/header.html',
+	'text!views/regions/footer.html',
+	'text!views/regions/content/selection.html',
+	'controllers/site', 'Marionette', 'jQuery', 'fuelux'
+], function(layoutTemplate, headerTemplate, footerTemplate, contentTemplate, Site_Controller, Marionette, jQuery) {
 	return App = {
 	
 		/* Define core layout and contained regions */
@@ -20,11 +24,12 @@ define([
 			template: _.template(layoutTemplate),
 			 
 			regions: {
-				header: "#header",
+				header: "header",
 				//sidebarLeft: "#sidebar_left",
+				content: "#content",
 				//sidebarRight: "#sidebar_right",
-				footer: "#footer"
-			}
+				footer: "footer"
+			},
 		}),
 
 		/* Application startup method */
@@ -33,6 +38,11 @@ define([
 			// Setup layout
 			var layout = new this.layout();
 			layout.render();
+
+			// Load region templates
+			jQuery(layout.header.el).html(headerTemplate);
+			jQuery(layout.content.el).html(contentTemplate);
+			jQuery(layout.footer.el).html(footerTemplate);
 
 			// Setup routing and general MVC
 			var MVC = new Backbone.Marionette.Application();
