@@ -14,22 +14,28 @@ define([
 			
 		// Translations
 		trans: {},
+
+		// Package options
+		settings: null,
 				
 		/* Initial load-up procedure if first time package is loaded */
-		init: function() {
+		init: function(options) {
 				
 			// Register package
 			Package.register('highscores');
 
 			// Load translations
 			this.trans = Lang.getTrans(nls);
+
+			// Save options
+			this.settings = (Object.keys(options).length === 0) ? Config.get('highscores::default_options') : options;
 		},
 			
 		/* Autoloading hook */
 	    load: function(element, options) {
 	        	
 	        // Load the package onto current web-page
-	    	this.init();
+	    	this.init(options);
 			new this.view({el: element});
 	    },
 
@@ -42,7 +48,21 @@ define([
 	    collection: Backbone.Collection.extend({
 
 	        model: Backbone.Model.extend(),
-	        url: 'packages/highscores/data.json',
+	        url: function() {
+
+	        	var data_source = highscores.settings.source;
+	        	var data_uri = null;
+
+	        	switch(data_source) {
+	        		case 'rest':
+	        			data_uri = 'http://localhost/regeneration_platform/public/index.php/highscores/';
+	        			break;
+	        		default:
+	        			data_uri = 'packages/highscores/data.json';
+	        			break;
+	        	}
+	        	return data_uri;
+			},
 	        parse: function(data) { return data.items; }
 	    }),
 	        
