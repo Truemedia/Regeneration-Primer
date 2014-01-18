@@ -14,22 +14,28 @@ define([
 	
 		// Translations
 		trans: {},
+
+		// Package options
+		settings: null,
 			
 		/* Initial load-up procedure if first time package is loaded */
-		init: function() {
+		init: function(options) {
 			
 			// Register package
 			Package.register('social');
 
 			// Load translations
 			this.trans = Lang.getTrans(nls);
+
+			// Save options
+			this.settings = (Object.keys(options).length === 0) ? Config.get('social::defaults') : options;
 		},
 		
 		/* Autoloading hook */
         load: function(element, options) {
         	
         	// Load the package onto current web-page
-	    	this.init();
+	    	this.init(options);
 			new this.view({el: element});
         },
 
@@ -42,7 +48,11 @@ define([
 	    collection: Backbone.Collection.extend({
 
 	        model: Backbone.Model.extend(),
-	        url: 'packages/social/data.json',
+	        
+	        // URL to collect data from
+	        url: function() { return Config.get('social::routes.' + social.settings.source); },
+
+	        // Filter collection data
 	        parse: function(data) { return data.items; }
 	    }),
 	        

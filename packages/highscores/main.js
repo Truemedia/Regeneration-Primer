@@ -28,7 +28,7 @@ define([
 			this.trans = Lang.getTrans(nls);
 
 			// Save options
-			this.settings = (Object.keys(options).length === 0) ? Config.get('highscores::default_options') : options;
+			this.settings = (Object.keys(options).length === 0) ? Config.get('highscores::defaults') : options;
 		},
 			
 		/* Autoloading hook */
@@ -48,21 +48,11 @@ define([
 	    collection: Backbone.Collection.extend({
 
 	        model: Backbone.Model.extend(),
-	        url: function() {
 
-	        	var data_source = highscores.settings.source;
-	        	var data_uri = null;
+	        // URL to collect data from
+	        url: function() { return Config.get('highscores::routes.' + highscores.settings.source); },
 
-	        	switch(data_source) {
-	        		case 'rest':
-	        			data_uri = 'http://localhost/regeneration_platform/public/index.php/highscores/';
-	        			break;
-	        		default:
-	        			data_uri = 'packages/highscores/data.json';
-	        			break;
-	        	}
-	        	return data_uri;
-			},
+	        // Filter collection data
 	        parse: function(data) { return data.items; }
 	    }),
 	        
