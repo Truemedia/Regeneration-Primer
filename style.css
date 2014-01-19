@@ -71,3 +71,6 @@ div#profile_partial {
 div[data-package="highscores"] {
 	width: 800px;
 }
+#sidebar_left, #sidebar_right {
+	background-color: rgba(64, 64, 64, 0.5);
+}
