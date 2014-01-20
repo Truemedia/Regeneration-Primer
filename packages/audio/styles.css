@@ -1,0 +1,9 @@
+#mixer_channels > li {
+	display: inline-block;
+	width: 19%;
+	margin: 0;
+	padding: 0;
+}
+#mixer_channels > li > div.mixer_channel {
+	height: 120px;
+}

@@ -22,6 +22,9 @@
 /* Characters stylesheet (WomanHelicopterPilot) */
 @import url('stylesheets/default-theme/character_styling/womanhelicopterpilot.css');
 
+/* Package stylesheets */
+@import url('packages/audio/styles.css');
+
 /* All window stylesheets */
 @import url('stylesheets/default-theme/themeroller_styling/additional.css');
 

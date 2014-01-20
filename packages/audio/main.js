@@ -8,10 +8,16 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"jQuery", "Crafty", "Buzz", "Package"
-], function(jQuery, Crafty, buzz, Package) {
+	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
+], function(template, nls, Config, Lang, Package, Backbone, buzz, jQuery) {
 	return audio = {
 			
+		// Translations
+		trans: {},
+
+		// Package options
+		settings: null,
+
 		directory: "",	
 		format: "",	
 		mixer: {
@@ -31,10 +37,16 @@ define([
 			}
 		},
 			
-		init: function() {
+		init: function(options) {
 			
 			// Register package
 			Package.register('audio');
+
+			// Load translations
+			this.trans = Lang.getTrans(nls);
+
+			// Save options
+			this.settings = (Object.keys(options).length === 0) ? Config.get('audio::defaults') : options;
 
 			// Setup file type and directory TODO: Make filetype choice based on browser
 			audio.format = "wav";
@@ -50,13 +62,71 @@ define([
 		/* Autoloading hook */
         load: function(element, options) {
         	
-        	audio.init();
+        	// Load the package onto current web-page
+	    	this.init(options);
+			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
         unload: function() {
 
         },
+
+        /* Data collection */
+	    collection: Backbone.Collection.extend({
+
+	        model: Backbone.Model.extend(),
+
+	        // URL to collect data from
+	        url: function() { return Config.get('audio::routes.' + audio.settings.source); },
+
+	        // Filter collection data
+	        parse: function(data) { return data.items; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new audio.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		items: self.collection.toJSON(),
+	            		trans: audio.trans
+	            	};
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+	            	audio.registerEvents();
+	            });
+	        }
+	    }),
+
+	    /* Load the mixer UI */
+	    registerEvents: function() {
+
+	    	// setup graphic EQ
+			$( "#mixer_channels > li > div.mixer_channel" ).each(function() {
+				// read initial values from markup and remove that
+				var value = parseInt( $( this ).text(), 10 );
+				$( this ).empty().slider({
+					value: value,
+					range: "min",
+					animate: true,
+					orientation: "vertical"
+				});
+			});
+	    },
 		
 		/* Load audio tracks for mixer */
 		loadChannels: function() {
