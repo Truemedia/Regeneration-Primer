@@ -32,11 +32,10 @@ define([
 			},
 		}),
 
-		/* Application startup method */
-		start: function() {
+		/* Intialize SPA (Single page applicatio) base code */
+		spa: function(layout) {
 
 			// Setup layout
-			var layout = new this.layout();
 			layout.render();
 
 			// Load region templates
@@ -52,6 +51,15 @@ define([
 		        Backbone.history.start();
 		    });
 		    MVC.start();
+		},
+
+		/* Application startup method */
+		start: function() {
+
+			var is_spa = (Config.get('server.spa') === "true") ? true : false;
+			if (is_spa) {
+				this.spa(layout = new this.layout());
+			}
 
 		    // Run autoloader for packages
 			this.autoloader();

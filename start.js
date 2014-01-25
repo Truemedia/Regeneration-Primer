@@ -199,9 +199,7 @@ require.config({
     }
 });
 
-// Autoloading procedure
+// Start the application (Run the main method)
 requirejs(['conditioner'], function(conditioner) {
-
-    // Start the application (Run the main method)
     App.start();
 });

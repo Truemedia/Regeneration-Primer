@@ -119,7 +119,7 @@ define([
 			$("#mixer_channels > li > div.mixer_channel").each(function() {
 				// read initial values from markup and remove that
 				var value = parseInt( $( this ).text(), 10 );
-				$( this ).empty().slider(Config.get('audio::ui.faders'));
+				$(this).empty().slider(Config.get('audio::ui.faders'));
 			});
 
 			// Setup mute channels
