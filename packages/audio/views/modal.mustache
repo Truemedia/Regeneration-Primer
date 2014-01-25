@@ -3,13 +3,29 @@
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 id="audio-system-name">{{trans.audio-settings_phrs}}</h4>
+			<h4 id="audio-system-name">{{trans.audio_noun}}</h4>
 		</div>
 		<div class="modal-body">
-			<h3>{{trans.audio_noun}}</h3>
 			<ul id="mixer_channels" class="well">
 				{{#items}}
 				<li>
+					<div class="level_channel"></div>
+					<div class="controls_channel">
+						<!--<input class="rotary_encoder high_high_pot" type="text" value="100" />
+						<input class="rotary_encoder low_high_pot" type="text" value="100" />
+						<input class="rotary_encoder high_high_mid_pot" type="text" value="100" />
+						<input class="rotary_encoder low_high_mid_pot" type="text" value="100" />
+						<input class="rotary_encoder high_low_mid_pot" type="text" value="100" />
+						<input class="rotary_encoder low_low_mid_pot" type="text" value="100" />
+						<input class="rotary_encoder high_low_pot" type="text" value="100" />
+						<input class="rotary_encoder low_low_pot" type="text" value="100" />
+						<input class="rotary_encoder pan_pot" type="text" value="100" />-->
+						<button class="mute_switch btn btn-warning btn-xs">M</button>
+						<button class="solo_switch btn btn-primary btn-xs">S</button>
+						<br />
+						<button class="record_switch btn btn-danger btn-xs">R</button>
+						<button class="lock_switch btn btn-info btn-xs">L</button>
+					</div>
 					<div class="mixer_channel">88</div>
 					<span class="label label-default">{{channel}}</span><br />
 					<p class="label label-primary">{{name}}</p>

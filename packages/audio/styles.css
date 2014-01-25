@@ -1,9 +1,21 @@
 #mixer_channels > li {
 	display: inline-block;
+	border: 1px solid black;
 	width: 19%;
 	margin: 0;
 	padding: 0;
 }
-#mixer_channels > li > div.mixer_channel {
+div.level_channel {
+	height: 32px;
+	background-color: #000000;
+}
+div.controls_channel {
+	display: inline-block;
+}
+div.mixer_channel {
 	height: 120px;
+	background-color: #808808;
+}
+input.rotary_encoder {
+	display: inline-block;
 }

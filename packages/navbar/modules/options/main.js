@@ -27,9 +27,7 @@ define([
 				// Load parent view into DOM
 				// TODO: Get this to trigger through parent automatically in loadModules function
 				Options.systemCallback(nested_view);
-			});
-			
-			
+			});	
 		},
 		
 		// Setup a view model for various complex interactions with the view
@@ -61,12 +59,6 @@ define([
 			jQuery(Options.parent_element_binding).on("click", "#debug_toggle", function(event){
 				debug.initDebugger(event);
 			});*/
-			
-			// Mute or unmute audio
-			jQuery("#audio_toggle").popover();
-			jQuery(Options.parent_element_binding).on("click", "#audio_toggle", function(event){
-				audio.toggleAudio(event);
-			});
 			
 			// Hide or display unnecessary panels
 			/*jQuery("#navbar_toggle").popover();

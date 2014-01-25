@@ -1,0 +1,8 @@
+{
+	"faders": {
+		"value": "value",
+		"range": "min",
+		"animate": "true",
+		"orientation": "vertical"
+	}
+}

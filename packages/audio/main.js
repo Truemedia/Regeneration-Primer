@@ -2,7 +2,7 @@
 * @file Audio PACKAGE
 * @author Wade Penistone (Truemedia)
 * @overview Core Regeneration Primer package used for controlling audio sources and playback
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
@@ -116,15 +116,15 @@ define([
 	    registerEvents: function() {
 
 	    	// setup graphic EQ
-			$( "#mixer_channels > li > div.mixer_channel" ).each(function() {
+			$("#mixer_channels > li > div.mixer_channel").each(function() {
 				// read initial values from markup and remove that
 				var value = parseInt( $( this ).text(), 10 );
-				$( this ).empty().slider({
-					value: value,
-					range: "min",
-					animate: true,
-					orientation: "vertical"
-				});
+				$( this ).empty().slider(Config.get('audio::ui.faders'));
+			});
+
+			// Setup mute channels
+			$("#mixer_channels > li:eq(0) > div.controls_channel > button.mute_switch").on("click", function(e) {
+				audio.toggleAudio(e);
 			});
 	    },
 		
