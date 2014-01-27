@@ -51,6 +51,11 @@ define([
 		        Backbone.history.start();
 		    });
 		    MVC.start();
+
+		    // Reload on backbone route
+		    jQuery(window).bind('hashchange', function() {
+		    	location.reload();
+		    });
 		},
 
 		/* Application startup method */
