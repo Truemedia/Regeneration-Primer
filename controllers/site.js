@@ -7,19 +7,70 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['Marionette', 'jQuery'], function(Marionette, jQuery) {
+define([
+	'text!views/home.html',
+	'text!views/game.html',
+	'text!views/regions/header.html',
+	'text!views/regions/footer.html',
+	'text!views/regions/content/selection.html',
+	'Marionette', 'jQuery'
+], function(homePage, gamePage, headerTemplate, footerTemplate, contentTemplate, Marionette, jQuery) {
 	return Site_Controller = {
 
 		/* Default controller action */
 		index: function() {
 
-			console.log("Index page");
+			console.log("Home page");
+
+			/* Define core layout and contained regions */
+			var layout = Backbone.Marionette.Layout.extend({
+				el: "#layout",
+				template: _.template(homePage),
+				regions: {
+					header: "header",
+					//sidebarLeft: "#sidebar_left",
+					content: "#content",
+					//sidebarRight: "#sidebar_right",
+					footer: "footer"
+				},
+			});
+
+			// Setup layout
+			page = new layout();
+			page.render();
+
+			// Load region templates
+			jQuery(page.header.el).html(headerTemplate);
+			jQuery(page.content.el).html(contentTemplate);
+			jQuery(page.footer.el).html(footerTemplate);
 		},
 
 		/* Page which game is played on */
 		game: function() {
 
 			console.log("Game page");
+
+			/* Define core layout and contained regions */
+			var layout = Backbone.Marionette.Layout.extend({
+				el: "#layout",
+				template: _.template(gamePage),
+				regions: {
+					header: "header",
+					//sidebarLeft: "#sidebar_left",
+					content: "#content",
+					//sidebarRight: "#sidebar_right",
+					footer: "footer"
+				},
+			});
+
+			// Setup layout
+			page = new layout();
+			page.render();
+
+			// Load region templates
+			jQuery(page.header.el).html(headerTemplate);
+			jQuery(page.content.el).html(contentTemplate);
+			jQuery(page.footer.el).html(footerTemplate);
 
 			// Append profile package
 			console.log("Launching game");
