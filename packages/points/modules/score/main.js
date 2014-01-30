@@ -7,8 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Crafty", "./KO"], function(jQuery, Crafty, ko) {
-	return score = {
+define(["jQuery", "KO"], function(jQuery, ko) {
+	return Score = {
+
 		// Module variables (can be overwritten dynamically)
 		default_value: 500,
 		default_step: 10,
@@ -17,28 +18,33 @@ define(["./jQuery", "./Crafty", "./KO"], function(jQuery, Crafty, ko) {
 		
 		init: function(){
 			// Setup my score
-			var my_score = score.default_value;
+			var my_score = Score.default_value;
 			jQuery("#my_score").html(my_score);
 		},
+
 		ViewModel: function() { 
-			this.sp = ko.observable(score.default_value);
-			this.step = ko.observable(score.default_step);
+			this.sp = ko.observable(Score.default_value);
+			this.step = ko.observable(Score.default_step);
     		this.incrementScore = function() {
-    			if(this.sp() <= (score.max_value - this.step())){
+    			if(this.sp() <= (Score.max_value - this.step())){
         			this.sp(this.sp() + this.step()); // Normal increment event
         		}
         		else{
-        			this.sp(score.max_value); // Reached increment limit
+        			this.sp(Score.max_value); // Reached increment limit
         		}
     		};
     		this.decrementScore = function() {
-    			if(this.sp() >= (score.min_value + this.step())){
+    			if(this.sp() >= (Score.min_value + this.step())){
         			this.sp(this.sp() - this.step()); // Normal decrement event
         		}
         		else{
-        			this.sp(score.min_value); // Reached decrement limit
+        			this.sp(Score.min_value); // Reached decrement limit
         		}
     		};
+		},
+
+		logger: function() {
+			console.log("Score MODULE loaded");
 		}
 	}
 });

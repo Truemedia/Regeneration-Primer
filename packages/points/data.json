@@ -1,0 +1,53 @@
+{
+    "identifier": "title",
+  "items": [
+      {
+      	"pid": "1", "full_name": "Reece Neadham", "occupation": "Student",
+      	"about": "Bio to be updated",
+      	"characterColourScheme": "goldenrod", "identifierReference": "coward", "identifierCamelCase": "Coward",
+      	"active": " active"
+      },
+      {
+      	"pid": "2", "full_name": "Brian Lomber", "occupation": "Prison Guard",
+      	"about": "Bio to be updated",
+      	"characterColourScheme": "dimgrey", "identifierReference": "criminal", "identifierCamelCase": "Criminal",
+      	"active": ""
+      },
+      {
+      	"pid": "3", "full_name": "Angela Teelow", "occupation": "Carer",
+      	"about": "Bio to be updated",
+      	"characterColourScheme": "darkslateblue", "identifierReference": "mother", "identifierCamelCase": "Mother",
+      	"active": ""
+      },
+      {
+      	"pid": "4", "full_name": "Damian Esterson", "occupation": "Car mechanic",
+      	"about": "Bio to be updated",
+      	"characterColourScheme": "firebrick", "identifierReference": "nextdoorneighbor", "identifierCamelCase": "NextDoorNeighbor",
+      	"active": ""
+      },
+      {
+      	"pid": "5", "full_name": "Martin Bargus", "occupation": "Til Operative",
+		"about": "Bio to be updated",
+		"characterColourScheme": "cyan", "identifierReference": "psychoticworker", "identifierCamelCase": "PsychoticWorker",
+		"active": ""
+	  },
+	  {
+	  	"pid": "6", "full_name": "Nicholas Bargus", "occupation": "Manager",
+		"about": "Bio to be updated",
+		"characterColourScheme": "saddlebrown", "identifierReference": "storeowner", "identifierCamelCase": "StoreOwner",
+		"active": ""
+	  },
+	  {
+	  	"pid": "7", "full_name": "Lucy Bargus", "occupation": "Assistant Manager",
+		"about": "Bio to be updated",
+		"characterColourScheme": "salmon", "identifierReference": "storeownerwife", "identifierCamelCase": "StoreOwnerWife",
+		"active": ""
+	  },
+	  {
+	  	"pid": "8", "full_name": "Claire Bellinger", "occupation": "Aviation Pilot",
+		"about": "Bio to be updated",
+		"characterColourScheme": "seagreen", "identifierReference": "womanhelicopterpilot", "identifierCamelCase": "WomanHelicopterPilot",
+		"active": ""
+	  }
+  ]
+}

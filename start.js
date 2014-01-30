@@ -70,9 +70,6 @@ require.config({
         
         /* Formatting libraries */
         'moment': "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min", // MomentJS (Date and time formatting)
-        
-        /* General Libraries (For UI, FX, and API's) */
-        'bindings.ko': "libs/bindings.ko" // Custom library for binding KO with JavaScript UI libraries
     },
     shim: {
 
@@ -143,12 +140,6 @@ require.config({
         'fuelux': {
             deps: ['jQuery'],
             exports: 'jQuery'
-        },
-
-        // Knockout custom bindings
-        'bindings.ko': {
-            deps: ['jQ.ui', 'KO'],
-            exports: 'KO'
         },
         
         // Inject regeneration classes into autoloader

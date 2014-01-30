@@ -7,44 +7,81 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.PKG"], function(jQuery, Crafty, ko, player) {
-	return health = {
+define(["jQ.ui", "KO"], function(jQuery, ko) {
+	return Health = {
+
 		// Module variables (can be overwritten dynamically)
 		default_value: 94,
 		default_step: 4,
 		max_value: 100,
 		min_value: 0,
-		
-		registerEvents: function(){
-			// Setup health tracking jQuery events
+
+        init: function(){
+
+            /* Custom KO handlers
+            ko.bindingHandlers.progress = {
+                init: function(element, valueAccessor) {
+                    jQuery(element).progressbar({
+                        value: 94 // TODO: Make the binding pass a value
+                    });
+                },
+                update: function(element, valueAccessor) {
+                    var val = ko.utils.unwrapObservable(valueAccessor());
+                    if(val == 0){
+                        jQuery(element).progressbar("value", false);
+                    }
+                    else{
+                        jQuery(element).progressbar("value", parseFloat(val));
+                    }
+                }
+            };
+            ko.bindingHandlers.singleton = {
+                update: function(element, valueAccessor) {
+                    // If player is human, update there score
+                    var containing_element = jQuery(element).parent().parent().parent().parent().parent().get(0);
+                    if(jQuery(cont+aining_element).is(':first-child')){
+                        var val = ko.utils.unwrapObservable(valueAccessor());
+                        jQuery("#my_score").html(val);
+                    }
+                }
+            }; */
+
+            Health.registerUI(); // Kickstart UI
+            Health.registerEvents(); // Apply all jQuery event handlers
+        },
+
+        registerEvents: function() {
+            // Setup health tracking jQuery events
             jQuery('.player_health').bind('progressbarchange', function(event, ui) {
-            	/* Grab relevant Elements and Information */
+                /* Grab relevant Elements and Information */
                 var element = jQuery(this).children();
                 var hp = parseInt(jQuery(this).attr("aria-valuenow"), 10);
-                health.HPcolor(element, hp);
+                Health.HPcolor(element, hp);
             });
-            jQuery('#points_partial').on("click", ".debug_button", function(event) {
+            jQuery('div[data-package="points"]').on("click", ".debug_button", function(e) {
 
-				jQuery(this).parent().parent().children(".debug_controls").toggle();
-			});
-		},
-		registerUI: function(){
-			// Setup progressbar
-			jQuery(".player_health").progressbar();
-		
-			// Default progress bar colour
-			/* Green (100 - 90% health) */
-			jQuery('.player_health > div').css({ 'background': 'LightGreen' });
-		},
+                jQuery(this).parent().parent().children(".debug_controls").toggle();
+                e.preventDefault();
+            });
+        },
+        registerUI: function(){
+            // Setup progressbar
+            jQuery(".player_health").progressbar();
+        
+            // Default progress bar colour
+            /* Green (100 - 90% health) */
+            jQuery('.player_health > div').css({ 'background': 'LightGreen' });
+        },
+
 		ViewModel: function(player_id) {
 			this.player_id = ko.observable(player_id);
 			this.dead = ko.observable(false);
-			this.hp = ko.observable(health.default_value);
-			this.step = ko.observable(health.default_step);
+			this.hp = ko.observable(Health.default_value);
+			this.step = ko.observable(Health.default_step);
 			
 			// Add health (if not dead)
     		this.incrementHealth = function() { if(this.dead() == false){
-    				if(this.hp() <= (health.max_value - this.step())){
+    				if(this.hp() <= (Health.max_value - this.step())){
     					if(this.player_id() == 0){
     						jQuery("#player_purgatory > span").html("Alive")
     						jQuery("#player_purgatory")
@@ -60,14 +97,14 @@ define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.PKG"], function(jQuery
     							.removeClass("deceased")
     							.addClass("alive");
     					}
-        				this.hp(health.max_value); // Reached modify limit (Maximum health)
+        				this.hp(Health.max_value); // Reached modify limit (Maximum health)
         			}
         		}
     		};
     		
     		// Remove health
     		this.decrementHealth = function() {
-    			if(this.hp() >= (health.min_value + this.step())){
+    			if(this.hp() >= (Health.min_value + this.step())){
     				if(this.player_id() == 0){
     					jQuery("#player_purgatory > span").html("Alive")
     					jQuery("#player_purgatory")
@@ -88,17 +125,14 @@ define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.PKG"], function(jQuery
         			
         			// Kill off the player
         			if(this.dead() == false){
-        				this.hp(health.min_value);
+        				this.hp(Health.min_value);
         				this.dead(true);
-        				player.killPlayer(this.player_id());
+        				//player.killPlayer(this.player_id());
         			}
         		}
     		};
 		},
-		init: function(){
-			health.registerUI(); // Kickstart UI
-			health.registerEvents(); // Apply all jQuery event handlers
-		},
+
 		HPcolor: function(element, hp){
 			/* Change progress bar colour, depending on value ranges */
 			if (hp >= 90){ // Green (100 - 90% health)
@@ -125,6 +159,10 @@ define(["./jQ.ui", "./Crafty", "./bindings.ko", "./player.PKG"], function(jQuery
 			}	
 			/* At 0% player will be crossed out */
 			// TODO: Add visuals and code for inactive player (deceased)
+		},
+
+		logger: function() {
+			console.log("Health MODULE loaded");
 		}
 	}
 });

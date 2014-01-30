@@ -8,8 +8,10 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./jQ.ui", "./Crafty", "./KO", "./Health.MOD", "./Score.MOD"
-], function(view, nls, Config, Lang, Package, jQuery, Crafty, ko, health, score) {
+	"stache!./views/partial",
+	"i18n!./nls/strings",
+	"Config", "Lang", "Package", "jQ.ui", "KO", "./modules/health/main", "./modules/score/main"
+], function(template, nls, Config, Lang, Package, jQuery, ko, Health, Score) {
 	return points = {
 			
 		// Partial loading location	
@@ -20,56 +22,89 @@ define([
 		
 		// Translations
 		trans: {},
-			
-		/* Load this package */
-	 	init: function() {
-	 		
-	 		// Register package
+
+		// Package options
+		settings: null,
+				
+		/* Initial load-up procedure if first time package is loaded */
+		init: function(options) {
+				
+			// Register package
 			Package.register('points');
-	 		
-	 		// Load translations
-			points.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			points.loadDOM();
+
+			// Load translations
+			this.trans = Lang.getTrans(nls);
+
+			// Save options
+			this.settings = (Object.keys(options).length === 0) ? Config.get('points::defaults') : options;
 		},
-		
+			
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
-        },
+	    load: function(element, options) {
+	        	
+	        // Load the package onto current web-page
+	    	this.init(options);
+			new this.view({el: element});
+	    },
 
-        /* Autoloader terminate method */
-        unload: function() {
+	    /* Autoloader terminate method */
+	    unload: function() {
 
-        },
-		
-		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
-			
-			jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(data){
+	    },
+	        
+	    /* Data collection */
+	    collection: Backbone.Collection.extend({
 
-				// Build data
-				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-				
-				// Append language strings to JSON data source
-				data.trans = points.trans;
-				
-				// Load view
-       			document.getElementById(points.partial_block_element).innerHTML = view(data);
- 				
- 				jQuery(document).ready(function() {
- 
- 					points.registerBindings(); // Apply all KO bindings
- 					/* Start up modules */
- 					health.init();
+	        model: Backbone.Model.extend(),
+
+	        // URL to collect data from
+	        url: function() { return Config.get('points::routes.' + points.settings.source); },
+
+	        // Filter collection data
+	        parse: function(data) { return data.items; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        	
+	        initialize: function() {
+	            	
+	            this.collection = new points.collection();
+	            this.render();
+	        },
+
+	        render: function() {
+
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters'),
+	            		items: self.collection.toJSON(),
+	            		trans: points.trans
+	            	};
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+	            	points.registerEvents();
+	            });
+	        }
+	    }),
+
+	    /* jQuery event handlers */
+	    registerEvents: function() {
+
+	    	this.registerBindings(); // Apply all KO bindings
  					
- 					// Hide points debugging (TODO: Make hidden via KO)
- 					jQuery('.debug_controls').toggle();
- 					jQuery('.debug_controls:first').toggle();
-				}); 
-			});
-		},
+			// Start up modules
+ 			Health.init();
+ 					
+ 			// Hide points debugging (TODO: Make hidden via KO)
+ 			jQuery('.debug_controls').toggle();
+ 			jQuery('.debug_controls:first').toggle();
+	    },
 
 		/* Register ViewModel with DOM elements */
 		registerBindings: function() {
@@ -84,11 +119,11 @@ define([
 		ViewModel: function(player_id) { 
 
 			// Modules with ViewModels for this package
-			this.score = new score.ViewModel();
-    		this.health = new health.ViewModel(player_id);
+			this.score = new Score.ViewModel();
+    		this.health = new Health.ViewModel(player_id);
 		},
 
-		/* Visually differentiate the player of this game instance from other players */
+		/* Visually differentiate the player of this game instance from other players
 		highlightMainPlayer: function(character){
 
 			// Move current character to top of list (shown as highlighted)
@@ -110,7 +145,7 @@ define([
 			});
 		},
 
-		/* KnockOut function call via Crafty */
+		/* KnockOut function call via Crafty
 		incrementScore: function(player_id) {
 
 			// Execute ViewModel function for this element
@@ -119,19 +154,19 @@ define([
     		vm.score.incrementScore();
 		},
 
-		/* Execute main score function */
+		/* Execute main score function
 		incrementMyScore: function() {
 
 			points.incrementScore(0);
 		},
 
-		/* Execute main score function/KnockOut function call via Crafty */
+		/* Execute main score function/KnockOut function call via Crafty 
 		incrementAllScores: function() {
 
 			// Execute ViewModel function for all elements
 			jQuery("#points_partial .score_container").each(function(charIteration){
 				points.incrementScore(charIteration);
 			});
-		}
+		}*/
 	}
 });
