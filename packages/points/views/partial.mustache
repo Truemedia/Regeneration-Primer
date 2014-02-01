@@ -1,50 +1,56 @@
-{{#items}}
-<div class="score_container" style="clear: both;">
-	<input class="player_object" type="hidden" value="{{identifierReference}}" />
-	<dl class="player_info">
-		<dt class="player_overview">
-			<span class="player_maininfo player_number">Player {{pid}}</span>
-			<span class="player_maininfo player_name">{{full_name}} ({{occupation}})</span>
-		</dt>
-		<dd class="player_score">
-			<div style="display: inline-block;">
-				<span data-bind="with: score">
-				<!-- Player icon and colored score -->
-				<img style="padding: 0; margin: 0;" src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" />
-				<span data-bind="text: sp" id="{{identifierReference}}_score_color" class="score {{identifierReference}}-colorscheme"></span>
-			</div>
-			<div style="width: 420px;">
-				<div class="pull-left" style="text-align: center;" data-bind="with: health">
-					<div class="player_health" data-bind="progress: hp"></div>
-						<span class="player_health_stats badge badge-important pull-right">
-							<span data-bind="if: dead" class="dead_status"><span class="no-bg">DECEASED</span></span>
-							<span data-bind="ifnot: dead">HP: (<span class="player_health_unit" data-bind="text: hp"></span>/100)</span>
-						</span>
+<div class="list-group">
+	{{#items}}
+	<div class="score_container list-group-item" style="clear: both;">
+		<input class="player_object" type="hidden" value="{{identifierReference}}" />
+		<img class="img-thumbnail pull-right" src="{{content_pack}}/images/characters/({{identifierReference}})_mini.png" alt="Character" />
+		<small>Player {{pid}}</small>
+		<h5 class="list-group-item-heading">{{full_name}}</h5>
+		<div class="row">
+			<div class="col-xs-9" data-bind="with: health">
+				<div class="progress">
+				    <div class="progress-bar"
+				    	 data-bind="style: { width: progress(), backgroundColor: color() }"
+				    	 role="progressbar"
+				    	 aria-valuenow="60"
+				    	 aria-valuemin="0"
+				    	 aria-valuemax="100"
+				    	 style="background-image: none;">
+						<span class="text-danger" data-bind="if: dead">DECEASED</span>
+						<span data-bind="ifnot: dead">HP: (<span data-bind="text: hp"></span>/100)</span>
 					</div>
-					<a href="#" class="debug_button pull-right" style="margin-right: 10px;">Debug</a>
-				</div>
-				<div class="debug_controls">
-					<div class="btn-group" data-bind="with: score">
-						<button data-bind="click: decrementScore" class="score_submit btn btn-xs {{identifierReference}}-colorscheme" value="{{pid}}">
-							<i class="icon-minus"></i> 10 SP
-						</button>
-						<button data-bind="click: incrementScore" class="score_submit btn btn-xs {{identifierReference}}-colorscheme" value="{{pid}}">
-							<i class="icon-plus"></i> 10 SP
-						</button>
-					</div>
-					<div class="btn-group" data-bind="with: health">
-						<button class="health_reduce btn btn-xs {{identifierReference}}-colorscheme" value="{{pid}}" data-bind="click: decrementHealth">
-							<i class="icon-minus"></i> 4 HP
-						</button>
-						<button class="health_reduce btn btn-xs {{identifierReference}}-colorscheme value="{{pid}}" data-bind="click: incrementHealth">
-							<i class="icon-plus"></i> 4 HP
-						</button>
-					</div>
-					<!-- Used to make sure data is fed to #my_score -->
-					<div style="display: none;" data-bind="with: score"><div data-bind="singleton: sp"></div></div>
 				</div>
 			</div>
-		</dd>
-	</dl>
+			<div class="col-xs-1" data-bind="with: score">
+				<strong data-bind="text: sp" style="color: {{characterColourScheme}};"></strong>
+			</div>
+		</div>
+		<!-- Uncomment to debug HP and SP
+			<button class="debug_button btn btn-xs btn-warning" href="#">Debug</button>
+		-->
+		<div class="row debug_controls">
+			<div role="toolbar" class="btn-toolbar">
+    			<div class="btn-group btn-group-xs" data-bind="with: score">
+        			<button class="btn btn-default" type="button" data-bind="click: decreaseScore" value="{{pid}}">
+        				<strong>-</strong> {{score_step}} sp
+        			</button>
+        			<button class="btn btn-default" type="button" data-bind="click: increaseScore" value="{{pid}}">
+        				<strong>+</strong> {{score_step}} sp
+        			</button>
+      			</div>
+      			<div class="btn-group btn-group-xs" data-bind="with: health">
+        			<button class="btn btn-default" type="button" data-bind="click: decreaseHealth" value="{{pid}}">
+        				<strong>-</strong> {{health_step}} hp
+        			</button>
+        			<button class="btn btn-default" type="button" data-bind="click: increaseHealth" value="{{pid}}">
+        				<strong>+</strong> {{health_step}} hp
+        			</button>
+      			</div>
+    		</div>
+		</div>
+		<!--
+			Used to make sure data is fed to #my_score
+			<div style="display: none;" data-bind="with: score"><div data-bind="singleton: sp"></div></div>
+		-->
+	</div>
+	{{/items}}
 </div>
-{{/items}}

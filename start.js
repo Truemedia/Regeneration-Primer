@@ -45,8 +45,6 @@ require.config({
         
         /* Modules (Will soon be deprecated) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
-        'Health.MOD': "modules/health/health.module", // Health module
-        'Score.MOD': "modules/score/score.module", // Score module
         
         /* Game object definitions */
         'Gun.GOD': "gameobjects/gun",
@@ -79,9 +77,6 @@ require.config({
         },
         'Crafty': {
             exports: 'Crafty'
-        },
-        'KO': {
-            exports: 'KO'
         },
         'Buzz': {
             exports: 'buzz'

@@ -7,38 +7,36 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["jQuery", "KO"], function(jQuery, ko) {
+define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko) {
 	return Score = {
-
-		// Module variables (can be overwritten dynamically)
-		default_value: 500,
-		default_step: 10,
-		max_value: 10000,
-		min_value: 0,
 		
-		init: function(){
+		init: function() {
 			// Setup my score
-			var my_score = Score.default_value;
+			var my_score = Config.get('points::score.default_value');
 			jQuery("#my_score").html(my_score);
 		},
 
-		ViewModel: function() { 
-			this.sp = ko.observable(Score.default_value);
-			this.step = ko.observable(Score.default_step);
-    		this.incrementScore = function() {
-    			if(this.sp() <= (Score.max_value - this.step())){
+		ViewModel: function() {
+
+            // Defaults
+			this.sp = ko.observable( parseInt(Config.get('points::score.default_value')) );
+			this.step = ko.observable( parseInt(Config.get('points::score.default_step')) );
+
+            // Increase/Decrease methods
+    		this.increaseScore = function() {
+    			if (this.sp() <= ( parseInt(Config.get('points::score.max_value')) - this.step() )) {
         			this.sp(this.sp() + this.step()); // Normal increment event
         		}
-        		else{
-        			this.sp(Score.max_value); // Reached increment limit
+        		else {
+        			this.sp( Config.get('points::score.max_value') ); // Reached increment limit
         		}
     		};
-    		this.decrementScore = function() {
-    			if(this.sp() >= (Score.min_value + this.step())){
+    		this.decreaseScore = function() {
+    			if (this.sp() >= ( parseInt(Config.get('points::score.min_value')) + this.step() )) {
         			this.sp(this.sp() - this.step()); // Normal decrement event
         		}
-        		else{
-        			this.sp(Score.min_value); // Reached decrement limit
+        		else {
+        			this.sp( parseInt(Config.get('points::score.min_value')) ); // Reached decrement limit
         		}
     		};
 		},

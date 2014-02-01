@@ -83,7 +83,9 @@ define([
 	            	var data = {
 	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters'),
 	            		items: self.collection.toJSON(),
-	            		trans: points.trans
+	            		trans: points.trans,
+	            		health_step: Config.get('points::health.default_step'),
+	            		score_step: Config.get('points::score.default_step')
 	            	};
 	    				
 	            	// Render content
@@ -103,7 +105,6 @@ define([
  					
  			// Hide points debugging (TODO: Make hidden via KO)
  			jQuery('.debug_controls').toggle();
- 			jQuery('.debug_controls:first').toggle();
 	    },
 
 		/* Register ViewModel with DOM elements */

@@ -1,0 +1,6 @@
+{
+	"default_value": "500",
+	"default_step": "10",
+	"max_value": "10000",
+	"min_value": "0"
+}
