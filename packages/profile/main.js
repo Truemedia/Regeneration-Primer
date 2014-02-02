@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Bootstrap", "Backbone", "KO"
+], function(template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko) {
 	return profile = {
 		
 		// Translations
@@ -45,26 +45,6 @@ define([
 	        url: 'packages/profile/data.json',
 	        parse: function(data) { return data; }
 	    }),
-		
-		/* Append the HTML for this package to the DOM */
-		loadDOM: function(characterselected) {
-			
-			// Get data
-			jQuery.getJSON("packages/profile/data.json", function(data){
-				
-				// Append content pack
-				data.content_pack = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters');
-				
-				// Append language strings to JSON data source
-				data.trans = profile.trans;
-			
-				// Load view
-       			document.getElementById(profile.partial_block_element).innerHTML = view(data);
-       			
-       			// Bind ViewModel collection
-       			profile.registerBindings();
-			});
-		},
 
 		 /* Append the HTML for this package to the DOM */
 	    view: Backbone.View.extend({
@@ -80,12 +60,20 @@ define([
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {
+
+	            	var json_string = {
+	            		"a": "b",
+	            		"c": "d"
+	            	};
 	            		
 	            	// Compose data for view
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: profile.trans,
-	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters')
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters'),
+	            		session: JSON.stringify({
+	            			character: Session.get('character')
+	            		})
 	            	};
 	    				
 	            	// Render content
