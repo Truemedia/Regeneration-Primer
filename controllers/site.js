@@ -74,8 +74,6 @@ define([
 
 			// Append profile package
 			console.log("Launching game");
-			var profile_html = '<div data-package="profile"></div>';
-			jQuery('#sidebar_right').append(profile_html);
 		}
 	}
 });

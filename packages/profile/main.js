@@ -60,11 +60,6 @@ define([
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {
-
-	            	var json_string = {
-	            		"a": "b",
-	            		"c": "d"
-	            	};
 	            		
 	            	// Compose data for view
 	            	var data = {
@@ -72,7 +67,8 @@ define([
 	            		trans: profile.trans,
 	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters'),
 	            		session: JSON.stringify({
-	            			character: Session.get('character')
+	            			character: Session.get('character'),
+	            			map: Session.get('map')
 	            		})
 	            	};
 	    				

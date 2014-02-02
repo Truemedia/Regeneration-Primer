@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Crafty", "jQuery", "Leaflet"
-], function(template, nls, Config, Lang, Package, Crafty, jQuery, L) {
+	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Crafty", "jQuery", "Leaflet"
+], function(template, nls, Config, Lang, Package, Session, Crafty, jQuery, L) {
 	return maps = {
 		
 		layers: 1,
@@ -105,6 +105,14 @@ define([
 				else {
 					jQuery(this).children("span").html("Play map");
 				}
+			});
+
+			// Map selected
+			jQuery("[data-package='maps']").on("click", ".map_select", function(event) {
+
+				var map_choosen = jQuery(this).val();
+				Session.put('map', map_choosen);
+				maps.deactivate();
 			});
 		},
 		
