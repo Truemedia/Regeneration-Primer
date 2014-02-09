@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Bootstrap", "Backbone"
+], function(template, nls, Config, Lang, Game, Package, jQuery, Backbone) {
 	return stage = {
 		
 		// Translations
@@ -69,6 +69,9 @@ define([
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
+
+	            	// Start game instance
+					Game.launch();
 	            });
 	        }
 	    })

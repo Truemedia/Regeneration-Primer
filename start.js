@@ -40,8 +40,10 @@ require.config({
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class
         'Page': "regeneration/page", // Page class
+        'Resource': "regeneration/resource", // Resource class
         'Router': "regeneration/router", // Router class
         'Session': "regeneration/session", // Session class
+        'Spawner': "regeneration/spawner", // Spawner class
         
         /* Modules (Will soon be deprecated) */
         'Gun.MOD': "modules/gun/gun.module", // Gun module
@@ -140,7 +142,7 @@ require.config({
         // Inject regeneration classes into autoloader
         'conditioner': {
             deps: [
-                'App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Router', 'Session'
+                'App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
             ],
             exports: 'conditioner'
         }

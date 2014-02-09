@@ -13,8 +13,9 @@ define([
 	'text!views/regions/header.html',
 	'text!views/regions/footer.html',
 	'text!views/regions/content/selection.html',
+	'text!views/regions/content/stage.html',
 	'Marionette', 'jQuery'
-], function(homePage, gamePage, headerTemplate, footerTemplate, contentTemplate, Marionette, jQuery) {
+], function(homePage, gamePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, Marionette, jQuery) {
 	return Site_Controller = {
 
 		/* Default controller action */
@@ -41,7 +42,7 @@ define([
 
 			// Load region templates
 			jQuery(page.header.el).html(headerTemplate);
-			jQuery(page.content.el).html(contentTemplate);
+			jQuery(page.content.el).html(contentSelectionTemplate);
 			jQuery(page.footer.el).html(footerTemplate);
 		},
 
@@ -69,7 +70,7 @@ define([
 
 			// Load region templates
 			jQuery(page.header.el).html(headerTemplate);
-			jQuery(page.content.el).html(contentTemplate);
+			jQuery(page.content.el).html(contentStageTemplate);
 			jQuery(page.footer.el).html(footerTemplate);
 
 			// Append profile package

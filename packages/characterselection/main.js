@@ -24,6 +24,10 @@ define([
 			// Load translations
 			this.trans = Lang.getTrans(nls);
 		},
+
+		test: function() {
+			alert("Circular loading");
+		},
 		
 		/* Autoloading hook */
         load: function(element, options) {

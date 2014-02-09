@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define( function(require, exports, module) {
+define([], function() {
 	return keyboard = {
 		
 		/* Bind keyboard keys to game action hooks */
@@ -55,116 +55,116 @@ define( function(require, exports, module) {
 			
 			// Moving player
 			if (me.input.isKeyPressed('moveup')) {
-				require('player').move('up');
+				//require('player').move('up');
 			}
 			else if (me.input.isKeyPressed('moveleft')) {
-				require('player').move('left');
+				//require('player').move('left');
 			}
 			else if (me.input.isKeyPressed('movedown')) {
-				require('player').move('down');
+				//require('player').move('down');
 			}
 			else if (me.input.isKeyPressed('moveright')) {
-				require('player').move('right');
+				//require('player').move('right');
 			}
 			
 			// Handling gun
 			else if (me.input.isKeyPressed('operate')) {
-				require('audio').sampler.play("shoot");
+				//require('audio').sampler.play("shoot");
 			}
 			else if (me.input.isKeyPressed('push')) {
-				require('audio').sampler.play("fired_bullet_shelldrop");
+				//require('audio').sampler.play("fired_bullet_shelldrop");
 			}
 			else if (me.input.isKeyPressed('throwmag')) {
-				require('audio').sampler.play("discard_mag");
+				//require('audio').sampler.play("discard_mag");
 				console.log("Removed a mag");
 			}
 			else if (me.input.isKeyPressed('entermag')) {
-				require('audio').sampler.play("insert_mag");
+				//require('audio').sampler.play("insert_mag");
 				console.log("Loaded a mag");
 			}
 			else if (me.input.isKeyPressed('reload')) {
-				require('audio').sampler.play("lock_inserted_mag");
+				//require('audio').sampler.play("lock_inserted_mag");
 				//audio.play.sample("insert_mag");
 				//audio.play.sample("load_chamber");
 				console.log("Connected a mag");
 			}
 			else if (me.input.isKeyPressed('chamber')) {
-				require('audio').sampler.play("load_chamber");
+				//require('audio').sampler.play("load_chamber");
 				console.log("Loaded chamber");
 			}
 			
 			// Hiding or showing left sidebar
 			else if (me.input.isKeyPressed('toggleleftsidebar')) {
-				require('Page').sidebar('left', 'toggle');
+				//require('Page').sidebar('left', 'toggle');
 			}
 			
 			// Hiding or showing right sidebar
 			else if (me.input.isKeyPressed('togglerightsidebar')) {
-				require('Page').sidebar('right', 'toggle');
+				//require('Page').sidebar('right', 'toggle');
 			}
 			
 			// Hiding or showing header
 			else if (me.input.isKeyPressed('toggleheader')) {
 
-				if (require('header').active == false) {
+				/*if (require('header').active == false) {
 					require('header').activate();
 				} else {
 					require('header').deactivate();
-				}
+				}*/
 			}
 			
 			// Hiding or showing footer
 			else if (me.input.isKeyPressed('togglefooter')) {
 
-				if (require('footer').active == false) {
+				/*if (require('footer').active == false) {
 					require('footer').activate();
 					require('social').init();
 				} else {
 					require('footer').deactivate();
 					document.getElementById('social_partial').innerHTML = "";
-				}
+				}*/
 			}
 
 			// Select/Unselect inventory items
 			else if (me.input.isKeyPressed('itemone')) {
-				require('inventory').switchItem(1);
+				//require('inventory').switchItem(1);
 			}
 			else if (me.input.isKeyPressed('itemtwo')) {
-				require('inventory').switchItem(2);
+				//require('inventory').switchItem(2);
 			}
 			else if (me.input.isKeyPressed('itemthree')) {
-				require('inventory').switchItem(3);
+				//require('inventory').switchItem(3);
 			}
 			else if (me.input.isKeyPressed('itemfour')) {
-				require('inventory').switchItem(4);
+				//require('inventory').switchItem(4);
 			}
 			else if (me.input.isKeyPressed('itemfive')) {
-				require('inventory').switchItem(5);
+				//require('inventory').switchItem(5);
 			}
 			else if (me.input.isKeyPressed('itemsix')) {
-				require('inventory').switchItem(6);
+				//require('inventory').switchItem(6);
 			}
 			else if (me.input.isKeyPressed('itemseven')) {
-				require('inventory').switchItem(7);
+				//require('inventory').switchItem(7);
 			}
 			else if (me.input.isKeyPressed('itemeight')) {
-				require('inventory').switchItem(8);
+				//require('inventory').switchItem(8);
 			}
 			else if (me.input.isKeyPressed('itemnine')) {
-				require('inventory').switchItem(9);
+				//require('inventory').switchItem(9);
 			}
 			else if (me.input.isKeyPressed('itemten')) {
-				require('inventory').switchItem(0);
+				//require('inventory').switchItem(0);
 			}
 			
 			// Handling items
 			else if (me.input.isKeyPressed('pickup')) {
-				require('inventory').equip("Gun");
+				//require('inventory').equip("Gun");
 			}
 			
 			// Debugging
 			else if (me.input.isKeyPressed('coords')) {
-				require('debug').saveCoords();
+				//require('debug').saveCoords();
 			}
 		}
 	}

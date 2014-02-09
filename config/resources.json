@@ -17,6 +17,9 @@
 			"video": "multimedia/default-contentpack/video/"
 		},
 		"scenes": "scenes",
+		"sprites": {
+			"characters": "multimedia/debug/images/characters/"
+		},
 		"stylesheets": {
 			"game_styling": "stylesheets/default-theme/game_styling",
 			"themeroller_styling": "stylesheets/default-theme/themeroller_styling",

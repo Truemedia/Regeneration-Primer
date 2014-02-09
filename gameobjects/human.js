@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./Session", "./spawner.PKG"], function(jQuery, Session, spawner) {
+define([], function() {
 	return me.ObjectEntity.extend({
 		
 		bot: null,
@@ -18,21 +18,21 @@ define(["./jQuery", "./Session", "./spawner.PKG"], function(jQuery, Session, spa
 			this.bot = settings.bot;
 			
 			// Set image based on character name in session
-			var main_character = Session.get('character');
+			var chosen_character = Config.get('characterselection::characters.' + Session.get('character') );
 			
 			// Use selected character sprite
 			if (this.bot == false) {
-				settings.image = main_character;
+				settings.image = chosen_character;
 			}
 			// Use random character sprite
 			else {
 				
-				supporting_character = spawner.spawnPlayer();
+				supporting_character = Spawner.load_entity_entry();
 				
 				// Avoid respawning main player
-				if (supporting_character === main_character) {
+				if (supporting_character === chosen_character) {
 					
-					supporting_character = spawner.spawnPlayer();
+					supporting_character = Spawner.load_entity_entry();
 				}
 				
 				settings.image = supporting_character;

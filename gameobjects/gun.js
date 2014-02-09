@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery", "./inventory.PKG"], function(jQuery, inventory) {
+define([], function() {
 	return me.ObjectEntity.extend({
 		init: function(x, y, settings) {
 
@@ -17,6 +17,7 @@ define(["./jQuery", "./inventory.PKG"], function(jQuery, inventory) {
 			
 			// Store data in object instance
 			this.itemname = settings.itemname;
+			setting.image = 'criminal';
 		},
 		
 		update: function() {
@@ -35,7 +36,7 @@ define(["./jQuery", "./inventory.PKG"], function(jQuery, inventory) {
 
 			// Remove and notify as equipped
 			me.game.remove(this);
-			inventory.equip(this.itemname);
+			//inventory.equip(this.itemname);
 		},
 	});
 });

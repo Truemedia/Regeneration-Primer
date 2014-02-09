@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone" //"./modules/keyboard/main", "./modules/mouse/main"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "./modules/keyboard/main", "./modules/mouse/main"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse) {
 	return controls = {
 		
 		// Translations
@@ -68,6 +68,7 @@ define([
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
+	            	controls.bindHumanInterfaceDevices();
 	            });
 	        }
 	    }),
@@ -76,8 +77,12 @@ define([
 		bindHumanInterfaceDevices: function() {
 			
 			// PC gaming hardware
-			//keyboard.bindControls();
-			//mouse.bindControls();
+			keyboard.bindControls();
+			mouse.bindControls();
+
+			// TV gaming hardware
+
+			// Mobile gaming hardware
 		}
 	}
 });
