@@ -95,9 +95,6 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 			// Setup guns to pickup
 			//var guns = me.entityPool.add("gunEquip", gun_object, true);
 
-			// Setup physical controllers
-			//require('controls').bindHumanInterfaceDevices();
-
 			// Start the game
 			me.state.change(me.state.PLAY);
 			
