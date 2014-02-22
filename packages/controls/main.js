@@ -8,8 +8,10 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "./modules/keyboard/main", "./modules/mouse/main"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse) {
+	"stache!./views/modal", "i18n!./nls/strings",
+	"Config", "Lang", "Package", "Bootstrap", "Backbone",
+	"./modules/keyboard/main", "./modules/mouse/main", "./modules/joypad/main"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad) {
 	return controls = {
 		
 		// Translations
@@ -81,6 +83,7 @@ define([
 			mouse.bindControls();
 
 			// TV gaming hardware
+			joypad.registerControllers();
 
 			// Mobile gaming hardware
 		}
