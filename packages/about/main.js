@@ -1,23 +1,29 @@
-/* 
-* @file About PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for providing information about a game, and links to external services
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file About PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for providing information about a game, and links to external services
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
 ], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+	/** 
+     * About package
+     * @namespace about
+     */
 	return about = {
 		
 		// Translations
 		trans: {},
 			
-		/* Initial load-up procedure if first time package is loaded */
-	 	init: function() {
-	 		
+		/**
+		 * Initial load-up procedure if first time package is loaded
+		 */
+	 	init: function()
+	 	{	
 	 		// Register package
 	 		Package.register('about');
 	 		
@@ -25,38 +31,48 @@ define([
 			this.trans = Lang.getTrans(nls);
 		},
 		
-		/* Autoloading hook */
-        load: function(element, options) {
-        	
+		/**
+		 * Autoloading hook
+		 * @param {object} element - HTML element the package is tied to in the DOM.
+		 * @param {object} options - JSON string of options passed from the data-options attribute.
+		 */
+        load: function(element, options)
+        {	
         	// Load the package onto current web-page
         	this.init();
 			new this.view({el: element});
         },
 
-        /* Autoloader terminate method */
-        unload: function() {
+        /**
+         * Autoloader terminate method
+         */
+        unload: function()
+        {
 
         },
         
-        /* Data collection */
+        /**
+         * Data collection
+         * @constructor
+         */
 	    collection: Backbone.Collection.extend({
-
 	        model: Backbone.Model.extend(),
 	        url: 'packages/about/data.json',
 	        parse: function(data) { return data.items; }
 	    }),
 	        
-	    /* Append the HTML for this package to the DOM */
+	    /**
+	     * View composer
+	     * @constructor
+	     */
 	    view: Backbone.View.extend({
-	        	
-	        initialize: function() {
-	            	
+	        initialize: function()
+	        {
 	            this.collection = new about.collection();
 	            this.render();
 	        },
-
-	        render: function() {
-
+	        render: function()
+	        {
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {

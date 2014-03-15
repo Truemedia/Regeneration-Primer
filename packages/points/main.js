@@ -1,17 +1,21 @@
-/* 
-* @file Points PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used as CRUDL API of various point mechanisms relevant to players
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Points PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used as CRUDL API of various point mechanisms relevant to players
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial",
 	"i18n!./nls/strings",
 	"Config", "Lang", "Package", "jQ.ui", "KO", "./modules/health/main", "./modules/score/main"
 ], function(template, nls, Config, Lang, Package, jQuery, ko, Health, Score) {
+	/** 
+     * Points package
+     * @namespace points
+     */
 	return points = {
 			
 		// Partial loading location	
@@ -27,8 +31,8 @@ define([
 		settings: null,
 				
 		/* Initial load-up procedure if first time package is loaded */
-		init: function(options) {
-				
+		init: function(options)
+		{		
 			// Register package
 			Package.register('points');
 
@@ -40,41 +44,35 @@ define([
 		},
 			
 		/* Autoloading hook */
-	    load: function(element, options) {
-	        	
+	    load: function(element, options)
+	    {    	
 	        // Load the package onto current web-page
 	    	this.init(options);
 			new this.view({el: element});
 	    },
 
 	    /* Autoloader terminate method */
-	    unload: function() {
+	    unload: function()
+	    {
 
 	    },
 	        
 	    /* Data collection */
 	    collection: Backbone.Collection.extend({
-
 	        model: Backbone.Model.extend(),
-
-	        // URL to collect data from
 	        url: function() { return Config.get('points::routes.' + points.settings.source); },
-
-	        // Filter collection data
 	        parse: function(data) { return data.items; }
 	    }),
 	        
 	    /* Append the HTML for this package to the DOM */
-	    view: Backbone.View.extend({
-	        	
-	        initialize: function() {
-	            	
+	    view: Backbone.View.extend({	
+	        initialize: function()
+	        {    	
 	            this.collection = new points.collection();
 	            this.render();
 	        },
-
-	        render: function() {
-
+	        render: function()
+	        {
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {
@@ -96,8 +94,8 @@ define([
 	    }),
 
 	    /* jQuery event handlers */
-	    registerEvents: function() {
-
+	    registerEvents: function()
+	    {
 	    	this.registerBindings(); // Apply all KO bindings
  					
 			// Start up modules
@@ -108,8 +106,8 @@ define([
 	    },
 
 		/* Register ViewModel with DOM elements */
-		registerBindings: function() {
-
+		registerBindings: function()
+		{
 			// Iterate multiple binding instances with jQuery
 			jQuery("."+points.binding_element_class).each(function(index) {
 				ko.applyBindings(new points.ViewModel(index), this);
@@ -117,8 +115,8 @@ define([
 		},
 
 		/* ViewModel for this package */
-		ViewModel: function(player_id) { 
-
+		ViewModel: function(player_id)
+		{
 			// Modules with ViewModels for this package
 			this.score = new Score.ViewModel();
     		this.health = new Health.ViewModel(player_id);

@@ -1,15 +1,19 @@
-/* 
-* @file Spawner PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for spawning friendlies and enemies (based on gamemode and spawn context)
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Spawner PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for spawning friendlies and enemies (based on gamemode and spawn context)
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"
 ], function(jQuery, Crafty, inventory, characterselection) {
+	/** 
+     * Spawner package
+     * @namespace spawner
+     */
 	return spawner = {
 
 		layers: 6,
@@ -21,21 +25,22 @@ define([
 		characters: [],
 		
 		/* Queue purgatory with list of characters */
-		spawnPlayers: function() {
-		
+		spawnPlayers: function()
+		{
 			// Populate spawning list
 			spawner.purgatory = characterselection.getCharacters();
 		},
 		
 		/* Get player instance due to be spawned next */
-		spawnPlayer: function() {
-			
+		spawnPlayer: function()
+		{
 			var random_character = spawner.purgatory.pop();
 			var character_name = random_character.identifierReference;
 			return character_name;
 		},
 		
-		spawnCharacter: function(char_name, players_char_name, char_id){
+		spawnCharacter: function(char_name, players_char_name, char_id)
+		{
 			// Layer constants
 			var transitional_layer = 5; // z-index starting point for any character
 			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
@@ -85,7 +90,8 @@ define([
 			}
 		},
 		
-		characterColor: function(character){
+		characterColor: function(character)
+		{
 			// Color of characters name over character
 			switch(character){
 				case 'coward':
@@ -118,18 +124,21 @@ define([
 			}
 		},
 		
-		spawnEnemies: function(spawn_amount){
+		spawnEnemies: function(spawn_amount)
+		{
 			// Code to add monster/s on screen
 			/*for(i=1;  i<=spawn_amount; i++){
 				spawnEnemy(480, 480);
 			}*/
 		},
 		
-		spawnEnemy: function(){
+		spawnEnemy: function()
+		{
 			//craft draw stuff
 		},
 		
-		randomSpawnCoordinates: function(max_x, max_y){
+		randomSpawnCoordinates: function(max_x, max_y)
+		{
 			//random()
 		}
 	}

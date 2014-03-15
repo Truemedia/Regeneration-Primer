@@ -1,20 +1,24 @@
-/* 
-* @file Player PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used to perform actions directly on a player
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Player PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used to perform actions directly on a player
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./characterselection.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD", "./Gun.GOD"
 ], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object, gun_object) {
+	/** 
+     * Player package
+     * @namespace player
+     */
 	return player = {
 			
 		/* Create a new player object instance (method alias) */
-		spawn: function() {
-			
+		spawn: function()
+		{	
 			spawner.spawnPlayers();
 			
 			// Get game object definition and add entity in the entity pool
@@ -26,8 +30,8 @@ define([
 		},
 			
 		/* Kill player using player_id as reference */
-		killPlayer: function(player_id) {
-
+		killPlayer: function(player_id)
+		{
 			var real_id = player_id + 1;
 			console.log("Player "+real_id+" died");
 			
@@ -61,8 +65,8 @@ define([
 		},
 		
 		/* Move your own character */
-		move: function(direction) {
-			
+		move: function(direction)
+		{	
 			// Move screen based on direction
 			switch (direction) {
 			

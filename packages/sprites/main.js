@@ -1,18 +1,23 @@
-/* 
-* @file Sprites PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for loading Crafty sprite resources
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Sprites PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for loading Crafty sprite resources
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"./jQuery", "./Crafty", "./Config", "./characterselection.PKG"
 ], function(jQuery, Crafty, Config, characterselection) {
+	/** 
+     * Sprites package
+     * @namespace sprites
+     */
 	return sprites = {
 		
-		setup: function(){
+		setup: function()
+		{
 			var sprites_dir = Config.get('resources.directories.multimedia.images');
 			var f = ".png"; // Only file format used at the moment
 		
@@ -21,7 +26,8 @@ define([
 			sprites.setupCharacters(sprites_dir, f);
 			sprites.setupEnemies(sprites_dir, f);
 		},
-		setupItems: function(sprites_dir, f){
+		setupItems: function(sprites_dir, f)
+		{
 			/* Sprite maps for Items */
 			// Containing Directory
 			var items_sprites_dir = sprites_dir+"items/";
@@ -38,7 +44,8 @@ define([
 			Crafty.sprite(1, storage_sprites_dir+"MetalContainer"+f, { container: [0, 0, 128, 128] }); /* General supplies box */
 			Crafty.sprite(1, swords_sprites_dir+"Katana"+f, { katana: [0, 0, 128, 256] }); /* Katana */
 		},
-		setupCharacters: function(){
+		setupCharacters: function()
+		{
 			/* Sprite maps for Characters */
 
 			return [
@@ -92,7 +99,8 @@ define([
 				}
 			];
 		},
-		setupEnemies: function(sprites_dir, f){
+		setupEnemies: function(sprites_dir, f)
+		{
 			/* Sprite maps for Enemies */
 			// Directories
 			var enemies_sprites_dir = sprites_dir+"enemies/";

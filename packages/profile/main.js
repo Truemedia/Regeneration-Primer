@@ -1,23 +1,27 @@
-/* 
-* @file Profile PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which allows displaying and setting of information specific to a user
-* @copyright Wade Penistone 2014
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Profile PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package which allows displaying and setting of information specific to a user
+ * @copyright Wade Penistone 2014
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Bootstrap", "Backbone", "KO"
 ], function(template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko) {
+	/** 
+     * Profile package
+     * @namespace profile
+     */
 	return profile = {
 		
 		// Translations
 		trans: {},
 			
 		/* Load this package */
-		init: function() {
-			
+		init: function()
+		{	
 			// Register package
 			Package.register('profile');
 	 		
@@ -26,21 +30,21 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	// Load the package onto current web-page
 	    	this.init();
 			new this.view({el: element});
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-
 	        model: Backbone.Model.extend(),
 	        url: 'packages/profile/data.json',
 	        parse: function(data) { return data; }
@@ -48,15 +52,14 @@ define([
 
 		 /* Append the HTML for this package to the DOM */
 	    view: Backbone.View.extend({
-	        	
-	        initialize: function() {
+	        initialize: function()
+	        {
 	            	
 	            this.collection = new profile.collection();
 	            this.render();
 	        },
-
-	        render: function() {
-
+	        render: function()
+	        {
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {
@@ -82,8 +85,8 @@ define([
 	    }),
 		
 		/* ViewModel for this package */
-		ViewModel: function() {
-
+		ViewModel: function()
+		{
 			this.loggedin = ko.observable(false);
 			this.username = ko.observable("");
 			this.loginAsUser = function(){
@@ -101,8 +104,8 @@ define([
 		},
 
 		/* Return username as Guest with random 8 digit number appended */
-		loginAsGuest: function() {
-
+		loginAsGuest: function()
+		{
 			var guestname = "Guest";
 			var digits = 8;
 			for (var i=0; i<=digits; i++) {
@@ -112,8 +115,8 @@ define([
 		},
 
 		/* Return username from input (this will validate user in future) */
-		loginAsUser: function(username) {
-
+		loginAsUser: function(username)
+		{
 			return(username);
 		}
 	}

@@ -1,15 +1,19 @@
-/* 
-* @file Audio PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for controlling audio sources and playback
-* @copyright Wade Penistone 2014
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/** 
+ * @file Audio PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for controlling audio sources and playback
+ * @copyright Wade Penistone 2014
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
 ], function(template, nls, Config, Lang, Package, Backbone, buzz, jQuery) {
+	/** 
+     * Audio package
+     * @namespace audio
+     */
 	return audio = {
 			
 		// Translations
@@ -37,8 +41,12 @@ define([
 			}
 		},
 			
-		init: function(options) {
-			
+		/**
+		 * Initial load-up procedure if first time package is loaded
+		 * @param {object} options - JSON string of options passed from load function.
+		 */
+		init: function(options)
+		{	
 			// Register package
 			Package.register('audio');
 
@@ -59,42 +67,48 @@ define([
 			audio.loadSamples();
 		},
 		
-		/* Autoloading hook */
-        load: function(element, options) {
-        	
+		/**
+		 * Autoloading hook
+		 * @param {object} element - HTML element the package is tied to in the DOM.
+		 * @param {object} options - JSON string of options passed from the data-options attribute.
+		 */
+        load: function(element, options)
+        {
         	// Load the package onto current web-page
 	    	this.init(options);
 			new this.view({el: element});
         },
 
-        /* Autoloader terminate method */
-        unload: function() {
+        /**
+         * Autoloader terminate method
+         */
+        unload: function()
+        {
 
         },
 
-        /* Data collection */
+        /**
+         * Data collection
+         * @constructor
+         */
 	    collection: Backbone.Collection.extend({
-
 	        model: Backbone.Model.extend(),
-
-	        // URL to collect data from
 	        url: function() { return Config.get('audio::routes.' + audio.settings.source); },
-
-	        // Filter collection data
 	        parse: function(data) { return data.items; }
 	    }),
 	        
-	    /* Append the HTML for this package to the DOM */
-	    view: Backbone.View.extend({
-	        	
-	        initialize: function() {
-	            	
+	    /**
+	     * View composer
+	     * @constructor
+	     */
+	    view: Backbone.View.extend({	
+	        initialize: function()
+	        {
 	            this.collection = new audio.collection();
 	            this.render();
 	        },
-
-	        render: function() {
-
+	        render: function()
+	        {
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {
@@ -112,9 +126,11 @@ define([
 	        }
 	    }),
 
-	    /* Load the mixer UI */
-	    registerEvents: function() {
-
+	    /**
+	     * Load the mixer UI
+	     */
+	    registerEvents: function()
+	    {
 	    	// setup graphic EQ
 			$("#mixer_channels > li > div.mixer_channel").each(function() {
 				// read initial values from markup and remove that
@@ -128,23 +144,29 @@ define([
 			});
 	    },
 		
-		/* Load audio tracks for mixer */
-		loadChannels: function() {
-			
+		/**
+		 * Load audio tracks for mixer
+		 */
+		loadChannels: function() 
+		{	
 			// Load background music onto single track
 			audio.registerBackgroundMusic();
 		},
 		
-		/* Load audio sample files for sampler */
-		loadSamples: function() {
-		
+		/**
+		 * Load audio sample files for sampler
+		 */
+		loadSamples: function()
+		{
 			// Load sound effects
 			audio.registerSFX();
 		},
 
-		/* Mute or unmute all audio */
-		toggleAudio: function(event) {
-
+		/**
+		 * Mute or unmute all audio
+		 */
+		toggleAudio: function(event)
+		{
 			var audio_manager_defaults = Config.instance('audio::default.all');
 
 			// Mute audio
@@ -173,9 +195,11 @@ define([
 			}
 		},
 		
-		/* Make background music audio files accessible */
-		registerBackgroundMusic: function() {
-			
+		/**
+		 * Make background music audio files accessible
+		 */
+		registerBackgroundMusic: function()
+		{
 			var audio_dir = audio.directory;
 			var audio_manager_defaults = Config.instance('audio::default.all');
 			
@@ -185,9 +209,11 @@ define([
 			//audio.mixer.background_music.play();
 		},
 		
-		/* Make sound effects audio files accessible */
-		registerSFX: function() {
-			
+		/**
+		 * Make sound effects audio files accessible
+		 */
+		registerSFX: function()
+		{	
 			var audio_dir = audio.directory + "ar-15/";
 
 			audio.sampler.samples.shoot = new buzz.sound(audio_dir+"shoot", {formats: [audio.format]});

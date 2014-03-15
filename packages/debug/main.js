@@ -1,15 +1,19 @@
-/* 
-* @file Debug PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for debugging all aspects of the game (only useful to developers)
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Debug PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for debugging all aspects of the game (only useful to developers)
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"
 ], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
+	/** 
+     * Debug package
+     * @namespace debug
+     */
 	return debug = {
 			
 		// Partial loading location	
@@ -19,8 +23,8 @@ define([
 		trans: {},
 			
 		/* Load this package */
-		init: function() {
-			
+		init: function()
+		{
 			// Register package
 			Package.register('debug');
 			
@@ -34,8 +38,8 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	// Store the element binding
         	debug.element_binding = element;
         	
@@ -43,13 +47,14 @@ define([
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
-			
+		loadDOM: function()
+		{	
 			// Load package data
 			jQuery.getJSON("packages/debug/data.json", function(data) {
 			
@@ -70,8 +75,8 @@ define([
 		},
 		
 		/* Save X and Y coordinates of mouse position */
-		saveCoords: function() {
-			
+		saveCoords: function()
+		{	
 			// Instance shown in debug toolbar
 			var x = jQuery("#mouse_x_coords").html();
 			var y = jQuery("#mouse_y_coords").html();
@@ -80,8 +85,8 @@ define([
 		},
 		
 		/* jQuery event handlers (for Debug) */
-		registerEvents: function() { 
-		
+		registerEvents: function()
+		{
 			// Give yourself points
 			jQuery("#debug_window").on("click", ".score_submit", function (event){
 				points.incrementMyScore();
@@ -93,12 +98,14 @@ define([
 			});
 		},
 
-		initDebugger: function(event){
+		initDebugger: function(event)
+		{
 			debug.pointsDebugger(event);
 			debug.mouseDebugger(event);
 		},
 
-		pointsDebugger: function(event){
+		pointsDebugger: function(event)
+		{
 			if (event != null){
 				if(jQuery("#debug_toggle > span").hasClass("ui-icon-gear")){
 					console.log("Hiding debugging UI");
@@ -113,8 +120,8 @@ define([
 			}
 		},
 
-		mouseDebugger: function(event){
-			
+		mouseDebugger: function(event)
+		{	
 			// Variables for tracking mouse
     		var mouseX, mouseY;
     		var canvas = jQuery('#stage').get(0);

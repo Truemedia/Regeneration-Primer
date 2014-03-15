@@ -1,15 +1,19 @@
-/* 
-* @file Theme PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for controlling, loading and manipulating themes (Snippets of CSS and HTML associated to an interchangeable folder)
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Theme PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for controlling, loading and manipulating themes (Snippets of CSS and HTML associated to an interchangeable folder)
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "jQ.Datatables"
 ], function(template, nls, Config, Lang, Package, jQuery) {
+	/** 
+     * Theme package
+     * @namespace theme
+     */
 	return theme = {
 	 
 	 	// Themes JSON array
@@ -22,8 +26,8 @@ define([
 		trans: {},
 			
 		/* Load this package */
-	 	init: function() {
-	 		
+	 	init: function()
+	 	{	
 	 		// Register package
 			Package.register('theme');
 	 		
@@ -35,8 +39,8 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	// Store the element binding
         	theme.element_binding = element;
         	    	
@@ -44,20 +48,21 @@ define([
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 		
 		/* Append the HTML for this package to the DOM */
-		view: function() {
-		
+		view: function()
+		{
 			// Fetch and load themes
 			theme.cdnAPI();
 		},
 
 		/* Transform table into datatable using UI config settings */
-		dataTable: function() {
-
+		dataTable: function()
+		{
 			jQuery.extend( jQuery.fn.dataTableExt.oStdClasses, {
     			"sWrapper": "dataTables_wrapper form-inline"
 			});
@@ -66,8 +71,8 @@ define([
 		},
 
 		/* jQuery event handlers */
-		registerEvents: function() {
-
+		registerEvents: function()
+		{
 			// Trigger a change in theme
 			jQuery("#swatch-menu").on("click", ".bootswatch-theme", function (event){
 			
@@ -78,8 +83,8 @@ define([
 		},
 		
 		/* Load theme data, and initial theme based on game config or load random theme if not set */
-		initialLoad: function(theme_data) {
-			
+		initialLoad: function(theme_data) 
+		{	
 			// Store theme data
 			theme.themes = theme_data;
 			
@@ -99,8 +104,8 @@ define([
 		},
 		
 		/* Activate theme based on theme data */
-		activate: function(theme_name) {
-		
+		activate: function(theme_name)
+		{
 			var initial_theme_stylesheet;
 			var initial_theme_image;
 			var themes = theme.themes;
@@ -131,8 +136,8 @@ define([
 		},
 		
 		/* Pick a theme at random to load up */
-		randomizr: function() {
-			
+		randomizr: function()
+		{	
 			var themes = theme.themes;
 			var random_theme = themes[Math.floor(Math.random()*themes.length)];
 
@@ -140,8 +145,8 @@ define([
 		},
 
 		/* Load stylesheet for selected theme using URL and Theme thumbnail sources */
-		stylesheet: function(theme_stylesheet_url, theme_image_url) {
-			
+		stylesheet: function(theme_stylesheet_url, theme_image_url)
+		{	
 			// remove current theme stylesheet
 			jQuery('#theme-stylesheet').remove();
 			
@@ -153,7 +158,8 @@ define([
 		},
 		
 		/* Fix sidebar correctly in relation to theme */
-		sidebarFix: function(theme_name) {
+		sidebarFix: function(theme_name)
+		{
 			var offset;
 			
 			switch(theme_name) {
@@ -185,8 +191,8 @@ define([
 		},
 		
 		/* Function use to communicate with a CDN API, and download data for linking to resources */
-		cdnAPI: function(cdn_url) {
-
+		cdnAPI: function(cdn_url)
+		{
 			var cdn_api_url = Config.get('services.bootswatch.url') + "/" + Config.get('services.bootswatch.version') + "/";
 			
 			// Load list of BootSwatch themes via JSON API

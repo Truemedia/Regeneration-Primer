@@ -1,15 +1,19 @@
-/* 
-* @file Sitemap PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which provides an area for complete site navigation and general site actions
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Sitemap PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package which provides an area for complete site navigation and general site actions
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "bootbox"
 ], function(template, nls, Config, Lang, Package, jQuery, bootbox) {
+	/** 
+     * Sitemap package
+     * @namespace sitemap
+     */
 	return sitemap = {
 			
 		// Data attribute binded element
@@ -22,8 +26,8 @@ define([
 		trans: {},
 	
 		/* Load this package */
-		init: function() {
-			
+		init: function()
+		{	
 			// Register package
 			Package.register('sitemap');
 
@@ -35,8 +39,8 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	// Store the element binding
         	sitemap.element_binding = element;
         	
@@ -44,13 +48,14 @@ define([
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 		
 		/* Activate this package and associated modules */
-		activate: function() {
-			
+		activate: function()
+		{	
 			// Show as active
 			sitemap.active = true;
 			
@@ -59,8 +64,8 @@ define([
 		},
 		
 		/* Deactivate this package and associated modules */
-		deactivate: function() {
-			
+		deactivate: function()
+		{	
 			// Show as inactive
 			sitemap.active = false;
 			
@@ -69,8 +74,8 @@ define([
 		},
 
 		/* Append the HTML for this package to the DOM */
-		view: function() {
-
+		view: function()
+		{
 			// Load package data
 			jQuery.getJSON("sample_package.json", function(data){
 				
@@ -96,8 +101,8 @@ define([
 		},
 		
 		/* Register jQuery events handlers */
-		registerEvents: function() {
-
+		registerEvents: function()
+		{
 			// Language selector
 			jQuery(sitemap.element_binding).on("change", "#language", function(event) {
 				

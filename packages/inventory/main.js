@@ -1,15 +1,19 @@
-/* 
-* @file Inventory PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for entities containing items
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Inventory PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for entities containing items
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./jQuery", "./Crafty", "./KO", "./Toastr"
 ], function(view, nls, Config, Lang, Package, jQuery, Crafty, ko, toastr) {
+	/** 
+     * Inventory package
+     * @namespace inventory
+     */
 	return inventory = {
 		
 		/* Stores entities */
@@ -25,8 +29,8 @@ define([
 		trans: {},
 			
 		/* Load this package */
-		init: function() {
-			
+		init: function()
+		{	
 			// Register package
 			Package.register('inventory');
 
@@ -38,19 +42,20 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	alert("Inventory package loaded");
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
-
+		loadDOM: function()
+		{
 			// Load initial inventory items
 			jQuery.getJSON("packages/inventory/data.json", function(data){
 			
@@ -87,14 +92,15 @@ define([
 		},
 		
 		/* Register jQuery events */
-		registerEvents: function() {
-			
+		registerEvents: function()
+		{	
 			jQuery("#AR-15_info").popover();
 			jQuery("#Glock_info").popover();
 			jQuery("#AK-47_info").popover();
 		},
 		
-		registerBindings: function() {
+		registerBindings: function()
+		{
 			/* Iterate multiple binding instances with jQuery */
 			jQuery("."+inventory.binding_element_class).each(function(index) {
 				ko.applyBindings(new inventory.ViewModel(index), this);
@@ -102,7 +108,8 @@ define([
 		},
 		
 		/* KnockoutJS View Model */
-		ViewModel: function(index) {
+		ViewModel: function(index)
+		{
 			var self = this;
 			 
 		    self.ammo = ko.observableArray(inventory.loadRounds(index));
@@ -122,8 +129,8 @@ define([
 		},
 		
 		/* Equip an item into the interaction slot of the player inventory */
-		equip: function(item_name) {
-			
+		equip: function(item_name)
+		{	
 			// Display notification
 			toastr.options = Config.get('inventory::toastr');
 			toastr.warning("Now equipped with a "+item_name, "Picked up an item");
@@ -133,15 +140,15 @@ define([
 		},
 		
 		/* Simulate inventory item click */
-		switchItem: function(item_number) {
-
+		switchItem: function(item_number)
+		{
 			var item_index = item_number - 1;
 			jQuery("#my_inventory > li:eq('"+item_index+"') > .accordion-heading > .accordion-toggle").click();
 		},
 		
 		/* Build array of bullets using range and damage (inherit same values) */
-		loadRounds: function(gun_index, dmg) {
-			
+		loadRounds: function(gun_index, dmg)
+		{	
 			// Get default gun amount
 			var guns = Config.get('inventory::guns.guns');
 			var amount = guns[gun_index].subitems[0].amount;

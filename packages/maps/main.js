@@ -1,15 +1,19 @@
-/* 
-* @file Maps PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package used for loading maps (certain levels of game modes)
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Maps PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package used for loading maps (certain levels of game modes)
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Crafty", "jQuery", "Leaflet"
 ], function(template, nls, Config, Lang, Package, Session, Crafty, jQuery, L) {
+	/** 
+     * Maps package
+     * @namespace maps
+     */
 	return maps = {
 		
 		layers: 1,
@@ -18,8 +22,8 @@ define([
 		trans: {},
 			
 		/* Load this package */
-	 	init: function() {
-	 		
+	 	init: function()
+	 	{	
 	 		// Register package
 			Package.register('maps');
 	 		
@@ -31,19 +35,20 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {
         	this.init();
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
-			
+		loadDOM: function()
+		{
 			// Load up list of maps to choose from
 			jQuery.getJSON("packages/maps/data.json", function(data){
 				
@@ -81,8 +86,8 @@ define([
 		},
 		
 		/* Register jQuery event handlers */
-		registerEvents: function() {
-			
+		registerEvents: function()
+		{	
 			// Mouse over animation for map selection
 			jQuery("[data-package='maps']").on("mouseover", ".map_select", function(event) {
 
@@ -117,14 +122,14 @@ define([
 		},
 		
 		// Deactivate package
-		deactivate: function(){
-
+		deactivate: function()
+		{
 			jQuery("[data-package='maps']").remove();
 		},
 		
 		/* Format maps into array suitable for melonJS */
-		compileMaps: function(maps) {
-			
+		compileMaps: function(maps)
+		{	
 			var maps = [];
 			
 			// Set ASYNC AJAX to false
@@ -168,8 +173,8 @@ define([
 			return maps;
 		},
 			
-		generateWorld: function() {
-
+		generateWorld: function()
+		{
 			var render_engine = init.getRenderEngine(); // TODO: In future get init to set in config, then pull from config instead
 		
 			// Sprite Map for charachters

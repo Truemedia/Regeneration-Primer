@@ -1,15 +1,19 @@
-/* 
-* @file Highscores PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which provides an ordered overview of scores from past gaming sessions
-* @copyright Wade Penistone 2014
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Highscores PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package which provides an ordered overview of scores from past gaming sessions
+ * @copyright Wade Penistone 2014
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
 ], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+	/** 
+     * Highscores package
+     * @namespace highscores
+     */
 	return highscores = {
 			
 		// Translations
@@ -19,8 +23,8 @@ define([
 		settings: null,
 				
 		/* Initial load-up procedure if first time package is loaded */
-		init: function(options) {
-				
+		init: function(options)
+		{		
 			// Register package
 			Package.register('highscores');
 
@@ -32,41 +36,35 @@ define([
 		},
 			
 		/* Autoloading hook */
-	    load: function(element, options) {
-	        	
+	    load: function(element, options)
+	    {    	
 	        // Load the package onto current web-page
 	    	this.init(options);
 			new this.view({el: element});
 	    },
 
 	    /* Autoloader terminate method */
-	    unload: function() {
+	    unload: function()
+	    {
 
 	    },
 	        
 	    /* Data collection */
 	    collection: Backbone.Collection.extend({
-
 	        model: Backbone.Model.extend(),
-
-	        // URL to collect data from
 	        url: function() { return Config.get('highscores::routes.' + highscores.settings.source); },
-
-	        // Filter collection data
 	        parse: function(data) { return data.items; }
 	    }),
 	        
 	    /* Append the HTML for this package to the DOM */
 	    view: Backbone.View.extend({
-	        	
-	        initialize: function() {
-	            	
+	        initialize: function()
+	        {    	
 	            this.collection = new highscores.collection();
 	            this.render();
 	        },
-
-	        render: function() {
-
+	        render: function()
+	        {
 	            // Load package stored data
 	        	var self = this;
 	            this.collection.fetch().done( function() {

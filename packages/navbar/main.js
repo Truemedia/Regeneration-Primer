@@ -1,15 +1,19 @@
-/* 
-* @file Navbar PACKAGE
-* @author Wade Penistone (Truemedia)
-* @overview Core Regeneration Primer package which provides a website navigation bar for prioritized pages/actions
-* @copyright Wade Penistone 2013
-* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
-* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
-* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
-*/
+/**
+ * @file Navbar PACKAGE
+ * @author Wade Penistone (Truemedia)
+ * @overview Core Regeneration Primer package which provides a website navigation bar for prioritized pages/actions
+ * @copyright Wade Penistone 2013
+ * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+ * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+ * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+ */
 define([
 	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "./modules/options/main"
 ], function(view, nls, Config, Lang, Package, jQuery, options) {
+	/** 
+     * Navbar package
+     * @namespace navbar
+     */
 	return navbar = {
 	
 		// Partial loading location	
@@ -25,8 +29,8 @@ define([
 		nested_view: "",
 	
 		/* Load this package */
-		init: function() {
-			
+		init: function()
+		{	
 			// Register package
 			Package.register('navbar');
 
@@ -38,8 +42,8 @@ define([
 		},
 		
 		/* Autoloading hook */
-        load: function(element, options) {
-        	
+        load: function(element, options)
+        {	
         	// Store the element binding
         	navbar.element_binding = element;
         	
@@ -47,13 +51,14 @@ define([
         },
 
         /* Autoloader terminate method */
-        unload: function() {
+        unload: function()
+        {
 
         },
 		
 		/* Activate this package and associated modules */
-		activate: function() {
-			
+		activate: function()
+		{	
 			// Show as active
 			navbar.active = true;
 			
@@ -62,8 +67,8 @@ define([
 		},
 		
 		/* Deactivate this package and associated modules */
-		deactivate: function() {
-			
+		deactivate: function()
+		{	
 			// Show as inactive
 			navbar.active = false;
 			
@@ -72,15 +77,15 @@ define([
 		},
 		
 		/* Load modules relevant to this package */
-		loadModules: function() {
-
+		loadModules: function()
+		{
 			// Run options view (expect callback to trigger rendering itself)
 			Options.view();
 		},
 		
 		/* Append the HTML for this package to the DOM */
-		loadDOM: function() {
-
+		loadDOM: function()
+		{
 			// Load navbar data
 			jQuery.getJSON("packages/navbar/data.json", function(data){
 				
