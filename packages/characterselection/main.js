@@ -41,16 +41,9 @@ define([
 	    	this.init();
 			new this.view({el: element});
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
         
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: 'packages/characterselection/info/characters_advanced.json',
 	        parse: function(data) { return data.characters; }
 	    }),
@@ -59,7 +52,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {
-	            this.collection = new characterselection.collection();
+	            this.collection = new characterselection.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

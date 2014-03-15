@@ -42,16 +42,9 @@ define([
 	    	this.init(options);
 			new this.view({el: element});
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
         
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: function() { return Config.get('social::routes.' + social.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
@@ -60,7 +53,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {    	
-	            this.collection = new social.collection();
+	            this.collection = new social.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

@@ -80,19 +80,10 @@ define([
         },
 
         /**
-         * Autoloader terminate method
-         */
-        unload: function()
-        {
-
-        },
-
-        /**
          * Data collection
          * @constructor
          */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: function() { return Config.get('audio::routes.' + audio.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
@@ -104,7 +95,7 @@ define([
 	    view: Backbone.View.extend({	
 	        initialize: function()
 	        {
-	            this.collection = new audio.collection();
+	            this.collection = new audio.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

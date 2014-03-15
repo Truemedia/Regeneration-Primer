@@ -46,12 +46,6 @@ define([
         	    	
         	theme.init();
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
 		
 		/* Append the HTML for this package to the DOM */
 		view: function()

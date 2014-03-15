@@ -36,16 +36,9 @@ define([
         	this.init();
 			new this.view({el: element});
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
         
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: 'packages/stage/data.json',
 	        parse: function(data) { return data.items; }
 	    }),
@@ -54,7 +47,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {    	
-	            this.collection = new stage.collection();
+	            this.collection = new stage.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

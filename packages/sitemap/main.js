@@ -46,12 +46,6 @@ define([
         	
             sitemap.init();
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
 		
 		/* Activate this package and associated modules */
 		activate: function()

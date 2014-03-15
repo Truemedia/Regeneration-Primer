@@ -46,12 +46,6 @@ define([
         {	
         	alert("Inventory package loaded");
         },
-
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
 		
 		/* Append the HTML for this package to the DOM */
 		loadDOM: function()

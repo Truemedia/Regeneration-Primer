@@ -42,21 +42,12 @@ define([
         	this.init();
 			new this.view({el: element});
         },
-
-        /**
-         * Autoloader terminate method
-         */
-        unload: function()
-        {
-
-        },
         
         /**
          * Data collection
          * @constructor
          */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: 'packages/about/data.json',
 	        parse: function(data) { return data.items; }
 	    }),
@@ -68,7 +59,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {
-	            this.collection = new about.collection();
+	            this.collection = new about.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

@@ -37,15 +37,8 @@ define([
 			new this.view({el: element});
         },
 
-        /* Autoloader terminate method */
-        unload: function()
-        {
-
-        },
-
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: 'packages/profile/data.json',
 	        parse: function(data) { return data; }
 	    }),
@@ -54,8 +47,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {
-	            	
-	            this.collection = new profile.collection();
+	            this.collection = new profile.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()
