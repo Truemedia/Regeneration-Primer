@@ -1,7 +1,4 @@
 {
-   "inventories" : [
-      {
-         "inventory" : {
          	"items" : [
          		{
          		  "item_id" : "1",
@@ -152,8 +149,5 @@
 		          	}
 		          ]
 		        }
-         	] 
-         }
-      }
-   ]
+         	]
 }
