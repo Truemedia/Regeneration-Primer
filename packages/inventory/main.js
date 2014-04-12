@@ -8,8 +8,8 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "jQuery", "Crafty", "KO", "Toastr"
-], function(template, nls, Config, Lang, Package, jQuery, Crafty, ko, toastr) {
+	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO", "Toastr"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko, toastr) {
 	/** 
      * Inventory package
      * @namespace inventory
@@ -60,6 +60,7 @@ define([
 	        initialize: function()
 	        {    	
 	            this.collection = new inventory.collection({model: Backbone.Model.extend()});
+	            this.on('render', this.afterRender());
 	            this.render();
 	        },
 	        render: function()
@@ -76,56 +77,18 @@ define([
 	            	};
 	    				
 	            	// Render content
-	            	console.log(data);
 	            	self.$el.html( template(data) );
 	            });
+	        },
+	        afterRender: function() {
+	        	inventory.registerEvents();
 	        }
 	    }),
-		
-		/* Append the HTML for this package to the DOM */
-		loadDOM: function()
-		{
-			// Load initial inventory items
-			jQuery.getJSON("packages/inventory/data.json", function(data){
-			
-				// Append directories
-				data.img_dir = Config.get('resources.directories.multimedia.images');
-				
-				// Set ASYNC AJAX to false
-				jQuery.ajaxSetup({
-					async: false
-				});
-
-				// Append characters
-				jQuery.getJSON("packages/characterselection/info/characters_advanced.json", function(character_data) {
-					data.characters = character_data.characters;
-				});
-				
-				// Append language strings to JSON data source
-				data.trans = inventory.trans;
-				
-				// Set ASYNC AJAX back to true
-				jQuery.ajaxSetup({
-					async: true
-				});
-				
-				// Load view
-       			document.getElementById(inventory.partial_block_element).innerHTML = view(data);
-       			
-       			// Register bindings
-       			inventory.registerBindings();
-       			
-       			// Register events
-       			inventory.registerEvents();
-			});
-		},
 		
 		/* Register jQuery events */
 		registerEvents: function()
 		{	
-			jQuery("#AR-15_info").popover();
-			jQuery("#Glock_info").popover();
-			jQuery("#AK-47_info").popover();
+			
 		},
 		
 		registerBindings: function()
