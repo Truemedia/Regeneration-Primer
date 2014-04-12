@@ -192,6 +192,7 @@ define([
 				characterselection.deactivate();
 				
 				// Activate next step
+				jQuery('a[href="#step2"]').click();
 			});
 		},
 		

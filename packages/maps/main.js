@@ -112,6 +112,10 @@ define([
 				var map_choosen = jQuery(this).val();
 				Session.put('map', map_choosen);
 				maps.deactivate();
+
+				// Trigger game route
+				document.location.hash = "play";
+				location.reload();
 			});
 		},
 		
