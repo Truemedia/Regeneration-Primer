@@ -21,11 +21,11 @@ define(["jQuery"], function(jQuery) {
 			compiled_resources = compiled_resources.concat( this.compilePlayers() );
 
 			// Gun sprite
-			/*resources.push({
+			compiled_resources.push({
 				name: "gun_sprite",
 				type: "image",
-				src: require('Gun.MOD').getImage("AR-15")
-			});*/
+				src: this.getSprite('AR-15', 'items', 'Guns')
+			});
 			
 			// Game font
 			// TODO: Convert font to PNG
@@ -144,6 +144,23 @@ define(["jQuery"], function(jQuery) {
 					src: Config.get('resources.directories.sprites.characters') + f_pfx + "WomanHelicopterPilot" + ext
 				}
 			];
+		},
+
+		/* Get absolute path for resource based on path and filename */
+		getPath: function(path, file)
+		{
+			return path + file;
+		},
+
+		/* Get path for sprite based on passed sprite name */
+		getSprite: function(sprite_name, sprite_type, sprite_group)
+		{
+			var directory = Config.get('resources.directories.multimedia.images');
+			var path = directory + sprite_type + '/' + sprite_group + '/';
+			var ext = '.png';
+			var file = sprite_name + ext;
+
+			return this.getPath(path, file);
 		}
 	}
 });

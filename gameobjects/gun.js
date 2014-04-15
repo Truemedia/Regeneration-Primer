@@ -17,7 +17,7 @@ define([], function() {
 			
 			// Store data in object instance
 			this.itemname = settings.itemname;
-			setting.image = 'criminal';
+			settings.image = 'gun_sprite';
 		},
 		
 		update: function() {

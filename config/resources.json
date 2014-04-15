@@ -18,7 +18,8 @@
 		},
 		"scenes": "scenes",
 		"sprites": {
-			"characters": "multimedia/debug/images/characters/"
+			"characters": "multimedia/debug/images/characters/",
+			"guns": "multimedia/default-contentpack/images/items/guns/"
 		},
 		"stylesheets": {
 			"game_styling": "stylesheets/default-theme/game_styling",
