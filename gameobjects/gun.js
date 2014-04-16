@@ -8,11 +8,12 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define(["Toastr"], function(toastr) {
-	return me.ObjectEntity.extend({
-		init: function(x, y, settings) {
-
+	return me.CollectableEntity.extend({
+		init: function(x, y, settings)
+		{
 			// Setup constructors
 			this.parent(x, y, settings);
+			this.setVelocity(10, 10);
 			this.collidable = true;
 			
 			// Store data in object instance
@@ -20,25 +21,54 @@ define(["Toastr"], function(toastr) {
 			settings.image = 'gun_sprite';
 		},
 		
-		update: function() {
-			
+		update: function()
+		{	
 			// check for collision with other objects
 			res = this.collide();
-			
-			if (res) {
-				this.onCollision();
+			if (res && this.collidable) { this.onCollision(res.obj); }
+
+			// Move player based on keyboard keys
+			if (this.collidable !== true) {
+				
+				if (me.input.isKeyPressed('moveleft')) {
+					this.doWalk(true);
+				} else if (me.input.isKeyPressed('moveright')) {
+					this.doWalk(false);
+				} else if (me.input.isKeyPressed('moveup')) {
+				    this.vel.y -= this.accel.y * me.timer.tick;
+				} else if (me.input.isKeyPressed('movedown')) {
+				  this.vel.y += this.accel.y * me.timer.tick;
+				} else {
+				  this.vel.x = 0;
+				  this.vel.y = 0;
+				}
+			} else {
+				// Do nothing
+			}
+			 
+			// check & update player movement
+			this.updateMovement();
+			 
+			// update animation if necessary
+			if (this.vel.x!=0 || this.vel.y!=0) {
+				// update object animation
+			    this.parent();
+			    return true;
 			}
 			
 			return false;
 		},
 		
-		onCollision: function(res, obj){
-
+		onCollision: function(obj)
+		{
 			// Remove and notify as equipped
 			toastr.options = Config.get('gamedirector::toastr');
 			toastr.warning("Item equipped", this.itemname);
-			me.game.remove(this);
+
+			this.collidable = false;
+			this.pos.x = obj.pos.x;
+			this.pos.y = obj.pos.y;
 			//inventory.equip(this.itemname);
-		},
+		}
 	});
 });
