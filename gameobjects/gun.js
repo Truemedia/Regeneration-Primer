@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define([], function() {
+define(["Toastr"], function(toastr) {
 	return me.ObjectEntity.extend({
 		init: function(x, y, settings) {
 
@@ -35,6 +35,8 @@ define([], function() {
 		onCollision: function(res, obj){
 
 			// Remove and notify as equipped
+			toastr.options = Config.get('gamedirector::toastr');
+			toastr.warning("Item equipped", this.itemname);
 			me.game.remove(this);
 			//inventory.equip(this.itemname);
 		},
