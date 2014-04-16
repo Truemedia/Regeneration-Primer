@@ -23,13 +23,13 @@ define(["Toastr"], function(toastr) {
 		
 		update: function()
 		{	
-			// check for collision with other objects
+			// Check for collisions with other objects
 			res = this.collide();
 			if (res && this.collidable) { this.onCollision(res.obj); }
 
-			// Move player based on keyboard keys
 			if (this.collidable !== true) {
-				
+
+				// Move player based on keyboard keys
 				if (me.input.isKeyPressed('moveleft')) {
 					this.doWalk(true);
 				} else if (me.input.isKeyPressed('moveright')) {
@@ -42,20 +42,48 @@ define(["Toastr"], function(toastr) {
 				  this.vel.x = 0;
 				  this.vel.y = 0;
 				}
+
+				// Handling gun
+				if (me.input.isKeyPressed('operate')) {
+					Audio.sampler.play('shoot');
+				}
+				else if (me.input.isKeyPressed('operate')) {
+					Audio.sampler.play("shoot");
+				}
+				else if (me.input.isKeyPressed('push')) {
+					Audio.sampler.play("fired_bullet_shelldrop");
+				}
+				else if (me.input.isKeyPressed('throwmag')) {
+					Audio.sampler.play("discard_mag");
+					console.log("Removed a mag");
+				}
+				else if (me.input.isKeyPressed('entermag')) {
+					Audio.sampler.play("insert_mag");
+					console.log("Loaded a mag");
+				}
+				else if (me.input.isKeyPressed('reload')) {
+					Audio.sampler.play("lock_inserted_mag");
+					//audio.play.sample("insert_mag");
+					//audio.play.sample("load_chamber");
+					console.log("Connected a mag");
+				}
+				else if (me.input.isKeyPressed('chamber')) {
+					Audio.sampler.play("load_chamber");
+					console.log("Loaded chamber");
+				}
 			} else {
 				// Do nothing
 			}
 			 
-			// check & update player movement
+			// Check & update player movement
 			this.updateMovement();
 			 
-			// update animation if necessary
-			if (this.vel.x!=0 || this.vel.y!=0) {
-				// update object animation
+			// Update animation if necessary
+			if (this.vel.x != 0 || this.vel.y != 0) {
+				// Update object animation
 			    this.parent();
 			    return true;
 			}
-			
 			return false;
 		},
 		
