@@ -93,6 +93,11 @@ define(["jQuery"], function(jQuery) {
 					name: "bullet_sprite",
 					type: "image",
 					src: this.getSprite('Bullet', 'items', 'Guns')
+				},
+				{
+					name: "vendingmachine_sprite",
+					type: "image",
+					src: this.getSprite('VendingMachine', 'items', 'Storage')
 				}
 			];
 		},

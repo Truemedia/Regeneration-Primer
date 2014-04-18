@@ -8,7 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD"], function(jQuery, Session, Resource, bullet_object, gun_object, human_object) {
+define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
+], function(jQuery, Session, Resource, BulletEntity, GunEntity, HumanEntity, VendingMachineEntity) {
 	return Game = {
 			
 		/* Steps to progress the game */
@@ -79,32 +80,26 @@ define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD"], 
 		{
 			// Set the "Play/Ingame" Screen Object
 			me.state.set(me.state.PLAY, this);
-			     
-			// Spawn main player
-			//require('player').spawn();
 
 			// Get game object definitions and add entities in the entity pool
-			var players = me.entityPool.add("spawnPoint", human_object, true);
+			me.entityPool.add("spawnPoint", HumanEntity, true);
 			
 			// Setup guns to pickup
-			var guns = me.entityPool.add("gunEquip", gun_object, true);
+			me.entityPool.add("gunEquip", GunEntity, true);
+			
+			// Add room fixtures
+			me.entityPool.add("vendingMachine", VendingMachineEntity, true);
 
 			// Start the game
 			me.state.change(me.state.PLAY);
 			
 			// Wield gun
 		    //Gun.wield('Glock', 'single');
-			
-			// Start 1st round
-			//require('gamedirector').roundCall();
 		},
 		
 		/* Actions performed while game is running */
 		onUpdateFrame: function()
 		{
-			// Check for any interaction with keyboard
-			//require('Keyboard.MOD').observeControls();
-
 			me.timer.update();
 			me.game.update();
 			me.game.draw();

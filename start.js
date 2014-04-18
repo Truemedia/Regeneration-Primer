@@ -54,6 +54,7 @@ require.config({
         'Gun.GOD': "gameobjects/gun",
         'Hud.GOD': "gameobjects/hud",
         'Human.GOD': "gameobjects/human",
+        'VendingMachine.GOD': "gameobjects/vendingmachine",
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
