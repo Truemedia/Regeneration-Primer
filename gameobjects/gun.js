@@ -15,6 +15,7 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 			this.parent(x, y, settings);
 			this.setVelocity(10, 10);
 			this.collidable = true;
+			this.direction = 'left';
 			
 			// Store data in object instance
 			this.itemname = settings.itemname;
@@ -32,8 +33,10 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 				// Move player based on keyboard keys
 				if (me.input.isKeyPressed('moveleft')) {
 					this.doWalk(true);
+					this.direction = 'left';
 				} else if (me.input.isKeyPressed('moveright')) {
 					this.doWalk(false);
+					this.direction = 'right';
 				} else if (me.input.isKeyPressed('moveup')) {
 				    this.vel.y -= this.accel.y * me.timer.tick;
 				} else if (me.input.isKeyPressed('movedown')) {
@@ -94,7 +97,7 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 			Audio.sampler.play('shoot');
 		    var new_bullet = new BulletEntity((this.pos.x - 10), (this.pos.y + 132), {
 		    	image: 'bullet_sprite',
-		    	direction: 'left'
+		    	direction: this.direction
 		    });
 		    me.game.add(new_bullet, 10);
 		    me.game.sort();
