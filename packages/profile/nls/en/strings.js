@@ -1,6 +1,6 @@
 define({
 	"profile_phrs": "Profile",
-	"roles_phrs": "Roles",
+	"rules_phrs": "Rules",
 	"username_phrs": "Username",
     "password_phrs": "Password",
     "rememberme_phrs": "Remember Me",
@@ -10,7 +10,7 @@ define({
     "alive_verb": "Alive",
     "time-elapsed_phrs": "Time elapsed:",
     "points_phrs": "Points:",
-    "general-player_phrs": "General player",
+    "friendly-fire_phrs": "Friendly fire",
     "administrator_phrs":  "Administrator",
     "moderator_phrs": "Moderator",
     "frontend-webdev_phrs": "Front end web developer",

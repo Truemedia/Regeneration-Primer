@@ -1,6 +1,6 @@
 define({
 	"profile_phrs": "プロフィール",
-	"roles_phrs": "役割",
+	"rules_phrs": "規律",
 	"username_phrs": "ユーザ名",
     "password_phrs": "パスワード",
     "rememberme_phrs": "私を覚えている",
@@ -10,7 +10,7 @@ define({
     "alive_verb": "生きている",
     "time-elapsed_phrs": "時間が経過",
     "points_phrs": "点数",
-    "general-player_phrs": "一般プレーヤー",
+    "friendly-fire_phrs": "フレンドリー·ファイア",
     "administrator_phrs":  "管理者",
     "moderator_phrs": "司会",
     "frontend-webdev_phrs": "フロントエンドWeb開発者",

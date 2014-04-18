@@ -1,7 +1,7 @@
 define({
     "root": {
     	"profile_phrs": "Profile (Phrase)",
-    	"roles_phrs": "Roles (Phrase)",
+    	"rules_phrs": "Rules (Phrase)",
     	"username_phrs": "Username (Phrase)",
         "password_phrs": "Password (Phrase)",
         "rememberme_phrs": "Remember Me (Phrase)",
@@ -11,7 +11,7 @@ define({
         "alive_verb": "Alive (Verb)",
         "time-elapsed_phrs": "Time elapsed (Phrase)",
         "points_phrs": "Points (Phrase)",
-        "general-player_phrs": "General player (Phrase)",
+        "friendly-fire_phrs": "Friendly fire (Phrase)",
         "administrator_phrs":  "Administrator (Phrase)",
         "moderator_phrs": "Moderator (Phrase)",
         "frontend-webdev_phrs": "Front end web developer (Phrase)",
