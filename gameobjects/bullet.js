@@ -44,10 +44,19 @@ define(['jQuery', 'KO'], function(jQuery, ko) {
 		onCollision: function(obj)
 		{
 			// Remove and register impact
-			if (obj.alive) {
+			var friendly_fire = false;
+			if (obj.alive && !friendly_fire) {
 				var player_element = jQuery(".score_container:eq(" + (obj.pid - 1) + ")").get(0);
 				var vm = ko.dataFor(player_element);
 	    		vm.health.decreaseHealth();
+	    		
+	    		if (vm.health.dead()) {
+	    			obj.alive = false;
+	    		}
+	    		
+	    		var player_element = jQuery(".score_container:eq(" + (Session.get('character') - 1) + ")").get(0);
+				var vm = ko.dataFor(player_element);
+	    		vm.score.increaseScore();
 			}
 			me.game.remove(this);
 			me.game.sort();

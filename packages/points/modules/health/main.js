@@ -113,7 +113,7 @@ define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toa
         			if(this.dead() == false) {
         				this.hp( Config.get('points::health.min_value') );
         				this.dead(true);
-        				toastr.error("Stay alive until the next round", "Player " + player_id + " has been killed");
+        				toastr.error("Stay alive until the next round", "Player " + (player_id + 1) + " has been killed");
         			}
         		}
     		};
