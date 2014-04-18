@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define([], function() {
+define(['jQuery', 'KO'], function(jQuery, ko) {
 	return me.ObjectEntity.extend({
 		init: function(x, y, settings)
 		{
@@ -44,6 +44,11 @@ define([], function() {
 		onCollision: function(obj)
 		{
 			// Remove and register impact
+			if (obj.alive) {
+				var player_element = jQuery(".score_container:eq(" + (obj.pid - 1) + ")").get(0);
+				var vm = ko.dataFor(player_element);
+	    		vm.health.decreaseHealth();
+			}
 			me.game.remove(this);
 			me.game.sort();
 		},

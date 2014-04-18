@@ -17,14 +17,14 @@ define([], function() {
 		},
 
 		/* Populate unique game object data */
-		populate_entity_entries: function() {
-
+		populate_entity_entries: function()
+		{
 			this.purgatory.characters = Config.get('characterselection::characters_advanced.characters');
 		},
 
 		/* Get data for next spawnable entity */
-		load_entity_entry: function() {
-
+		load_entity_entry: function()
+		{
 			// Load player data if not set
 			if (this.purgatory.characters == undefined) {
 
@@ -33,8 +33,7 @@ define([], function() {
 
 			// Remove a characters data from list and return
 			var character = this.purgatory.characters.pop();
-			var character_name = character.identifierReference; 
-			return character_name;
+			return character;
 		}
 	}
 });

@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko) {
+define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toastr) {
 	return Health = {
 
         init: function(){
@@ -113,7 +113,7 @@ define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko) {
         			if(this.dead() == false) {
         				this.hp( Config.get('points::health.min_value') );
         				this.dead(true);
-        				//player.killPlayer(this.player_id());
+        				toastr.error("Stay alive until the next round", "Player " + player_id + " has been killed");
         			}
         		}
     		};

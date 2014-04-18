@@ -9,6 +9,7 @@
 */
 define([], function() {
 	return me.ObjectEntity.extend({
+		pid: null,
 		bot: null,
 		init: function(x, y, settings)
 		{
@@ -20,6 +21,7 @@ define([], function() {
 			
 			// Use selected character sprite
 			if (this.bot == false) {
+				this.pid = Session.get('character');
 				settings.image = chosen_character;
 			}
 			// Use random character sprite
@@ -28,11 +30,12 @@ define([], function() {
 				supporting_character = Spawner.load_entity_entry();
 				
 				// Avoid respawning main player
-				if (supporting_character === chosen_character) {
+				if (supporting_character.identifierReference === chosen_character) {
 					supporting_character = Spawner.load_entity_entry();
 				}
 				
-				settings.image = supporting_character;
+				this.pid = supporting_character.pid;
+				settings.image = supporting_character.identifierReference;
 			}
 			
 			// call the constructor
