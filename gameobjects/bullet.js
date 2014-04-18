@@ -52,6 +52,7 @@ define(['jQuery', 'KO'], function(jQuery, ko) {
 	    		
 	    		if (vm.health.dead()) {
 	    			obj.alive = false;
+	    			me.game.remove(obj);
 	    		}
 	    		
 	    		var player_element = jQuery(".score_container:eq(" + (Session.get('character') - 1) + ")").get(0);
