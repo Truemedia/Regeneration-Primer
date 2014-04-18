@@ -2,7 +2,7 @@
 * @file Human GAME OBJECT DEFINITION
 * @author Wade Penistone (Truemedia)
 * @overview Regeneration Primer bundled game definition object, used for handling Human objects in CANVAS
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}

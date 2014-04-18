@@ -50,9 +50,10 @@ require.config({
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         
         /* Game object definitions */
+        'Bullet.GOD': "gameobjects/bullet",
         'Gun.GOD': "gameobjects/gun",
-        'Human.GOD': "gameobjects/human",
         'Hud.GOD': "gameobjects/hud",
+        'Human.GOD': "gameobjects/human",
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation

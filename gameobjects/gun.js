@@ -2,12 +2,12 @@
 * @file Gun GAME OBJECT DEFINITION
 * @author Wade Penistone (Truemedia)
 * @overview Regeneration Primer bundled game definition object, used for handling Gun objects in CANVAS
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["Toastr"], function(toastr) {
+define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 	return me.CollectableEntity.extend({
 		init: function(x, y, settings)
 		{
@@ -45,34 +45,23 @@ define(["Toastr"], function(toastr) {
 
 				// Handling gun
 				if (me.input.isKeyPressed('operate')) {
-					Audio.sampler.play('shoot');
-				}
-				else if (me.input.isKeyPressed('operate')) {
-					Audio.sampler.play("shoot");
+					this.operate();
 				}
 				else if (me.input.isKeyPressed('push')) {
-					Audio.sampler.play("fired_bullet_shelldrop");
+					this.push_away();
 				}
 				else if (me.input.isKeyPressed('throwmag')) {
-					Audio.sampler.play("discard_mag");
-					console.log("Removed a mag");
+					this.throw_mag();
 				}
 				else if (me.input.isKeyPressed('entermag')) {
-					Audio.sampler.play("insert_mag");
-					console.log("Loaded a mag");
+					this.enter_mag();
 				}
 				else if (me.input.isKeyPressed('reload')) {
-					Audio.sampler.play("lock_inserted_mag");
-					//audio.play.sample("insert_mag");
-					//audio.play.sample("load_chamber");
-					console.log("Connected a mag");
+					this.reload_procedure();
 				}
 				else if (me.input.isKeyPressed('chamber')) {
-					Audio.sampler.play("load_chamber");
-					console.log("Loaded chamber");
+					this.chamber();
 				}
-			} else {
-				// Do nothing
 			}
 			 
 			// Check & update player movement
@@ -97,6 +86,44 @@ define(["Toastr"], function(toastr) {
 			this.pos.x = obj.pos.x;
 			this.pos.y = obj.pos.y;
 			//inventory.equip(this.itemname);
+		},
+		
+		/* Additional methods */
+		operate: function()
+		{
+			Audio.sampler.play('shoot');
+		    var new_bullet = new BulletEntity((this.pos.x - 10), (this.pos.y + 132), {
+		    	image: 'bullet_sprite',
+		    	direction: 'left'
+		    });
+		    me.game.add(new_bullet, 10);
+		    me.game.sort();
+		},
+		push_away: function()
+		{
+			Audio.sampler.play("fired_bullet_shelldrop");
+		},
+		throw_mag: function()
+		{
+			Audio.sampler.play("discard_mag");
+			console.log("Removed a mag");
+		},
+		enter_mag: function()
+		{
+			Audio.sampler.play("insert_mag");
+			console.log("Loaded a mag");
+		},
+		reload_procedure: function()
+		{
+			Audio.sampler.play("lock_inserted_mag");
+			//audio.play.sample("insert_mag");
+			//audio.play.sample("load_chamber");
+			console.log("Connected a mag");
+		},
+		chamber: function()
+		{
+			Audio.sampler.play("load_chamber");
+			console.log("Loaded chamber");
 		}
 	});
 });

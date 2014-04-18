@@ -8,7 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuery, Session, Resource, human_object, gun_object) {
+define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD"], function(jQuery, Session, Resource, bullet_object, gun_object, human_object) {
 	return Game = {
 			
 		/* Steps to progress the game */

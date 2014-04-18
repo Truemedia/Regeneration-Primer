@@ -12,20 +12,16 @@ define(["jQuery"], function(jQuery) {
 	return Resource = {
 
 		// Compile all resources into JSON format for loading */
-		compile: function() {
-
+		compile: function()
+		{
 			// Build maps and map resources
 			var compiled_resources = this.compileMaps();
 			
 			// Get all character sprites
 			compiled_resources = compiled_resources.concat( this.compilePlayers() );
-
-			// Gun sprite
-			compiled_resources.push({
-				name: "gun_sprite",
-				type: "image",
-				src: this.getSprite('AR-15', 'items', 'Guns')
-			});
+			
+			// Get all sprites (Future implementation)
+			compiled_resources = compiled_resources.concat( this.compileSprites() );
 			
 			// Game font
 			// TODO: Convert font to PNG
@@ -39,8 +35,8 @@ define(["jQuery"], function(jQuery) {
 		},
 
 		/* Compile all map resources */
-		compileMaps: function() {
-
+		compileMaps: function()
+		{
 			var maps = [];
 			
 			// Set ASYNC AJAX to false
@@ -83,10 +79,27 @@ define(["jQuery"], function(jQuery) {
 			
 			return maps;
 		},
+		
+		compileSprites: function()
+		{
+			// Gun & bullet sprites
+			return [
+				{
+					name: "gun_sprite",
+					type: "image",
+					src: this.getSprite('AR-15', 'items', 'Guns')
+				},
+				{
+					name: "bullet_sprite",
+					type: "image",
+					src: this.getSprite('Bullet', 'items', 'Guns')
+				}
+			];
+		},
 
 		/* Compile all player resources */
-		compilePlayers: function() {
-
+		compilePlayers: function()
+		{
 			// Filename prefix/suffix
 			var f_pfx = Config.get('resources.sprites.sprite_filename_prefix');
 			var f_sfx = Config.get('resources.sprites.sprite_filename_suffix');
