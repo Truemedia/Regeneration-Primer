@@ -8,12 +8,11 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuery, Session, Resource, human_object, gun_object) {
+define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD"], function(jQuery, Session, Resource, bullet_object, gun_object, human_object) {
 	return Game = {
 			
 		/* Steps to progress the game */
 		steps: {
-			
 			startup: [
 				'characterselection',
 				'maps'
@@ -21,8 +20,8 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 		},
 
 		/* Settings used by the game instance specific to the game library */
-		settings: function() {
-			
+		settings: function()
+		{
 			// Turn off gravity (for this type of game)
 			me.sys.gravity = 0;
 			
@@ -34,18 +33,16 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 		},
 			
 		/* Proceed the game to the next step */
-		proceed: function() {
+		proceed: function()
+		{
 			alert("Going to the next step");
 		},
 
 		/* Launch a game instance */
-		launch: function() {
-
+		launch: function()
+		{
 			// Start up MelonJS instance
-    		window.onReady(function() 
-    		{
-    			Game.onload();
-    		});
+    		window.onReady(function() { Game.onload(); });
 		},
 
 		reset: function()
@@ -57,8 +54,8 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 		},
 
 		/* Load up the game map and object instances */
-		onload: function() {
-			
+		onload: function()
+		{	
 			// Setup canvas
 			var height_scroller_width = 15;
 			if (!me.video.init('stage', parseInt(document.body.clientWidth) - height_scroller_width, 720)) {
@@ -68,11 +65,7 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 			
 			// Compile resources
 			var resources = Resource.compile();
-
-			// Setup human interface devices input
 			me.loader.onload = Game.loaded.bind(this);
-			
-			// Setup all image and map data resources
 			me.loader.preload(resources);
 			
 			// Load settings
@@ -82,7 +75,8 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 			me.state.change(me.state.LOADING);	
 		},
 
-		loaded: function() {
+		loaded: function()
+		{
 			// Set the "Play/Ingame" Screen Object
 			me.state.set(me.state.PLAY, this);
 			     
@@ -93,7 +87,7 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 			var players = me.entityPool.add("spawnPoint", human_object, true);
 			
 			// Setup guns to pickup
-			//var guns = me.entityPool.add("gunEquip", gun_object, true);
+			var guns = me.entityPool.add("gunEquip", gun_object, true);
 
 			// Start the game
 			me.state.change(me.state.PLAY);
@@ -108,17 +102,11 @@ define(["jQuery", "Session", "Resource", "Human.GOD", "Gun.GOD"], function(jQuer
 		/* Actions performed while game is running */
 		onUpdateFrame: function()
 		{
-		
 			// Check for any interaction with keyboard
 			//require('Keyboard.MOD').observeControls();
 
-			// Update the frame counter
 			me.timer.update();
-
-			// Update our sprites
 			me.game.update();
-		
-			// Draw the rest of the game
 			me.game.draw();
 		}
 	}

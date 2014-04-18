@@ -12,20 +12,16 @@ define(["jQuery"], function(jQuery) {
 	return Resource = {
 
 		// Compile all resources into JSON format for loading */
-		compile: function() {
-
+		compile: function()
+		{
 			// Build maps and map resources
 			var compiled_resources = this.compileMaps();
 			
 			// Get all character sprites
 			compiled_resources = compiled_resources.concat( this.compilePlayers() );
-
-			// Gun sprite
-			/*resources.push({
-				name: "gun_sprite",
-				type: "image",
-				src: require('Gun.MOD').getImage("AR-15")
-			});*/
+			
+			// Get all sprites (Future implementation)
+			compiled_resources = compiled_resources.concat( this.compileSprites() );
 			
 			// Game font
 			// TODO: Convert font to PNG
@@ -39,8 +35,8 @@ define(["jQuery"], function(jQuery) {
 		},
 
 		/* Compile all map resources */
-		compileMaps: function() {
-
+		compileMaps: function()
+		{
 			var maps = [];
 			
 			// Set ASYNC AJAX to false
@@ -83,10 +79,27 @@ define(["jQuery"], function(jQuery) {
 			
 			return maps;
 		},
+		
+		compileSprites: function()
+		{
+			// Gun & bullet sprites
+			return [
+				{
+					name: "gun_sprite",
+					type: "image",
+					src: this.getSprite('AR-15', 'items', 'Guns')
+				},
+				{
+					name: "bullet_sprite",
+					type: "image",
+					src: this.getSprite('Bullet', 'items', 'Guns')
+				}
+			];
+		},
 
 		/* Compile all player resources */
-		compilePlayers: function() {
-
+		compilePlayers: function()
+		{
 			// Filename prefix/suffix
 			var f_pfx = Config.get('resources.sprites.sprite_filename_prefix');
 			var f_sfx = Config.get('resources.sprites.sprite_filename_suffix');
@@ -144,6 +157,23 @@ define(["jQuery"], function(jQuery) {
 					src: Config.get('resources.directories.sprites.characters') + f_pfx + "WomanHelicopterPilot" + ext
 				}
 			];
+		},
+
+		/* Get absolute path for resource based on path and filename */
+		getPath: function(path, file)
+		{
+			return path + file;
+		},
+
+		/* Get path for sprite based on passed sprite name */
+		getSprite: function(sprite_name, sprite_type, sprite_group)
+		{
+			var directory = Config.get('resources.directories.multimedia.images');
+			var path = directory + sprite_type + '/' + sprite_group + '/';
+			var ext = '.png';
+			var file = sprite_name + ext;
+
+			return this.getPath(path, file);
 		}
 	}
 });

@@ -35,6 +35,7 @@ require.config({
         
         /* Core classes */
         'App': "regeneration/app", // Application instance class
+        'Audio': "regeneration/audio", // Audio class
         'Config': "regeneration/config", // Config class
         'Game': "regeneration/game", // Game instance class
         'Lang': "regeneration/lang", // Lang class
@@ -49,9 +50,10 @@ require.config({
         'Gun.MOD': "modules/gun/gun.module", // Gun module
         
         /* Game object definitions */
+        'Bullet.GOD': "gameobjects/bullet",
         'Gun.GOD': "gameobjects/gun",
-        'Human.GOD': "gameobjects/human",
         'Hud.GOD': "gameobjects/hud",
+        'Human.GOD': "gameobjects/human",
         
         /* jQuery plugins */
         'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
@@ -142,7 +144,7 @@ require.config({
         // Inject regeneration classes into autoloader
         'conditioner': {
             deps: [
-                'App', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
+                'App', 'Audio', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
             ],
             exports: 'conditioner'
         }

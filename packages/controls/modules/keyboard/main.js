@@ -67,32 +67,6 @@ define([], function() {
 				//require('player').move('right');
 			}
 			
-			// Handling gun
-			else if (me.input.isKeyPressed('operate')) {
-				//require('audio').sampler.play("shoot");
-			}
-			else if (me.input.isKeyPressed('push')) {
-				//require('audio').sampler.play("fired_bullet_shelldrop");
-			}
-			else if (me.input.isKeyPressed('throwmag')) {
-				//require('audio').sampler.play("discard_mag");
-				console.log("Removed a mag");
-			}
-			else if (me.input.isKeyPressed('entermag')) {
-				//require('audio').sampler.play("insert_mag");
-				console.log("Loaded a mag");
-			}
-			else if (me.input.isKeyPressed('reload')) {
-				//require('audio').sampler.play("lock_inserted_mag");
-				//audio.play.sample("insert_mag");
-				//audio.play.sample("load_chamber");
-				console.log("Connected a mag");
-			}
-			else if (me.input.isKeyPressed('chamber')) {
-				//require('audio').sampler.play("load_chamber");
-				console.log("Loaded chamber");
-			}
-			
 			// Hiding or showing left sidebar
 			else if (me.input.isKeyPressed('toggleleftsidebar')) {
 				//require('Page').sidebar('left', 'toggle');

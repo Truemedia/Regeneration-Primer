@@ -21,9 +21,6 @@ define(function(require, exports, module) {
 			// Setup all images as sprites
 			require('sprites').setup();
 
-			// Generate Map
-			require('diydie').generateWorld();
-
 			// Put in the Game Objects
 			require('gameobjects').gameObjects(characterselected);
 	

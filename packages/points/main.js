@@ -50,16 +50,9 @@ define([
 	    	this.init(options);
 			new this.view({el: element});
 	    },
-
-	    /* Autoloader terminate method */
-	    unload: function()
-	    {
-
-	    },
 	        
 	    /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: function() { return Config.get('points::routes.' + points.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
@@ -68,7 +61,7 @@ define([
 	    view: Backbone.View.extend({	
 	        initialize: function()
 	        {    	
-	            this.collection = new points.collection();
+	            this.collection = new points.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

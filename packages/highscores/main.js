@@ -42,16 +42,9 @@ define([
 	    	this.init(options);
 			new this.view({el: element});
 	    },
-
-	    /* Autoloader terminate method */
-	    unload: function()
-	    {
-
-	    },
 	        
 	    /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: function() { return Config.get('highscores::routes.' + highscores.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
@@ -60,7 +53,7 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {    	
-	            this.collection = new highscores.collection();
+	            this.collection = new highscores.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

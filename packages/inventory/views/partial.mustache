@@ -1,16 +1,13 @@
-{{#inventories}}
-		<div id="inventory_container">
-			{{#inventory}}
-			<ul id="my_inventory" class="inventory accordion">
-				{{#items}}
-				<li class="inventory_item accordion-group">
-					<div class="accordion-heading">
-						<a class="item_name accordion-toggle" data-toggle="collapse" data-parent="#my_inventory" href="#{{name}}">
+<div class="panel-group" id="accordion">
+	{{#items}}
+	<div class="panel panel-default">
+					<div class="panel-heading">
+						<a data-toggle="collapse" data-parent="#accordion" href="#{{name}}">
 							<span class="badge">{{item_id}}&nbsp;</span>&nbsp; {{name}} ({{type}}) {{wield}} wield
 						</a>
 					</div>
-					<div id="{{name}}" class="accordion-body collapse">
-						<div class="accordion-inner">
+					<div id="{{name}}" class="panel-collapse collapse">
+						<div class="panel-body">
 							<div class="item_actions">
 								<a href="#" id="{{name}}_info" class="btn btn-small btn-info" data-toggle="popover" data-content="{{description}}" data-trigger="hover" data-placement="right">?</a>
 								<div class="btn-group">
@@ -35,11 +32,6 @@
 						            <a href="#" class="btn btn-small btn-primary" data-bind="click: give">Give to a player</a>
 						            <a href="#" data-toggle="dropdown" class="btn btn-small btn-primary dropdown-toggle"><span class="caret"></span></a>
 						            <ul class="dropdown-menu">
-						            {{#characters}}
-						              <li>
-						              	<a href="#" data-bind="click: give" data-value="{{pid}}">{{full_name}}</a>
-						              </li>
-						            {{/characters}}
 						              <li class="divider"></li>
 						              <li><a href="#">Throw away</a></li>
 						            </ul>
@@ -64,9 +56,6 @@
 							{{/subitems}}
 						</div>
 					</div>
-				</li>
-				{{/items}}
-			</ul>
-			{{/inventory}}
-		</div>
-{{/inventories}}
+				</div>
+	{{/items}}
+</div>

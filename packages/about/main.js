@@ -40,15 +40,11 @@ define([
         {	
         	// Load the package onto current web-page
         	this.init();
-			new this.view({el: element});
-        },
-
-        /**
-         * Autoloader terminate method
-         */
-        unload: function()
-        {
-
+			if (jQuery(element).html().length === 0) {
+				new this.view({el: element});
+			} else {
+				this.registerEvents();
+			}
         },
         
         /**
@@ -56,7 +52,6 @@ define([
          * @constructor
          */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: 'packages/about/data.json',
 	        parse: function(data) { return data.items; }
 	    }),
@@ -68,7 +63,11 @@ define([
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {
-	            this.collection = new about.collection();
+
+	            this.collection = new about.collection({model: Backbone.Model.extend()});
+
+	            // Run rendering process with attached after hook
+	            this.on('render', this.afterRender());
 	            this.render();
 	        },
 	        render: function()
@@ -88,7 +87,14 @@ define([
 	            	// Render content
 	            	self.$el.html( template(data) );
 	            });
-	        }
-	    })
+	        },
+	        afterRender: function() { about.registerEvents(); }
+	    }),
+
+	    /* Register third-party library event handlers */
+	    registerEvents: function()
+	    {
+
+	    }
 	}
 });

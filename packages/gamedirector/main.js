@@ -7,15 +7,36 @@
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
-define(["./Toastr", "./Crafty", "./spawner.PKG", "./Config"], function(toastr, Crafty, spawner, Config) {
+define(["Toastr"], function(toastr) {
 	/** 
      * Game Director package
      * @namespace gamedirector
      */
 	return gamedirector = {
-			
+
+		// Translations
+		trans: {},
+
+		// Package options
+		settings: null,
+
 		// Round/Wave number
 		round_number: 0,
+				
+		/* Initial load-up procedure if first time package is loaded */
+		init: function(options)
+		{		
+			// Register package
+			Package.register('gamedirector');
+		},
+			
+		/* Autoloading hook */
+	    load: function(element, options)
+	    {    	
+	        // Load the package onto current web-page
+	    	this.init(options);
+			this.roundCall();
+	    },
 			
 		/* Warn player that next round is commencing */
 		roundCall: function()
@@ -26,17 +47,6 @@ define(["./Toastr", "./Crafty", "./spawner.PKG", "./Config"], function(toastr, C
 			// Display notification
 			toastr.options = Config.get('gamedirector::toastr');
 			toastr.error("Prepare to fight", "Round "+gamedirector.round_number);
-		},
-			
-		initGameDirector: function(character)
-		{
-			// Spawn players
-			jQuery.getJSON("packages/characterselection/info/characters.json", function(all_characters_info) {
-				jQuery.each(all_characters_info, function(key, item){
-					// Code to add player/s on screen
-					spawner.spawnCharacter(item, character, key);
-				});
-			});
 		}
 	}
 });

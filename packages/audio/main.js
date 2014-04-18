@@ -8,8 +8,8 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
-], function(template, nls, Config, Lang, Package, Backbone, buzz, jQuery) {
+	"stache!./views/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
+], function(template, nls, Backbone, buzz, jQuery) {
 	/** 
      * Audio package
      * @namespace audio
@@ -47,6 +47,8 @@ define([
 		 */
 		init: function(options)
 		{	
+			Audio.init({});
+
 			// Register package
 			Package.register('audio');
 
@@ -80,19 +82,10 @@ define([
         },
 
         /**
-         * Autoloader terminate method
-         */
-        unload: function()
-        {
-
-        },
-
-        /**
          * Data collection
          * @constructor
          */
 	    collection: Backbone.Collection.extend({
-	        model: Backbone.Model.extend(),
 	        url: function() { return Config.get('audio::routes.' + audio.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
@@ -104,7 +97,7 @@ define([
 	    view: Backbone.View.extend({	
 	        initialize: function()
 	        {
-	            this.collection = new audio.collection();
+	            this.collection = new audio.collection({model: Backbone.Model.extend()});
 	            this.render();
 	        },
 	        render: function()

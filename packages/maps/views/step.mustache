@@ -6,6 +6,13 @@
   <div class="row">
     {{#maps}}
     <div class="col-sm-3">
+      <div class="options" style="text-align: center;">
+          <p>
+            <button class="btn btn-default btn-lg map_select{{disabled}}" value="{{identifier}}">
+              <i class="icon-plane"></i><span>{{trans.play_map_phrs}}</span>
+            </button>
+          </p>
+        </div>
       <div class="hero-widget well well-sm">
         <div style="height: 200px;" id="{{identifier}}"></div>
         <div class="text">
@@ -22,14 +29,6 @@
         <div class="row-fluid">
           <div class="pull-left"><b>Truemedia</b><br><small>{{trans.created_by_verb}}</small></div>
           <div class="pull-right"><b>N/A</b><br><small>{{trans.likes_verb}}</small></div>
-        </div>
-        <br class="clear" />
-        <div class="options" style="text-align: center; padding-top: 38px;">
-          <p>
-            <button class="btn btn-default btn-lg map_select{{disabled}}" value="{{identifier}}">
-              <i class="icon-plane"></i><span>{{trans.play_map_phrs}}</span>
-            </button>
-          </p>
         </div>
       </div>
     </div>
