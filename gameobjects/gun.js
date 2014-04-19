@@ -82,15 +82,17 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 		onCollision: function(obj)
 		{
 			// Remove and notify as equipped
-			toastr.options = Config.get('gamedirector::toastr');
-			toastr.warning("Item equipped", this.itemname);
+			if (obj.alive == true) {
+				toastr.options = Config.get('gamedirector::toastr');
+				toastr.warning("Item equipped", this.itemname);
 
-			this.collidable = false;
-			this.pos.x = obj.pos.x;
-			this.pos.y = obj.pos.y;
-			this.z = (obj.z + 1);
-			me.game.sort();
-			//inventory.equip(this.itemname);
+				this.collidable = false;
+				this.pos.x = obj.pos.x;
+				this.pos.y = obj.pos.y;
+				this.z = (obj.z + 1);
+				me.game.sort();
+				//inventory.equip(this.itemname);
+			}
 		},
 		
 		/* Additional methods */

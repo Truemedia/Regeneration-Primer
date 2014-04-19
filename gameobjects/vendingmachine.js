@@ -17,6 +17,8 @@ define([], function() {
 			
 			// Store data in object instance
 			this.itemname = settings.itemname;
+			this.alive = false;
+			this.collidable = true;
 			settings.image = 'vendingmachine_sprite';
 		},
 		
