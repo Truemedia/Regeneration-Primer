@@ -60,7 +60,8 @@ define([
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: contentpack.trans,
-	            		characters: Config.get('content_pack.images.characters')
+	            		content_packs: Config.get('resources.content_packs'),
+	            		content: Config.get('content_pack'),
 	            	}
 	    				
 	            	// Render content

@@ -28,5 +28,9 @@
 		},
 		"packages": "packages",
 		"windows": "windows"
-	}
+	},
+	"content_packs": [
+		"debug",
+		"default-contentpack"
+	]
 }

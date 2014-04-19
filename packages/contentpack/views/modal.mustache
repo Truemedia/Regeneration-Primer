@@ -6,6 +6,7 @@
 			<h4 id="contentpack-system-name">Content pack</h4>
 		</div>
 		<div class="modal-body">
+			<h3>Images</h3>
 			<table class="table table-bordered table-striped table-hover">
 				<thead>
 					<tr>
@@ -14,10 +15,19 @@
 					</tr>
 				</thead>
 				<tbody>
+					{{#content.images}}
 					<tr>
-						<td>Characters</td>
-						<td>{{characters}}</td>
+						<td>{{.}}</td>
+						<td>
+							<span class="pull-left"><b>{{characters}}</b> &nbsp;Choose different content pack:</span>
+							<select class="pull-right">
+								{{#content_packs}}
+								<option value="{{.}}">{{.}}</option>
+								{{/content_packs}}
+							</select>
+						</td>
 					</tr>
+					{{/content.images}}
 				</tbody>
 			</table>
 		</div>
