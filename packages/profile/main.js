@@ -60,7 +60,7 @@ define([
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: profile.trans,
-	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters'),
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters'),
 	            		session: JSON.stringify({
 	            			character: Session.get('character'),
 	            			map: Session.get('map')

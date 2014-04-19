@@ -113,53 +113,45 @@ define(["jQuery"], function(jQuery) {
 			var ext = f_sfx;
 
 			return [
-			    // Coward
 				{
 					name: "coward",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "Coward" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "Coward" + ext
 				},
-				// Criminal
 				{
 					name: "criminal",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "Criminal" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "Criminal" + ext
 				},
-				// Mother
 				{
 					name: "mother",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "Mother" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "Mother" + ext
 				},
-				// Next Door Neighbor
 				{
 					name: "nextdoorneighbor",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "NextDoorNeighbor" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "NextDoorNeighbor" + ext
 				},
-				// Psychotic Worker
 				{
 					name: "psychoticworker",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "PsychoticWorker" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "PsychoticWorker" + ext
 				},
-				// Store Owner
 				{
 					name: "storeowner",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "StoreOwner" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "StoreOwner" + ext
 				},
-				// Store Owner Wife
 				{
 					name: "storeownerwife",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "StoreOwnerWife" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "StoreOwnerWife" + ext
 				},
-				// Woman Helicopter Pilot
 				{
 					name: "womanhelicopterpilot",
 					type: "image",
-					src: Config.get('resources.directories.sprites.characters') + f_pfx + "WomanHelicopterPilot" + ext
+					src: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + '/images/characters/' + f_pfx + "WomanHelicopterPilot" + ext
 				}
 			];
 		},

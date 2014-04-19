@@ -84,7 +84,7 @@ define(["./jQuery", "./KO", "./Config", "./Gun.GOD"], function(jQuery, ko, Confi
 			}
 			
 			// Main image directory
-			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.guns') + "/images/";
+			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.guns') + "/images/";
 			
 			// Gun images directory 
 			var guns_sprites_dir = image_dir + "items/Guns/";

@@ -65,7 +65,7 @@ define([
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: characterselection.trans,
-	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters')
+	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters')
 	            	}
 	    				
 	            	// Render content
@@ -250,7 +250,7 @@ define([
 			}
 			
 			// Main image directory
-			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.characters') + "/images/";
+			var image_dir = Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters') + "/images/";
 			
 			// Character images directory 
 			var characters_sprites_dir = image_dir + "characters/";

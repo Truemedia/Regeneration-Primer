@@ -105,8 +105,8 @@
    <properties>
     <property name="image" value="vendingmachine_sprite"/>
     <property name="itemname" value="VendingMachine"/>
-    <property name="spriteheight" value="256"/>
-    <property name="spritewidth" value="128"/>
+    <property name="spriteheight" value="434"/>
+    <property name="spritewidth" value="238"/>
    </properties>
   </object>
  </objectgroup>

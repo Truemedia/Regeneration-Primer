@@ -88,6 +88,8 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 			this.collidable = false;
 			this.pos.x = obj.pos.x;
 			this.pos.y = obj.pos.y;
+			this.z = (obj.z + 1);
+			me.game.sort();
 			//inventory.equip(this.itemname);
 		},
 		
@@ -99,7 +101,7 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 		    	image: 'bullet_sprite',
 		    	direction: this.direction
 		    });
-		    me.game.add(new_bullet, 10);
+		    me.game.add(new_bullet, this.z);
 		    me.game.sort();
 		},
 		push_away: function()

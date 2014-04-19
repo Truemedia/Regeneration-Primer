@@ -1,4 +1,6 @@
 {
-  "characters" : "debug",
-  "guns" : "default-contentpack"
+  "images": {
+  	"characters" : "debug",
+  	"guns" : "default-contentpack"
+  }
 }
