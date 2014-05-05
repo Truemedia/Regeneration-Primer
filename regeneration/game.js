@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
-], function(jQuery, Session, Resource, BulletEntity, GunEntity, HumanEntity, VendingMachineEntity) {
+define(["jQuery", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
+], function(jQuery, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, VendingMachineEntity) {
 	return Game = {
 			
 		/* Steps to progress the game */
@@ -83,6 +83,9 @@ define(["jQuery", "Session", "Resource", "Bullet.GOD", "Gun.GOD", "Human.GOD", "
 
 			// Get game object definitions and add entities in the entity pool
 			me.entityPool.add("spawnPoint", HumanEntity, true);
+
+			// Add enemies
+			me.entityPool.add("enemySpawnPoint", EnemyEntity, true);
 			
 			// Setup guns to pickup
 			me.entityPool.add("gunEquip", GunEntity, true);

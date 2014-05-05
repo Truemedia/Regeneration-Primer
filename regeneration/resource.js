@@ -98,6 +98,11 @@ define(["jQuery"], function(jQuery) {
 					name: "vendingmachine_sprite",
 					type: "image",
 					src: this.getSprite('VendingMachine', 'items', 'Storage')
+				},
+				{
+					name: "enemy_sprite",
+					type: "image",
+					src: this.getSprite('(Brutal)_DefaultPose', 'enemies', 'Animals')
 				}
 			];
 		},

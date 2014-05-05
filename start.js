@@ -51,6 +51,7 @@ require.config({
         
         /* Game object definitions */
         'Bullet.GOD': "gameobjects/bullet",
+        'Enemy.GOD': "gameobjects/enemy",
         'Gun.GOD': "gameobjects/gun",
         'Hud.GOD': "gameobjects/hud",
         'Human.GOD': "gameobjects/human",
