@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "jQ.Datatables"
+	"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "jQ.Datatables"
 ], function(template, nls, Config, Lang, Package, jQuery) {
 	/** 
      * Theme package

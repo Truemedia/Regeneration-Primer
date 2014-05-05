@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Crafty", "jQuery", "Leaflet"
+	"stache!./templates/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Crafty", "jQuery", "Leaflet"
 ], function(template, nls, Config, Lang, Package, Session, Crafty, jQuery, L) {
 	/** 
      * Maps package

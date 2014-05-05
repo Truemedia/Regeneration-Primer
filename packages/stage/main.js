@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Bootstrap", "Backbone"
+	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Bootstrap", "Backbone"
 ], function(template, nls, Config, Lang, Game, Package, jQuery, Backbone) {
 	/** 
      * Stage package

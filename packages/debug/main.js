@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"
+	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"
 ], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
 	/** 
      * Debug package

@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO", "Toastr"
+	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO", "Toastr"
 ], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko, toastr) {
 	/** 
      * Inventory package

@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/partial",
+	"stache!./templates/partial",
 	"i18n!./nls/strings",
 	"Config", "Lang", "Package", "jQ.ui", "KO", "./modules/health/main", "./modules/score/main"
 ], function(template, nls, Config, Lang, Package, jQuery, ko, Health, Score) {

@@ -8,12 +8,12 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
-	'text!views/home.html',
-	'text!views/game.html',
-	'text!views/regions/header.html',
-	'text!views/regions/footer.html',
-	'text!views/regions/content/selection.html',
-	'text!views/regions/content/stage.html',
+	'text!templates/home.html',
+	'text!templates/game.html',
+	'text!templates/regions/header.html',
+	'text!templates/regions/footer.html',
+	'text!templates/regions/content/selection.html',
+	'text!templates/regions/content/stage.html',
 	'Marionette', 'jQuery'
 ], function(homePage, gamePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, Marionette, jQuery) {
 	return Site_Controller = {

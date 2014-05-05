@@ -8,7 +8,7 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./views/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
+	"stache!./templates/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
 ], function(template, nls, Backbone, buzz, jQuery) {
 	/** 
      * Audio package
