@@ -110,10 +110,10 @@ define([
         		return self.ammo().length;
     		}, self);
     		
-    		self.shoot = function() {
+    		/*self.shoot = function() {
 
     	        self.ammo.pop();
-    	    };
+    	    };*/
     	    
     	    self.give = function() {
     	    	console.log("Giving weapon to person");

@@ -172,6 +172,7 @@ require.config({
         'player',
         'points',
         'profile',
+        'rules',
         'sitemap',
         'social',
         'spawner',

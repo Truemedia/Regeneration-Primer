@@ -1,0 +1,11 @@
+{
+	"name": "Rules",
+	"author": "Wade Penistone <johndoe@website.com>",
+	"description": "Core Regeneration Primer package which provides a reference for game rules aswell as an API to set them",
+	"contributors": [
+		{
+			"name": "Wade Penistone (Truemedia)"
+		}
+	],
+	"license": "MIT"
+}

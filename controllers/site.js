@@ -14,7 +14,7 @@ define([
 	'text!templates/regions/footer.html',
 	'text!templates/regions/content/selection.html',
 	'text!templates/regions/content/stage.html',
-	'Marionette', 'jQuery'
+	'Marionette', 'Bootstrap'
 ], function(homePage, gamePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, Marionette, jQuery) {
 	return Site_Controller = {
 

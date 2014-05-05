@@ -1,6 +1,4 @@
 define({
-	"profile_phrs": "プロフィール",
-	"rules_phrs": "規律",
 	"username_phrs": "ユーザ名",
     "password_phrs": "パスワード",
     "rememberme_phrs": "私を覚えている",
@@ -9,14 +7,5 @@ define({
     "quick-play_sntc": "ゲストとしてクイック再生",
     "alive_verb": "生きている",
     "time-elapsed_phrs": "時間が経過",
-    "points_phrs": "点数",
-    "friendly-fire_phrs": "フレンドリー·ファイア",
-    "administrator_phrs":  "管理者",
-    "moderator_phrs": "司会",
-    "frontend-webdev_phrs": "フロントエンドWeb開発者",
-    "backend-webdev_phrs": "戻るWeb開発を終了",
-    "graphic-designer_phrs": "グラフィックデザイナー",
-    "audio-engineer_phrs": "オーディオエンジニア",
-    "database-manager_phrs": "データベースマネージャ",
-    "owner_phrs": "所有者"
+    "points_phrs": "点数"
 });

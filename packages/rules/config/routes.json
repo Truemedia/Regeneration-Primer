@@ -1,0 +1,4 @@
+{
+	"file": "packages/rules/data.json",
+	"rest": "http://localhost/regeneration_platform/public/rules"
+}
