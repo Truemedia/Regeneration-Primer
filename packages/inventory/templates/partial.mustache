@@ -1,61 +1,72 @@
 <div class="panel-group" id="accordion">
 	{{#items}}
 	<div class="panel panel-default">
-					<div class="panel-heading">
-						<a data-toggle="collapse" data-parent="#accordion" href="#{{name}}">
-							<span class="badge">{{item_id}}&nbsp;</span>&nbsp; {{name}} ({{type}}) {{wield}} wield
+		<div class="panel-heading">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{name}}">
+				<span class="label label-default">{{item_id}}&nbsp;</span>&nbsp; {{name}} <span class="badge badge-default pull-right">{{type}}</span>
+			</a>
+		</div>
+		<div id="{{name}}" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="item_actions">
+					<a href="#"
+					   id="{{name}}_info"
+					   class="btn btn-xs btn-info"
+					   data-toggle="popover"
+					   data-content="{{description}}"
+					   data-trigger="hover"
+					   data-placement="right">?</a>
+					<div class="btn-group">
+						<a href="#" class="btn btn-xs btn-important">Action</a>
+						<a href="#" data-toggle="dropdown" class="btn btn-xs btn-important dropdown-toggle">
+							<span class="caret"></span>
 						</a>
+						<ul class="dropdown-menu">
+							<li>
+							    <a href="#">Reload</a>
+							</li>
+							<li>
+								<a href="#">Chamber</a>
+							</li>
+							<li>
+							    <a href="#">Throw away mag</a>
+							</li>
+							<li class="divider"></li>
+							<li><a href="#">Put away</a></li>
+						</ul>
 					</div>
-					<div id="{{name}}" class="panel-collapse collapse">
-						<div class="panel-body">
-							<div class="item_actions">
-								<a href="#" id="{{name}}_info" class="btn btn-small btn-info" data-toggle="popover" data-content="{{description}}" data-trigger="hover" data-placement="right">?</a>
-								<div class="btn-group">
-						            <a href="#" class="btn btn-small btn-important">Action</a>
-						            <a href="#" data-toggle="dropdown" class="btn btn-small btn-important dropdown-toggle"><span class="caret"></span></a>
-						            <ul class="dropdown-menu">
-						              <li>
-						              	<a href="#">Reload</a>
-						              </li>
-						              <li>
-						              	<a href="#">Chamber</a>
-						              </li>
-						              <li>
-						              	<a href="#">Throw away mag</a>
-						              </li>
-						              <li class="divider"></li>
-						              <li><a href="#">Put away</a></li>
-						            </ul>
-					          	</div>
-								<a href="#" class="btn btn-small btn-danger">Discard</a>
-								<div class="btn-group">
-						            <a href="#" class="btn btn-small btn-primary" data-bind="click: give">Give to a player</a>
-						            <a href="#" data-toggle="dropdown" class="btn btn-small btn-primary dropdown-toggle"><span class="caret"></span></a>
-						            <ul class="dropdown-menu">
-						              <li class="divider"></li>
-						              <li><a href="#">Throw away</a></li>
-						            </ul>
-					          	</div>
-							</div>
-							<hr />
-							<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
-							{{#subitems}}
-							<div class="span2">
-							<dl class="subitem">
-								<dt class="subitem_attribute">{{text}}:</dt>
-								<dd class="subitem_value" data-bind="text: ammoCount"></dd>
-							</dl>
-							</div>
-							<div class="span2">
-							<ul class="actual_bullet_list" data-bind="foreach: ammo">
-								<li>
-									<img src="{{img_dir}}items/Guns/Bullet.png" />
-								</li>
-							</ul>
-							</div>
-							{{/subitems}}
-						</div>
+					<a href="#" class="btn btn-xs btn-danger">Discard</a>
+					<div class="btn-group">
+						<a href="#" class="btn btn-xs btn-primary" data-bind="click: give">Give to a player</a>
+						<a href="#" data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle"><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						    <li class="divider"></li>
+						    <li>
+						    	<a href="#">Throw away</a>
+						    </li>
+						</ul>
 					</div>
 				</div>
+				<hr />
+				<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
+
+				{{#subitems}}
+				<div class="span2">
+					<dl class="subitem">
+						<dt class="subitem_attribute">{{text}}:</dt>
+						<dd class="subitem_value" data-bind="text: ammoCount"></dd>
+					</dl>
+				</div>
+				<div class="span2">
+					<ul class="actual_bullet_list" data-bind="foreach: ammo">
+						<li>
+							<img src="{{img_dir}}items/Guns/Bullet.png" />
+						</li>
+					</ul>
+				</div>
+				{{/subitems}}
+			</div>
+		</div>
+	</div>
 	{{/items}}
 </div>

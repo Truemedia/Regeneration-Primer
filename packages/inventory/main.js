@@ -2,7 +2,7 @@
  * @file Inventory PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for entities containing items
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
@@ -60,7 +60,6 @@ define([
 	        initialize: function()
 	        {    	
 	            this.collection = new inventory.collection({model: Backbone.Model.extend()});
-	            this.on('render', this.afterRender());
 	            this.render();
 	        },
 	        render: function()
@@ -79,17 +78,8 @@ define([
 	            	// Render content
 	            	self.$el.html( template(data) );
 	            });
-	        },
-	        afterRender: function() {
-	        	inventory.registerEvents();
 	        }
 	    }),
-		
-		/* Register jQuery events */
-		registerEvents: function()
-		{	
-			
-		},
 		
 		registerBindings: function()
 		{
@@ -129,13 +119,6 @@ define([
 			
 			// Switch as upper most inventory item (and make active)
 			inventory.switchItem(1);
-		},
-		
-		/* Simulate inventory item click */
-		switchItem: function(item_number)
-		{
-			var item_index = item_number - 1;
-			jQuery("#my_inventory > li:eq('"+item_index+"') > .accordion-heading > .accordion-toggle").click();
 		},
 		
 		/* Build array of bullets using range and damage (inherit same values) */

@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
-], function(jQuery, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, VendingMachineEntity) {
+define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
+], function(jQuery, Controls, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, VendingMachineEntity) {
 	return Game = {
 			
 		/* Steps to progress the game */
@@ -68,6 +68,7 @@ define(["jQuery", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "
 			var resources = Resource.compile();
 			me.loader.onload = Game.loaded.bind(this);
 			me.loader.preload(resources);
+			Controls.bind();
 			
 			// Load settings
 			Game.settings();
@@ -103,6 +104,7 @@ define(["jQuery", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "
 		/* Actions performed while game is running */
 		onUpdateFrame: function()
 		{
+			Controls.observe();
 			me.timer.update();
 			me.game.update();
 			me.game.draw();

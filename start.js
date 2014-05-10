@@ -19,7 +19,7 @@ require.config({
 	
 		/* Third party libraries */
         'Backbone': "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min",
-        'Bootstrap': "http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min",
+        'Bootstrap': "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
         'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
         'Cookie': "http://cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min",
 		'Crafty': "http://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min",
@@ -37,6 +37,7 @@ require.config({
         'App': "regeneration/app", // Application instance class
         'Audio': "regeneration/audio", // Audio class
         'Config': "regeneration/config", // Config class
+        'Controls': "regeneration/controls", // Controls class
         'Game': "regeneration/game", // Game instance class
         'Lang': "regeneration/lang", // Lang class
         'Package': "regeneration/package", // Package helper class

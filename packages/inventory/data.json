@@ -47,7 +47,7 @@
 		        },
 		        {
 		          "item_id" : "4",
-		          "name": "Auto-Shotgun",
+		          "name": "Auto Shotty",
 		          "description": "Automatic machine gun",
 		          "type": "Gun",
 		          "image": false,
@@ -62,7 +62,7 @@
 		        },
 		        {
 		          "item_id" : "5",
-		          "name": "Farmers-Shotgun",
+		          "name": "Remington",
 		          "description": "Automatic machine gun",
 		          "type": "Gun",
 		          "image": false,
@@ -77,7 +77,7 @@
 		        },
 		        {
 		          "item_id" : "6",
-		          "name": "Spaz-Shotgun",
+		          "name": "SPAS",
 		          "description": "Automatic machine gun",
 		          "type": "Gun",
 		          "image": false,
@@ -121,7 +121,7 @@
 		        },
 		        {
 		          "item_id" : "9",
-		          "name": "M4Specter",
+		          "name": "M4S",
 		          "description": "Automatic machine gun",
 		          "type": "Gun",
 		          "image": false,
@@ -136,7 +136,7 @@
 		        },
 		        {
 		          "item_id" : "10",
-		          "name": "Smithen-Wesson",
+		          "name": "S&W",
 		          "description": "Automatic machine gun",
 		          "type": "Gun",
 		          "image": false,

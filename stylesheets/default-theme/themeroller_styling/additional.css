@@ -33,7 +33,7 @@
 
 /* Sidebars */
 #sidebar_left, #sidebar_right {
-	width: 200px;
+	width: 256px;
 	height: 100%;
 	margin-top: 50px;
 	position: fixed;
