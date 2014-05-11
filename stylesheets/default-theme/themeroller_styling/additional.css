@@ -17,9 +17,6 @@
 /* Header stylesheet */
 @import url('../../../packages/header/style.css');
 
-/* Inventory stylesheet */
-@import url('../../../packages/inventory/style.css');
-
 /* Marquee stylesheet */
 @import url('../../../packages/marquee/style.css');
 

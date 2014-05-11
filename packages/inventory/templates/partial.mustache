@@ -17,47 +17,39 @@
 					   data-trigger="hover"
 					   data-placement="right">?</a>
 					<div class="btn-group">
-						<a href="#" class="btn btn-xs btn-important">Action</a>
+						<a href="#" class="btn btn-xs btn-important">{{trans.action}}</a>
 						<a href="#" data-toggle="dropdown" class="btn btn-xs btn-important dropdown-toggle">
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-							    <a href="#">Reload</a>
+							    <a href="#">{{trans.reload}}</a>
 							</li>
 							<li>
-								<a href="#">Chamber</a>
+								<a href="#">{{trans.chamber}}</a>
 							</li>
 							<li>
-							    <a href="#">Throw away mag</a>
+							    <a href="#">{{trans.throw_away_mag}}</a>
 							</li>
 							<li class="divider"></li>
-							<li><a href="#">Put away</a></li>
+							<li><a href="#">{{trans.put_away}}</a></li>
 						</ul>
 					</div>
-					<a href="#" class="btn btn-xs btn-danger">Discard</a>
+					<a href="#" class="btn btn-xs btn-danger">{{trans.discard}}</a>
 					<div class="btn-group">
-						<a href="#" class="btn btn-xs btn-primary" data-bind="click: give">Give to a player</a>
+						<a href="#" class="btn btn-xs btn-primary" data-bind="click: give">{{trans.give_to_player}}</a>
 						<a href="#" data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle"><span class="caret"></span></a>
 						<ul class="dropdown-menu">
 						    <li class="divider"></li>
 						    <li>
-						    	<a href="#">Throw away</a>
+						    	<a href="#">{{trans.throw_away}}</a>
 						    </li>
 						</ul>
 					</div>
 				</div>
-				<hr />
-				<div class="item_sprite" style="background:url('{{img_dir}}items/Guns/{{name}}.png') 0 0;"></div>
 
 				{{#subitems}}
-				<div class="span2">
-					<dl class="subitem">
-						<dt class="subitem_attribute">{{text}}:</dt>
-						<dd class="subitem_value" data-bind="text: ammoCount"></dd>
-					</dl>
-				</div>
-				<div class="span2">
+				<div class="row" style="padding-left: 16px;">
 					<ul class="actual_bullet_list" data-bind="foreach: ammo">
 						<li>
 							<img src="{{img_dir}}items/Guns/Bullet.png" />
@@ -65,6 +57,10 @@
 					</ul>
 				</div>
 				{{/subitems}}
+
+				<div class="row" style="padding-left: 16px;">
+					<img src="{{img_dir}}items/Guns/{{name}}.png" alt="{{name}}" class="img-thumbnail" />
+				</div>
 			</div>
 		</div>
 	</div>
