@@ -13,6 +13,7 @@ require.config({
 	paths: {
 		/* Require JS plugins */
         text : "http://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text",
+        hbars: "http://cdnjs.cloudflare.com/ajax/libs/requirejs-handlebars/0.0.2/hbars.min",
         stache : "http://cdnjs.cloudflare.com/ajax/libs/requirejs-mustache/0.0.2/stache",
         i18n: "http://cdnjs.cloudflare.com/ajax/libs/require-i18n/2.0.1/i18n",
         conditioner: 'dependencies/conditioner',
@@ -23,6 +24,7 @@ require.config({
         'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
         'Cookie': "http://cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min",
 		'Crafty': "http://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min",
+        'Handlebars': "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.amd.min",
 		'JSONpatch': "dependencies/jsonpatch.min",
         'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
         'Leaflet': "http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.1/leaflet",
@@ -90,6 +92,9 @@ require.config({
         },
         'Modernizr': {
             exports: 'Modernizr'
+        },
+        'Handlebars': {
+            exports: 'Handlebars'
         },
         
         // Backbone
@@ -184,6 +189,9 @@ require.config({
 
     // configure stache! plugin
     stache: { extension: '.mustache' },
+
+    // configure hbs! plugin
+    hbars: { extension: '.hbs' },
 
     // configure i18n! plugin
     config: {
