@@ -100,6 +100,11 @@ define(["jQuery"], function(jQuery) {
 					src: this.getSprite('VendingMachine', 'items', 'Storage')
 				},
 				{
+					name: "metalcontainer_sprite",
+					type: "image",
+					src: this.getSprite('MetalContainer', 'items', 'Storage')
+				},
+				{
 					name: "enemy_sprite",
 					type: "image",
 					src: this.getSprite('(Brutal)_DefaultPose', 'enemies', 'Animals')

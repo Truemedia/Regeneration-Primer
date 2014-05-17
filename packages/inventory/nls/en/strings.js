@@ -4,7 +4,7 @@ define({
     "chamber": "Chamber",
     "throw_away_mag": "Throw away mag",
     "put_away": "Put away",
-    "discard": "Discard"
+    "discard": "Discard",
     "give_to_player": "Give to player",
-    "throww_away": "Throw away"
+    "throw_away": "Throw away"
 });

@@ -58,6 +58,7 @@ require.config({
         'Gun.GOD': "gameobjects/gun",
         'Hud.GOD': "gameobjects/hud",
         'Human.GOD': "gameobjects/human",
+        'MetalContainer.GOD': "gameobjects/metalcontainer",
         'VendingMachine.GOD': "gameobjects/vendingmachine",
         
         /* jQuery plugins */

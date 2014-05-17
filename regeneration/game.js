@@ -8,8 +8,8 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "VendingMachine.GOD"
-], function(jQuery, Controls, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, VendingMachineEntity) {
+define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "MetalContainer.GOD", "VendingMachine.GOD"
+], function(jQuery, Controls, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, MetalContainerEntity, VendingMachineEntity) {
 	return Game = {
 			
 		/* Steps to progress the game */
@@ -93,6 +93,7 @@ define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", 
 			
 			// Add room fixtures
 			me.entityPool.add("vendingMachine", VendingMachineEntity, true);
+			me.entityPool.add("metalContainer", MetalContainerEntity, true);
 
 			// Start the game
 			me.state.change(me.state.PLAY);
