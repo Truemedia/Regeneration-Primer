@@ -34,12 +34,6 @@ define([
 			    __HEIGHT__ = window.screen.availHeight,
 			    __HUE__   = 0;
 
-			/**
-			 * To render a 3D scene, ThreeJS needs 3 elements :
-			 * A scene where to put all the objects
-			 * A camera to manage the point of view
-			 * A renderer place to show the result
-			 */
 			var scene  = new THREE.Scene(), 
 			    camera = Camera.init(__WIDTH__, __HEIGHT__),
 			    renderer = new THREE.WebGLRenderer();
@@ -47,17 +41,9 @@ define([
 			/**
 			 * Let's preapare the scene
 			 */
-
-			// Add the camera to the scene
 			scene.add(camera);
-
-			// As all objects, the camera is put at the 0,0,0 coordonate, let's pull it back a little
 			camera.position.z = 300;
-
-			// We need to define the size of the renderer
 			renderer.setSize(__WIDTH__, __HEIGHT__);
-
-			// Let's attach our rendering zone to our page
 			jQuery(element).append(renderer.domElement);
 
 			/**
@@ -67,6 +53,12 @@ define([
 			 * A material
 			 */
 			var geometry, material, mesh;
+
+			// Flooring
+			geometry = new THREE.PlaneGeometry( 300, 300 );
+			material = new THREE.MeshBasicMaterial( { color: 0xABABAB } );
+			mesh = new THREE.Mesh( geometry, material );
+			scene.add( mesh );
 
 			// First let's build our geometry
 			// There is other parameters, but you basically just need to define the radius of the Sphere and the number of vertical and horizontal division.
@@ -110,6 +102,7 @@ define([
 
 
 			// And finally it's time to see the result
+			renderer.setClearColor( 0x9afdff, 1);
 			renderer.render( scene, camera );
 
 

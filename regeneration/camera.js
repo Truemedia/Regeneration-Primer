@@ -20,6 +20,7 @@ define(['three'], function(THREE) {
 		},
 
 		context: "3D", // 2D or 3D
+		autonomous: true,
 
 		/* Turn on camera */
 		init: function(width, height)
@@ -33,7 +34,13 @@ define(['three'], function(THREE) {
 					this.pos.height = height;
 				}
 
-				return new THREE.PerspectiveCamera(this.pos.angle, (this.pos.width / this.pos.height), this.pos.near, this.pos.far);
+				if (!this.autonomous) {
+					return new THREE.PerspectiveCamera(this.pos.angle, (this.pos.width / this.pos.height), this.pos.near, this.pos.far);
+				} else {
+					var viewSize = 900;
+					var aspectRatio = window.screen.availWidth/window.screen.availHeight;
+					return new THREE.OrthographicCamera(-aspectRatio*viewSize / 2, aspectRatio*viewSize / 2, viewSize / 2, -viewSize / 2, -1000, 1000);
+				}
 			}
 		}
 	}
