@@ -32,12 +32,14 @@ require.config({
         'Marionette': "http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.1.0-bundled/backbone.marionette.min",
         'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min",
         'Mustache': "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min",
+        'three': "http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min",
         'Toastr': "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min",
         'Underscore': "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min",
         
         /* Core classes */
         'App': "regeneration/app", // Application instance class
         'Audio': "regeneration/audio", // Audio class
+        'Colour': "regeneration/colour", // Colour class
         'Config': "regeneration/config", // Config class
         'Controls': "regeneration/controls", // Controls class
         'Game': "regeneration/game", // Game instance class
@@ -82,20 +84,23 @@ require.config({
     shim: {
 
     	// Dependencies
-    	'jQuery': {
-            exports: 'jQuery'
+        'Buzz': {
+            exports: 'buzz'
         },
         'Crafty': {
             exports: 'Crafty'
         },
-        'Buzz': {
-            exports: 'buzz'
+        'Handlebars': {
+            exports: 'Handlebars'
+        },
+        'jQuery': {
+            exports: 'jQuery'
         },
         'Modernizr': {
             exports: 'Modernizr'
         },
-        'Handlebars': {
-            exports: 'Handlebars'
+        'three': {
+            exports: 'THREE'
         },
         
         // Backbone
@@ -153,7 +158,7 @@ require.config({
         // Inject regeneration classes into autoloader
         'conditioner': {
             deps: [
-                'App', 'Audio', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
+                'App', 'Audio', 'Colour', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
             ],
             exports: 'conditioner'
         }
@@ -179,6 +184,7 @@ require.config({
         'player',
         'points',
         'profile',
+        'realm',
         'rules',
         'sitemap',
         'social',

@@ -12,6 +12,7 @@ define(['Marionette', 'jQuery'], function(Marionette, jQuery) {
 
         appRoutes: {
         	'play': 'game',
+        	'3D': 'three',
             '*defaults': 'index'
         }
     });
