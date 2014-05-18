@@ -28,40 +28,20 @@ define([
 		/* Autoloading hook */
 	    load: function(element, options)
 	    {
-	        /**
-			 * First, let's preapare some contexte
-			 */
 
-			// The WIDTH of the scene to render
-			var __WIDTH__  = 400,
-			    
-			// The HEIGHT ot the scene to render
-			    __HEIGHT__ = 400,
-
-			// The angle of the camera that will shox the scene
-			// It is express in degres
-			    __ANGLE__ = 45,
-
-			// The shortest distance the camera can see
-			    __NEAR__  = 1,
-			    
-			// The fartest distance the camera can see
-			    __FAR__   = 1000
-			    
-			// The basic hue used to color our object
+	    	// ThreeJS settings
+			var __WIDTH__  = window.screen.availWidth,
+			    __HEIGHT__ = window.screen.availHeight,
 			    __HUE__   = 0;
 
 			/**
-			 * To reder a 3D scene, ThreeJS needs 3 elements :
+			 * To render a 3D scene, ThreeJS needs 3 elements :
 			 * A scene where to put all the objects
 			 * A camera to manage the point of view
 			 * A renderer place to show the result
 			 */
 			var scene  = new THREE.Scene(), 
-			    camera = new THREE.PerspectiveCamera(__ANGLE__, 
-			                                         __WIDTH__ / __HEIGHT__, 
-			                                         __NEAR__, 
-			                                         __FAR__),
+			    camera = Camera.init(__WIDTH__, __HEIGHT__),
 			    renderer = new THREE.WebGLRenderer();
 
 			/**

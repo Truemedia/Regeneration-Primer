@@ -39,6 +39,7 @@ require.config({
         /* Core classes */
         'App': "regeneration/app", // Application instance class
         'Audio': "regeneration/audio", // Audio class
+        'Camera': "regeneration/camera", // Camera class
         'Colour': "regeneration/colour", // Colour class
         'Config': "regeneration/config", // Config class
         'Controls': "regeneration/controls", // Controls class
@@ -158,7 +159,7 @@ require.config({
         // Inject regeneration classes into autoloader
         'conditioner': {
             deps: [
-                'App', 'Audio', 'Colour', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
+                'App', 'Audio', 'Camera', 'Colour', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
             ],
             exports: 'conditioner'
         }
