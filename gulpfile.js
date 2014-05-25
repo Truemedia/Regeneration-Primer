@@ -1,19 +1,23 @@
+// Gulp core files
 var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-	spritesmith = require('gulp.spritesmith'),
-	less = require('gulp-less'),
-	path = require('path');
+    watch = require('gulp-watch');
 
-/* Compile map images into sprite and less file */
-gulp.task('sprite', function(map)
+// Gulp plugins
+var jsonlint = require('gulp-json-lint'),
+	less = require('gulp-less'),
+	path = require('path'),
+	spritesmith = require('gulp.spritesmith');
+
+/* Default task */
+gulp.task('default', function()
 {
-	console.log("Fusing visual assets into single entity");
-	var spriteData = gulp.src('maps/scraproom/tiles/*.png').pipe( spritesmith({
-		imgName: 'tileset.png',
-		cssName: 'stylesheet.less'
-	}));
-	spriteData.img.pipe(gulp.dest('maps/scraproom/'));
-	spriteData.css.pipe(gulp.dest('maps/scraproom/'));
+	console.log("Regeneration process initialized");
+
+	// Watch files to trigger tasks
+	gulp.watch([
+		'./maps/scraproom/tiles/*.png',
+		'./stylesheets/default-theme/source.less'
+		], ['sprite', 'css']);
 });
 
 /* Generate CSS files from grouped LESS files */
@@ -28,23 +32,21 @@ gulp.task('css', function()
 		.pipe(gulp.dest('./stylesheets/default-theme/'));
 });
 
-/* Generate file templates for application */
-gulp.task('generate', function(file_template)
+gulp.task('jsonlint', function()
 {
-	console.log("Birthing creative additions inside of extendable allocations");
-
-	// Copy package blueprint to packages directory
-	gulp.src('./blueprints/file_templates/package/standard/**/*')
-		.pipe(gulp.dest('./packages/standard/'));
+	gulp.src('./packages/highscores/data.json')
+		.pipe(jsonlint())
+		.pipe(jsonlint.report('verbose'));
 });
 
-gulp.task('default', function()
+/* Compile map images into sprite and less file */
+gulp.task('sprite', function(map)
 {
-	console.log("Regeneration process initialized");
-
-	// Watch files to trigger tasks
-	gulp.watch([
-		'./maps/scraproom/tiles/*.png',
-		'./stylesheets/default-theme/source.less'
-		], ['sprite', 'css']);
+	console.log("Fusing visual assets into single entity");
+	var spriteData = gulp.src('maps/scraproom/tiles/*.png').pipe( spritesmith({
+		imgName: 'tileset.png',
+		cssName: 'stylesheet.less'
+	}));
+	spriteData.img.pipe(gulp.dest('maps/scraproom/'));
+	spriteData.css.pipe(gulp.dest('maps/scraproom/'));
 });

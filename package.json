@@ -18,7 +18,8 @@
     "grunt-contrib-less": "~0.5.0",
     "grunt-contrib-watch": "~0.4.0",
     "node-spritesheet": "^0.4.2",
-    "gulp": "^3.6.2"
+    "gulp": "^3.6.2",
+    "gulp-json-lint": "0.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
