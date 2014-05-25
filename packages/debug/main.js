@@ -2,73 +2,79 @@
  * @file Debug PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for debugging all aspects of the game (only useful to developers)
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "./Bootstrap", "./Crafty", "./points.PKG"
-], function(view, nls, Config, Lang, Package, jQuery, Crafty, points) {
+	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
+], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
 	/** 
      * Debug package
      * @namespace debug
      */
 	return debug = {
 			
-		// Partial loading location	
-		element_binding: null,
-			
 		// Translations
 		trans: {},
-			
-		/* Load this package */
-		init: function()
-		{
+
+		// Package options
+		settings: null,
+				
+		/* Initial load-up procedure if first time package is loaded */
+		init: function(options)
+		{		
 			// Register package
 			Package.register('debug');
-			
-			debug.element_binding = '#debug_partial';
-			
+
 			// Load translations
-			debug.trans = Lang.getTrans(nls);
-			
-			// Load the package onto current web-page
-			debug.loadDOM();
+			this.trans = Lang.getTrans(nls);
+
+			// Save options
+			this.settings = (Object.keys(options).length === 0) ? Config.get('debug::defaults') : options;
 		},
-		
+			
 		/* Autoloading hook */
-        load: function(element, options)
-        {	
-        	// Store the element binding
-        	debug.element_binding = element;
-        	
-        	debug.init();
-        },
-		
-		/* Append the HTML for this package to the DOM */
-		loadDOM: function()
-		{	
-			// Load package data
-			jQuery.getJSON("packages/debug/data.json", function(data) {
-			
-				// Build data
-				data = {
-					"gases": data	
-				};
-				
-				// Append language strings to JSON data source
-				data.trans = debug.trans;
-				
-				// Load view
-				jQuery(debug.element_binding).html( view(data) );
-				
-				// Start debugging
-				debug.initDebugger(null);
-			});
-		},
-		
-		/* Save X and Y coordinates of mouse position */
+	    load: function(element, options)
+	    {    	
+	        // Load the package onto current web-page
+	    	this.init(options);
+			new this.view({el: element});
+	    },
+	        
+	    /* Data collection */
+	    collection: Backbone.Collection.extend({
+	        url: function() { return Config.get('debug::routes.' + debug.settings.source); },
+	        parse: function(data) { return data.items; }
+	    }),
+	        
+	    /* Append the HTML for this package to the DOM */
+	    view: Backbone.View.extend({
+	        initialize: function()
+	        {    	
+	            this.collection = new debug.collection({model: Backbone.Model.extend()});
+	            this.render();
+	        },
+	        render: function()
+	        {
+	            // Load package stored data
+	        	var self = this;
+	            this.collection.fetch().done( function() {
+	            		
+	            	// Compose data for view
+	            	var data = {
+	            		items: self.collection.toJSON(),
+	            		trans: debug.trans
+	            	};
+	    				
+	            	// Render content
+	            	self.$el.html( template(data) );
+	            });
+	        }
+	    }),
+
+	    /* Save X and Y coordinates of mouse position */
 		saveCoords: function()
 		{	
 			// Instance shown in debug toolbar
@@ -76,42 +82,6 @@ define([
 			var y = jQuery("#mouse_y_coords").html();
 			jQuery("#saved_mouse_coords").html(x+","+y);
 			console.log("Saved X,Y coordinates "+x+","+y+" (will be overwritten when you save again)");
-		},
-		
-		/* jQuery event handlers (for Debug) */
-		registerEvents: function()
-		{
-			// Give yourself points
-			jQuery("#debug_window").on("click", ".score_submit", function (event){
-				points.incrementMyScore();
-			});
-	
-			// Give everyone points
-			jQuery("#debug_window").on("click", "#points_incrementer", function (event){
-				points.incrementAllScores();
-			});
-		},
-
-		initDebugger: function(event)
-		{
-			debug.pointsDebugger(event);
-			debug.mouseDebugger(event);
-		},
-
-		pointsDebugger: function(event)
-		{
-			if (event != null){
-				if(jQuery("#debug_toggle > span").hasClass("ui-icon-gear")){
-					console.log("Hiding debugging UI");
-					jQuery("#debug_toggle > span").removeClass("ui-icon-gear")
-						.addClass("ui-icon-wrench");
-				}
-				else{
-					console.log("Showing debugging UI");
-					jQuery("#debug_toggle > span").removeClass("ui-icon-wrench")
-						.addClass("ui-icon-gear");
-				}
-			}
 		},
 
 		mouseDebugger: function(event)

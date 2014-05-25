@@ -1,0 +1,4 @@
+{
+	"file": "packages/debug/data.json",
+	"rest": "http://localhost/regeneration_platform/public/debug"
+}
