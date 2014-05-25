@@ -35,7 +35,7 @@ gulp.task('css', function()
 /* Validate all JSON files inside the project folder */
 gulp.task('jsonlint', function()
 {
-	gulp.src('./**/*.json')
+	gulp.src(['./blueprints/**/*.json', './config/**/*.json', './maps/**/*.json', './packages/**/*.json'])
 		.pipe(jsonlint())
 		.pipe(jsonlint.report('verbose'));
 });
