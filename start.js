@@ -30,7 +30,7 @@ require.config({
         'Leaflet': "http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.1/leaflet",
         'KO': "http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1",
         'Marionette': "http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.1.0-bundled/backbone.marionette.min",
-        'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min",
+        'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min",
         'Mustache': "http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min",
         'three': "http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min",
         'Toastr': "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min",
