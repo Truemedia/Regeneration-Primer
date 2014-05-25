@@ -32,9 +32,10 @@ gulp.task('css', function()
 		.pipe(gulp.dest('./stylesheets/default-theme/'));
 });
 
+/* Validate all JSON files inside the project folder */
 gulp.task('jsonlint', function()
 {
-	gulp.src('./packages/highscores/data.json')
+	gulp.src('./**/*.json')
 		.pipe(jsonlint())
 		.pipe(jsonlint.report('verbose'));
 });
