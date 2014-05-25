@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	path = require('path');
 
 /* Compile map images into sprite and less file */
-gulp.task('sprite', function() {
+gulp.task('sprite', function(map)
+{
 	console.log("Fusing visual assets into single entity");
 	var spriteData = gulp.src('maps/scraproom/tiles/*.png').pipe( spritesmith({
 		imgName: 'tileset.png',
@@ -16,8 +17,9 @@ gulp.task('sprite', function() {
 });
 
 /* Generate CSS files from grouped LESS files */
-gulp.task('css', function() {
-	console.log("Rendering optimized internal programming");
+gulp.task('css', function()
+{
+	console.log("Rendering optimized internal visual mechanics");
 	gulp
 		.src('./stylesheets/default-theme/source.less')
 		.pipe( less({
@@ -26,7 +28,18 @@ gulp.task('css', function() {
 		.pipe(gulp.dest('./stylesheets/default-theme/'));
 });
 
-gulp.task('default', function() {
+/* Generate file templates for application */
+gulp.task('generate', function(file_template)
+{
+	console.log("Birthing creative additions inside of extendable allocations");
+
+	// Copy package blueprint to packages directory
+	gulp.src('./blueprints/file_templates/package/standard/**/*')
+		.pipe(gulp.dest('./packages/standard/'));
+});
+
+gulp.task('default', function()
+{
 	console.log("Regeneration process initialized");
 
 	// Watch files to trigger tasks
