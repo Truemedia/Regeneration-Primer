@@ -2,6 +2,9 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 @import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
 
+/* Clean colours*/
+@import url("http://cdnjs.cloudflare.com/ajax/libs/colors/1.0/colors.min.css");
+
 /* LeafletJS */
 @import url('http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css');
 

@@ -65,6 +65,7 @@ define([
 	            	// Compose data for view
 	            	var data = {
 	            		items: self.collection.toJSON(),
+	            		count: self.collection.toJSON().length,
 	            		trans: debug.trans
 	            	};
 	    				

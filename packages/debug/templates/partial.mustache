@@ -25,12 +25,18 @@
          <div id="atmosphere_debugging_panel" class="tab-pane">
             <form class="form-horizontal" role="form">
                <fieldset>
+                  <legend>Gases ({{count}})</legend>
                	{{#items}}
                   <div class="form-group">
-                  	<label for="{{gas_identifier}}" class="col-sm-2 control-label">{{gas_name}} ({{symbol}})</label>
+
+                  	<label for="{{gas_identifier}}" class="col-sm-2 control-label bg-{{pt_colour}}">
+                        <span class="badge badge-warning pull-left">{{symbol}}</span>
+                        <span class="push-right">{{gas_name}}</span>
+                     </label>
                      <div class="col-sm-10">
-                     	<input type="text" id="{{gas_identifier}}" value="{{real_ppmv}}" /> &nbsp;PPVM
-                     	<span>({{real_percent}}%)</span>
+                     	<input type="text" id="{{gas_identifier}}" value="{{real_ppmv}}" />
+                        &nbsp;<span class="text-danger">PPVM</span>
+                     	<span class="label label-warning">{{real_percent}}%</span>
                      </div>
                   </div>
                	{{/items}}
