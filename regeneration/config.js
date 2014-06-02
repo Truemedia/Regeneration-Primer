@@ -17,8 +17,8 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		},
 			
 		/* Get a configuration property value (same as Laravel class) */
-		get: function(property, default_value) {
-			
+		get: function(property, default_value)
+		{	
 			if (property === undefined) property = "";
 		    if (default_value === undefined) default_value = "";
 		    
@@ -29,25 +29,17 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		    var data = Config.instance(property);
 			
 		    // Query JSON file
-		    if (json_pointer !== '/') {
-		    	var value = new JSONpatch.JSONPointer(json_pointer).get(data);
-		    }
+		    if (json_pointer !== '/') { var value = new JSONpatch.JSONPointer(json_pointer).get(data); }
 		    // Pass back whole JSON file
-		    else {
-		    	var value = data;
-		    }
+		    else { var value = data; }
 
-			if (value === undefined) {
-				return default_value;
-			}
-			else {
-				return value;
-			}
+			if (value === undefined) { return default_value; }
+			else { return value; }
 		},
 		
 		/* Set a configuration property value (same as Laravel class) */
-		set: function(property, supplied_value) {
-			
+		set: function(property, supplied_value)
+		{	
 			// Extract filename and JSON pointer
 			var file_name = Config.property_extract('file_name', property);
 			var json_pointer = Config.property_extract('json_pointer', property);
@@ -59,42 +51,46 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 			var value = new JSONpatch.JSONPointer(json_pointer).get(data);
 			
 			// Setting Package config property
-			if (Config.property_origin(property) == 'package') {
-
+			if (Config.property_origin(property) == 'package')
+			{
 				var package_name = Config.property_extract('package_name', property);
-				if (value === undefined) {
+				if (value === undefined)
+				{
 					Config.files.packages[package_name][file_name] = new JSONpatch.JSONPointer(json_pointer).add(data, supplied_value);
 				}
-				else {
+				else
+				{
 					Config.files.packages[package_name][file_name] = new JSONpatch.JSONPointer(json_pointer).replace(data, supplied_value);
 				}
 			}
 			// Setting Application config property
-			else {
-
-				if (value === undefined) {
+			else
+			{
+				if (value === undefined)
+				{
 					Config.files.application[file_name] = new JSONpatch.JSONPointer(json_pointer).add(data, supplied_value);
 				}
-				else {
+				else
+				{
 					Config.files.application[file_name] = new JSONpatch.JSONPointer(json_pointer).replace(data, supplied_value);
 				}
 			}
 		},
 		
-		instance: function(property) {
-
+		instance: function(property)
+		{
 			// Extract filename
 			var file_name = Config.property_extract('file_name', property);
 			
 			// Retrieve JSON instance of config
 			var data = null;
-			if (Config.property_origin(property) == 'package') {
-				
+			if (Config.property_origin(property) == 'package')
+			{	
 				var package_name = Config.property_extract('package_name', property);
 				data = Config.load(file_name, package_name);
 			}
-			else {
-				
+			else
+			{	
 				data = Config.load(file_name);
 			}
 			
@@ -103,24 +99,26 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		},
 		
 		/* Return a config json array matched to filename from inside the class */
-		load: function(file_name, package_name) {
-			
+		load: function(file_name, package_name)
+		{	
 			if (package_name === undefined) package_name = "";
 
 			// Load config file if not already loaded
 			
 			// Package config prepare
-			if (package_name !== "") {
-
-				if (Config.files.packages[package_name] === undefined || Config.files.packages[package_name][file_name] === undefined) {
+			if (package_name !== "")
+			{
+				if (Config.files.packages[package_name] === undefined || Config.files.packages[package_name][file_name] === undefined)
+				{
 					Config.prepare(file_name, package_name);
 				}
 				return Config.files.packages[package_name][file_name];
 			}
 			// Application config prepare
-			else {
-
-				if (Config.files.application[file_name] === undefined) {
+			else
+			{
+				if (Config.files.application[file_name] === undefined)
+				{
 					Config.prepare(file_name);
 				}
 				return Config.files.application[file_name];
@@ -128,8 +126,8 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		},
 		
 		/* Load a config file into the config class*/
-		prepare: function(file_name, package_name) {
-			
+		prepare: function(file_name, package_name)
+		{	
 			if (package_name === undefined) package_name = "";
 			
 			// Set ASYNC AJAX to false
@@ -138,8 +136,8 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 			});
 
 			// Package config directory
-			if (package_name !== "") {
-				
+			if (package_name !== "")
+			{	
 				// Package has no config files loaded
 				if (Config.files.packages[package_name] === undefined) {
 					Config.files.packages[package_name] = [];
@@ -151,7 +149,8 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 				});
 			}
 			// Application config directory
-			else {
+			else
+			{
 				var config_dir = "config/";
 				jQuery.getJSON(config_dir+file_name+".json", function(data) {
 					Config.files.application[file_name] = data;
@@ -170,66 +169,70 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 			var extracted = null;
 			var package_indicator = '::';
 
-			switch(embedded){
+			switch (embedded)
+			{
 				case 'package_name':
-					
-					if (Config.property_origin(property) == 'package') {
+					if (Config.property_origin(property) == 'package')
+					{
 						extracted = property.substr(0, property.indexOf(package_indicator));
 					}
-					break;
+				break;
+
 				case 'file_name':
-					
 					var dot_location = property.indexOf(".");
 					
 					// Package config file
-					if (Config.property_origin(property) == 'package') {
-
+					if (Config.property_origin(property) == 'package')
+					{
 						var file_name_position = property.indexOf(package_indicator) + package_indicator.length;
 						
 						// Points to key inside JSON file
-						if (dot_location >= 0) {
-							
+						if (dot_location >= 0)
+						{	
 							extracted = property.substr(file_name_position, dot_location - file_name_position);
 						}
 						// Points to a JSON file
-						else {
+						else
+						{
 							extracted = property.substr(file_name_position, property.length - file_name_position);
 						}
 					}
 					// Application config file
-					else {
-	
+					else
+					{
 						// Points to key inside JSON file
-						if (dot_location >= 0) {
-							
+						if (dot_location >= 0)
+						{	
 							extracted = property.substr(0, dot_location);
 						}
 						// Points to a JSON file
-						else {
+						else
+						{
 							extracted = property;
 						}	
 					}
-					break;
+				break;
+
 				case 'json_pointer':
-					
 					// Package or Application JSON pointer
 					var dot_location = property.indexOf(".");
 					
 					// Points to key inside JSON file
-					if (dot_location >= 0) {
-						
+					if (dot_location >= 0)
+					{	
 						var string = property.substr(dot_location);
 						extracted = string.replace(/\./g, "/");
 					}
 					// Points to a JSON file
-					else {
+					else
+					{
 						extracted = "/";
-					}
-					
-					break;
+					}	
+				break;
+
 				default:
 					extracted = property;
-					break;
+				break;
 			}
 			
 			// Return extracted information
@@ -237,20 +240,14 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		},
 		
 		/* Return whether property originates from application or package config file */
-		property_origin: function(property) {
-			
+		property_origin: function(property)
+		{	
 			var property_origin = null;
 			
-			if (new RegExp('::').test(property)) {
-
-				// Package config file
-				property_origin = 'package';
-			}
-			else {
-
-				// Application config file
-				property_origin = 'application';
-			}
+			// Package config file
+			if (new RegExp('::').test(property)) { property_origin = 'package'; }
+			// Application config file
+			else { property_origin = 'application'; }
 
 			return property_origin;
 		}

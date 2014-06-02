@@ -13,8 +13,8 @@ define([
 	return App = {
 
 		/* Intialize SPA (Single page applicatio) base code */
-		spa: function(layout) {
-
+		spa: function(layout)
+		{
 			// Setup routing and general MVC
 			var MVC = new Backbone.Marionette.Application();
 			MVC.on('initialize:after', function() {
@@ -31,8 +31,8 @@ define([
 		},
 
 		/* Application startup method */
-		start: function() {
-
+		start: function()
+		{
 			// Run SPA if no server environment available
 			var is_spa = (Config.get('server.spa') === "true") ? true : false;
 			if (is_spa) { this.spa(); }
@@ -42,8 +42,8 @@ define([
 		},
 
 		/* Regenerate the applications packages/data */
-		regenerate: function() {
-
+		regenerate: function()
+		{
 			requirejs(['conditioner'], function(conditioner) {
 	
 				// Rerun autoloader
@@ -52,8 +52,8 @@ define([
 		},
 
 		/* Autoloading procedure */
-		autoloader: function() {
-			
+		autoloader: function()
+		{	
 			requirejs(['conditioner'], function(conditioner) {
 
 				// Reset the base URL to package directory
