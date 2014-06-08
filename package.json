@@ -19,7 +19,13 @@
     "grunt-contrib-watch": "~0.4.0",
     "node-spritesheet": "^0.4.2",
     "gulp": "^3.6.2",
-    "gulp-json-lint": "0.0.1"
+    "gulp-json-lint": "0.0.1",
+    "gulp-util": "^2.2.14",
+    "jamjs": "^0.2.17"
+  },
+  "jam": {
+    "packageDir": "libs",
+    "baseUrl": ""
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
