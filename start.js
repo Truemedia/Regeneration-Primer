@@ -65,7 +65,6 @@ require.config({
         'VendingMachine.GOD': "gameobjects/vendingmachine",
         
         /* jQuery plugins */
-        'jQ.flyoff': "libs/jquery.flyoffpage.full", // Fly off animation
         'jQ.Datatables': "http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min", // Datatables
         
         /* Bootstrap helpers */
