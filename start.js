@@ -24,6 +24,7 @@ require.config({
         'Buzz': "http://cdn.jsdelivr.net/buzz/1.0.6/buzz.min",
         'Cookie': "http://cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min",
 		'Crafty': "http://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min",
+        'fabric': "http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min",
         'Handlebars': "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.amd.min",
 		'JSONpatch': "dependencies/jsonpatch.min",
         'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
@@ -89,6 +90,9 @@ require.config({
         },
         'Crafty': {
             exports: 'Crafty'
+        },
+        'fabric': {
+            exports: 'fabric'
         },
         'Handlebars': {
             exports: 'Handlebars'

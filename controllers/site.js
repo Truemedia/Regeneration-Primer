@@ -8,6 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
+	'fabric',
 	'text!templates/home.html',
 	'text!templates/game.html',
 	'text!templates/three.html',
@@ -16,8 +17,9 @@ define([
 	'text!templates/regions/content/selection.html',
 	'text!templates/regions/content/stage.html',
 	'text!templates/regions/content/realm.html',
-	'Marionette', 'Bootstrap'
-], function(homePage, gamePage, threePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, realmTemplate, Marionette, jQuery) {
+	'text!templates/regions/content/maker.html',
+	'Marionette', 'Bootstrap', 'fabric'
+], function(fabric, homePage, gamePage, threePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, realmTemplate, makerTemplate, Marionette, jQuery) {
 	return Site_Controller = {
 
 		/* Default controller action */
@@ -105,6 +107,52 @@ define([
 			jQuery(page.header.el).html(headerTemplate);
 			jQuery(page.content.el).html(realmTemplate);
 			jQuery(page.footer.el).html(footerTemplate);
+		},
+
+		/* Map maker page */
+		create: function() {
+
+			console.log("Map maker page");
+
+			/* Define core layout and contained regions */
+			var layout = Backbone.Marionette.Layout.extend({
+				el: "#layout",
+				template: _.template(homePage),
+				regions: {
+					header: "header",
+					//sidebarLeft: "#sidebar_left",
+					content: "#content",
+					//sidebarRight: "#sidebar_right",
+					footer: "footer"
+				},
+			});
+
+			// Setup layout
+			page = new layout();
+			page.render();
+
+			// Load region templates
+			jQuery(page.header.el).html(headerTemplate);
+			jQuery(page.content.el).html(makerTemplate);
+			jQuery(page.footer.el).html(footerTemplate);
+
+			jQuery(document).ready( function() {
+				var canvas = new fabric.Canvas('canvas');
+
+  var rect = new fabric.Rect({
+    left: 150,
+    top: 200,
+    originX: 'left',
+    originY: 'top',
+    width: 150,
+    height: 120,
+    angle: -10,
+    fill: 'rgba(255,0,0,0.5)',
+    transparentCorners: false
+  });
+
+  canvas.add(rect).setActiveObject(rect);
+			});
 		},
 	}
 });
