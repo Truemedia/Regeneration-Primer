@@ -7,8 +7,11 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['Config', 'Marionette', 'jQuery'], function(Config, Marionette, jQuery) {
-	return Router = Backbone.Marionette.AppRouter.extend({
+define(['Config', 'Marionette', 'jQuery'], function(Config, Marionette, jQuery)
+{
+	Router = Backbone.Marionette.AppRouter.extend({
         appRoutes: Config.get('routes')
     });
+
+    return Router;
 });

@@ -19,8 +19,9 @@ define([
 	'text!templates/regions/content/realm.html',
 	'text!templates/regions/content/maker.html',
 	'Marionette', 'Bootstrap', 'fabric'
-], function(fabric, homePage, gamePage, threePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, realmTemplate, makerTemplate, Marionette, jQuery) {
-	return Site_Controller = {
+], function(fabric, homePage, gamePage, threePage, headerTemplate, footerTemplate, contentSelectionTemplate, contentStageTemplate, realmTemplate, makerTemplate, Marionette, jQuery)
+{
+	Site_Controller = {
 
 		/* Default controller action */
 		index: function() {
@@ -139,20 +140,22 @@ define([
 			jQuery(document).ready( function() {
 				var canvas = new fabric.Canvas('canvas');
 
-  var rect = new fabric.Rect({
-    left: 150,
-    top: 200,
-    originX: 'left',
-    originY: 'top',
-    width: 150,
-    height: 120,
-    angle: -10,
-    fill: 'rgba(255,0,0,0.5)',
-    transparentCorners: false
-  });
-
-  canvas.add(rect).setActiveObject(rect);
+			  	var rect = new fabric.Rect({
+					left: 150,
+					top: 200,
+					originX: 'left',
+					originY: 'top',
+					width: 150,
+					height: 120,
+					angle: -10,
+					fill: 'rgba(255,0,0,0.5)',
+					transparentCorners: false
+				});
+  				
+  				canvas.add(rect).setActiveObject(rect);
 			});
-		},
-	}
+		}
+	};
+
+	return Site_Controller;
 });

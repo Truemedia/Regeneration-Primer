@@ -7,14 +7,15 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["bootbox", "jQuery"], function(bootbox, jQuery) {
-	return Package = {
+define(["bootbox", "jQuery"], function(bootbox, jQuery)
+{
+	Package = {
 			
 		packages: [],
 		
 		/* Register a package with the package manager */
-		register: function(package_name) {
-
+		register: function(package_name)
+		{
 			// Get package data
 			jQuery.getJSON("packages/" + package_name + "/package.json", function(data) {
 				
@@ -30,7 +31,8 @@ define(["bootbox", "jQuery"], function(bootbox, jQuery) {
 		},
 	
 		/* Procedurally generated list of packages */
-		list: function() {
+		list: function()
+		{
 
 			bootbox.dialog({
 				message: "<table></table>",
@@ -76,5 +78,7 @@ define(["bootbox", "jQuery"], function(bootbox, jQuery) {
 			        ]
 			});
 		}
-	}
+	};
+
+	return Package;
 });

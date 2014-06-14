@@ -9,8 +9,9 @@
 */
 // Logic for the most important game events
 define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", "Gun.GOD", "Human.GOD", "MetalContainer.GOD", "VendingMachine.GOD"
-], function(jQuery, Controls, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, MetalContainerEntity, VendingMachineEntity) {
-	return Game = {
+], function(jQuery, Controls, Session, Resource, BulletEntity, EnemyEntity, GunEntity, HumanEntity, MetalContainerEntity, VendingMachineEntity)
+{
+	Game = {
 			
 		/* Steps to progress the game */
 		steps: {
@@ -110,5 +111,7 @@ define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", 
 			me.game.update();
 			me.game.draw();
 		}
-	}
+	};
+
+	return Game;
 });

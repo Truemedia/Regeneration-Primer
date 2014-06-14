@@ -7,13 +7,15 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery"], function(jQuery) {
-	return Page = {
+define(["./jQuery"], function(jQuery)
+{
+	Page = {
 
 		/* Interact with the fixed sidebars in the DOM of the application */
-		sidebar: function(hook, action) {
-
-			switch (hook) {
+		sidebar: function(hook, action)
+		{
+			switch (hook)
+			{
 				case 'left':
 					if (action === 'toggle') {
 
@@ -30,5 +32,7 @@ define(["./jQuery"], function(jQuery) {
 				break;
 			}
 		}
-	}
+	};
+
+	return Page;
 });

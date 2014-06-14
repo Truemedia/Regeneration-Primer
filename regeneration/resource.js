@@ -8,8 +8,9 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define(["jQuery"], function(jQuery) {
-	return Resource = {
+define(["jQuery"], function(jQuery)
+{
+	Resource = {
 
 		// Compile all resources into JSON format for loading */
 		compile: function()
@@ -182,5 +183,7 @@ define(["jQuery"], function(jQuery) {
 
 			return this.getPath(path, file);
 		}
-	}
+	};
+
+	return Resource;
 });

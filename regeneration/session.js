@@ -7,20 +7,21 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["jQuery", "Cookie", "Config"], function(jQuery, Cookie, Config) {
-	return Session = {
+define(["jQuery", "Cookie", "Config"], function(jQuery, Cookie, Config)
+{
+	Session = {
 			
 		// Variable to store all session variables
 		variables: {},
 			
 		/* Get a session variable value (same as Laravel class) */
-		get: function(property, default_value) {
-			
+		get: function(property, default_value)
+		{	
 			if (property === undefined) property = "";
 		    if (default_value === undefined) default_value = "";
+		    var value = null;
 
 		    // Handle session driver
-		    var value = undefined;
 		    switch(Config.get("client.session_driver")) {
 		    	case 'cookie':
 		    		value = Cookie.get(property);
@@ -30,7 +31,7 @@ define(["jQuery", "Cookie", "Config"], function(jQuery, Cookie, Config) {
 		    		break;
 		    }
 		    
-			if (value === undefined) {
+			if (value === null) {
 				return default_value;
 			}
 			else {
@@ -80,5 +81,7 @@ define(["jQuery", "Cookie", "Config"], function(jQuery, Cookie, Config) {
 			
 			Session.variables = {};
 		}
-	}
+	};
+
+	return Session;
 });

@@ -9,8 +9,9 @@
 */
 define([
 	'controllers/site', 'Marionette', 'jQuery', 'fuelux'
-], function(Site_Controller, Marionette, jQuery) {
-	return App = {
+], function(Site_Controller, Marionette, jQuery)
+{	
+	App = {
 
 		/* Intialize SPA (Single page applicatio) base code */
 		spa: function(layout)
@@ -66,4 +67,6 @@ define([
 			});
 		}
 	};
+
+	return App;
 });

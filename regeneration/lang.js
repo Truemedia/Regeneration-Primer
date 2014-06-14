@@ -7,24 +7,28 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery"], function(jQuery) {
-	return Lang = {
+define(["./jQuery"], function(jQuery)
+{
+	Lang = {
 
 		/* Set the language used for the application (same as function in App Laravel class) */
-		setLocale: function(lang_code) {
+		setLocale: function(lang_code)
+		{
 			
 			// Change language
-			localStorage['language'] = lang_code;
+			localStorage.language = lang_code;
 			
 			// Refresh the page (will pickup language change)
 			location.reload();
 		},
 		
 		/* Return all language strings (Merge package translations with main application translations) */
-		getTrans: function(strings) {
-			
+		getTrans: function(strings)
+		{	
 			// TODO: Create the actual merger code instead of using as dummy function
 			return strings;
 		}
-	}
+	};
+
+	return Lang;
 });

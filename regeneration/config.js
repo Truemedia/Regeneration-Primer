@@ -7,8 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
-	return Config = {
+define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch)
+{
+	Config = {
 			
 		// Variable to store all configuration files (original and modifications) as nested JSON when needed
 		files: {
@@ -21,6 +22,7 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		{	
 			if (property === undefined) property = "";
 		    if (default_value === undefined) default_value = "";
+		    var value = null;
 		    
 		    // Extract JSON pointer
 			var json_pointer = Config.property_extract('json_pointer', property);
@@ -29,11 +31,11 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		    var data = Config.instance(property);
 			
 		    // Query JSON file
-		    if (json_pointer !== '/') { var value = new JSONpatch.JSONPointer(json_pointer).get(data); }
+		    if (json_pointer !== '/') { value = new JSONpatch.JSONPointer(json_pointer).get(data); }
 		    // Pass back whole JSON file
-		    else { var value = data; }
+		    else { value = data; }
 
-			if (value === undefined) { return default_value; }
+			if (value === null) { return default_value; }
 			else { return value; }
 		},
 		
@@ -129,6 +131,7 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		prepare: function(file_name, package_name)
 		{	
 			if (package_name === undefined) package_name = "";
+			var config_dir = "";
 			
 			// Set ASYNC AJAX to false
 			jQuery.ajaxSetup({
@@ -143,7 +146,7 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 					Config.files.packages[package_name] = [];
 				}
 				
-				var config_dir = "packages/" + package_name + "/config/";
+				config_dir = "packages/" + package_name + "/config/";
 				jQuery.getJSON(config_dir+file_name+".json", function(data) {
 					Config.files.packages[package_name][file_name] = data;
 				});
@@ -151,7 +154,7 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 			// Application config directory
 			else
 			{
-				var config_dir = "config/";
+				config_dir = "config/";
 				jQuery.getJSON(config_dir+file_name+".json", function(data) {
 					Config.files.application[file_name] = data;
 				});
@@ -164,10 +167,11 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 		},
 		
 		/* Extract information embedded inside a property */
-		property_extract: function(embedded, property) {
-
+		property_extract: function(embedded, property)
+		{
 			var extracted = null;
 			var package_indicator = '::';
+			var dot_location = property.indexOf(".");
 
 			switch (embedded)
 			{
@@ -179,8 +183,6 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 				break;
 
 				case 'file_name':
-					var dot_location = property.indexOf(".");
-					
 					// Package config file
 					if (Config.property_origin(property) == 'package')
 					{
@@ -214,8 +216,6 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 				break;
 
 				case 'json_pointer':
-					// Package or Application JSON pointer
-					var dot_location = property.indexOf(".");
 					
 					// Points to key inside JSON file
 					if (dot_location >= 0)
@@ -251,5 +251,7 @@ define(["jQuery", "JSONpatch"], function(jQuery, JSONpatch) {
 
 			return property_origin;
 		}
-	}
+	};
+
+	return Config;
 });

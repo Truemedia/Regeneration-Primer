@@ -7,12 +7,13 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["./jQuery"], function(jQuery) {
-	return Controls = {
+define(["./jQuery"], function(jQuery)
+{
+	Controls = {
 
 		/* Bind keyboard keys to game action hooks */
-		bind: function() {
-			
+		bind: function()
+		{	
 			// 1st row of keys
 			me.input.bindKey(me.input.KEY.NUM1, "itemone", true);
 			me.input.bindKey(me.input.KEY.NUM2, "itemtwo", true);
@@ -23,7 +24,7 @@ define(["./jQuery"], function(jQuery) {
 			me.input.bindKey(me.input.KEY.NUM7, "itemseven", true);
 			me.input.bindKey(me.input.KEY.NUM8, "itemeight", true);
 			me.input.bindKey(me.input.KEY.NUM9, "itemnine", true);
-			me.input.bindKey(me.input.KEY.NUM0, "itemten", true)
+			me.input.bindKey(me.input.KEY.NUM0, "itemten", true);
 
 			// 2nd row of keys
 			me.input.bindKey(me.input.KEY.W, "moveup");
@@ -51,8 +52,8 @@ define(["./jQuery"], function(jQuery) {
 		},
 		
 		/* Observe any keys being pressed and trigger their relative events */
-		observe: function() {
-			
+		observe: function()
+		{	
 			// Moving player
 			if (me.input.isKeyPressed('moveup')) {
 				//require('player').move('up');
@@ -149,5 +150,7 @@ define(["./jQuery"], function(jQuery) {
 			var item_index = item_number - 1;
 			jQuery("#accordion > div:eq('"+item_index+"') > .panel-heading > a").click();
 		}
-	}
+	};
+
+	return Controls;
 });

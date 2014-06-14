@@ -7,8 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['Buzz', 'jQuery'], function(buzz, jQuery) {
-	return Audio = {
+define(['Buzz', 'jQuery'], function(buzz, jQuery)
+{
+	Audio = {
 
 		// Package options
 		settings: null,
@@ -98,5 +99,7 @@ define(['Buzz', 'jQuery'], function(buzz, jQuery) {
 			this.sampler.samples.fired_bullet_shelldrop = new buzz.sound(audio_dir+"fired_bullet_shelldrop", {formats: [this.format]});
 			this.sampler.samples.out_of_ammo = new buzz.sound(audio_dir+"out_of_ammo", {formats: [this.format]});
 		}
-    }
+    };
+
+    return Audio;
 });

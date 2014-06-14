@@ -7,8 +7,9 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['three'], function(THREE) {
-	return Camera = {
+define(['three'], function(THREE)
+{
+	Camera = {
 
 		// Default internal values
 		pos: {
@@ -43,5 +44,7 @@ define(['three'], function(THREE) {
 				}
 			}
 		}
-	}
+	};
+
+	return Camera;
 });

@@ -8,8 +8,9 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 // Logic for the most important game events
-define([], function() {
-	return Spawner = {
+define([], function()
+{
+	Spawner = {
 
 		/* Entities waiting to be spawned */
 		purgatory: {
@@ -26,7 +27,7 @@ define([], function() {
 		load_entity_entry: function()
 		{
 			// Load player data if not set
-			if (this.purgatory.characters == undefined) {
+			if (this.purgatory.characters === undefined) {
 
 				this.populate_entity_entries();
 			}
@@ -35,5 +36,7 @@ define([], function() {
 			var character = this.purgatory.characters.pop();
 			return character;
 		}
-	}
+	};
+
+	return Spawner;
 });
