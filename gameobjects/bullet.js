@@ -45,22 +45,24 @@ define(['jQuery', 'KO'], function(jQuery, ko) {
 		{
 			// Remove and register impact
 			var friendly_fire = false;
+			var player_element = null;
+
 			if (obj.alive && !friendly_fire) {
-				var player_element = jQuery(".score_container:eq(" + (obj.pid - 1) + ")").get(0);
-				var vm = ko.dataFor(player_element);
-	    		vm.health.decreaseHealth();
+				player_element = jQuery(".score_container:eq(" + (obj.pid - 1) + ")").get(0);
+				var health_vm = ko.dataFor(player_element);
+	    		health_vm.health.decreaseHealth();
 	    		
-	    		if (vm.health.dead()) {
+	    		if (health_vm.health.dead()) {
 	    			obj.alive = false;
 	    			me.game.remove(obj);
 	    		}
 	    		
-	    		var player_element = jQuery(".score_container:eq(" + (Session.get('character') - 1) + ")").get(0);
-				var vm = ko.dataFor(player_element);
-	    		vm.score.increaseScore();
+	    		player_element = jQuery(".score_container:eq(" + (Session.get('character') - 1) + ")").get(0);
+				var score_vm = ko.dataFor(player_element);
+	    		score_vm.score.increaseScore();
 			}
 			me.game.remove(this);
 			me.game.sort();
 		},
-	})
+	});
 });

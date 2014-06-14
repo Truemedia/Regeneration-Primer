@@ -46,7 +46,7 @@ define([], function() {
 			this.updateMovement();
 			 
 			// update animation if necessary
-			if (this.vel.x!=0 || this.vel.y!=0) {
+			if (this.vel.x !== 0 || this.vel.y !== 0) {
 				// update object animation
 			    this.parent();
 			    return true;
@@ -55,5 +55,5 @@ define([], function() {
 		    // else inform the engine we did not perform any update (e.g. position, animation)
 		    return false;
 		}
-	})
+	});
 });

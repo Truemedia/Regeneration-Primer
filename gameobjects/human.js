@@ -20,7 +20,7 @@ define([], function() {
 			var chosen_character = Config.get('characterselection::characters.' + Session.get('character') );
 			
 			// Use selected character sprite
-			if (this.bot == false) {
+			if (this.bot === false) {
 				this.pid = Session.get('character');
 				settings.image = chosen_character;
 			}
@@ -75,7 +75,7 @@ define([], function() {
 			this.updateMovement();
 			 
 			// update animation if necessary
-			if (this.vel.x!=0 || this.vel.y!=0) {
+			if (this.vel.x !== 0 || this.vel.y !== 0) {
 				// update object animation
 			    this.parent();
 			    return true;
@@ -84,5 +84,5 @@ define([], function() {
 		    // else inform the engine we did not perform any update (e.g. position, animation)
 		    return false;
 		}
-	})
+	});
 });

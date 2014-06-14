@@ -71,7 +71,7 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 			this.updateMovement();
 			 
 			// Update animation if necessary
-			if (this.vel.x != 0 || this.vel.y != 0) {
+			if (this.vel.x !== 0 || this.vel.y !== 0) {
 				// Update object animation
 			    this.parent();
 			    return true;
@@ -82,7 +82,7 @@ define(["Toastr", "Bullet.GOD"], function(toastr, BulletEntity) {
 		onCollision: function(obj)
 		{
 			// Remove and notify as equipped
-			if (obj.alive == true) {
+			if (obj.alive === true) {
 				toastr.options = Config.get('gamedirector::toastr');
 				toastr.warning("Item equipped", this.itemname);
 
