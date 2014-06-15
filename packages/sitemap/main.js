@@ -2,19 +2,20 @@
  * @file Sitemap PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package which provides an area for complete site navigation and general site actions
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "bootbox"
-], function(template, nls, Config, Lang, Package, jQuery, bootbox) {
+], function(template, nls, Config, Lang, Package, jQuery, bootbox)
+{
 	/** 
      * Sitemap package
      * @namespace sitemap
      */
-	return sitemap = {
+	sitemap = {
 			
 		// Data attribute binded element
 		element_binding: null,
@@ -81,7 +82,7 @@ define([
 				jQuery.each(data.languages, function(index, language) {
 					
 					// Select option is current language
-					if (language.lang_code === localStorage['language']) {
+					if (language.lang_code === localStorage.language) {
 						data.languages[index].lang_selected = "selected ";
 					}
 				});
@@ -123,5 +124,7 @@ define([
 				});
 			});
 		}
-	}
+	};
+
+	return sitemap;
 });

@@ -2,19 +2,20 @@
  * @file Game Info PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for providing external links and API's for game information tied to external services
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", './modules/feed/main'
-], function(template, nls, Config, Lang, Package, jQuery, feed) {
+], function(template, nls, Config, Lang, Package, jQuery, feed)
+{
 	/** 
      * Game Info package
      * @namespace gameinfo
      */
-	return gameinfo = {
+	gameinfo = {
 			
 		// Translations
 		trans: {},
@@ -57,7 +58,7 @@ define([
 	            this.collection.fetch().done( function() {
 	            		
 	            	// Compose data for view
-	            	var game_information = self.collection.toJSON()
+	            	var game_information = self.collection.toJSON();
 	            	var data = {
 	            		items: game_information[0],
 	            		trans: gameinfo.trans
@@ -71,5 +72,7 @@ define([
 	            });
 	        }
 	    })
-	}
+	};
+
+	return gameinfo;
 });

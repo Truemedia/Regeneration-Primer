@@ -11,12 +11,13 @@ define([
 	"stache!./templates/modal", "i18n!./nls/strings",
 	"Config", "Lang", "Package", "Bootstrap", "Backbone",
 	"./modules/keyboard/main", "./modules/mouse/main", "./modules/joypad/main"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad)
+{
 	/** 
      * Controls package
      * @namespace controls
      */
-	return controls = {
+	controls = {
 		
 		// Translations
 		trans: {},
@@ -82,5 +83,7 @@ define([
 
 			// Mobile gaming hardware
 		}
-	}
+	};
+
+	return controls;
 });

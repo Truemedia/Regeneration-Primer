@@ -37,10 +37,10 @@ gulp.task('css', function()
 gulp.task('lint', function() {
 	return gulp.src([
 		'./controllers/*.js',
-  		'./regeneration/*.js',,
-  		'./gameobjects/*.js'
-  		//'./packages/**/*.js',
-  		//'./*.js'
+  		'./regeneration/*.js',
+  		'./gameobjects/*.js',
+  		'./packages/**/*.js',
+  		'./*.js'
   	])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));

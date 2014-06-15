@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone)
+{
 	/** 
      * Highscores package
      * @namespace highscores
      */
-	return highscores = {
+	highscores = {
 			
 		// Translations
 		trans: {},
@@ -73,5 +74,7 @@ define([
 	            });
 	        }
 	    })
-	}
+	};
+
+	return highscores;
 });

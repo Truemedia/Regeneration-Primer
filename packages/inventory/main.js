@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", "KO", "Toastr"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko, toastr) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone, ko, toastr)
+{
 	/** 
      * Inventory package
      * @namespace inventory
      */
-	return inventory = {
+	inventory = {
 		
 		/* Stores entities */
 		inventories: [],
@@ -107,7 +108,7 @@ define([
     	    
     	    self.give = function() {
     	    	console.log("Giving weapon to person");
-    	    }
+    	    };
 		},
 		
 		/* Equip an item into the interaction slot of the player inventory */
@@ -137,5 +138,7 @@ define([
 			}
 			return rounds;
 		}
-	}
+	};
+
+	return inventory;
 });

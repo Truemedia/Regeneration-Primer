@@ -2,19 +2,20 @@
  * @file Spawner PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for spawning friendlies and enemies (based on gamemode and spawn context)
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"./jQuery", "./Crafty", "./inventory.PKG", "./characterselection.PKG"
-], function(jQuery, Crafty, inventory, characterselection) {
+], function(jQuery, Crafty, inventory, characterselection)
+{
 	/** 
      * Spawner package
      * @namespace spawner
      */
-	return spawner = {
+	spawner = {
 
 		layers: 6,
 		
@@ -55,8 +56,8 @@ define([
     				.bind('Moved', function(from) { // Restrict movement across solid objects
     					if(this.hit('solid')){
         					this.attr({x: from.x, y: from.y});
-        					gameObjects.inventory['leftGun'].attr({x: from.x - 2, y: from.y + 8});
-        					gameObjects.inventory['rightGun'].attr({x: from.x + 59, y: from.y + 8});
+        					gameObjects.inventory.leftGun.attr({x: from.x - 2, y: from.y + 8});
+        					gameObjects.inventory.rightGun.attr({x: from.x + 59, y: from.y + 8});
     					}
 					})
 				);
@@ -66,10 +67,10 @@ define([
 				var observe_x = ((80+(60*char_id))-20);
 				var observe_y = (40*char_id);
 			
-				gameObjects.inventory['leftGun'] = Crafty.e("2D, "+render_engine+", gun2, LeftControls, Tween")
+				gameObjects.inventory.leftGun = Crafty.e("2D, "+render_engine+", gun2, LeftControls, Tween")
 					.attr({x: observe_x - 2, y: observe_y + 8, z: (spawner.layers + 1) })
 					.leftControls(3);
-				gameObjects.inventory['rightGun'] = Crafty.e("2D, "+render_engine+", gun2, LeftControls, Tween")
+				gameObjects.inventory.rightGun = Crafty.e("2D, "+render_engine+", gun2, LeftControls, Tween")
 					.attr({x: observe_x + 59, y: observe_y + 8, z:(spawner.layers + 1) })
 					.leftControls(3);
 				// TODO: Use this future format when function no longer has memory leak
@@ -92,36 +93,41 @@ define([
 		
 		characterColor: function(character)
 		{
+			var character_color = '';
+
 			// Color of characters name over character
-			switch(character){
+			switch (character)
+			{
 				case 'coward':
-					return('#B8860B'); // Goldenrod
-					break;
+					character_color = '#B8860B'; // Goldenrod
+				break;
 				case 'criminal':
-					return('#696969'); // Dim Grey
-					break;
+					character_color = '#696969'; // Dim Grey
+				break;
 				case 'mother':
-					return('#483D8B'); // Dark slate blue
-					break;
+					character_color = '#483D8B'; // Dark slate blue
+				break;
 				case 'nextdoorneighbor':
-					return('#B22222'); // Fire brick
-					break;
+					character_color = '#B22222'; // Fire brick
+				break;
 				case 'psychoticworker':
-					return('#4B0082'); // Indigo
-					break;
+					character_color = '#4B0082'; // Indigo
+				break;
 				case 'storeowner':
-					return('#8B4513'); // Saddle Brown
-					break;
+					character_color = '#8B4513'; // Saddle Brown
+				break;
 				case 'storeownerwife':
-					return('#FA8072'); // Salmon
-					break;
+					character_color = '#FA8072'; // Salmon
+				break;
 				case 'womanhelicopterpilot':
-					return('#2E8B57'); // Sea Green
-					break;
+					character_color = '#2E8B57'; // Sea Green
+				break;
 				default:
-					return('#696969'); // Dim Grey
-					break;
+					character_color = '#696969'; // Dim Grey
+				break;
 			}
+
+			return character_color;
 		},
 		
 		spawnEnemies: function(spawn_amount)
@@ -141,5 +147,7 @@ define([
 		{
 			//random()
 		}
-	}
+	};
+
+	return spawner;
 });

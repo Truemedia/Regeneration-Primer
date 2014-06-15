@@ -2,19 +2,20 @@
  * @file Theme PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for controlling, loading and manipulating themes (Snippets of CSS and HTML associated to an interchangeable folder)
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "jQ.Datatables"
-], function(template, nls, Config, Lang, Package, jQuery) {
+], function(template, nls, Config, Lang, Package, jQuery)
+{
 	/** 
      * Theme package
      * @namespace theme
      */
-	return theme = {
+	theme = {
 	 
 	 	// Themes JSON array
 	 	themes: [],
@@ -87,7 +88,7 @@ define([
 			if (theme_name !== null) {
 				
 				// Use theme set in config
-				console.log("Theme found in config")
+				console.log("Theme found in config");
 				theme.activate(Config.get('game.theme'));
 			} else {
 				
@@ -104,7 +105,7 @@ define([
 			var initial_theme_image;
 			var themes = theme.themes;
 			
-			for (single_theme in themes) {
+			for (var single_theme in themes) {
 				// Found passed theme
 			    if (themes[single_theme].name === theme_name) {
 			    	
@@ -204,5 +205,7 @@ define([
 	   			theme.initialLoad(Config.get('theme::cached.all'));
 			});
 		}
-	}
+	};
+
+	return theme;
 });

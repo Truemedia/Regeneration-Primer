@@ -2,19 +2,20 @@
  * @file Content Pack PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for managing/customizing content (audio, images, videos) in the game
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone)
+{
 	/** 
      * Content Pack package
      * @namespace contentpack
      */
-	return contentpack = {
+	contentpack = {
 		
 		// Translations
 		trans: {},
@@ -62,12 +63,14 @@ define([
 	            		trans: contentpack.trans,
 	            		content_packs: Config.get('resources.content_packs'),
 	            		content: Config.get('content_pack'),
-	            	}
+	            	};
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
 	            });
 	        }
 	    })
-	}
+	};
+
+	return contentpack;	
 });

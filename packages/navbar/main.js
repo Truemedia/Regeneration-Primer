@@ -2,19 +2,20 @@
  * @file Navbar PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package which provides a website navigation bar for prioritized pages/actions
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "./modules/options/main"
-], function(view, nls, Config, Lang, Package, jQuery, options) {
+], function(view, nls, Config, Lang, Package, jQuery, options)
+{
 	/** 
      * Navbar package
      * @namespace navbar
      */
-	return navbar = {
+	navbar = {
 	
 		// Partial loading location	
 		element_binding: null,
@@ -93,5 +94,7 @@ define([
        			jQuery(navbar.element_binding).html( view(data) );
 			});
 		}
-	}
+	};
+
+	return navbar;
 });

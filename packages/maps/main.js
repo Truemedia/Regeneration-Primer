@@ -2,19 +2,20 @@
  * @file Maps PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for loading maps (certain levels of game modes)
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/step", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Crafty", "jQuery", "Leaflet"
-], function(template, nls, Config, Lang, Package, Session, Crafty, jQuery, L) {
+], function(template, nls, Config, Lang, Package, Session, Crafty, jQuery, L)
+{
 	/** 
      * Maps package
      * @namespace maps
      */
-	return maps = {
+	maps = {
 		
 		layers: 1,
 	
@@ -128,7 +129,7 @@ define([
 		/* Format maps into array suitable for melonJS */
 		compileMaps: function(maps)
 		{	
-			var maps = [];
+			var map_list = [];
 			
 			// Set ASYNC AJAX to false
 			jQuery.ajaxSetup({
@@ -157,8 +158,8 @@ define([
 							src: "maps/" + map_dir + "/map.tmx"
 						};
 						
-						maps.push(map_tileset);
-						maps.push(map_data);
+						map_list.push(map_tileset);
+						map_list.push(map_data);
 					}
 				});
 			});
@@ -168,7 +169,9 @@ define([
 				async: true
 			});
 			
-			return maps;
+			return map_list;
 		}
-	}
+	};
+
+	return maps;
 });

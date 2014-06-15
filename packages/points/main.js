@@ -2,7 +2,7 @@
  * @file Points PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used as CRUDL API of various point mechanisms relevant to players
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
@@ -11,12 +11,13 @@ define([
 	"stache!./templates/partial",
 	"i18n!./nls/strings",
 	"Config", "Lang", "Package", "jQ.ui", "KO", "./modules/health/main", "./modules/score/main"
-], function(template, nls, Config, Lang, Package, jQuery, ko, Health, Score) {
+], function(template, nls, Config, Lang, Package, jQuery, ko, Health, Score)
+{
 	/** 
      * Points package
      * @namespace points
      */
-	return points = {
+	points = {
 			
 		// Partial loading location	
 		partial_block_element: 'points_partial',
@@ -160,5 +161,7 @@ define([
 				points.incrementScore(charIteration);
 			});
 		}*/
-	}
+	};
+
+	return points;
 });

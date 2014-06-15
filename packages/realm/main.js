@@ -8,13 +8,14 @@
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
-	"jQuery", "three"
-], function(jQuery, THREE) {
+	"Modernizr", "jQuery", "three"
+], function(Modernizr, jQuery, THREE)
+{
 	/** 
      * Realm package
      * @namespace realm
      */
-	return realm = {
+	realm = {
 		
 		// Package options
 		settings: null,
@@ -37,6 +38,9 @@ define([
 			var scene  = new THREE.Scene(), 
 			    camera = Camera.init(__WIDTH__, __HEIGHT__),
 			    renderer = new THREE.WebGLRenderer();
+
+			// Check for browser pointer lock capabilities
+			if (Modernizr.pointerlock) { alert("Still ok"); } else { console.log(Modernizr.pointerlock); }
 
 			/**
 			 * Let's preapare the scene
@@ -69,7 +73,7 @@ define([
 			var myMaterial = {
 			    wireframe : true,
 			    wireframeLinewidth : 2
-			}
+			};
 
 			// We just have to build the material now
 			material = new THREE.MeshPhongMaterial( myMaterial );
@@ -139,6 +143,66 @@ define([
 			// And go!
 			animate();
 
-	    }
-	}
+	    },
+
+	    /* Lock pointer to realm package */
+	    pointer_lock: function()
+		{
+			var element = document.body;
+
+			var pointerlockchange = function (event) {
+
+				if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
+					controls.enabled = true;
+					blocker.style.display = 'none';
+				} else {
+					controls.enabled = false;
+					blocker.style.display = '-webkit-box';
+					blocker.style.display = '-moz-box';
+					blocker.style.display = 'box';
+					instructions.style.display = '';
+				}
+
+			};
+
+			var pointerlockerror = function (event) { instructions.style.display = ''; };
+
+			// Hook pointer lock state change events
+			document.addEventListener('pointerlockchange', pointerlockchange, false);
+			document.addEventListener('mozpointerlockchange', pointerlockchange, false);
+			document.addEventListener('webkitpointerlockchange', pointerlockchange, false);
+			document.addEventListener('pointerlockerror', pointerlockerror, false);
+			document.addEventListener('mozpointerlockerror', pointerlockerror, false);
+			document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
+
+			instructions.addEventListener('click', function (event) {
+			instructions.style.display = 'none';
+
+			// Ask the browser to lock the pointer
+			element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
+
+			if (/Firefox/i.test(navigator.userAgent)) {
+
+				var fullscreenchange = function (event) {
+					if (document.fullscreenElement === element || document.mozFullscreenElement === element || document.mozFullScreenElement === element) {
+						document.removeEventListener('fullscreenchange', fullscreenchange);
+						document.removeEventListener('mozfullscreenchange', fullscreenchange);
+						element.requestPointerLock();
+					}
+
+				};
+
+				document.addEventListener('fullscreenchange', fullscreenchange, false);
+				document.addEventListener('mozfullscreenchange', fullscreenchange, false);
+				element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen;
+				element.requestFullscreen();
+			} else {
+				element.requestPointerLock();
+			}
+
+			}, false );
+		}   
+	};
+
+	return realm;
 });

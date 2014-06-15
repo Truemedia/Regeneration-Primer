@@ -2,15 +2,16 @@
 * @file Options MODULE
 * @author Wade Penistone (Truemedia)
 * @overview Regeneration Primer bundled module used for directly modifying game settings
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
 	"stache!./options.module", "Package", "Bootstrap", "KO", "navbar", "audio"
-], function(template, Package, jQuery, ko, navbar, audio) {
-	return Options = {
+], function(template, Package, jQuery, ko, navbar, audio)
+{
+	Options = {
 	
 		parent_element_binding: "[data-package='navbar']",
 		binding_element_class: "option-item",
@@ -89,5 +90,7 @@ define([
 			
 			console.log("Options MODULE loaded");
 		}
-	}
+	};
+
+	return Options;
 });

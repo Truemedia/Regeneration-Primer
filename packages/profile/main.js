@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Bootstrap", "Backbone", "KO"
-], function(template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko) {
+], function(template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko)
+{
 	/** 
      * Profile package
      * @namespace profile
      */
-	return profile = {
+	profile = {
 		
 		// Translations
 		trans: {},
@@ -111,5 +112,7 @@ define([
 		{
 			return(username);
 		}
-	}
+	};
+
+	return profile;
 });

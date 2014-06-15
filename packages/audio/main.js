@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
-], function(template, nls, Backbone, buzz, jQuery) {
+], function(template, nls, Backbone, buzz, jQuery)
+{
 	/** 
      * Audio package
      * @namespace audio
      */
-	return audio = {
+	audio = {
 			
 		// Translations
 		trans: {},
@@ -217,5 +218,7 @@ define([
 			audio.sampler.samples.fired_bullet_shelldrop = new buzz.sound(audio_dir+"fired_bullet_shelldrop", {formats: [audio.format]});
 			audio.sampler.samples.out_of_ammo = new buzz.sound(audio_dir+"out_of_ammo", {formats: [audio.format]});
 		}
-	}
+	};
+
+	return audio;
 });

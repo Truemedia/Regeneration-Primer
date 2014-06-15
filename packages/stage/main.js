@@ -2,19 +2,20 @@
  * @file Stage PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for handling 3D/2D game context virtual world
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Game", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Game, Package, jQuery, Backbone) {
+], function(template, nls, Config, Lang, Game, Package, jQuery, Backbone)
+{
 	/** 
      * Stage package
      * @namespace stage
      */
-	return stage = {
+	stage = {
 		
 		// Translations
 		trans: {},
@@ -60,7 +61,7 @@ define([
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: stage.trans
-	            	}
+	            	};
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
@@ -70,5 +71,7 @@ define([
 	            });
 	        }
 	    })
-	}
+	};
+
+	return stage;
 });

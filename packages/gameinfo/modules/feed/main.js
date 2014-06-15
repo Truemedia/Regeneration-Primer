@@ -2,15 +2,16 @@
 * @file Feed MODULE
 * @author Wade Penistone (Truemedia)
 * @overview Module of game info package used to display data from an external RSS feed source
-* @copyright Wade Penistone 2013
+* @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 define([
 	"stache!./partial", "moment", "Bootstrap", "Backbone"
-], function(template, moment, jQuery, Backbone) {
-	return feed = {
+], function(template, moment, jQuery, Backbone)
+{
+	feed = {
 		
 		/* Based on modified UI design posted on Bootsnipp (http://bootsnipp.com/snipps/blog-posts-with-picture) */	
 	 	init: function(){
@@ -67,10 +68,12 @@ define([
 	    		entries[index] = entry;
 	    	});
 	    	
-	    	var feed = {
+	    	var feed_data = {
 	    		"entries": entries
 	    	};
-	    	return feed;
+	    	return feed_data;
 	    }
-	}
+	};
+
+	return feed;
 });

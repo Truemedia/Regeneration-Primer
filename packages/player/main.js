@@ -2,19 +2,20 @@
  * @file Player PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used to perform actions directly on a player
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"./jQuery", "./Crafty", "./KO", "./spawner.PKG", "./characterselection.PKG", "./profile.PKG", "./Gun.MOD", "./Human.GOD", "./Gun.GOD"
-], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object, gun_object) {
+], function(jQuery, Crafty, ko, spawner, characterselection, profile, Gun, human_object, gun_object)
+{
 	/** 
      * Player package
      * @namespace player
      */
-	return player = {
+	player = {
 			
 		/* Create a new player object instance (method alias) */
 		spawn: function()
@@ -41,7 +42,7 @@ define([
 			var falling_direction  = Math.round(Math.random());
 			
 			// Backwards (Forwards default)
-			if (falling_direction == 0) {
+			if (falling_direction === 0) {
 				flat_player = "-" + flat_player;
 			}
 			
@@ -52,13 +53,14 @@ define([
 				.text("DEAD");
 			
 			/* Kill the player on the DOM */
+			var bg = '';
 			jQuery('.score_container:eq('+player_id+') > dl > dt > span').addClass("deceased");
 			if(real_id == 1){
-				var bg = 'Crimson';
+				bg = 'Crimson';
 				jQuery('.score_container:eq('+player_id+') > dl > dt > span').css({ 'color': "DarkRed", 'backgroundColor': "Crimson", 'fontSize': "1em" });
 			}
 			else{
-				var bg = 'DarkRed';
+				bg = 'DarkRed';
 				jQuery('.score_container:eq('+player_id+') > dl > dt > span').css({ 'fontSize': "1em" });
 			}
 			jQuery('.score_container:eq('+player_id+') > dl').css({ 'backgroundColor': bg });
@@ -87,5 +89,7 @@ define([
 			// Force redraw
 			me.game.repaint();
 		}
-	}
+	};
+
+	return player;
 });

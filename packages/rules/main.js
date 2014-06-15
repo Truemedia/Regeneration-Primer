@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone)
+{
 	/** 
      * Rules package
      * @namespace rules
      */
-	return rules = {
+	rules = {
 			
 		// Translations
 		trans: {},
@@ -73,5 +74,7 @@ define([
 	            });
 	        }
 	    })
-	}
+	};
+
+	return rules;
 });

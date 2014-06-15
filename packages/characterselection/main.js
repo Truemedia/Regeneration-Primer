@@ -2,19 +2,20 @@
  * @file Character Selection PACKAGE 
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for selecting a character to play as
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"stache!./templates/step", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
-], function(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone) {
+], function(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone)
+{
 	/** 
      * Character Selection package
      * @namespace characterselection
      */
-	return characterselection = {
+	characterselection = {
 		
 		// Translations
 		trans: {},
@@ -66,7 +67,7 @@ define([
 	            		items: self.collection.toJSON(),
 	            		trans: characterselection.trans,
 	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters')
-	            	}
+	            	};
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
@@ -208,9 +209,8 @@ define([
 			// Handles the carousel thumbnails
 			jQuery('[id^=carousel-selector-]').click( function(){
 				var id_selector = jQuery(this).attr("id");
-				var id = id_selector.substr(id_selector.length -1);
-				var id = parseInt(id);
-				jQuery('#myCarousel').carousel(id -1);
+				var id = id_selector.substr(id_selector.length - 1);
+				jQuery('#myCarousel').carousel(parseInt(id) - 1);
 			});
 
 			// When the carousel slides, auto update the text
@@ -260,5 +260,7 @@ define([
 			
 			return character_sprite;
 		}
-	}
+	};
+
+	return characterselection;
 });

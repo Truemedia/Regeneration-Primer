@@ -9,12 +9,13 @@
  */
 define([
 	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+], function(template, nls, Config, Lang, Package, jQuery, Backbone)
+{
 	/** 
      * Debug package
      * @namespace debug
      */
-	return debug = {
+	debug = {
 			
 		// Translations
 		trans: {},
@@ -97,5 +98,7 @@ define([
 				jQuery("#mouse_y_coords").html(mouse.pageY - canvas.offsetTop);
     		}, 0);
 		}
-	}
+	};
+
+	return debug;
 });

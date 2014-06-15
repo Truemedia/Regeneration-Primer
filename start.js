@@ -207,7 +207,7 @@ require.config({
     // configure i18n! plugin
     config: {
         i18n: {
-            locale: localStorage['language'] || 'en'
+            locale: localStorage.language || 'en'
         }
     }
 });

@@ -2,19 +2,20 @@
  * @file Sprites PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview Core Regeneration Primer package used for loading Crafty sprite resources
- * @copyright Wade Penistone 2013
+ * @copyright Wade Penistone 2014
  * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
 define([
 	"./jQuery", "./Crafty", "./Config", "./characterselection.PKG"
-], function(jQuery, Crafty, Config, characterselection) {
+], function(jQuery, Crafty, Config, characterselection)
+{
 	/** 
      * Sprites package
      * @namespace sprites
      */
-	return sprites = {
+	sprites = {
 		
 		setup: function()
 		{
@@ -107,5 +108,7 @@ define([
 			
 			Crafty.sprite(1, enemies_sprites_dir+"(Brutal)_DefaultPose"+f, { brutal: [0, 0, 320, 320] }); /* First enemy */
 		}
-	}
+	};
+
+	return spawner;
 });

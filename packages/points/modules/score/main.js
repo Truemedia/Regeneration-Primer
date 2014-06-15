@@ -7,16 +7,19 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko) {
-	return Score = {
+define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko)
+{
+	Score = {
 		
-		init: function() {
+		init: function()
+        {
 			// Setup my score
 			var my_score = Config.get('points::score.default_value');
 			jQuery("#my_score").html(my_score);
 		},
 
-		ViewModel: function() {
+		ViewModel: function()
+        {
 
             // Defaults
 			this.sp = ko.observable( parseInt(Config.get('points::score.default_value')) );
@@ -41,8 +44,11 @@ define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko) {
     		};
 		},
 
-		logger: function() {
+		logger: function()
+        {
 			console.log("Score MODULE loaded");
 		}
-	}
+	};
+
+    return Score;
 });
