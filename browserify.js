@@ -1,7 +1,7 @@
 var unique = require('uniq');
-var regen_class = require('./me');
+var Colour = require('./regeneration/colour');
 
-regen_class.process();
+console.log(Colour.HSVtoRGB(1, 1, 1));
 
 var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
 
