@@ -7,18 +7,24 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-(function (root, factory) {
-	if (typeof exports === 'object') { // CommonJS
+(function (root, factory)
+{
+	if (typeof exports === 'object') // CommonJS
+	{
     	module.exports = factory();
-	} else if (typeof define === 'function' && define.amd) { // AMD
+	}
+	else if (typeof define === 'function' && define.amd) // AMD
+	{
     	define([], function () {
       		return (root.returnExportsGlobal = factory());
     	});
-  	} else {
-    	// Global Variables
+  	}
+  	else // Global Variables
+  	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function () {
+} (this, function()
+	{
   	// Your actual module
 	Colour = {
 
