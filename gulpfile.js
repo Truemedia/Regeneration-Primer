@@ -9,7 +9,7 @@ var jshint = require('gulp-jshint'),
 	jsonlint = require('gulp-json-lint'),
 	less = require('gulp-less'),
 	path = require('path'),
-	spritesmith = require('gulp.spritesmith')
+	spritesmith = require('gulp.spritesmith'),
 	browserify = require('gulp-browserify');
 
 /* Default task */
@@ -33,7 +33,7 @@ gulp.task('scripts', function()
           insertGlobals : true
         }))
         .pipe(concat('bundle.js'))
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('.'));
 });
 
 /* Generate CSS files from grouped LESS files */
@@ -50,7 +50,7 @@ gulp.task('css', function()
 /* JSHint */
 gulp.task('lint', function() {
 	return gulp.src([
-		'./controllers/*.js', './regeneration/*.js', './gameobjects/*.js', './packages/**/*.js', './*.js'
+		'./controllers/*.js', './regeneration/*.js', './gameobjects/*.js', './packages/**/*.js', './*.js', '!./bundle.js'
   	])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
