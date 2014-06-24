@@ -18,3 +18,4 @@ build
 libs
 node_modules
 out
+bundle.js
