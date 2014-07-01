@@ -10,7 +10,8 @@ var jshint = require('gulp-jshint'),
 	less = require('gulp-less'),
 	path = require('path'),
 	spritesmith = require('gulp.spritesmith'),
-	browserify = require('gulp-browserify');
+	browserify = require('gulp-browserify')
+	mocha = require('gulp-mocha');
 
 /* Default task */
 gulp.task('default', function()
@@ -66,6 +67,11 @@ gulp.task('jsonlint', function()
 	.pipe( jsonlint() )
 	.pipe( jsonlint.report('verbose') );
 	gutil.beep();
+});
+
+gulp.task('unit', function () {
+    gulp.src('packages/highscores/tests/unit.js')
+    .pipe(mocha({ui: 'tdd', reporter: 'nyan'}));
 });
 
 /* Compile map images into sprite and less file */
