@@ -31,6 +31,12 @@ gulp.task('publish', ['jsonlint', 'lint', 'unit'], function()
 	console.log("Ready to deploy");
 });
 
+/* Handle assets */
+gulp.task('assets', ['scripts', 'css', 'sprite'], function()
+{
+	console.log("Assets merged into project");
+});
+
 /* Compile and compress frontend scripts */
 gulp.task('scripts', function()
 {
