@@ -10,7 +10,7 @@ var jshint = require('gulp-jshint'),
 	less = require('gulp-less'),
 	path = require('path'),
 	spritesmith = require('gulp.spritesmith'),
-	browserify = require('gulp-browserify')
+	browserify = require('gulp-browserify'),
 	mocha = require('gulp-mocha');
 
 /* Default task */
@@ -23,6 +23,12 @@ gulp.task('default', function()
 		'./maps/scraproom/tiles/*.png',
 		'./stylesheets/default-theme/source.less'
 		], ['sprite', 'css']);
+});
+
+/* Verify and publish any changes to the codebase */
+gulp.task('publish', ['jsonlint', 'lint', 'unit'], function()
+{
+	console.log("Ready to deploy");
 });
 
 /* Compile and compress frontend scripts */
@@ -50,17 +56,18 @@ gulp.task('css', function()
 
 /* JSHint */
 gulp.task('lint', function() {
-	return gulp.src([
+	gulp.src([
 		'./controllers/*.js', './regeneration/*.js', './gameobjects/*.js', './packages/**/*.js', './*.js', '!./bundle.js'
   	])
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe( jshint() )
+    .pipe( jshint.reporter('default') );
+    gutil.beep();
 });
 
 /* Validate all JSON files inside the project folder */
 gulp.task('jsonlint', function()
 {
-	gutil.log(gutil.colors.orange("Veryfying data format consistency"));
+	console.log("Verifying data format consistency");
 	gulp.src([
 		'./blueprints/**/*.json','./config/**/*.json', './maps/**/*.json', './packages/**/*.json'
 	])
@@ -70,8 +77,10 @@ gulp.task('jsonlint', function()
 });
 
 gulp.task('unit', function () {
+	console.log("Unit testing application using TDD");
     gulp.src('packages/highscores/tests/unit.js')
     .pipe(mocha({ui: 'tdd', reporter: 'nyan'}));
+    gutil.beep();
 });
 
 /* Compile map images into sprite and less file */
