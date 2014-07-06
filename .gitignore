@@ -16,6 +16,7 @@ pids
 logs
 results
 build
+notes
 
 libs
 node_modules
