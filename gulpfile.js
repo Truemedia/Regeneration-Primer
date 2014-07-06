@@ -1,25 +1,18 @@
-// Gulp core files
+// Gulp core and plugins loader
 var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-    gutil = require('gulp-util'),
-    concat = require('gulp-concat');
+	$ = require('gulp-load-plugins')();
 
-// Gulp plugins
-var jshint = require('gulp-jshint'),
-	jsonlint = require('gulp-json-lint'),
-	less = require('gulp-less'),
-	path = require('path'),
-	spritesmith = require('gulp.spritesmith'),
-	browserify = require('gulp-browserify'),
-	mocha = require('gulp-mocha');
+// Gulp plugins (incompatable with plugin loader)
+var jsonlint = require('gulp-json-lint'),
+	spritesmith = require('gulp.spritesmith');
 
 /* Default task */
 gulp.task('default', function()
 {
-	gutil.log(gutil.colors.orange("Regeneration process initialized"));
+	console.log("Regeneration process initialized");
 
 	// Watch files to trigger tasks
-	gulp.watch([
+	$.watch([
 		'./maps/scraproom/tiles/*.png',
 		'./stylesheets/default-theme/source.less'
 		], ['sprite', 'css']);
@@ -42,19 +35,19 @@ gulp.task('scripts', function()
 {
     // Single entry point to browserify
     gulp.src('browserify.js')
-        .pipe(browserify({
+        .pipe($.browserify({
           insertGlobals : true
         }))
-        .pipe(concat('bundle.js'))
+        .pipe($.concat('bundle.js'))
         .pipe(gulp.dest('.'));
 });
 
 /* Generate CSS files from grouped LESS files */
 gulp.task('css', function()
 {
-	gutil.log(gutil.colors.orange("Rendering optimized internal visual mechanics"));
+	console.log("Rendering optimized internal visual mechanics");
 	gulp.src('./stylesheets/default-theme/source.less')
-	.pipe( less({
+	.pipe( $.less({
 		paths: ['./maps/scraproom']
 	}))
 	.pipe( gulp.dest('./stylesheets/default-theme/') );
@@ -65,9 +58,9 @@ gulp.task('lint', function() {
 	gulp.src([
 		'./controllers/*.js', './regeneration/*.js', './gameobjects/*.js', './packages/**/*.js', './*.js', '!./bundle.js'
   	])
-    .pipe( jshint() )
-    .pipe( jshint.reporter('default') );
-    gutil.beep();
+    .pipe( $.jshint() )
+    .pipe( $.jshint.reporter('default') );
+    $.util.beep();
 });
 
 /* Validate all JSON files inside the project folder */
@@ -79,20 +72,22 @@ gulp.task('jsonlint', function()
 	])
 	.pipe( jsonlint() )
 	.pipe( jsonlint.report('verbose') );
-	gutil.beep();
+	$.util.beep();
 });
 
 gulp.task('unit', function () {
 	console.log("Unit testing application using TDD");
-    gulp.src('packages/highscores/tests/unit.js')
-    .pipe(mocha({ui: 'tdd', reporter: 'nyan'}));
-    gutil.beep();
+    gulp.src([
+    	'regeneration/tests/*.js', 'packages/**/tests/*.js'
+    ])
+    .pipe($.mocha({ui: 'tdd', reporter: 'nyan'}));
+    $.util.beep();
 });
 
 /* Compile map images into sprite and less file */
 gulp.task('sprite', function(map)
 {
-	gutil.log(gutil.colors.orange("Fusing visual assets into single entity"));
+	console.log("Fusing visual assets into single entity");
 	var spriteData = gulp.src('maps/scraproom/tiles/*.png').pipe( spritesmith({
 		imgName: 'tileset.png',
 		cssName: 'stylesheet.less'
