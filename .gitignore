@@ -22,3 +22,6 @@ libs
 node_modules
 out
 bundle.js
+/gulpfile.js
+/.bowerrc
+/bower.json
