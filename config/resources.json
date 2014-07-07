@@ -22,9 +22,7 @@
 			"guns": "multimedia/default-contentpack/images/items/guns/"
 		},
 		"stylesheets": {
-			"game_styling": "stylesheets/default-theme/game_styling",
-			"themeroller_styling": "stylesheets/default-theme/themeroller_styling",
-			"character_styling": "stylesheets/default-theme/character_styling"
+			"game_styling": "stylesheets/default-theme/game_styling"
 		},
 		"packages": "packages",
 		"windows": "windows"

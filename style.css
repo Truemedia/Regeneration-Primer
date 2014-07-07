@@ -11,9 +11,6 @@
 /* Package stylesheets */
 @import url('packages/audio/styles.css');
 
-/* All window stylesheets */
-@import url('stylesheets/default-theme/themeroller_styling/additional.css');
-
 /* jQuery UI Base Stylesheet (none-modified) */
 @import url('http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css');
 /* TODO: Implement or find a CSS CDN fallback system (like requireJS) @import url('dependencies/jqueryUI/themes/base/jquery.ui.all.css'); */
@@ -62,4 +59,52 @@ div[data-package="highscores"] {
 }
 #sidebar_left, #sidebar_right {
 	background-color: rgba(64, 64, 64, 0.5);
+}
+
+/* Stylesheets for all packages
+	(when adding a new package add a link to the relevant package's CSS file here)
+*/
+
+/* Canvas stylesheet */
+@import url('../../../packages/canvas/style.css');
+
+/* Character Selection stylesheet */
+@import url('../../../packages/characterselection/style.css');
+
+/* Debugging stylesheet */
+@import url('../../../packages/debug/style.css');
+
+/* Footer stylesheet */
+@import url('../../../packages/footer/style.css');
+
+/* Header stylesheet */
+@import url('../../../packages/header/style.css');
+
+/* Marquee stylesheet */
+@import url('../../../packages/marquee/style.css');
+
+/* Points stylesheet */
+@import url('../../../packages/points/style.css');
+
+.window-column{
+	display: inline-block;
+	float: right;
+}
+
+/* Sidebars */
+#sidebar_left, #sidebar_right {
+	width: 256px;
+	height: 100%;
+	margin-top: 50px;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+}
+/* Left sidebar */
+#sidebar_left {
+	left: 0;
+}
+/* Right sidebar */
+#sidebar_right {
+	right: 0;
 }
