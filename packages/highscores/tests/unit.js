@@ -1,14 +1,21 @@
-var assert = require('assert')
-  , nextPrime = require('./../index').nextPrime
-  , asyncPrime = require('./../index').asyncPrime;
+/* 
+* @file Highscores package unit test
+* @author Wade Penistone (Truemedia)
+* @overview Class used for TDD of Highscores package
+* @copyright Wade Penistone 2014
+* @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
+* Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
+* Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
+*/
 
-suite('nextPrime', function() {
-  test('nextPrime should return the next prime number', function() {
-    assert.equal(11, nextPrime(7));
-  });
+// TDD (Test Driven Development)
+var assert = require('assert');
 
-  test('zero and one are not prime numbers', function() {
-    assert.equal(2, nextPrime(0));
-    assert.equal(2, nextPrime(1));
+var highscores = require('./../main');
+
+suite('highscores', function() {
+  test('Settings are null by default', function()
+  {
+    assert.equal(null, highscores.settings);
   });
 });

@@ -82,7 +82,10 @@ gulp.task('unit', function () {
     gulp.src([
     	'regeneration/tests/*.js', 'packages/**/tests/*.js'
     ])
-    .pipe($.mocha({ui: 'tdd', reporter: 'nyan'}));
+    .pipe( $.mocha({
+    	ui: 'tdd',
+    	reporter: 'nyan'
+	}));
     $.util.beep();
 });
 
