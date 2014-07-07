@@ -11,6 +11,9 @@ It may be broken, be patient while we are in the main development phase of pre 0
 * Git clone this repo to wherever you want to place it 
 * Set browser to file://LocationOfThisSoftwareFolder/index.html
 
+### With development tools
+* chest install
+
 ## This is the documentation for Regen Primer, A moddable game software for client and/or server based HTML5 games. MIT licensed and open to modification on any basis
 
 Games based on this software:

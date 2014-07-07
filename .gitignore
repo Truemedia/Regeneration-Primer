@@ -18,10 +18,13 @@ results
 build
 notes
 
+/bundle.js
+
 libs
 node_modules
 out
-bundle.js
+
 /gulpfile.js
 /.bowerrc
-/bower.json/build.js
+/bower.json
+/build.js

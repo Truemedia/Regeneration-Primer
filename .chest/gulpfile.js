@@ -21,7 +21,9 @@ gulp.task('default', function()
 /* Verify and publish any changes to the codebase */
 gulp.task('publish', ['jsonlint', 'lint', 'unit'], function()
 {
-	console.log("Ready to deploy");
+	// Commit work
+	return gulp.src('./*')
+  		.pipe($.git.commit('Commit using gulp-git'));
 });
 
 /* Handle assets */
@@ -34,7 +36,7 @@ gulp.task('assets', ['scripts', 'css', 'sprite'], function()
 gulp.task('scripts', function()
 {
     // Single entry point to browserify
-    gulp.src('browserify.js')
+    gulp.src('build.js')
         .pipe($.browserify({
           insertGlobals : true
         }))
