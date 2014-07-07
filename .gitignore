@@ -24,4 +24,4 @@ out
 bundle.js
 /gulpfile.js
 /.bowerrc
-/bower.json
+/bower.json/build.js
