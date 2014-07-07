@@ -8,23 +8,6 @@
 /* LeafletJS */
 @import url('http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css');
 
-/* Characters stylesheet (Coward) */
-@import url('stylesheets/default-theme/character_styling/coward.css');
-/* Characters stylesheet (Criminal) */
-@import url('stylesheets/default-theme/character_styling/criminal.css');
-/* Characters stylesheet (Mother) */
-@import url('stylesheets/default-theme/character_styling/mother.css');
-/* Characters stylesheet (NextDoorNeighbor) */
-@import url('stylesheets/default-theme/character_styling/nextdoorneighbor.css');
-/* Characters stylesheet (PsychoticWorker) */
-@import url('stylesheets/default-theme/character_styling/psychoticworker.css');
-/* Characters stylesheet (StoreOwner) */
-@import url('stylesheets/default-theme/character_styling/storeowner.css');
-/* Characters stylesheet (StoreOwnerWife) */
-@import url('stylesheets/default-theme/character_styling/storeownerwife.css');
-/* Characters stylesheet (WomanHelicopterPilot) */
-@import url('stylesheets/default-theme/character_styling/womanhelicopterpilot.css');
-
 /* Package stylesheets */
 @import url('packages/audio/styles.css');
 
