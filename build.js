@@ -1,4 +1,6 @@
 var unique = require('uniq');
+
+// Regeneration classes
 var Colour = require('./regeneration/colour');
 
 console.log(Colour.HSVtoRGB(1, 1, 1));
