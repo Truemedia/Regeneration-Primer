@@ -18,4 +18,10 @@ suite('highscores', function() {
   {
     assert.equal(null, highscores.settings);
   });
+  test('Translations are empty by default', function()
+  {
+  	var expected_result = {};
+  	var returned_result = highscores.trans;
+    assert.deepEqual(expected_result, returned_result);
+  });
 });

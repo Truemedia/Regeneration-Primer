@@ -11,7 +11,7 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	var Backbone = require('backbone');
+    	module.exports = factory(require('backbone'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
@@ -25,7 +25,7 @@
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function()
+} (this, function(Backbone)
 	{
   	/** 
      * Highscores package
