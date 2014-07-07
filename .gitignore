@@ -16,13 +16,13 @@ pids
 logs
 results
 build
-notes
 
 /bundle.js
 
-libs
-node_modules
-out
+libs/
+node_modules/
+out/
+notes/
 
 /gulpfile.js
 /.bowerrc
