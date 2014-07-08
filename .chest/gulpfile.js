@@ -19,11 +19,17 @@ gulp.task('default', function()
 });
 
 /* Verify and publish any changes to the codebase */
-gulp.task('publish', ['jsonlint', 'lint', 'unit'], function()
+gulp.task('publish', ['tests'], function()
 {
 	// Commit work
 	return gulp.src('./*')
   		.pipe($.git.commit('Commit using gulp-git'));
+});
+
+/* Conduct tests on source code for stability */
+gulp.task('tests', ['jsonlint', 'lint', 'unit'], function()
+{
+	console.log("Conducting tests");
 });
 
 /* Handle assets */

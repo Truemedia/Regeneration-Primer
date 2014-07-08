@@ -7,10 +7,26 @@
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
-define([
-	"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-], function(template, nls, Config, Lang, Package, jQuery, Backbone)
+(function (root, factory)
 {
+	if (typeof exports === 'object') // NodeJS
+	{
+    	module.exports = factory(require('backbone'));
+	}
+	else if (typeof define === 'function' && define.amd) // AMD
+	{
+    	define([
+			"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
+		], function (template, nls, Config, Lang, Package, jQuery, Backbone) {
+      		return (root.returnExportsGlobal = factory());
+    	});
+  	}
+  	else // Global Variables
+  	{
+    	root.returnExportsGlobal = factory(root);
+  	}
+} (this, function (Backbone)
+	{
 	/** 
      * Debug package
      * @namespace debug
@@ -101,4 +117,4 @@ define([
 	};
 
 	return debug;
-});
+}));

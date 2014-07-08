@@ -7,7 +7,7 @@
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
- (function (root, factory)
+(function (root, factory)
 {
 	if (typeof exports === 'object') // NodeJS
 	{
@@ -17,7 +17,7 @@
 	{
     	define([
 			"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone"
-		], function(template, nls, Config, Lang, Package, jQuery, Backbone) {
+		], function (template, nls, Config, Lang, Package, jQuery, Backbone) {
       		return (root.returnExportsGlobal = factory());
     	});
   	}
@@ -25,7 +25,7 @@
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function(Backbone)
+} (this, function (Backbone)
 	{
   	/** 
      * Highscores package

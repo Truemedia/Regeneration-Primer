@@ -1,7 +1,7 @@
 /* 
-* @file Highscores package unit test
+* @file Stage package unit test
 * @author Wade Penistone (Truemedia)
-* @overview Class used for TDD of Highscores package
+* @overview Class used for TDD of Stage package
 * @copyright Wade Penistone 2014
 * @license MIT license ({@link http://opensource.org/licenses/MIT| See here})
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
@@ -11,19 +11,19 @@
 // TDD (Test Driven Development)
 var assert = require('assert');
 
-var highscores = require('./../main');
+var stage = require('./../main');
 
-suite('highscores', function()
+suite('stage', function()
 {
   test('Settings are null by default', function()
   {
-    assert.equal(null, highscores.settings);
+    assert.equal(null, stage.settings);
   });
   
   test('Translations are empty by default', function()
   {
   	var expected_result = {};
-  	var returned_result = highscores.trans;
+  	var returned_result = stage.trans;
     assert.deepEqual(expected_result, returned_result);
   });
 });

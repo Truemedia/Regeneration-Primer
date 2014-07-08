@@ -7,10 +7,26 @@
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
-define([
-	"stache!./templates/step", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
-], function(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone)
+(function (root, factory)
 {
+	if (typeof exports === 'object') // NodeJS
+	{
+    	module.exports = factory(require('backbone'));
+	}
+	else if (typeof define === 'function' && define.amd) // AMD
+	{
+    	define([
+			"stache!./templates/step", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
+		], function (template, nls, App, Config, Lang, Package, Session, jQuery, Backbone) {
+      		return (root.returnExportsGlobal = factory());
+    	});
+  	}
+  	else // Global Variables
+  	{
+    	root.returnExportsGlobal = factory(root);
+  	}
+} (this, function (Backbone)
+	{
 	/** 
      * Character Selection package
      * @namespace characterselection
@@ -263,4 +279,4 @@ define([
 	};
 
 	return characterselection;
-});
+}));
