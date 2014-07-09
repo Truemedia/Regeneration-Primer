@@ -11,18 +11,15 @@
 		"libs": "libs",
 		"modules": "modules",
 		"multimedia": {
-			"root": "multimedia/",
-			"audio": "multimedia/default-contentpack/audio/",
-			"images": "multimedia/default-contentpack/images/",
-			"video": "multimedia/default-contentpack/video/"
+			"root": "themes/default/assets/",
+			"audio": "themes/default/assets/audio/",
+			"images": "themes/default/assets/images/",
+			"video": "themes/default/assets/video/"
 		},
 		"scenes": "scenes",
 		"sprites": {
-			"characters": "multimedia/debug/images/characters/",
-			"guns": "multimedia/default-contentpack/images/items/guns/"
-		},
-		"stylesheets": {
-			"game_styling": "stylesheets/default-theme/game_styling"
+			"characters": "themes/debug/assets/images/characters/",
+			"guns": "themes/default/assets/images/items/guns/"
 		},
 		"packages": "packages",
 		"windows": "windows"
