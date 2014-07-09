@@ -54,11 +54,10 @@ gulp.task('scripts', function()
 gulp.task('css', function()
 {
 	console.log("Rendering optimized internal visual mechanics");
-	gulp.src('./stylesheets/default-theme/source.less')
-	.pipe( $.less({
-		paths: ['./maps/scraproom']
-	}))
-	.pipe( gulp.dest('./stylesheets/default-theme/') );
+	gulp.src('./themes/default/assets/less/*.less')
+	.pipe( $.concat('style.less') )
+	.pipe( $.less() )
+	.pipe( gulp.dest('./themes/default/assets/css') );
 });
 
 /* JSHint */
