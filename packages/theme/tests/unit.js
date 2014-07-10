@@ -8,8 +8,7 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 
-// TDD (Test Driven Development)
-var assert = require('assert');
+var assert = require('chai').assert;
 
 var theme = require('./../main');
 

@@ -2,7 +2,7 @@
   "name": "Regeneration-Primer",
   "version": "0.0.0",
   "description": "A moddable game software for client and/or server based HTML5 games",
-  "main": "Gruntfile.js",
+  "main": "gulpfile.js",
   "dependencies": {
     "grunt": "~0.4.5",
     "jsdoc": "~3.3.0-alpha4",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "backbone": "^1.1.2",
+    "chai": "^1.9.1",
     "grunt": "~0.4.1",
     "grunt-contrib-less": "~0.5.0",
     "grunt-contrib-watch": "~0.4.0",

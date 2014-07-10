@@ -9,18 +9,20 @@
 */
 
 // TDD (Test Driven Development)
-var assert = require('assert');
+var chai = require('chai'),
+	expect = chai.expect,
+	should = chai.should();
 
 // Class to test (NOTE: This will be replaced with the tinycolor library)
 var Colour = require('./../colour');
 
 suite('Colour', function() {
-  test('HSV when converted from multiple parameters equal to RGB object', function() {
-  	var expected_colour = {r: 255, g: 0, b: 0};
+  test('HSV when converted from multiple parameters equal to RGB object', function()
+  {
   	var actual_colour = Colour.HSVtoRGB(1, 1, 1);
 
-    assert.equal(expected_colour.r, actual_colour.r);
-    assert.equal(expected_colour.g, actual_colour.g);
-    assert.equal(expected_colour.b, actual_colour.b);
+  	expect(actual_colour).to.have.property('r', 255);
+  	expect(actual_colour).to.have.property('g', 0);
+  	expect(actual_colour).to.have.property('b', 0);
   });
 });
