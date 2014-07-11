@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(require('backbone'));
+    	module.exports = factory(null, null, require('backbone'), null, null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
 			"stache!./templates/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
 		], function (template, nls, Backbone, buzz, jQuery) {
-      		return (root.returnExportsGlobal = factory());
+      		return (root.returnExportsGlobal = factory(template, nls, Backbone, buzz, jQuery));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (Backbone)
+} (this, function (template, nls, Backbone, buzz, jQuery)
 	{
 	/** 
      * Audio package

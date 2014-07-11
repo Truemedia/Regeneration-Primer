@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(require('backbone'));
+    	module.exports = factory(null, null, null, null, null, null, require('backbone'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "./modules/options/main"
 		], function (view, nls, Config, Lang, Package, jQuery, options) {
-      		return (root.returnExportsGlobal = factory());
+      		return (root.returnExportsGlobal = factory(view, nls, Config, Lang, Package, jQuery, options));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (Backbone)
+} (this, function (view, nls, Config, Lang, Package, jQuery, options)
 	{
 	/** 
      * Navbar package

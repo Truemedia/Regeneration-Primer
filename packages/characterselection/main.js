@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(require('backbone'));
+    	module.exports = factory(null, null, null, null, null, null, null, null, require('backbone'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
 			"stache!./templates/step", "i18n!./nls/strings", "App", "Config", "Lang", "Package", "Session", "jQuery", "Backbone"
 		], function (template, nls, App, Config, Lang, Package, Session, jQuery, Backbone) {
-      		return (root.returnExportsGlobal = factory());
+      		return (root.returnExportsGlobal = factory(template, nls, App, Config, Lang, Package, Session, jQuery, Backbone));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (Backbone)
+} (this, function (template, nls, App, Config, Lang, Package, Session, jQuery, Backbone)
 	{
 	/** 
      * Character Selection package

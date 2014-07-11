@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(require('backbone'));
+    	module.exports = factory(null, null, null, null, null, null, null, require('backbone'), null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Config", "Lang", "Package", "Session", "Bootstrap", "Backbone", "KO"
 		], function (template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko) {
-      		return (root.returnExportsGlobal = factory());
+      		return (root.returnExportsGlobal = factory(template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (Backbone)
+} (this, function (template, nls, Config, Lang, Package, Session, jQuery, Backbone, ko)
 	{
 	/** 
      * Profile package

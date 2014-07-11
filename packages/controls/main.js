@@ -11,7 +11,7 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(require('backbone'));
+    	module.exports = factory(null, null, null, null, null, null, require('backbone'), null, null, null, null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
@@ -21,14 +21,14 @@
 			"./modules/keyboard/main", "./modules/mouse/main", "./modules/joypad/main"
 		], function (template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad)
 		{
-      		return (root.returnExportsGlobal = factory());
+      		return (root.returnExportsGlobal = factory(template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function(Backbone)
+} (this, function (template, nls, Config, Lang, Package, jQuery, Backbone, keyboard, mouse, joypad)
 	{
 	/** 
      * Controls package
