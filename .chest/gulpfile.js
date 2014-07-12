@@ -82,15 +82,25 @@ gulp.task('jsonlint', function()
 	.pipe( jsonlint.report('verbose') );
 });
 
-gulp.task('unit', function () {
+gulp.task('unit', function()
+{
 	$.util.beep();
 	console.log("Unit testing application using BDD and TDD");
     return gulp.src([
     	'regeneration/tests/*.js', 'packages/**/tests/*.js'
-    ])
+    ], {
+    	read: false
+    })
+    .pipe( cover.instrument({
+    	pattern: ['**/main*'],
+    	debugDirectory: 'debug'
+    }))
     .pipe( $.mocha({
     	ui: 'tdd',
     	reporter: 'nyan'
+	}))
+	.pipe( cover.report({
+		outFile: 'coverage.html'
 	}));
 });
 

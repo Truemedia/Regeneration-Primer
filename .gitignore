@@ -1,3 +1,4 @@
+# project files
 .project
 .settings/org.eclipse.core.resources.prefs
 .sublime-project
@@ -17,13 +18,22 @@ logs
 results
 build
 
+# compiled files
 /bundle.js
 
+# loaded files
 libs/
 node_modules/
 out/
 notes/
 
+# code coverage
+.coverdata/
+/.coverrun
+/coverage.html
+debug/
+
+# chest files
 /gulpfile.js
 /.bowerrc
 /bower.json
