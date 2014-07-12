@@ -11,23 +11,23 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, null, null, null, require('backbone'), null, null, null);
+    	module.exports = factory(null, null, null, require('backbone'), null, null, null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
 			"stache!./templates/partial",
 			"i18n!./nls/strings",
-			"Config", "Lang", "Package", "jQ.ui", "backbone", "KO", "./modules/health/main", "./modules/score/main"
-		], function (template, nls, Config, Lang, Package, jQuery, Backbone, ko, Health, Score) {
-      		return (root.returnExportsGlobal = factory(template, nls, Config, Lang, Package, jQuery, Backbone, ko, Health, Score));
+			"jQ.ui", "backbone", "KO", "./modules/health/main", "./modules/score/main"
+		], function (template, nls, jQuery, Backbone, ko, Health, Score) {
+      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, ko, Health, Score));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, Config, Lang, Package, jQuery, Backbone, ko, Health, Score)
+} (this, function (template, nls, jQuery, Backbone, ko, Health, Score)
 	{
 	/** 
      * Points package

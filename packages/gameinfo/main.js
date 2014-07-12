@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, null, null, null, require('backbone'), null);
+    	module.exports = factory(null, null, null, require('backbone'), null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
-			"stache!./templates/modal", "i18n!./nls/strings", "Config", "Lang", "Package", "Bootstrap", "Backbone", './modules/feed/main'
-		], function (template, nls, Config, Lang, Package, jQuery, Backbone, feed) {
-      		return (root.returnExportsGlobal = factory(template, nls, Config, Lang, Package, jQuery, Backbone, feed));
+			"stache!./templates/modal", "i18n!./nls/strings", "Bootstrap", "Backbone", './modules/feed/main'
+		], function (template, nls, jQuery, Backbone, feed) {
+      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, feed));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, Config, Lang, Package, jQuery, Backbone, feed)
+} (this, function (template, nls, jQuery, Backbone, feed)
 	{
 	/** 
      * Game Info package
