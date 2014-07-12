@@ -31,10 +31,10 @@
      * Character Selection package
      * @namespace characterselection
      */
-	characterselection = {
-		
-		// Translations
-		trans: {},
+	characterselection =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 
 		/* Initial load-up procedure if first time package is loaded */
 		init: function()

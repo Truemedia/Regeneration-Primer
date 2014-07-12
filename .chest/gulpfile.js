@@ -62,36 +62,36 @@ gulp.task('css', function()
 
 /* JSHint */
 gulp.task('lint', function() {
-	gulp.src([
+	$.util.beep();
+	return gulp.src([
 		'./controllers/*.js', './regeneration/*.js', './gameobjects/*.js', './packages/**/*.js', './*.js', '!./bundle.js'
   	])
     .pipe( $.jshint() )
     .pipe( $.jshint.reporter('default') );
-    $.util.beep();
 });
 
 /* Validate all JSON files inside the project folder */
 gulp.task('jsonlint', function()
 {
+	$.util.beep();
 	console.log("Verifying data format consistency");
-	gulp.src([
+	return gulp.src([
 		'./blueprints/**/*.json','./config/**/*.json', './maps/**/*.json', './packages/**/*.json'
 	])
 	.pipe( jsonlint() )
 	.pipe( jsonlint.report('verbose') );
-	$.util.beep();
 });
 
 gulp.task('unit', function () {
-	console.log("Unit testing application using TDD");
-    gulp.src([
+	$.util.beep();
+	console.log("Unit testing application using BDD and TDD");
+    return gulp.src([
     	'regeneration/tests/*.js', 'packages/**/tests/*.js'
     ])
     .pipe( $.mocha({
     	ui: 'tdd',
     	reporter: 'nyan'
 	}));
-    $.util.beep();
 });
 
 /* Compile map images into sprite and less file */

@@ -31,15 +31,12 @@
      * Maps package
      * @namespace maps
      */
-	maps = {
-		
+	maps =
+	{	
 		layers: 1,
 	
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/* Load this package */
 	 	init: function()

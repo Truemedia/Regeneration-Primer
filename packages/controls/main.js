@@ -34,10 +34,10 @@
      * Controls package
      * @namespace controls
      */
-	controls = {
-		
-		// Translations
-		trans: {},
+	controls =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function()

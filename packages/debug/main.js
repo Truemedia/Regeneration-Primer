@@ -31,13 +31,10 @@
      * Debug package
      * @namespace debug
      */
-	debug = {
-			
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+	debug =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(options)

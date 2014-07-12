@@ -31,10 +31,10 @@
      * Stage package
      * @namespace stage
      */
-	stage = {
-		
-		// Translations
-		trans: {},
+	stage =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/* Initial load-up procedure if first time package is loaded */
 	 	init: function()

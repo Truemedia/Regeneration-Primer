@@ -31,16 +31,16 @@
      * Theme package
      * @namespace theme
      */
-	theme = {
-	 
+	theme =
+	{ 
 	 	// Themes JSON array
 	 	themes: [],
 	 	
 	 	// Data attribute binded element
 	 	element_binding: null,
 	
-		// Translations
-		trans: {},
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/* Load this package */
 	 	init: function()

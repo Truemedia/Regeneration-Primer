@@ -31,10 +31,10 @@
      * Profile package
      * @namespace profile
      */
-	profile = {
-		
-		// Translations
-		trans: {},
+	profile =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/* Load this package */
 		init: function()

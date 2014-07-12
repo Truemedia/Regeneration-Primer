@@ -31,7 +31,8 @@
      * Sitemap package
      * @namespace sitemap
      */
-	sitemap = {
+	sitemap =
+	{
 			
 		// Data attribute binded element
 		element_binding: null,
@@ -39,11 +40,8 @@
 		// Activation indication
 		active: false,
 		
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+		settings: null, // Package options
+		trans: {}, // Translations
 	
 		/* Load this package */
 		init: function()

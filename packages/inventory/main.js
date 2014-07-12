@@ -32,19 +32,16 @@
      * Inventory package
      * @namespace inventory
      */
-	inventory = {
-		
+	inventory =
+	{	
 		/* Stores entities */
 		inventories: [],
 		
 		// Binding element class
 		binding_element_class: 'inventory_item',
 	
-		// Translations
-		trans: {},
-		
-		// Package options
-		settings: null,
+		settings: null, // Package options
+		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(options)

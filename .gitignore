@@ -28,3 +28,4 @@ notes/
 /.bowerrc
 /bower.json
 /build.js
+/.jshintrc

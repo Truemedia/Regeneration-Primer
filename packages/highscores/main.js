@@ -31,13 +31,10 @@
      * Highscores package
      * @namespace highscores
      */
-	highscores = {
-			
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+	highscores =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(options)

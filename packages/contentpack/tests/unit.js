@@ -8,22 +8,39 @@
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
 
-// TDD (Test Driven Development)
-var assert = require('chai').assert;
+// BDD and TDD
+var chai = require('chai'),
+  assert = chai.assert;
+  expect = chai.expect;
+
+var Backbone = require('backbone');
 
 var contentpack = require('./../main');
 
 suite('contentpack', function()
 {
+  test('Package is an object', function()
+  {
+    assert.isObject(contentpack);
+  });
+
   test('Settings are null by default', function()
   {
-    assert.equal(null, contentpack.settings);
+    assert.isNull(contentpack.settings);
   });
   
   test('Translations are empty by default', function()
   {
-  	var expected_result = {};
-  	var returned_result = contentpack.trans;
-    assert.deepEqual(expected_result, returned_result);
+    expect(contentpack.trans).to.be.empty;
+  });
+
+  test('Package has a load function', function()
+  {
+    assert.isFunction(contentpack.load);
+  });
+
+  test('Package has an init function', function()
+  {
+    assert.isFunction(contentpack.init);
   });
 });

@@ -31,10 +31,10 @@
      * About package
      * @namespace about
      */
-	about = {
-		
-		// Translations
-		trans: {},
+	about =
+	{
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/**
 		 * Initial load-up procedure if first time package is loaded
@@ -56,12 +56,13 @@
         load: function(element, options)
         {	
         	// Load the package onto current web-page
-        	this.init();
-			if (jQuery(element).html().length === 0) {
+        	this.init(options);
+			if (jQuery(element).html().length === 0)
+			{
 				new this.view({el: element});
-			} else {
-				this.registerEvents();
 			}
+			this.registerEvents();
+			return true;
         },
         
         /**

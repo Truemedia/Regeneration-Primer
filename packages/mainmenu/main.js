@@ -31,10 +31,10 @@
      * Main Menu package
      * @namespace mainmenu
      */
-	mainmenu = {
-		
-		// Translations
-		trans: {},
+	mainmenu =
+	{	
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		/* Initial load-up procedure if first time package is loaded */
 		init: function()

@@ -33,19 +33,16 @@
      * Points package
      * @namespace points
      */
-	points = {
-			
+	points =
+	{	
 		// Partial loading location	
 		partial_block_element: 'points_partial',
 			
 		// defaults
 		binding_element_class: "score_container",
 		
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+		settings: null, // Package options
+		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(options)

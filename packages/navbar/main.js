@@ -31,19 +31,16 @@
      * Navbar package
      * @namespace navbar
      */
-	navbar = {
-	
+	navbar =
+	{
 		// Partial loading location	
 		element_binding: null,
 		
 		// Activation indication
 		active: false,
 		
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+		settings: null, // Package options
+		trans: {}, // Translations
 			
 		// Variable containing all html from modules
 		nested_view: "",

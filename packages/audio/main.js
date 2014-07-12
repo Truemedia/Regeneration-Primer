@@ -31,13 +31,10 @@
      * Audio package
      * @namespace audio
      */
-	audio = {
-			
-		// Translations
-		trans: {},
-
-		// Package options
-		settings: null,
+	audio =
+	{		
+		settings: null, // Package options
+		trans: {}, // Translations
 
 		directory: "",	
 		format: "",	
