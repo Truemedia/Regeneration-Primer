@@ -1,6 +1,6 @@
 /* Bootstrap base */
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
-@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 /* Clean colours*/
 @import url("http://cdnjs.cloudflare.com/ajax/libs/colors/1.0/colors.min.css");

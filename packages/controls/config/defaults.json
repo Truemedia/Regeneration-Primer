@@ -1,4 +1,5 @@
 {
+	"source": "file",
 	"screens": {
 		"toggle_points": "SHIFT",
 		"toggle_profile": "SPACE"

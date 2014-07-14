@@ -40,26 +40,25 @@
 		trans: {}, // Translations
 				
 		/* Initial load-up procedure if first time package is loaded */
-		init: function()
-		{	
-			// Register package
+		init: function(options)
+		{
+			// Merge internal variables with inherited data
 			Package.register('controls');
-	 		
-	 		// Load translations
 			this.trans = Lang.getTrans(nls);
+			this.settings = (Object.keys(options).length === 0) ? Config.get('controls::defaults') : options;
 		},
 		
 		/* Autoloading hook */
         load: function(element, options)
         {	
         	// Load the package onto current web-page
-	    	this.init();
+	    	this.init(options);
 			new this.view({el: element});
         },
         
         /* Data collection */
 	    collection: Backbone.Collection.extend({
-	        url: 'packages/controls/data.json',
+	        url: function() { return Config.get('controls::routes.' + controls.settings.source); },
 	        parse: function(data) { return data.items; }
 	    }),
 	        
@@ -77,12 +76,13 @@
 	            this.collection.fetch().done( function() {
 	            		
 	            	// Compose data for view
-	            	var data = Config.instance('controls::default');
+	            	var data = Config.instance('controls::defaults');
 	            	data.items = self.collection.toJSON();
 	            	data.trans = controls.trans;
 	    				
 	            	// Render content
 	            	self.$el.html( template(data) );
+	            	jQuery('button[data-toggle="popover"]').popover();
 	            	controls.bindHumanInterfaceDevices();
 	            });
 	        }

@@ -7,6 +7,32 @@
 		</div>
 		<div class="modal-body">
 			<h3 id="tabs">{{trans.controls_heading_phrs}}</h3>
+			{{#items}}
+			<h4>Using the {{name}} layout</h4>
+			<div id="osk">
+				{{#keysets}}
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group btn-group-justified">
+						{{#keys}}
+						<div class="btn-group">
+							<button type="button"
+									class="btn btn-info"
+									data-placement="bottom"
+									data-trigger="hover"
+									data-toggle="popover"
+									title="Key description"
+									data-content="{{visual.legend.text}}">
+								<span class="fa {{visual.legend.icon}}"></span>
+								<span>{{functional.content}}</span>
+							</button>
+						</div>
+						{{/keys}}
+					</div>
+				</div>
+				{{/keysets}}
+			</div>
+			{{/items}}
+			<br />
 			<ul class="nav nav-tabs">
 				<li>
 					<a data-toggle="tab" href="#screens"><i class="icon-tablet"></i>{{trans.screens_phrs}}</a>

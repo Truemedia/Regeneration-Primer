@@ -1,0 +1,650 @@
+{
+	"items":
+	[
+		{
+			"name": "QWERTY",
+			"keysets":
+			[
+				{
+					"keys":
+					[
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "¬",
+								"value": "misc"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "1",
+								"value": "1"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "2",
+								"value": "2"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}			
+							},
+							"functional":
+							{
+								"content": "3",
+								"value": "3"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "4",
+								"value": "4"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}		
+							},
+							"functional":
+							{
+								"content": "5",
+								"value": "5"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "6",
+								"value": "6"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "7",
+								"value": "7"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "8",
+								"value": "8"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "9",
+								"value": "9"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "0",
+								"value": "0"
+							}
+						}
+					]
+				},
+				{
+					"keys": [
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "TAB",
+								"value": "tab"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "q",
+								"value": "q"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-long-arrow-up",
+									"text": "Move up"
+								}		
+							},
+							"functional":
+							{
+								"content": "w",
+								"value": "w"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-hand-o-up",
+									"text": "Enter new mag"
+								}
+							},
+							"functional":
+							{
+								"content": "e",
+								"value": "e"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-sliders",
+									"text": "Reconnect new mag"
+								}
+							},
+							"functional":
+							{
+								"content": "r",
+								"value": "r"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-hand-o-down",
+									"text": "Throw away mag"
+								}
+							},
+							"functional":
+							{
+								"content": "t",
+								"value": "t"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}		
+							},
+							"functional":
+							{
+								"content": "y",
+								"value": "y"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "u",
+								"value": "u"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "i",
+								"value": "i"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-crosshairs",
+									"text": "Fire weapon"
+								}
+							},
+							"functional":
+							{
+								"content": "o",
+								"value": "o"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-child",
+									"text": "Push away"
+								}
+							},
+							"functional":
+							{
+								"content": "p",
+								"value": "p"
+							}
+						}
+					]
+				},
+				{
+					"keys":
+					[
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "CAPS",
+								"value": "caps"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-long-arrow-left",
+									"text": "Move left"
+								}
+							},
+							"functional":
+							{
+								"content": "a",
+								"value": "a"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-long-arrow-down",
+									"text": "Move down"
+								}
+							},
+							"functional":
+							{
+								"content": "s",
+								"value": "s"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-long-arrow-right",
+									"text": "Move right"
+								}
+							},
+							"functional":
+							{
+								"content": "d",
+								"value": "d"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "f",
+								"value": "f"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "g",
+								"value": "g"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "h",
+								"value": "h"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "j",
+								"value": "j"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "k",
+								"value": "k"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "l",
+								"value": "l"
+							}
+						}
+					]
+				},
+				{
+					"keys":
+					[
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-caret-square-o-left",
+									"text": "Toggle left side-panel"
+								}
+							},
+							"functional":
+							{
+								"content": "SHIFT",
+								"value": "shift"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "z",
+								"value": "z"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-cube",
+									"text": "Pickup an item"
+								}
+							},
+							"functional":
+							{
+								"content": "x",
+								"value": "x"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-bullseye",
+									"text": "Chamber"
+								}
+							},
+							"functional":
+							{
+								"content": "c",
+								"value": "c"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "v",
+								"value": "v"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "b",
+								"value": "b"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "n",
+								"value": "n"
+							}
+						},
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "",
+									"text": ""
+								}
+							},
+							"functional":
+							{
+								"content": "m",
+								"value": "m"
+							}
+						}
+					]
+				},
+				{
+					"keys":
+					[
+						{
+							"visual":
+							{
+								"legend":
+								{
+									"icon": "fa-caret-square-o-right",
+									"text": "Toggle right side-panel"
+								}
+							},
+							"functional":
+							{
+								"content": "Space",
+								"value": " "
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
