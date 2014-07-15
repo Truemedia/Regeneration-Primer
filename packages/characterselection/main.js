@@ -82,7 +82,7 @@
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: characterselection.trans,
-	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters')
+	            		content_pack: Config.get('resources.directories.multimedia.root')
 	            	};
 	    				
 	            	// Render content

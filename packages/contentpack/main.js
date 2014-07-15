@@ -77,8 +77,7 @@
 	            	var data = {
 	            		items: self.collection.toJSON(),
 	            		trans: contentpack.trans,
-	            		content_packs: Config.get('resources.content_packs'),
-	            		content: Config.get('content_pack'),
+	            		content_packs: Config.get('resources.content_packs')
 	            	};
 	    				
 	            	// Render content

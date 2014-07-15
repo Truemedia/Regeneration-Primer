@@ -11,10 +11,10 @@
 		"libs": "libs",
 		"modules": "modules",
 		"multimedia": {
-			"root": "themes/default/assets/",
-			"audio": "themes/default/assets/audio/",
-			"images": "themes/default/assets/images/",
-			"video": "themes/default/assets/video/"
+			"root": "themes/debug/assets/",
+			"audio": "themes/debug/assets/audio/",
+			"images": "themes/debug/assets/images/",
+			"video": "themes/debug/assets/video/"
 		},
 		"scenes": "scenes",
 		"sprites": {

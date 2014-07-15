@@ -86,7 +86,7 @@
 	            		
 	            	// Compose data for view
 	            	var data = {
-	            		content_pack: Config.get('resources.directories.multimedia.root') + Config.get('content_pack.images.characters'),
+	            		content_pack: Config.get('resources.directories.multimedia.root'),
 	            		items: self.collection.toJSON(),
 	            		trans: points.trans,
 	            		health_step: Config.get('points::health.default_step'),
