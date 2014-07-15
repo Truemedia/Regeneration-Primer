@@ -28,8 +28,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 1"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -43,8 +47,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 2"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -58,9 +66,13 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
-								}			
+									"icon": "fa-cube",
+									"text": "Item slot 3"
+								},
+								"button":
+								{
+									"class": "btn-info"
+								}		
 							},
 							"functional":
 							{
@@ -73,8 +85,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 4"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -88,9 +104,13 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
-								}		
+									"icon": "fa-cube",
+									"text": "Item slot 5"
+								},
+								"button":
+								{
+									"class": "btn-info"
+								}	
 							},
 							"functional":
 							{
@@ -103,8 +123,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 6"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -118,8 +142,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 7"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -133,8 +161,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 8"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -148,8 +180,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 9"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -163,8 +199,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-cube",
+									"text": "Item slot 10"
+								},
+								"button":
+								{
+									"class": "btn-info"
 								}
 							},
 							"functional":
@@ -197,8 +237,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-angle-double-down",
+									"text": "Crouch down"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -214,7 +258,11 @@
 								{
 									"icon": "fa-long-arrow-up",
 									"text": "Move up"
-								}		
+								},
+								"button":
+								{
+									"class": "btn-primary"
+								}
 							},
 							"functional":
 							{
@@ -229,6 +277,10 @@
 								{
 									"icon": "fa-hand-o-up",
 									"text": "Enter new mag"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -244,6 +296,10 @@
 								{
 									"icon": "fa-sliders",
 									"text": "Reconnect new mag"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -259,6 +315,10 @@
 								{
 									"icon": "fa-hand-o-down",
 									"text": "Throw away mag"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -319,6 +379,10 @@
 								{
 									"icon": "fa-crosshairs",
 									"text": "Fire weapon"
+								},
+								"button":
+								{
+									"class": "btn-danger"
 								}
 							},
 							"functional":
@@ -334,6 +398,10 @@
 								{
 									"icon": "fa-child",
 									"text": "Push away"
+								},
+								"button":
+								{
+									"class": "btn-danger"
 								}
 							},
 							"functional":
@@ -369,6 +437,10 @@
 								{
 									"icon": "fa-long-arrow-left",
 									"text": "Move left"
+								},
+								"button":
+								{
+									"class": "btn-primary"
 								}
 							},
 							"functional":
@@ -384,6 +456,10 @@
 								{
 									"icon": "fa-long-arrow-down",
 									"text": "Move down"
+								},
+								"button":
+								{
+									"class": "btn-primary"
 								}
 							},
 							"functional":
@@ -399,6 +475,10 @@
 								{
 									"icon": "fa-long-arrow-right",
 									"text": "Move right"
+								},
+								"button":
+								{
+									"class": "btn-primary"
 								}
 							},
 							"functional":
@@ -509,6 +589,10 @@
 								{
 									"icon": "fa-caret-square-o-left",
 									"text": "Toggle left side-panel"
+								},
+								"button":
+								{
+									"class": "btn-primary"
 								}
 							},
 							"functional":
@@ -522,8 +606,12 @@
 							{
 								"legend":
 								{
-									"icon": "",
-									"text": ""
+									"icon": "fa-search-plus",
+									"text": "Zoom in"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -537,8 +625,12 @@
 							{
 								"legend":
 								{
-									"icon": "fa-cube",
-									"text": "Pickup an item"
+									"icon": "fa-cubes",
+									"text": "Pickup items"
+								},
+								"button":
+								{
+									"class": "btn-success"
 								}
 							},
 							"functional":
@@ -554,6 +646,10 @@
 								{
 									"icon": "fa-bullseye",
 									"text": "Chamber"
+								},
+								"button":
+								{
+									"class": "btn-warning"
 								}
 							},
 							"functional":
@@ -634,6 +730,10 @@
 								{
 									"icon": "fa-caret-square-o-right",
 									"text": "Toggle right side-panel"
+								},
+								"button":
+								{
+									"class": "btn-primary"
 								}
 							},
 							"functional":

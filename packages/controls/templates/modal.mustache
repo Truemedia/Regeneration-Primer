@@ -8,7 +8,7 @@
 		<div class="modal-body">
 			<h3 id="tabs">{{trans.controls_heading_phrs}}</h3>
 			{{#items}}
-			<h4>Using the {{name}} layout</h4>
+			<h4>Using the <span class="text-info">STANDARD</span> layout on a <span class="text-primary">{{name}}</span> keyboard</h4>
 			<div id="osk">
 				{{#keysets}}
 				<div class="btn-toolbar" role="toolbar">
@@ -16,7 +16,7 @@
 						{{#keys}}
 						<div class="btn-group">
 							<button type="button"
-									class="btn btn-info"
+									class="btn {{visual.button.class}}"
 									data-placement="bottom"
 									data-trigger="hover"
 									data-toggle="popover"
