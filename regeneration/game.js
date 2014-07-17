@@ -1,5 +1,5 @@
 /* 
-* @file Game file/script
+* @file Game file/script (to be deprecated)
 * @author Wade Penistone (Truemedia)
 * @overview Base script containing entire game instance and methods for controlling all the low levels functions of the game (launching, saving, closing, pausing ect)
 * @copyright Wade Penistone 2013

@@ -162,7 +162,7 @@ require.config({
         // Inject regeneration classes into autoloader
         'conditioner': {
             deps: [
-                'App', 'Audio', 'Camera', 'Colour', 'Config', 'Game', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
+                'App', 'Audio', 'Colour', 'Config', 'Lang', 'Package', 'Page', 'Resource', 'Router', 'Session', 'Spawner'
             ],
             exports: 'conditioner'
         }

@@ -1,5 +1,5 @@
 /* 
-* @file Camera CLASS
+* @file Camera CLASS (to be deprecated)
 * @author Wade Penistone (Truemedia)
 * @overview Core Regeneration Primer class used for positioning and viewing an environment (2D or 3D)
 * @copyright Wade Penistone 2014
