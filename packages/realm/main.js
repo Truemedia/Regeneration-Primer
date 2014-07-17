@@ -19,189 +19,58 @@ define([
 		
 		// Package options
 		settings: null,
+
+		scene: new THREE.Scene(),
+		camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000),
+		renderer: new THREE.WebGLRenderer(),
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(options)
 		{		
-			
+			this.cameraman();
+			this.renderer.setSize(window.innerWidth, window.innerHeight);
 		},
 			
 		/* Autoloading hook */
 	    load: function(element, options)
 	    {
-
-	    	// ThreeJS settings
-			var __WIDTH__  = window.screen.availWidth,
-			    __HEIGHT__ = window.screen.availHeight,
-			    __HUE__   = 0;
-
-			var scene  = new THREE.Scene(), 
-			    camera = Camera.init(__WIDTH__, __HEIGHT__),
-			    renderer = new THREE.WebGLRenderer();
-
-			// Check for browser pointer lock capabilities
-			if (Modernizr.pointerlock) { alert("Still ok"); } else { console.log(Modernizr.pointerlock); }
-
-			/**
-			 * Let's preapare the scene
-			 */
-			scene.add(camera);
-			camera.position.z = 300;
-			renderer.setSize(__WIDTH__, __HEIGHT__);
-			jQuery(element).append(renderer.domElement);
-
-			/**
-			 * Now we are ready, we can start building our planet
-			 * To do this, we need a mech define with :
-			 * A geometry (a sphere) 
-			 * A material
-			 */
-			var geometry, material, mesh;
-
-			// Flooring
-			geometry = new THREE.PlaneGeometry( 300, 300 );
-			material = new THREE.MeshBasicMaterial( { color: 0xABABAB } );
-			mesh = new THREE.Mesh( geometry, material );
-			scene.add( mesh );
-
-			// First let's build our geometry
-			// There is other parameters, but you basically just need to define the radius of the Sphere and the number of vertical and horizontal division.
-			// From the 2 last parameters depend the number of vertex that will be produce : the biger the smoother the form will be but also the slower it will be to render. Make a wise choice to balance the 2.
-			geometry = new THREE.SphereGeometry( 100, 20, 20 );
-
-			// Then, prepare our material
-			var myMaterial = {
-			    wireframe : true,
-			    wireframeLinewidth : 2
-			};
-
-			// We just have to build the material now
-			material = new THREE.MeshPhongMaterial( myMaterial );
-
-			var starting_colour = Colour.HSVtoRGB(__HUE__, 1, 1);
-
-			// Add some color to the material
-			material.color.setRGB(starting_colour.r, starting_colour.g, starting_colour.b);
-
-			// And  we can build our the mesh
-			mesh = new THREE.Mesh( geometry, material );
-
-			// Let's add the mesh to the scene
-			scene.add( mesh );
-
-			/**
-			 * To be sure that we will see something, we need to add some light to the scene
-			 */
-
-			// Let's create a point light
-			var pointLight = new THREE.PointLight(0xFFFFFF);
-
-			// and set its position
-			pointLight.position.x = -100;
-			pointLight.position.y = 100;
-			pointLight.position.z = 400;
-
-			// Now, we can add it to the scene
-			scene.add( pointLight );
-
-
-			// And finally it's time to see the result
-			renderer.setClearColor( 0x9afdff, 1);
-			renderer.render( scene, camera );
-
-
-			/**
-			 * Let's make the sphere spin
-			 */
-
-			// Simple requestAnimationFrame shim
-			if (!window.requestAnimationFrame) {
-			    window.requestAnimationFrame = (function(){
-			        return  window.webkitRequestAnimationFrame || 
-			                window.mozRequestAnimationFrame    || 
-			                window.oRequestAnimationFrame      || 
-			                window.msRequestAnimationFrame     || 
-			                function( callback ){
-			                    window.setTimeout( callback, 1000 / 60 );
-			                };
-			    })();
-			}
-
-			// The frame computation function
-			function animate() {
-			    requestAnimationFrame( animate );
-			    
-			    __HUE__ = __HUE__ < 1 ? __HUE__ += 0.0005 : 0;
-			    var new_colour = Colour.HSVtoRGB( __HUE__, 1, 1);
-			    material.color.setRGB(new_colour.r, new_colour.g, new_colour.b); 
-			    
-			    mesh.rotation.y -= 0.003;
-			    
-			    renderer.render( scene, camera );
-			}
-
-			// And go!
-			animate();
-
+	    	this.init(options);
+	    	this.view(element);
 	    },
 
-	    /* Lock pointer to realm package */
-	    pointer_lock: function()
-		{
-			var element = document.body;
+	    view: function(element)
+	    {
+	    	jQuery(element).append(this.renderer.domElement);
+	    	this.grid(15, '#00FF00');
+	    	this.renderer.render(this.scene, this.camera);
+	    },
 
-			var pointerlockchange = function (event) {
+	    /* Set starting view */
+	    cameraman: function()
+	    {
+	    	this.camera.position.set(20, 40, 50);
+	    	this.camera.lookAt(this.scene.position)
+	    },
 
-				if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
-					controls.enabled = true;
-					blocker.style.display = 'none';
-				} else {
-					controls.enabled = false;
-					blocker.style.display = '-webkit-box';
-					blocker.style.display = '-moz-box';
-					blocker.style.display = 'box';
-					instructions.style.display = '';
-				}
+	    /* Draw land */
+	    grid: function(size, color)
+	    {
+	    	var step = 1;
+	    	var geometry = new THREE.Geometry();
+	    	var material = new THREE.LineBasicMaterial({ color: color });
 
-			};
+	    	for (var i = - size; i <= size; i += step)
+	    	{
+	    		geometry.vertices.push(new THREE.Vector3(- size, - 0.04, i));
+	    		geometry.vertices.push(new THREE.Vector3(size, - 0.04, i));
 
-			var pointerlockerror = function (event) { instructions.style.display = ''; };
+	    		geometry.vertices.push(new THREE.Vector3(i, - 0.04, - size));
+	    		geometry.vertices.push(new THREE.Vector3(i, - 0.04, size));
 
-			// Hook pointer lock state change events
-			document.addEventListener('pointerlockchange', pointerlockchange, false);
-			document.addEventListener('mozpointerlockchange', pointerlockchange, false);
-			document.addEventListener('webkitpointerlockchange', pointerlockchange, false);
-			document.addEventListener('pointerlockerror', pointerlockerror, false);
-			document.addEventListener('mozpointerlockerror', pointerlockerror, false);
-			document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
-
-			instructions.addEventListener('click', function (event) {
-			instructions.style.display = 'none';
-
-			// Ask the browser to lock the pointer
-			element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
-
-			if (/Firefox/i.test(navigator.userAgent)) {
-
-				var fullscreenchange = function (event) {
-					if (document.fullscreenElement === element || document.mozFullscreenElement === element || document.mozFullScreenElement === element) {
-						document.removeEventListener('fullscreenchange', fullscreenchange);
-						document.removeEventListener('mozfullscreenchange', fullscreenchange);
-						element.requestPointerLock();
-					}
-
-				};
-
-				document.addEventListener('fullscreenchange', fullscreenchange, false);
-				document.addEventListener('mozfullscreenchange', fullscreenchange, false);
-				element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen;
-				element.requestFullscreen();
-			} else {
-				element.requestPointerLock();
-			}
-
-			}, false );
-		}   
+	    		var grid = new THREE.Line(geometry, material, THREE.LinePieces);
+	    		this.scene.add(grid);
+	    	}
+	    }
 	};
 
 	return realm;

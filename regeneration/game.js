@@ -61,7 +61,7 @@ define(["jQuery", "Controls", "Session", "Resource", "Bullet.GOD", "Enemy.GOD", 
 			// Setup canvas
 			var height_scroller_width = 15;
 			if (!me.video.init('stage', parseInt(document.body.clientWidth) - height_scroller_width, 720)) {
-				alert("Sorry but your browser does not support html 5 canvas. Please try with another one!");
+				alert("Sorry but your browser does not support HTML5 canvas. Please try with another one!");
 				return;
 			}
 			
