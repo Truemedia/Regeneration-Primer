@@ -26,6 +26,12 @@ define(['three'], function(THREE)
 			// Create animation loop
 			function animate(){
 			  graphics.renderer.render(scene, cameras);
+
+			  var timer = Date.now() * 0.0005;
+			  cameras.position.x = Math.cos(timer) * 10;
+			  cameras.position.y = Math.sin(timer) * 10;
+			  cameras.lookAt(scene.position);
+
 			  requestAnimationFrame(animate);
 			};
 			animate();
