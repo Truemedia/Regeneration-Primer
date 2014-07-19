@@ -27,7 +27,11 @@ define([
 			cameraman.work(environment.scene);
 			graphics.init(element);
 			environment.build();
-			graphics.display(environment.scene, cameraman.cameras[0]);
+			jQuery(document).ready( function()
+			{
+				console.log("Render stuff");
+				graphics.display(environment.scene, cameraman.cameras[0]);
+			});
 		},
 			
 		/* Autoloading hook */

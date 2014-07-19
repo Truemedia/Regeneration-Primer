@@ -11,7 +11,7 @@ define(['three'], function(THREE)
 {
 	cameraman =
 	{
-		cameras: [new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000)],
+		cameras: [new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)],
 
 		/* Make cameraman do his job */
 		work: function(scene)
@@ -22,8 +22,8 @@ define(['three'], function(THREE)
 		/* Move cameras into position */
 		align_cameras: function(focus)
 		{
-			this.cameras[0].position.set(20, 40, 50);
-	    	this.cameras[0].lookAt(focus);	
+			this.cameras[0].position.set( -15, 10, 15 );
+	    	this.cameras[0].lookAt(focus);
 		}
 	};
 

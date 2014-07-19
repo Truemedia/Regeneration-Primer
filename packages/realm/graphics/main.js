@@ -23,7 +23,12 @@ define(['three'], function(THREE)
 		/* Display graphics */
 		display: function(scene, cameras)
 		{
-			this.renderer.render(scene, cameras);
+			// Create animation loop
+			function animate(){
+			  graphics.renderer.render(scene, cameras);
+			  requestAnimationFrame(animate);
+			};
+			animate();
 		}
 	};
 
