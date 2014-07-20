@@ -9,7 +9,7 @@
  */
 define([
 	"Modernizr", "jQuery", "three",
-	"./environment/main", "./cameraman/main", "./graphics/main"
+	"./modules/environment/main", "./modules/cameraman/main", "./modules/graphics/main"
 ], function(Modernizr, jQuery, THREE, environment, cameraman, graphics)
 {
 	/** 
