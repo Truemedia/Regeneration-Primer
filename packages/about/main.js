@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, require('backbone'));
+    	module.exports = factory(null, null, null, null, require('backbone'), null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
-			"stache!./templates/modal", "i18n!./nls/strings", "Bootstrap", "Backbone"
-		], function (template, nls, jQuery, Backbone) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone));
+			"i18n!./nls/strings", "stache!./templates/modal", "./vm", "Bootstrap", "Backbone", "KO"
+		], function (nls, template, vm, jQuery, Backbone, ko) {
+      		return (root.returnExportsGlobal = factory(nls, template, vm, jQuery, Backbone, ko));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone)
+} (this, function (nls, template, vm, jQuery, Backbone, ko)
 	{
 	/** 
      * About package
@@ -55,14 +55,19 @@
 		 */
         load: function(element, options)
         {	
-        	// Load the package onto current web-page
+        	// Initialization code
         	this.init(options);
+
+        	// View pre-processing
 			if (jQuery(element).html().length === 0)
 			{
 				new this.view({el: element});
 			}
-			this.registerEvents();
-			return true;
+			// View post-processing
+			else
+			{
+				this.view.post_render(element);
+			}
         },
         
         /**
@@ -81,11 +86,7 @@
 	    view: Backbone.View.extend({
 	        initialize: function()
 	        {
-
 	            this.collection = new about.collection({model: Backbone.Model.extend()});
-
-	            // Run rendering process with attached after hook
-	            this.on('render', this.afterRender());
 	            this.render();
 	        },
 	        render: function()
@@ -103,17 +104,16 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( template(data) )
+	            		.promise()
+	            		.done( self.post_render(self.$el) );
 	            });
 	        },
-	        afterRender: function() { about.registerEvents(); }
-	    }),
-
-	    /* Register third-party library event handlers */
-	    registerEvents: function()
-	    {
-
-	    }
+	        post_render: function(element)
+	        {
+	        	ko.applyBindings(new vm(), jQuery(element).get(0));
+	        }
+	    })
 	};
 
 	return about;
