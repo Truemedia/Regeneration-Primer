@@ -7,14 +7,14 @@ var jsonlint = require('gulp-json-lint'),
 	spritesmith = require('gulp.spritesmith');
 
 /* Default task */
-gulp.task('default', function()
+gulp.task('default', ['browser-sync'], function()
 {
 	console.log("Regeneration process initialized");
 
 	// Watch files to trigger tasks
 	$.watch([
 		'./maps/scraproom/tiles/*.png',
-		'./stylesheets/default-theme/source.less'
+		'./themes/default/assets/less/source.less'
 		], ['sprite', 'css']);
 });
 
@@ -30,6 +30,15 @@ gulp.task('publish', ['tests'], function()
 gulp.task('tests', ['jsonlint', 'lint', 'unit'], function()
 {
 	console.log("Conducting tests");
+});
+
+/* Browser sync */
+gulp.task('browser-sync', function() {
+    browserSync.init(['*.css'], {
+        server: {
+            baseDir: "./"
+        }
+    });
 });
 
 /* Handle assets */
