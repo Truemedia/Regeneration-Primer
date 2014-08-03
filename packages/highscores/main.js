@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, require('backbone'));
+    	module.exports = factory(null, null, null, null, require('backbone'), null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
-			"stache!./templates/modal", "i18n!./nls/strings", "Bootstrap", "Backbone"
-		], function (template, nls, jQuery, Backbone) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone));
+			"i18n!./nls/strings", "stache!./templates/modal", "./vm", "Bootstrap", "Backbone", "KO"
+		], function (nls, template, vm, jQuery, Backbone, ko) {
+      		return (root.returnExportsGlobal = factory(nls, template, vm, jQuery, Backbone, ko));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone)
+} (this, function (nls, template, vm, jQuery, Backbone, ko)
 	{
   	/** 
      * Highscores package
@@ -49,13 +49,22 @@
 			this.settings = (Object.keys(options).length === 0) ? Config.get('highscores::defaults') : options;
 		},
 			
-		/* Autoloading hook */
-	    load: function(element, options)
-	    {    	
-	        // Load the package onto current web-page
-	    	this.init(options);
-			new this.view({el: element});
-	    },
+		/**
+		 * Autoloading hook
+		 * @param {object} element - HTML element the package is tied to in the DOM.
+		 * @param {object} options - JSON string of options passed from the data-options attribute.
+		 */
+        load: function(element, options)
+        {	
+        	// Initialization code
+        	this.init(options);
+
+        	// View pre-processing
+			if (jQuery(element).html().length === 0) { new this.view({el: element}); }
+
+			// View post-processing
+			else { this.view.post_render(element); }
+        },
 	        
 	    /* Data collection */
 	    collection: Backbone.Collection.extend({
@@ -74,8 +83,8 @@
 	        {
 	            // Load package stored data
 	        	var self = this;
-	            this.collection.fetch().done( function() {
-	            		
+	            this.collection.fetch().done( function()
+	            {		
 	            	// Compose data for view
 	            	var data = {
 	            		items: self.collection.toJSON(),
@@ -83,8 +92,14 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( template(data) )
+	            		.promise()
+	            		.done( self.post_render(self.$el) );
 	            });
+	        },
+	        post_render: function(element)
+	        {
+	        	ko.applyBindings(new vm(), jQuery(element).get(0));
 	        }
 	    })
 	};
