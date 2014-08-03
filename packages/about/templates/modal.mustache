@@ -7,6 +7,11 @@
 		</div>
 		<div class="modal-body">
 			<p>{{trans.version_noun}} {{version}}</p>
+			<p>
+				Players <span data-bind="text: current_player_count"></span>/<span data-bind="text: max_player_count"></span>
+				<br />
+				Player slots remaining: <span data-bind="text: remaining_player_count"></span>
+			</p>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">{{trans.close_verb}}</button>
