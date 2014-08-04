@@ -17,15 +17,15 @@
 	{
     	define([
 			"i18n!./nls/strings", "stache!./templates/modal", "./vm", "Bootstrap", "Backbone", "KO"
-		], function (nls, template, vm, jQuery, Backbone, ko) {
-      		return (root.returnExportsGlobal = factory(nls, template, vm, jQuery, Backbone, ko));
+		], function (nls, tpl, vm, jQuery, Backbone, ko) {
+      		return (root.returnExportsGlobal = factory(nls, tpl, vm, jQuery, Backbone, ko));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (nls, template, vm, jQuery, Backbone, ko)
+} (this, function (nls, tpl, vm, jQuery, Backbone, ko)
 	{
 	/** 
      * About package
@@ -104,7 +104,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) )
+	            	self.$el.html( tpl(data) )
 	            		.promise()
 	            		.done( self.post_render(self.$el) );
 	            });

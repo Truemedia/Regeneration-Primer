@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "bootbox"
-		], function (template, nls, jQuery, bootbox) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, bootbox));
+		], function (tpl, nls, jQuery, bootbox) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, bootbox));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, bootbox)
+} (this, function (tpl, nls, jQuery, bootbox)
 	{
 	/** 
      * Sitemap package
@@ -105,7 +105,7 @@
 				});
 			
 				// Load view
-       			jQuery(sitemap.element_binding).html( template(data) );
+       			jQuery(sitemap.element_binding).html( tpl(data) );
        			
        			// Register events
        			sitemap.registerEvents();

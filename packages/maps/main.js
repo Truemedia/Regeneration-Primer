@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/step", "i18n!./nls/strings", "Crafty", "jQuery", "Leaflet"
-		], function (template, nls, Crafty, jQuery, L) {
-      		return (root.returnExportsGlobal = factory(template, nls, Crafty, jQuery, L));
+		], function (tpl, nls, Crafty, jQuery, L) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, Crafty, jQuery, L));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, Crafty, jQuery, L)
+} (this, function (tpl, nls, Crafty, jQuery, L)
 	{
 	/** 
      * Maps package
@@ -67,7 +67,7 @@
 				data.trans = maps.trans;
 			
 				// Load view
-				jQuery("[data-package='maps']").html( template(data) );
+				jQuery("[data-package='maps']").html( tpl(data) );
 
 				// Load map views
 				jQuery.getJSON('maps/scraproom/geo.json', function(geojsonFeature) {

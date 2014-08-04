@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "Backbone", "KO"
-		], function (template, nls, jQuery, Backbone, ko) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, ko));
+		], function (tpl, nls, jQuery, Backbone, ko) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, ko));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone, ko)
+} (this, function (tpl, nls, jQuery, Backbone, ko)
 	{
 	/** 
      * Profile package
@@ -85,7 +85,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 
 	            	// Register view model
 	            	ko.applyBindings(new profile.ViewModel(), this.el);

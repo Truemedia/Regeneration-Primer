@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/step", "i18n!./nls/strings", "jQuery", "Backbone"
-		], function (template, nls, jQuery, Backbone) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone));
+		], function (tpl, nls, jQuery, Backbone) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone)
+} (this, function (tpl, nls, jQuery, Backbone)
 	{
 	/** 
      * Character Selection package
@@ -86,7 +86,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 	            	self.afterRender();
 	            });
 	        },

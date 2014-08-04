@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "Backbone", "KO", "Toastr"
-		], function (template, nls, jQuery, Backbone, ko, toastr) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, ko, toastr));
+		], function (tpl, nls, jQuery, Backbone, ko, toastr) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, ko, toastr));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone, ko, toastr)
+} (this, function (tpl, nls, jQuery, Backbone, ko, toastr)
 	{
 
 	/** 
@@ -91,7 +91,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 	            });
 	        }
 	    }),

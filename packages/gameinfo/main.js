@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/modal", "i18n!./nls/strings", "Bootstrap", "Backbone", './modules/feed/main'
-		], function (template, nls, jQuery, Backbone, feed) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, feed));
+		], function (tpl, nls, jQuery, Backbone, feed) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, feed));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone, feed)
+} (this, function (tpl, nls, jQuery, Backbone, feed)
 	{
 	/** 
      * Game Info package
@@ -81,7 +81,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 
 	            	// Run modules
 	       			feed.init();

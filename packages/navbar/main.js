@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "./modules/options/main"
-		], function (view, nls, jQuery, options) {
-      		return (root.returnExportsGlobal = factory(view, nls, jQuery, options));
+		], function (tpl, nls, jQuery, options) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, options));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (view, nls, jQuery, options)
+} (this, function (tpl, nls, jQuery, options)
 	{
 	/** 
      * Navbar package
@@ -107,7 +107,7 @@
 				data.options = navbar.nested_view;
 			
 				// Load view
-       			jQuery(navbar.element_binding).html( view(data) );
+       			jQuery(navbar.element_binding).html( tpl(data) );
 			});
 		}
 	};

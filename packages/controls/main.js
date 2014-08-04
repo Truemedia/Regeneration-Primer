@@ -19,16 +19,16 @@
 			"stache!./templates/modal", "i18n!./nls/strings",
 			"Bootstrap", "Backbone",
 			"./modules/keyboard/main", "./modules/mouse/main", "./modules/joypad/main"
-		], function (template, nls, jQuery, Backbone, keyboard, mouse, joypad)
+		], function (tpl, nls, jQuery, Backbone, keyboard, mouse, joypad)
 		{
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, keyboard, mouse, joypad));
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, keyboard, mouse, joypad));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone, keyboard, mouse, joypad)
+} (this, function (tpl, nls, jQuery, Backbone, keyboard, mouse, joypad)
 	{
 	/** 
      * Controls package
@@ -81,7 +81,7 @@
 	            	data.trans = controls.trans;
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 	            	jQuery('button[data-toggle="popover"]').popover();
 	            	controls.bindHumanInterfaceDevices();
 	            });

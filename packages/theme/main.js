@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/modal", "i18n!./nls/strings", "Bootstrap", "jQ.Datatables"
-		], function (template, nls, jQuery) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery));
+		], function (tpl, nls, jQuery) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery)
+} (this, function (tpl, nls, jQuery)
 	{
 	/** 
      * Theme package
@@ -135,7 +135,7 @@
 			theme.stylesheet(initial_theme_stylesheet, initial_theme_image);
 		
 			// Load view
-   			jQuery(theme.element_binding).html( template(theme) );
+   			jQuery(theme.element_binding).html( tpl(theme) );
    			
    			// jQuery events
    			theme.registerEvents();

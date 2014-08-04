@@ -17,15 +17,15 @@
 	{
     	define([
 			"stache!./templates/modal", "i18n!./nls/strings", "Backbone", "Buzz", "Bootstrap", "jQ.ui",
-		], function (template, nls, Backbone, buzz, jQuery) {
-      		return (root.returnExportsGlobal = factory(template, nls, Backbone, buzz, jQuery));
+		], function (tpl, nls, Backbone, buzz, jQuery) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, Backbone, buzz, jQuery));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, Backbone, buzz, jQuery)
+} (this, function (tpl, nls, Backbone, buzz, jQuery)
 	{
 	/** 
      * Audio package
@@ -127,7 +127,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 	            	audio.registerEvents();
 	            });
 	        }

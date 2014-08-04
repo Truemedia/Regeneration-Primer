@@ -19,15 +19,15 @@
 			"stache!./templates/partial",
 			"i18n!./nls/strings",
 			"jQ.ui", "backbone", "KO", "./modules/health/main", "./modules/score/main"
-		], function (template, nls, jQuery, Backbone, ko, Health, Score) {
-      		return (root.returnExportsGlobal = factory(template, nls, jQuery, Backbone, ko, Health, Score));
+		], function (tpl, nls, jQuery, Backbone, ko, Health, Score) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, ko, Health, Score));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (template, nls, jQuery, Backbone, ko, Health, Score)
+} (this, function (tpl, nls, jQuery, Backbone, ko, Health, Score)
 	{
 	/** 
      * Points package
@@ -94,7 +94,7 @@
 	            	};
 	    				
 	            	// Render content
-	            	self.$el.html( template(data) );
+	            	self.$el.html( tpl(data) );
 	            	points.registerEvents();
 	            });
 	        }
