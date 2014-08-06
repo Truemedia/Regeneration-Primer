@@ -124,3 +124,14 @@ gulp.task('sprite', function(map)
 	spriteData.img.pipe( gulp.dest('maps/scraproom/') );
 	spriteData.css.pipe( gulp.dest('maps/scraproom/') );
 });
+
+/* Get rid of any unused CSS and product a cleaner CSS file */
+gulp.task('uncss', function()
+{
+    return gulp.src('uncss_test/style.css')
+        .pipe(uncss({
+            html: glob.sync('./packages/**/templates/*.mustache'),
+            ignore: ['#always_available_id']
+        }))
+        .pipe(gulp.dest('./out'));
+});

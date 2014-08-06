@@ -1,0 +1,14 @@
+/* Will exist in templates */
+.btn-primary {
+	color: green;
+}
+
+/* Won't exist in templates */
+.a_totally_none_existent_class {
+	color: red;
+}
+
+/* Will keep this one regardless */
+#always_available_id {
+	color: blue;
+}
