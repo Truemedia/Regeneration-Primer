@@ -4,7 +4,9 @@ var gulp = require('gulp'),
 
 // Gulp plugins (incompatable with plugin loader)
 var jsonlint = require('gulp-json-lint'),
-	spritesmith = require('gulp.spritesmith');
+	spritesmith = require('gulp.spritesmith'),
+	uncss = require('gulp-uncss'),
+	glob = require('glob');
 
 /* Default task */
 gulp.task('default', ['browser-sync'], function()
