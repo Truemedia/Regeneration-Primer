@@ -27,6 +27,7 @@
     "gulp-coverage": "^0.1.24",
     "gulp-filter": "^1.0.0",
     "gulp-git": "^0.4.3",
+    "gulp-help": "^0.1.11",
     "gulp-jshint": "^1.6.2",
     "gulp-json-lint": "0.0.1",
     "gulp-load-plugins": "^0.5.3",
