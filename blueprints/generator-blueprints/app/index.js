@@ -21,14 +21,63 @@ var BlueprintsGenerator = yeoman.generators.Base.extend({
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous Blueprints generator!'));
+    this.log(yosay('Welcome to the generator, what blueprints do you wanna use?'));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    var prompts = [
+      {
+        type: 'confirm',
+        name: 'someOption',
+        message: 'Would you like to enable this option?',
+        default: true
+      },
+      {
+        type: 'list',
+        name: 'assetType',
+        message: 'Which blueprint would you like to use?',
+        choices: [
+          "Class",
+          "Configuration file",
+          "Module",
+          "Package",
+          "Theme"
+        ]
+      },
+      {
+        type: "input",
+        name: "projectName",
+        message: "What should be the name of this package?"
+      },
+      {
+        type: "checkbox",
+        message: "What would you like your package to be set up with?",
+        name: "internalItems",
+        choices: [
+          {
+            name: "Configuration files"
+          },
+          {
+            name: "Natural language strings"
+          },
+          {
+            name: "Modules",
+            disabled: "This functionality is currently not available"
+          },
+          {
+            name: "Stylesheet"
+          },
+          {
+            name: "Templates",
+            checked: true
+          },
+          {
+            name: "Unit tests"
+          },
+          {
+            name: "View Model"
+          }
+        ]
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       this.someOption = props.someOption;
