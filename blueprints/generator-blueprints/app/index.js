@@ -80,23 +80,67 @@ var BlueprintsGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
+
+      // Grab and store information provided by user
       this.someOption = props.someOption;
+      this.assetType = props.assetType;
+      this.projectName = props.projectName;
+      this.internalItems = props.internalItems;
 
       done();
     }.bind(this));
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
 
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-  },
+    var parent_directory = '';
+    var file_list = [];
+    var DS = '/';
 
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
+    switch (this.assetType)
+    {
+      case "Configuration file":
+        parent_directory = 'config' + DS;
+        file_list = file_list.concat([
+          'file.json'
+        ]);
+      break;
+      case "Module":
+        parent_directory = 'modules' + DS;
+        file_list = file_list.concat([
+          'main.js'
+        ]);
+      break;
+      case "Package":
+        parent_directory = 'packages' + DS;
+        file_list = file_list.concat([
+          'main.js'
+        ]);
+      break;
+      case "Theme":
+        parent_directory = 'themes' + DS;
+        file_list = file_list.concat([
+          'license.txt'
+        ]);
+      break;
+    }
+    
+    // Create directories
+    if (parent_directory !== '')
+    {
+      this.mkdir(parent_directory);
+      this.mkdir(parent_directory + this.projectName);
+    }
+
+    // Copy across files
+    if (file_list.length > 0)
+    {
+      for (var i = 0; i < file_list.length; i++)
+      {
+        var file = file_list[i];
+        this.copy(parent_directory + '_' + file, parent_directory + this.projectName + DS + file);
+      }
+    }
   }
 });
 
