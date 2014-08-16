@@ -92,54 +92,20 @@ var BlueprintsGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-
-    var parent_directory = '';
-    var file_list = [];
-    var DS = '/';
-
     switch (this.assetType)
     {
       case "Configuration file":
-        parent_directory = 'config' + DS;
-        file_list = file_list.concat([
-          'file.json'
-        ]);
+        this.invoke("blueprints:config", {options: {nested: true}, args: []});
       break;
       case "Module":
-        parent_directory = 'modules' + DS;
-        file_list = file_list.concat([
-          'main.js'
-        ]);
+        this.invoke("blueprints:module", {options: {nested: true}, args: []});
       break;
       case "Package":
-        parent_directory = 'packages' + DS;
-        file_list = file_list.concat([
-          'main.js'
-        ]);
+        this.invoke("blueprints:package", {options: {nested: true}, args: []});
       break;
       case "Theme":
-        parent_directory = 'themes' + DS;
-        file_list = file_list.concat([
-          'license.txt'
-        ]);
+        this.invoke("blueprints:theme", {options: {nested: true}, args: []});
       break;
-    }
-    
-    // Create directories
-    if (parent_directory !== '')
-    {
-      this.mkdir(parent_directory);
-      this.mkdir(parent_directory + this.projectName);
-    }
-
-    // Copy across files
-    if (file_list.length > 0)
-    {
-      for (var i = 0; i < file_list.length; i++)
-      {
-        var file = file_list[i];
-        this.copy(parent_directory + '_' + file, parent_directory + this.projectName + DS + file);
-      }
     }
   }
 });
