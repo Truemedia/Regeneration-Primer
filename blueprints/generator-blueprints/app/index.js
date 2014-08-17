@@ -98,7 +98,7 @@ var BlueprintsGenerator = yeoman.generators.Base.extend({
         this.invoke("blueprints:config", {options: {nested: true}, args: []});
       break;
       case "Module":
-        this.invoke("blueprints:module", {options: {nested: true}, args: []});
+        this.invoke("blueprints:module", {options: {nested: true}, args: [this.projectName]});
       break;
       case "Package":
         this.invoke("blueprints:package", {options: {nested: true}, args: []});
