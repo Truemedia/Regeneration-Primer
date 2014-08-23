@@ -11,23 +11,24 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, require('backbone'), null, null, null);
+    	module.exports = factory(null, null, null, null, require('backbone'), null, null, null, null, null, null, null, null, null, null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
-			"stache!./templates/partial",
-			"i18n!./nls/strings",
-			"jQ.ui", "backbone", "KO", "./modules/health/main", "./modules/score/main"
-		], function (tpl, nls, jQuery, Backbone, ko, Health, Score) {
-      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, ko, Health, Score));
+			'i18n!./nls/strings', 'stache!./templates/partial', './vm',
+			'jQuery', 'Backbone', 'KO',
+			'./modules/attack/main', './modules/currency/main', './modules/defense/main', './modules/experience/main',
+			'./modules/health/main', './modules/life/main', './modules/reputation/main', './modules/score/main', './modules/universal/main'
+		], function (nls, tpl, vm, jQuery, Backbone, ko, Attack, Currency, Defense, Experience, Health, Life, Reputation, Score, Universal) {
+      		return (root.returnExportsGlobal = factory(nls, tpl, vm, jQuery, Backbone, ko, Attack, Currency, Defense, Experience, Health, Life, Reputation, Score, Universal));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (tpl, nls, jQuery, Backbone, ko, Health, Score)
+} (this, function (nls, tpl, vm, jQuery, Backbone, ko, Attack, Currency, Defense, Experience, Health, Life, Reputation, Score, Universal)
 	{
 	/** 
      * Points package
@@ -117,17 +118,9 @@
 		{
 			// Iterate multiple binding instances with jQuery
 			jQuery("."+points.binding_element_class).each(function(index) {
-				ko.applyBindings(new points.ViewModel(index), this);
+				ko.applyBindings(new vm(index), this);
 			});
-		},
-
-		/* ViewModel for this package */
-		ViewModel: function(player_id)
-		{
-			// Modules with ViewModels for this package
-			this.score = new Score.ViewModel();
-    		this.health = new Health.ViewModel(player_id);
-		},
+		}
 
 		/* Visually differentiate the player of this game instance from other players
 		highlightMainPlayer: function(character){
