@@ -9,7 +9,11 @@ var ConfigGenerator = yeoman.generators.NamedBase.extend({
   },
 
   files: function () {
-    this.copy('somefile.js', 'somefile.js');
+  	var name = this.name;
+  	var config_name = this.name.toLowerCase();
+  	var config_dir = 'config/';
+
+    this.copy('config.json', config_dir + config_name + '.json');
   }
 });
 
