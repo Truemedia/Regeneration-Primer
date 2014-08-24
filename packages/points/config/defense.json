@@ -1,3 +1,11 @@
 {
-	"key": "value"
+	"name": "Defense Points",
+	"symbol": "<",
+	"identifier": "dp",
+	"default_value": "5",
+	"default_step": "1",
+	"max_value": "100",
+	"min_value": "0",
+	"distributable": "false",
+	"exchange_rate": "10000"
 }

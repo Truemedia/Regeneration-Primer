@@ -1,3 +1,12 @@
 {
-	"key": "value"
+	"name": "Pounds",
+	"symbol": "£",
+	"identifier": "cp",
+	"default_value": "1000",
+	"default_step": "1",
+	"max_value": "2500",
+	"min_value": "0",
+	"distributable": "true",
+	"transfer_decay": "0",
+	"exchange_rate": "1000"
 }

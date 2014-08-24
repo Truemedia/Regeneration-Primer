@@ -18,30 +18,46 @@ define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko)
 			jQuery("#my_score").html(my_score);
 		},
 
-		ViewModel: function()
+		ViewModel: function(value)
         {
-
             // Defaults
-			this.sp = ko.observable( parseInt(Config.get('points::score.default_value')) );
-			this.step = ko.observable( parseInt(Config.get('points::score.default_step')) );
+            var value = ko.observable( parseInt(value) ),
+                step = ko.observable( parseInt(Config.get('points::score.default_step')) ),
+                min_value = ko.observable( parseInt(Config.get('points::score.min_value')) ),
+                max_value = ko.observable( parseInt(Config.get('points::score.max_value')) );
 
             // Increase/Decrease methods
-    		this.increaseScore = function() {
-    			if (this.sp() <= ( parseInt(Config.get('points::score.max_value')) - this.step() )) {
-        			this.sp(this.sp() + this.step()); // Normal increment event
-        		}
-        		else {
-        			this.sp( Config.get('points::score.max_value') ); // Reached increment limit
-        		}
-    		};
-    		this.decreaseScore = function() {
-    			if (this.sp() >= ( parseInt(Config.get('points::score.min_value')) + this.step() )) {
-        			this.sp(this.sp() - this.step()); // Normal decrement event
-        		}
-        		else {
-        			this.sp( parseInt(Config.get('points::score.min_value')) ); // Reached decrement limit
-        		}
-    		};
+            var increase = function()
+            {
+                if (value() <= ( max_value() - step() ))
+                {
+                    value( value() + step() ); // Increased
+                }
+                else
+                {
+                    value( max_value() ); // Reached upper limit
+                }
+            };
+
+            var decrease = function()
+            {
+                if (value() >= ( min_value() + step() ))
+                {
+                    value( value() - step() ); // Decreased
+                }
+                else
+                {
+                    value( min_value() ); // Reached lower limit
+                }
+            };
+
+            // Return public methods
+            return {
+                value: value,
+                step: step,
+                increase: increase,
+                decrease: decrease
+            };
 		},
 
 		logger: function()

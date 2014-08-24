@@ -1,3 +1,11 @@
 {
-	"key": "value"
+	"name": "Lives",
+	"symbol": "^",
+	"identifier": "lp",
+	"default_value": "1",
+	"default_step": "1",
+	"max_value": "9",
+	"min_value": "0",
+	"distributable": "false",
+	"exchange_rate": "10000000"
 }

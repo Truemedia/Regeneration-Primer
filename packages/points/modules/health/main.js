@@ -26,87 +26,115 @@ define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toa
             });
         },
 
-		ViewModel: function(player_id)
+        ViewModel: function(player_id)
         {
             // Defaults
-			this.player_id = ko.observable(player_id);
-			this.dead = ko.observable(false);
-			this.hp = ko.observable( parseInt(Config.get('points::health.default_value')) );
-			this.step = ko.observable( parseInt(Config.get('points::health.default_step')) );
+            var value = ko.observable( parseInt(Config.get('points::health.default_value')) ),
+                step = ko.observable( parseInt(Config.get('points::health.default_step')) ),
+                min_value = ko.observable( parseInt(Config.get('points::health.min_value')) ),
+                max_value = ko.observable( parseInt(Config.get('points::health.max_value')) );
+
+            // Custom variables
+            var player_id = ko.observable(player_id),
+                dead = ko.observable(false);
 
             // Animate progress bar value based on HP percentage
-            this.progress = ko.computed( function() {
-                return this.hp() + '%';
-            }, this);
+            var progress = ko.computed( function() {
+                return value() + '%';
+            });
 
             // Animate progress bar color based on HP percentage
-            this.color = ko.computed( function() {
+            var color = ko.computed( function() {
 
                 var health_color = '';
 
-                if (this.hp() >= 90) { health_color = 'LightGreen'; } // Green (100 - 90% health)
-                else if (this.hp() >= 75) { health_color = 'Orange'; } // Orange (89% - 75% health)
-                else if (this.hp() >= 60) { health_color = 'Yellow'; } // Yellow (74% - 60% health)
-                else if (this.hp() >= 40) { health_color = 'HotPink'; } // Pink (59% - 40% health)
-                else if (this.hp() >= 20) { health_color = 'Purple'; } // Purple (40% - 20% health)
-                else if (this.hp() >= 1) { health_color = 'Crimson'; } // Red (20% - 1% health)
+                if (value() >= 90) { health_color = 'LightGreen'; } // Green (100 - 90% health)
+                else if (value() >= 75) { health_color = 'Orange'; } // Orange (89% - 75% health)
+                else if (value() >= 60) { health_color = 'Yellow'; } // Yellow (74% - 60% health)
+                else if (value() >= 40) { health_color = 'HotPink'; } // Pink (59% - 40% health)
+                else if (value() >= 20) { health_color = 'Purple'; } // Purple (40% - 20% health)
+                else if (value() >= 1) { health_color = 'Crimson'; } // Red (20% - 1% health)
                 else { health_color = 'Grey'; } // Black (0% health)
                 
                 return health_color;
-            }, this);
-			
-			// Increase/Decrease methods
-    		this.increaseHealth = function() { if (this.dead() === false) {
-    				if (this.hp() <= (  parseInt(Config.get('points::health.max_value')) - this.step() )) {
-    					if (this.player_id() === 0) {
-    						jQuery("#player_purgatory > span").html("Alive");
-    						jQuery("#player_purgatory")
-    							.removeClass("deceased")
-    							.addClass("alive");
-    					}
-        				this.hp(this.hp() + this.step()); // Normal modify event
-        			}
-        			else {
-        				if (this.player_id() === 0) {
-    						jQuery("#player_purgatory > span").html("Alive");
-    						jQuery("#player_purgatory")
-    							.removeClass("deceased")
-    							.addClass("alive");
-    					}
-        				this.hp( parseInt(Config.get('points::health.max_value')) ); // Reached modify limit (Maximum health)
-        			}
-        		}
-    		};
+            });
+            
+            // Increase/Decrease methods
+            var increase = function()
+            {
+                if (dead() === false)
+                {
+                    if (value() <= ( max_value() - step() ))
+                    {
+                        if (player_id() === 0)
+                        {
+                            jQuery("#player_purgatory > span").html("Alive");
+                            jQuery("#player_purgatory")
+                                .removeClass("deceased")
+                                .addClass("alive");
+                        }
+                        value(value() + step()); // Increased
+                    }
+                    else
+                    {
+                        if (player_id() === 0)
+                        {
+                            jQuery("#player_purgatory > span").html("Alive");
+                            jQuery("#player_purgatory")
+                                .removeClass("deceased")
+                                .addClass("alive");
+                        }
+                        value( max_value() ); // Reached upper limit
+                    }
+                }
+            };
 
-    		this.decreaseHealth = function() {
-    			if (this.hp() >= ( parseInt(Config.get('points::health.min_value')) + this.step() )) {
-    				if (this.player_id() === 0) {
-    					jQuery("#player_purgatory > span").html("Alive");
-    					jQuery("#player_purgatory")
-    						.removeClass("deceased")
-    						.addClass("alive");
-    				}
-        			this.hp(this.hp() - this.step()); // Normal modify event
-        		}
-        		else{
+            var decrease = function()
+            {
+                if (value() >= ( min_value() + step() ))
+                {
+                    if (player_id() === 0)
+                    {
+                        jQuery("#player_purgatory > span").html("Alive");
+                        jQuery("#player_purgatory")
+                            .removeClass("deceased")
+                            .addClass("alive");
+                    }
+                    value(value() - step()); // Decreased
+                }
+                // Reached lower limit
+                else
+                {
+                    if (player_id() === 0)
+                    {
+                        jQuery("#player_purgatory > span").html("Deceased (no health)");
+                        jQuery("#player_purgatory")
+                            .removeClass("alive")
+                            .addClass("deceased");
+                    }
+                    
+                    // Kill off the player
+                    if (dead() === false)
+                    {
+                        value( min_value() );
+                        dead(true);
+                        toastr.error("Stay alive until the next round", "Player " + (player_id() + 1) + " has been killed");
+                    }
+                }
+            };
 
-        			// Reached modify limit (No health)
-        			if(this.player_id() === 0) {
-        				jQuery("#player_purgatory > span").html("Deceased (no health)");
-        				jQuery("#player_purgatory")
-        					.removeClass("alive")
-    						.addClass("deceased");
-        			}
-        			
-        			// Kill off the player
-        			if(this.dead() === false) {
-        				this.hp( Config.get('points::health.min_value') );
-        				this.dead(true);
-        				toastr.error("Stay alive until the next round", "Player " + (player_id + 1) + " has been killed");
-        			}
-        		}
-    		};
-		},
+            return {
+                player_id: player_id,
+                dead: dead,
+                value: value,
+                max_value: max_value,
+                step: step,
+                progress: progress,
+                color: color,
+                increase: increase,
+                decrease: decrease
+            };
+        },
 
 		logger: function()
         {

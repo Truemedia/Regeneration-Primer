@@ -1,3 +1,12 @@
 {
-	"key": "value"
+	"name": "Rep",
+	"symbol": "@",
+	"identifier": "rp",
+	"default_value": "0",
+	"default_step": "2",
+	"max_value": "23234",
+	"min_value": "0",
+	"distributable": "true",
+	"transfer_decay": "40",
+	"exchange_rate": "10"
 }

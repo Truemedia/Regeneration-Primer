@@ -35,22 +35,24 @@
 	return function (player_id)
 	{
  		// Modules with ViewModels for this package
-		var attack = new Attack.ViewModel(),
-			currency = new Currency.ViewModel(),
-			defense = new Defense.ViewModel(),
-			experience = new Experience.ViewModel(),
+ 		var total_points = (parseInt( Config.get('points::universal.default_value') ) - parseInt(player_id)) * parseInt( Config.get('points::universal.default_step') );
+
+		var attack = new Attack.ViewModel( Config.get('points::attack.default_value') ),
+			currency = new Currency.ViewModel( Config.get('points::currency.default_value') ),
+			defense = new Defense.ViewModel( Config.get('points::defense.default_value') ),
+			experience = new Experience.ViewModel( Config.get('points::experience.default_value') ),
 			health = new Health.ViewModel(player_id),
-			life = new Life.ViewModel(),
-			reputation = new Reputation.ViewModel(),
-			score = new Score.ViewModel(),
-			universal = new Universal.ViewModel();
+			life = new Life.ViewModel( Config.get('points::life.default_value') ),
+			reputation = new Reputation.ViewModel( Config.get('points::reputation.default_value') ),
+			score = new Score.ViewModel( Config.get('points::score.default_value') ),
+			universal = new Universal.ViewModel( Config.get('points::universal.default_value') );
 
 	    // Return public methods
 	    return {
 	    	ap: attack,
-			cp: currency,
-			dp: defense,
-			ep: experience,
+	    	cp: currency,
+	    	dp: defense,
+	    	ep: experience,
 			hp: health,
 			lp: life,
 			rp: reputation,

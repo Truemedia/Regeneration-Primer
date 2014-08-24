@@ -18,16 +18,47 @@ define(["Bootstrap", "KO"], function(jQuery, ko)
         },
 
         /* ViewModel for this module */
-		ViewModel: function()
+        ViewModel: function(value)
         {
-            // Knockout variables
-            var string = ko.observable('');
+            // Defaults
+            var value = ko.observable( parseInt(value) ),
+                step = ko.observable( parseInt(Config.get('points::reputation.default_step')) ),
+                min_value = ko.observable( parseInt(Config.get('points::reputation.min_value')) ),
+                max_value = ko.observable( parseInt(Config.get('points::reputation.max_value')) );
+
+            // Increase/Decrease methods
+            var increase = function()
+            {
+                if (value() <= ( max_value() - step() ))
+                {
+                    value( value() + step() ); // Increased
+                }
+                else
+                {
+                    value( max_value() ); // Reached upper limit
+                }
+            };
+
+            var decrease = function()
+            {
+                if (value() >= ( min_value() + step() ))
+                {
+                    value( value() - step() ); // Decreased
+                }
+                else
+                {
+                    value( min_value() ); // Reached lower limit
+                }
+            };
 
             // Return public methods
             return {
-              string: string
+                value: value,
+                step: step,
+                increase: increase,
+                decrease: decrease
             };
-		},
+        },
 
         /* Log proceedings */
 		logger: function()

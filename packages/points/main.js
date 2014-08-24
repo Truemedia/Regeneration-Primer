@@ -90,8 +90,18 @@
 	            		content_pack: Config.get('resources.directories.multimedia.root'),
 	            		items: self.collection.toJSON(),
 	            		trans: points.trans,
-	            		health_step: Config.get('points::health.default_step'),
-	            		score_step: Config.get('points::score.default_step')
+	            		modules:
+	            		[
+	            			Config.get('points::attack'),
+	            			Config.get('points::currency'),
+	            			Config.get('points::defense'),
+	            			Config.get('points::experience'),
+							Config.get('points::health'),
+							Config.get('points::life'),
+							Config.get('points::reputation'),
+	            			Config.get('points::score'),
+	            			Config.get('points::universal')
+	            		]
 	            	};
 	    				
 	            	// Render content
