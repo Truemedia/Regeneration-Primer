@@ -80,6 +80,7 @@ require.config({
         'jQ.ui': "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min", // Core file
         
         /* Formatting libraries */
+        'accounting': "http://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min",
         'moment': "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min", // MomentJS (Date and time formatting)
     },
     shim: {

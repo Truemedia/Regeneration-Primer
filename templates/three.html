@@ -1,5 +1,30 @@
 <header class="container"></header>
 
+<section id="sidebar_left">
+	<div data-package="points"></div>
+</section>
+
 <div id="content" class="container" oncontextmenu="return false;"></div>
+
+<section id="sidebar_right">
+	<div>
+		<ul class="nav nav-tabs">
+	    	<li class="active">
+	    		<a href="#inventory_tab" data-toggle="tab">Items</a>
+	    	</li>
+	    	<li>
+	    		<a href="#login_tab" data-toggle="tab">Me</a>
+	    	</li>
+	    	<li>
+	    		<a href="#rules_tab" data-toggle="tab">Rules</a>
+	    	</li>
+	  	</ul>
+	  	<div class="tab-content">
+		  	<div class="tab-pane active in" id="inventory_tab" data-package="inventory"></div>
+		    <div class="tab-pane fade" id="login_tab" data-package="profile"></div>
+		   	<div class="tab-pane fade" id="rules_tab" data-package="rules"></div>
+		</div>
+	</div>
+</section>
 
 <footer class="container"></footer>

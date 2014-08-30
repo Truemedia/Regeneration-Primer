@@ -53,3 +53,6 @@
 @import url('../../../packages/points/style.css');
 
 /* New central stylesheet */
+a:visited {
+	color: #FFFFFF;
+}
