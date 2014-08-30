@@ -10,6 +10,9 @@
 define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko)
 {
 	Score = {
+
+        /* Properties */
+        points: 0,
 		
 		init: function()
         {
@@ -18,10 +21,10 @@ define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko)
 			jQuery("#my_score").html(my_score);
 		},
 
-		ViewModel: function(value)
+		ViewModel: function()
         {
             // Defaults
-            var value = ko.observable( parseInt(value) ),
+            var value = ko.observable( Score.points ),
                 step = ko.observable( parseInt(Config.get('points::score.default_step')) ),
                 min_value = ko.observable( parseInt(Config.get('points::score.min_value')) ),
                 max_value = ko.observable( parseInt(Config.get('points::score.max_value')) );
@@ -59,6 +62,23 @@ define(["Config", "Bootstrap", "KO"], function(Config, jQuery, ko)
                 decrease: decrease
             };
 		},
+
+        /* Allocate ideal number of points based on several criteria */
+        allocate_points: function(universal_points)
+        {
+            // Calculate potential values
+            var exchange_rate = parseInt( Config.get('points::score.exchange_rate') ),
+                potential_points = Math.floor(universal_points / exchange_rate),
+                max_points = parseInt( Config.get('points::score.max_value') );
+
+            // Allocate values to be used
+            var used_points = (potential_points < max_points) ? potential_points : max_points,
+                used_universal_points = (used_points * exchange_rate);
+
+            Score.points = used_points;
+
+            return used_universal_points;
+        },
 
 		logger: function()
         {

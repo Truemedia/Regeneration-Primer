@@ -4,7 +4,7 @@
 	"identifier": "ap",
 	"default_value": "10",
 	"default_step": "1",
-	"max_value": "1000",
+	"max_value": "8000",
 	"min_value": "0",
 	"distributable": "false",
 	"exchange_rate": "100000"

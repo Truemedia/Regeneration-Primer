@@ -11,6 +11,9 @@ define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toa
 {
 	Health = {
 
+        /* Properties */
+        points: 0,
+
         init: function()
         {
             Health.registerEvents(); // Apply all jQuery event handlers
@@ -29,7 +32,7 @@ define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toa
         ViewModel: function(player_id)
         {
             // Defaults
-            var value = ko.observable( parseInt(Config.get('points::health.default_value')) ),
+            var value = ko.observable( Health.points ),
                 step = ko.observable( parseInt(Config.get('points::health.default_step')) ),
                 min_value = ko.observable( parseInt(Config.get('points::health.min_value')) ),
                 max_value = ko.observable( parseInt(Config.get('points::health.max_value')) );
@@ -134,6 +137,23 @@ define(["Config", "Bootstrap", "KO", "Toastr"], function(Config, jQuery, ko, toa
                 increase: increase,
                 decrease: decrease
             };
+        },
+
+        /* Allocate ideal number of points based on several criteria */
+        allocate_points: function(universal_points)
+        {
+            // Calculate potential values
+            var exchange_rate = parseInt( Config.get('points::health.exchange_rate') ),
+                potential_points = Math.floor(universal_points / exchange_rate),
+                max_points = parseInt( Config.get('points::health.max_value') );
+
+            // Allocate values to be used
+            var used_points = (potential_points < max_points) ? potential_points : max_points,
+                used_universal_points = (used_points * exchange_rate);
+
+            Health.points = used_points;
+
+            return used_universal_points;
         },
 
 		logger: function()

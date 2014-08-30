@@ -4,7 +4,7 @@
 	"identifier": "cp",
 	"default_value": "1000",
 	"default_step": "1",
-	"max_value": "2500",
+	"max_value": "50000",
 	"min_value": "0",
 	"distributable": "true",
 	"transfer_decay": "0",

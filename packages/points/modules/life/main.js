@@ -11,6 +11,9 @@ define(["Bootstrap", "KO"], function(jQuery, ko)
 {
 	Life = {
 
+        /* Properties */
+        points: 0,
+
         /* Initialization method */
         init: function()
         {
@@ -18,10 +21,10 @@ define(["Bootstrap", "KO"], function(jQuery, ko)
         },
 
         /* ViewModel for this module */
-        ViewModel: function(value)
+        ViewModel: function()
         {
             // Defaults
-            var value = ko.observable( parseInt(value) ),
+            var value = ko.observable( Life.points );
                 step = ko.observable( parseInt(Config.get('points::life.default_step')) ),
                 min_value = ko.observable( parseInt(Config.get('points::life.min_value')) ),
                 max_value = ko.observable( parseInt(Config.get('points::life.max_value')) );
@@ -58,6 +61,23 @@ define(["Bootstrap", "KO"], function(jQuery, ko)
                 increase: increase,
                 decrease: decrease
             };
+        },
+
+        /* Allocate ideal number of points based on several criteria */
+        allocate_points: function(universal_points)
+        {
+            // Calculate potential values
+            var exchange_rate = parseInt( Config.get('points::life.exchange_rate') ),
+                potential_points = Math.floor(universal_points / exchange_rate),
+                max_points = parseInt( Config.get('points::life.max_value') );
+
+            // Allocate values to be used
+            var used_points = (potential_points < max_points) ? potential_points : max_points,
+                used_universal_points = (used_points * exchange_rate);
+
+            Life.points = used_points;
+
+            return used_universal_points;
         },
 
         /* Log proceedings */

@@ -2,9 +2,9 @@
 	"name": "Universal Points",
 	"symbol": "!",
 	"identifier": "up",
-	"default_value": "1000",
+	"default_value": "1000000",
 	"default_step": "1000",
-	"max_value": "1005000",
+	"max_value": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
 	"min_value": "0",
 	"distributable": "true",
 	"transfer_decay": "0"
