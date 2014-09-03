@@ -26,34 +26,34 @@ This software serves as a boilerplate  for the purpose of providing a general so
 Using the latest technologies and design patterns, this frontend repo currently incorporates this massive stack to build your application upon:
 
 #### Libraries
-- For DOM manipulation - jQuery
-- For general styling and CSS simplification - Bootstrap
-- For modularity and integrating libraries - RequireJS + Conditioner + JSONpatch
-- For templating and abstracting data from the DOM - KnockOut + Backbone + Marionette + Mustache + Handlebars
-- For geolocation integration - Leaflet
-- For 3D graphics functionality - ThreeJS
-- For handling sound assets and manipulation - Buzz
-- For storing data - Cookie
-- For dealing with browser compatability - Modernizr
-- Specialist data formatting - AccountingJS + Moment
+- For DOM manipulation - **jQuery**
+- For general styling and CSS simplification - **Bootstrap**
+- For modularity and integrating libraries - **RequireJS** + **Conditioner** + **JSONpatch**
+- For templating and abstracting data from the DOM - **KnockOut** + **Backbone** + **Marionette** + **Mustache** + **Handlebars**
+- For geolocation integration - **Leaflet**
+- For 3D graphics functionality - **ThreeJS**
+- For handling sound assets and manipulation - **Buzz**
+- For storing data - **Cookie**
+- For dealing with browser compatability - **Modernizr**
+- Specialist data formatting - **AccountingJS** + **Moment**
 
 ##### Fancy UI
-- Notification - Toastr
-- Modal - Bootbox
-- Tables - Datatables
-- Many things - Fuelux + jQuery UI
+- Notification - **Toastr**
+- Modal - **Bootbox**
+- Tables - **Datatables**
+- Many things - **Fuelux** + **jQuery UI**
 
 #### Tools
-For documenting - JSdoc + Covers
-For testing and debugging - Mocha + Chai
-For sanity checks - JShint + JSONlint
-For image compression - SpriteSmith
-For CSS optimization - LESS + LessElements + UnCSS + Autoprefixer + Minifier
-For JS optimization - Browserify + Uglify
-For browser integration - BrowserSync
+- For documenting - **JSdoc** + **Covers**
+- For testing and debugging - **Mocha** + **Chai**
+- For sanity checks - **JShint** + **JSONlint**
+- For image compression - **SpriteSmith**
+- For CSS optimization - **LESS** + **LessElements** + **UnCSS** + **Autoprefixer** + **Minifier**
+- For JS optimization - **Browserify** + **Uglify**
+- For browser integration - **BrowserSync**
 
-- Task runner - Gulp
-- Commandline generator - Yeoman
+- Task runner - **Gulp**
+- Commandline generator - **Yeoman**
 
 These libraries combined employ a powerful design pattern to build the frontend in the following fashion:
 UMD modules + DCSS (Dynamic CSS) + MVVM (Model View ViewModel) + RESTful data
