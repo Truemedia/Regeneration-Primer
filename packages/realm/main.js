@@ -7,11 +7,27 @@
  * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
  * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
  */
-define([
-	"Modernizr", "jQuery", "three",
-	"./modules/environment/main", "./modules/cameraman/main", "./modules/graphics/main"
-], function(Modernizr, jQuery, THREE, environment, cameraman, graphics)
+(function (root, factory)
 {
+	if (typeof exports === 'object') // NodeJS
+	{
+    	module.exports = factory(null, null, null, null, null, null);
+	}
+	else if (typeof define === 'function' && define.amd) // AMD
+	{
+    	define([
+			"Modernizr", "jQuery", "three",
+			"./modules/environment/main", "./modules/cameraman/main", "./modules/graphics/main"
+		], function (Modernizr, jQuery, THREE, environment, cameraman, graphics) {
+      		return (root.returnExportsGlobal = factory(Modernizr, jQuery, THREE, environment, cameraman, graphics));
+    	});
+  	}
+  	else // Global Variables
+  	{
+    	root.returnExportsGlobal = factory(root);
+  	}
+} (this, function (Modernizr, jQuery, THREE, environment, cameraman, graphics)
+	{
 	/** 
      * Realm package
      * @namespace realm
@@ -42,4 +58,4 @@ define([
 	};
 
 	return realm;
-});
+}));
