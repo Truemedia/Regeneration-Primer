@@ -11,7 +11,7 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null);
+    	module.exports = factory(require('knockout'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
