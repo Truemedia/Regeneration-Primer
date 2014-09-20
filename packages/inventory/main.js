@@ -11,21 +11,21 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, require('backbone'), null, null);
+    	module.exports = factory(null, null, require('jquery'), require('backbone'), null, require('knockout'), null);
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
     	define([
-			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "Backbone", "KO", "Toastr"
-		], function (tpl, nls, jQuery, Backbone, ko, toastr) {
-      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, ko, toastr));
+			"stache!./templates/partial", "i18n!./nls/strings", "Bootstrap", "Backbone", "keymage", "KO", "Toastr"
+		], function (tpl, nls, jQuery, Backbone, keymage, ko, toastr) {
+      		return (root.returnExportsGlobal = factory(tpl, nls, jQuery, Backbone, keymage, ko, toastr));
     	});
   	}
   	else // Global Variables
   	{
     	root.returnExportsGlobal = factory(root);
   	}
-} (this, function (tpl, nls, jQuery, Backbone, ko, toastr)
+} (this, function (tpl, nls, jQuery, Backbone, keymage, ko, toastr)
 	{
 
 	/** 
@@ -54,6 +54,8 @@
 
 			// Save options
 			this.settings = (Object.keys(options).length === 0) ? Config.get('inventory::defaults') : options;
+
+			this.registerEvents();
 		},
 			
 		/* Autoloading hook */
@@ -95,6 +97,29 @@
 	            });
 	        }
 	    }),
+
+	    /* Register jQuery event handlers */
+	    registerEvents: function()
+	    {
+	    	this.registerControls();
+	    },
+
+	    /* Register controls interfaces (HID) */
+	    registerControls: function()
+	    {
+	    	// Toggle items
+	    	keymage('items', '1', this.equip(1));
+	    	keymage('items', '2', this.equip(2));
+	    	keymage('items', '3', this.equip(3));
+	    	keymage('items', '4', this.equip(4));
+	    	keymage('items', '5', this.equip(5));
+	    	keymage('items', '6', this.equip(6));
+	    	keymage('items', '7', this.equip(7));
+	    	keymage('items', '8', this.equip(8));
+	    	keymage('items', '9', this.equip(9));
+	    	keymage('items', '0', this.equip(10));
+	    	keymage.pushScope('items');
+	    },
 		
 		registerBindings: function()
 		{
@@ -126,14 +151,13 @@
 		},
 		
 		/* Equip an item into the interaction slot of the player inventory */
-		equip: function(item_name)
+		equip: function(item_number)
 		{	
 			// Display notification
 			toastr.options = Config.get('inventory::toastr');
-			toastr.warning("Now equipped with a "+item_name, "Picked up an item");
+			toastr.warning("Now equipped with a "+item_number, "Picked up an item");
 			
 			// Switch as upper most inventory item (and make active)
-			inventory.switchItem(1);
 		},
 		
 		/* Build array of bullets using range and damage (inherit same values) */

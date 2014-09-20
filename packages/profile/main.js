@@ -11,7 +11,7 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null, null, null, require('backbone'), null);
+    	module.exports = factory(null, null, require('jquery'), require('backbone'), require('knockout'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
