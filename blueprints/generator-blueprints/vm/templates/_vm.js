@@ -1,5 +1,5 @@
 /**
- * @file View Model for <%= name %>
+ * @file View Model for <%= name %> PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview KnockoutJS implementation of package view model
  * @copyright Wade Penistone 2014

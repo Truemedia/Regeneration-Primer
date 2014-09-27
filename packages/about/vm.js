@@ -1,5 +1,5 @@
 /**
- * @file View Model for PACKAGE_NAME PACKAGE
+ * @file View Model for About PACKAGE
  * @author Wade Penistone (Truemedia)
  * @overview KnockoutJS implementation of package view model
  * @copyright Wade Penistone 2014
@@ -11,7 +11,7 @@
 {
 	if (typeof exports === 'object') // NodeJS
 	{
-    	module.exports = factory(null);
+    	module.exports = factory(require('knockout'));
 	}
 	else if (typeof define === 'function' && define.amd) // AMD
 	{
