@@ -25,6 +25,7 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		{
 			this.cameras[0].position.set(coords.x, coords.y, coords.z);
 	    	this.cameras[0].lookAt(focus);
+	    	console.log(this.cameras[0]);
 		},
 
 		/* Controls to manipulate camera */
@@ -32,6 +33,7 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		{
 			var controls = Config.get('realm::controls.keyboard');
 
+			// Walking/Running
 			KeyboardJS.on(controls.step_forward.key, function()
 			{
 			    cameraman.cameras[current_camera].position.y -= parseFloat(controls.step_forward.sensitivity);
@@ -47,6 +49,24 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 			KeyboardJS.on(controls.sidestep_right.key, function()
 			{
 			    cameraman.cameras[current_camera].position.x += parseFloat(controls.sidestep_right.sensitivity);
+			});
+
+			// Looking/Finding
+			KeyboardJS.on(controls.look_up.key, function()
+			{
+			    cameraman.cameras[current_camera].rotation.y -= parseFloat(controls.look_up.sensitivity);
+			});
+			KeyboardJS.on(controls.look_left.key, function()
+			{
+			    cameraman.cameras[current_camera].rotation.x -= parseFloat(controls.look_left.sensitivity);
+			});
+			KeyboardJS.on(controls.look_down.key, function()
+			{
+			    cameraman.cameras[current_camera].rotation.y += parseFloat(controls.look_down.sensitivity);
+			});
+			KeyboardJS.on(controls.look_right.key, function()
+			{
+			    cameraman.cameras[current_camera].rotation.x += parseFloat(controls.look_right.sensitivity);
 			});
 		}
 	};

@@ -20,6 +20,26 @@
 		{
 			"key": "d",
 			"sensitivity": "0.1"
+		},
+		"look_up":
+		{
+			"key": "up",
+			"sensitivity": "0.1"
+		},
+		"look_left":
+		{
+			"key": "left",
+			"sensitivity": "0.1"
+		},
+		"look_down":
+		{
+			"key": "down",
+			"sensitivity": "0.1"
+		},
+		"look_right":
+		{
+			"key": "right",
+			"sensitivity": "0.1"
 		}
 	}
 }
