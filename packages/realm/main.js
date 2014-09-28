@@ -39,10 +39,11 @@
 				
 		/* Initial load-up procedure if first time package is loaded */
 		init: function(element, options)
-		{		
-			cameraman.work(environment.scene);
+		{
 			graphics.init(element);
 			environment.build();
+			cameraman.work(environment.scene, environment.coords);
+
 			jQuery(document).ready( function()
 			{
 				console.log("Render stuff");

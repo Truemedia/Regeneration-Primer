@@ -14,16 +14,16 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		cameras: [new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)],
 
 		/* Put cameraman to work */
-		work: function(scene)
+		work: function(scene, coords)
 		{
-			this.align_cameras(scene.position);
+			this.align_cameras(scene.position, coords);
 			this.register_controls(0);
 		},
 
 		/* Move cameras into position */
-		align_cameras: function(focus)
+		align_cameras: function(focus, coords)
 		{
-			this.cameras[0].position.set( -15, 10, 15 );
+			this.cameras[0].position.set(coords.x, coords.y, coords.z);
 	    	this.cameras[0].lookAt(focus);
 		},
 
@@ -34,7 +34,7 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 
 			KeyboardJS.on(controls.step_forward.key, function()
 			{
-			    cameraman.cameras[current_camera].position.z -= parseFloat(controls.step_forward.sensitivity);
+			    cameraman.cameras[current_camera].position.y -= parseFloat(controls.step_forward.sensitivity);
 			});
 			KeyboardJS.on(controls.sidestep_left.key, function()
 			{
@@ -42,7 +42,7 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 			});
 			KeyboardJS.on(controls.step_backward.key, function()
 			{
-			    cameraman.cameras[current_camera].position.z += parseFloat(controls.step_backward.sensitivity);
+			    cameraman.cameras[current_camera].position.y += parseFloat(controls.step_backward.sensitivity);
 			});
 			KeyboardJS.on(controls.sidestep_right.key, function()
 			{

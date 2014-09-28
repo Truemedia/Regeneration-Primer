@@ -1,0 +1,25 @@
+{
+	"keyboard":
+	{
+		"step_forward":
+		{
+			"key": "w",
+			"sensitivity": "0.1"
+		},
+		"sidestep_left":
+		{
+			"key": "a",
+			"sensitivity": "0.1"
+		},
+		"step_backward":
+		{
+			"key": "s",
+			"sensitivity": "0.1"
+		},
+		"sidestep_right":
+		{
+			"key": "d",
+			"sensitivity": "0.1"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "name": "Spawn point 1",
+      "amenity": "Baseball Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0, 0, 0]
+    }
+  }
+]

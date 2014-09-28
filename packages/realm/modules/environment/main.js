@@ -12,6 +12,12 @@ define(['three'], function(THREE)
 	environment =
 	{
 		scene: new THREE.Scene(),
+		coords:
+		{
+			x: null,
+			y: null,
+			z: null
+		},
 
 		/* Build environment */
 		build: function()
@@ -91,6 +97,11 @@ define(['three'], function(THREE)
 	    		mesh.position.x = (-14 + this.instances + (spacing * this.instances));
 	    		mesh.position.y = 5;
 	    		mesh.position.z = 10;
+
+	    	if (player_identifier === 1)
+	    	{
+	    		environment.coords = mesh.position;
+	    	}
 
 	    	this.scene.add(mesh);
 
