@@ -30,6 +30,7 @@ require.config({
         'jQuery': "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
         'Leaflet': "http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.1/leaflet",
         'keymage': "http://cdnjs.cloudflare.com/ajax/libs/keymage/1.0.1/keymage.min",
+        'keyboard': "http://cdn.jsdelivr.net/keyboardjs/0.4.2/keyboard",
         'KO': "http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1",
         'Marionette': "http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.1.0-bundled/backbone.marionette.min",
         'Modernizr': "http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min",

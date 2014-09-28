@@ -15,8 +15,8 @@ define([], function()
 		bindControls: function()
 		{		
 			// Primary mouse buttons
-			me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.O);
-			me.input.bindMouse(me.input.mouse.RIGHT, me.input.KEY.P);
+			// me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.O);
+			// me.input.bindMouse(me.input.mouse.RIGHT, me.input.KEY.P);
 		}
 	};
 

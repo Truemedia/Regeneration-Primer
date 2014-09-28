@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['three', 'jQuery'], function(THREE, $)
+define(['three', 'jQuery', 'keyboard'], function(THREE, $, KeyboardJS)
 {
 	graphics =
 	{
@@ -18,6 +18,9 @@ define(['three', 'jQuery'], function(THREE, $)
 		{
 			this.renderer.setSize(window.innerWidth, window.innerHeight);
 			jQuery(element).append(this.renderer.domElement);
+
+			// keymage('realm', 'w', alert("Moving forward Wade"));
+	  //   	keymage.pushScope('realm');
 		},
 
 		/* Display graphics */
@@ -27,10 +30,6 @@ define(['three', 'jQuery'], function(THREE, $)
 			function animate()
 			{
 			  graphics.renderer.render(scene, cameras);
-
-			  var timer = Date.now() * 0.0005;
-			  cameras.position.x = Math.cos(timer) * 10;
-			  cameras.position.y = Math.sin(timer) * 10;
 			  cameras.lookAt(scene.position);
 			  graphics.debug(cameras.position);
 

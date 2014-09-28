@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['three'], function(THREE)
+define(['three', 'keyboard'], function(THREE, KeyboardJS)
 {
 	cameraman =
 	{
@@ -17,6 +17,7 @@ define(['three'], function(THREE)
 		work: function(scene)
 		{
 			this.align_cameras(scene.position);
+			this.register_controls();
 		},
 
 		/* Move cameras into position */
@@ -24,6 +25,27 @@ define(['three'], function(THREE)
 		{
 			this.cameras[0].position.set( -15, 10, 15 );
 	    	this.cameras[0].lookAt(focus);
+		},
+
+		/* Controls to manipulate camera */
+		register_controls: function()
+		{
+			KeyboardJS.on('w', function()
+			{
+			    cameraman.cameras[0].position.z--;
+			});
+			KeyboardJS.on('a', function()
+			{
+			    cameraman.cameras[0].position.x--;
+			});
+			KeyboardJS.on('s', function()
+			{
+			    cameraman.cameras[0].position.z++;
+			});
+			KeyboardJS.on('d', function()
+			{
+			    cameraman.cameras[0].position.x++;
+			});
 		}
 	};
 
