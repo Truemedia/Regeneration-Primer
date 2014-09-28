@@ -13,11 +13,11 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 	{
 		cameras: [new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)],
 
-		/* Make cameraman do his job */
+		/* Put cameraman to work */
 		work: function(scene)
 		{
 			this.align_cameras(scene.position);
-			this.register_controls();
+			this.register_controls(0);
 		},
 
 		/* Move cameras into position */
@@ -28,23 +28,25 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		},
 
 		/* Controls to manipulate camera */
-		register_controls: function()
+		register_controls: function(current_camera)
 		{
-			KeyboardJS.on('w', function()
+			var controls = Config.get('realm::controls.keyboard');
+
+			KeyboardJS.on(controls.step_forward.key, function()
 			{
-			    cameraman.cameras[0].position.z--;
+			    cameraman.cameras[current_camera].position.z -= parseFloat(controls.step_forward.sensitivity);
 			});
-			KeyboardJS.on('a', function()
+			KeyboardJS.on(controls.sidestep_left.key, function()
 			{
-			    cameraman.cameras[0].position.x--;
+			    cameraman.cameras[current_camera].position.x -= parseFloat(controls.sidestep_left.sensitivity);
 			});
-			KeyboardJS.on('s', function()
+			KeyboardJS.on(controls.step_backward.key, function()
 			{
-			    cameraman.cameras[0].position.z++;
+			    cameraman.cameras[current_camera].position.z += parseFloat(controls.step_backward.sensitivity);
 			});
-			KeyboardJS.on('d', function()
+			KeyboardJS.on(controls.sidestep_right.key, function()
 			{
-			    cameraman.cameras[0].position.x++;
+			    cameraman.cameras[current_camera].position.x += parseFloat(controls.sidestep_right.sensitivity);
 			});
 		}
 	};

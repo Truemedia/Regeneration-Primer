@@ -30,7 +30,7 @@ define(['three', 'jQuery', 'keyboard'], function(THREE, $, KeyboardJS)
 			function animate()
 			{
 			  graphics.renderer.render(scene, cameras);
-			  cameras.lookAt(scene.position);
+			  // cameras.lookAt(scene.position);
 			  graphics.debug(cameras.position);
 
 			  requestAnimationFrame(animate);
