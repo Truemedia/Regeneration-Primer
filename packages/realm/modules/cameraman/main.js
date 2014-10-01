@@ -25,7 +25,6 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		{
 			this.cameras[0].position.set(coords.x, coords.y, coords.z);
 	    	this.cameras[0].lookAt(focus);
-	    	console.log(this.cameras[0]);
 		},
 
 		/* Controls to manipulate camera */

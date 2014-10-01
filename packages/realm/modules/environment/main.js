@@ -7,7 +7,7 @@
 * Git repo: {@link http://www.github.com/Truemedia/Regeneration-Primer| Regeneration Primer github repository}
 * Author links: {@link http://youtube.com/MCOMediaCityOnline| YouTube} and {@link http://github.com/Truemedia| Github}
 */
-define(['three'], function(THREE)
+define(['three', './geo'], function(THREE, geo)
 {
 	environment =
 	{
@@ -84,7 +84,7 @@ define(['three'], function(THREE)
 	    	
 	    	var texture = THREE.ImageUtils.loadTexture('themes/debug/assets/images/characters/(' + player_identifier + ')_mini.png', {}, function()
 	    	{
-	    		console.log('Loaded a player texture');
+	    		// Do texture additions here
 	    	});
 	    	texture.needsUpdate = true;
 
@@ -98,9 +98,19 @@ define(['three'], function(THREE)
 	    		mesh.position.y = 5;
 	    		mesh.position.z = 10;
 
-	    	if (player_identifier === 1)
+	    	if (this.instances === 1)
 	    	{
 	    		environment.coords = mesh.position;
+	    	}
+	    	else if (this.instances === 4)
+	    	{
+	    		var globe = geo.drawThreeGeo(Config.get('realm::geo'), 10, 'sphere', {
+				    color: 'green'
+				});
+				for (var i=0; i<globe.length; i++)
+				{
+					this.scene.add( globe[i] );
+				}
 	    	}
 
 	    	this.scene.add(mesh);
