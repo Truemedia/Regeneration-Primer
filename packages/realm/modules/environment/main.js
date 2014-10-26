@@ -55,6 +55,23 @@ define(['three', './geo'], function(THREE, geo)
 			});
 		},
 
+		/* Build human using external JSON model (of MakeHuman file origins) */
+		human: function()
+		{
+			var loader = new THREE.JSONLoader();
+			loader.load('/assets/models/human.json', function (geometry, materials)
+			{
+				var mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+
+				var spacing = 1;
+				mesh.position.x = (-14 + environment.instances + (spacing * environment.instances));
+	    		mesh.position.y = 0;
+	    		mesh.position.z = 0;
+
+				environment.scene.add(mesh);
+			});
+		},
+
 	    /* Draw grid */
 	    grid: function(size, color)
 	    {
@@ -105,10 +122,18 @@ define(['three', './geo'], function(THREE, geo)
 	    		material = new THREE.MeshLambertMaterial( { map: texture } );
 	    		spacing = 1;
 
-	    	var mesh = new THREE.Mesh(geometry, material);
-	    		mesh.position.x = (-14 + this.instances + (spacing * this.instances));
-	    		mesh.position.y = 5;
-	    		mesh.position.z = 10;
+	    	if (this.instances !== 4)
+	    	{
+		    	var mesh = new THREE.Mesh(geometry, material);
+		    		mesh.position.x = -3;
+		    		mesh.position.y = (-14 + this.instances + (spacing * this.instances));
+		    		mesh.position.z = 5;
+		    }
+		    else
+		    {
+		    	// Load human model
+		    	environment.human();
+		    }
 
 	    	if (this.instances === 1)
 	    	{
