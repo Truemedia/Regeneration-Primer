@@ -25,6 +25,7 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 		{
 			this.cameras[0].position.set(coords.x, coords.y, coords.z);
 	    	this.cameras[0].lookAt(focus);
+	    	this.cameras[0].rotation.set(0, 80, 80);
 		},
 
 		/* Controls to manipulate camera */
@@ -35,19 +36,19 @@ define(['three', 'keyboard'], function(THREE, KeyboardJS)
 			// Walking/Running
 			KeyboardJS.on(controls.step_forward.key, function()
 			{
-			    cameraman.cameras[current_camera].position.y -= parseFloat(controls.step_forward.sensitivity);
+			    cameraman.cameras[current_camera].translateZ( -parseFloat(controls.step_forward.sensitivity) );
 			});
 			KeyboardJS.on(controls.sidestep_left.key, function()
 			{
-			    cameraman.cameras[current_camera].position.x -= parseFloat(controls.sidestep_left.sensitivity);
+			    cameraman.cameras[current_camera].translateX( -parseFloat(controls.sidestep_left.sensitivity) );
 			});
 			KeyboardJS.on(controls.step_backward.key, function()
 			{
-			    cameraman.cameras[current_camera].position.y += parseFloat(controls.step_backward.sensitivity);
+			    cameraman.cameras[current_camera].translateZ( parseFloat(controls.step_backward.sensitivity) );
 			});
 			KeyboardJS.on(controls.sidestep_right.key, function()
 			{
-			    cameraman.cameras[current_camera].position.x += parseFloat(controls.sidestep_right.sensitivity);
+			    cameraman.cameras[current_camera].translateX( parseFloat(controls.sidestep_right.sensitivity) );
 			});
 
 			// Looking/Finding

@@ -54,18 +54,28 @@ define(['three', './geo'], function(THREE, geo)
 		/* Build house using external JSON model (of IFC file origins) */
 		house: function()
 		{
-			var loader = new THREE.JSONLoader(); // init the loader util
+			var loader = new THREE.JSONLoader();
+			loader.load('/assets/models/building.json', function (geometry, materials)
+			{
+				var mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+				environment.scene.add(mesh);
+			});
+		},
 
-			// init loading
-			loader.load('assets/model/building.json', function (geometry) {
-			  
-			  // create a mesh with models geometry and material
-			  var mesh = new THREE.Mesh(
-			    geometry,
-			    new THREE.MeshNormalMaterial()
-			  );
-			  
-				this.scene.add(mesh);
+		/* Build human using external JSON model (of MakeHuman file origins) */
+		human: function()
+		{
+			var loader = new THREE.JSONLoader();
+			loader.load('/assets/models/human.json', function (geometry, materials)
+			{
+				var mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+
+				var spacing = 1;
+				mesh.position.x = (-14 + environment.instances + (spacing * environment.instances));
+	    		mesh.position.y = 0;
+	    		mesh.position.z = 0;
+
+				environment.scene.add(mesh);
 			});
 		},
 
@@ -119,14 +129,32 @@ define(['three', './geo'], function(THREE, geo)
 	    		material = new THREE.MeshLambertMaterial( { map: texture } );
 	    		spacing = 1;
 
-	    	var mesh = new THREE.Mesh(geometry, material);
-	    		mesh.position.x = (-14 + this.instances + (spacing * this.instances));
-	    		mesh.position.y = 5;
-	    		mesh.position.z = 10;
+	    	if (this.instances !== 4)
+	    	{
+		    	var mesh = new THREE.Mesh(geometry, material);
+		    		mesh.position.x = -3;
+		    		mesh.position.y = (-14 + this.instances + (spacing * this.instances));
+		    		mesh.position.z = 5;
+		    }
+		    else
+		    {
+		    	// Load human model
+		    	environment.human();
+		    }
 
 	    	if (this.instances === 1)
 	    	{
 	    		environment.coords = mesh.position;
+	    	}
+	    	else if (this.instances === 4)
+	    	{
+	    		var globe = geo.drawThreeGeo(Config.get('realm::geo'), 10, 'plane', {
+				    color: 'green'
+				});
+				for (var i=0; i<globe.length; i++)
+				{
+					this.scene.add( globe[i] );
+				}
 	    	}
 
 	    	this.scene.add(mesh);
