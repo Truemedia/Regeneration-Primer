@@ -229,8 +229,8 @@ define(['three'], function(THREE)
 		    var lon = coordinates_array[0];
 		    var lat = coordinates_array[1];
 		        
-		    this.z_values.push((lat/180) * radius);
-		    this.y_values.push((lon/180) * radius);    
+		    geo.z_values.push((lat/180) * radius);
+		    geo.y_values.push((lon/180) * radius);    
 		},
 
 		drawParticle: function(x, y, z, options)

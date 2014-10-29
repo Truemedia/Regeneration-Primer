@@ -23,8 +23,16 @@ define(['three', './geo'], function(THREE, geo)
 		build: function()
 		{
 			this.lighting();
+			var world = geo.drawThreeGeo(Config.get('realm::geo'), 1000, 'plane', {
+				color: '#ffff00'
+			});
+			for (var i=0; i<world.length; i++)
+			{
+				this.scene.add( world[i] );
+			}
 			this.grid(15, '#FFFF00');
 			this.load_players();
+			this.house();
 		},
 
 		// Number of player instances
@@ -41,6 +49,24 @@ define(['three', './geo'], function(THREE, geo)
 	    	var directionalLight = new THREE.DirectionalLight(0xffffff);
 	    	directionalLight.position.set(1, 1, 1).normalize();
 	    	this.scene.add(directionalLight);
+		},
+
+		/* Build house using external JSON model (of IFC file origins) */
+		house: function()
+		{
+			var loader = new THREE.JSONLoader(); // init the loader util
+
+			// init loading
+			loader.load('assets/model/building.json', function (geometry) {
+			  
+			  // create a mesh with models geometry and material
+			  var mesh = new THREE.Mesh(
+			    geometry,
+			    new THREE.MeshNormalMaterial()
+			  );
+			  
+				this.scene.add(mesh);
+			});
 		},
 
 	    /* Draw grid */
@@ -101,16 +127,6 @@ define(['three', './geo'], function(THREE, geo)
 	    	if (this.instances === 1)
 	    	{
 	    		environment.coords = mesh.position;
-	    	}
-	    	else if (this.instances === 4)
-	    	{
-	    		var globe = geo.drawThreeGeo(Config.get('realm::geo'), 10, 'sphere', {
-				    color: 'green'
-				});
-				for (var i=0; i<globe.length; i++)
-				{
-					this.scene.add( globe[i] );
-				}
 	    	}
 
 	    	this.scene.add(mesh);
