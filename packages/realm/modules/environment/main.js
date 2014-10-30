@@ -23,6 +23,13 @@ define(['three', './geo'], function(THREE, geo)
 		build: function()
 		{
 			this.lighting();
+			var world = geo.drawThreeGeo(Config.get('realm::geo'), 1000, 'plane', {
+				color: '#ffff00'
+			});
+			for (var i=0; i<world.length; i++)
+			{
+				this.scene.add( world[i] );
+			}
 			this.grid(15, '#FFFF00');
 			this.load_players();
 			this.house();
