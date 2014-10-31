@@ -1,5 +1,5 @@
-# Regeneration Primer
-## A moddable game software for client and/or server based HTML5 games
+## Regeneration Primer
+### A moddable game software for client and/or server based HTML5 games
 
 ### Install instructions
 
@@ -18,41 +18,45 @@ Take a look at the [Regeneration Platform](https://github.com/Truemedia/Regenera
 ### Development tools
 I use my own tool chest (literally) to accompany my coding, see my [Treasure Chest](https://github.com/Truemedia/Treasure-Chest) repo for for setting up the development tools you may or may not need (already comes included in this repo). Based on [bower](http://bower.io/), [browsersync](http://www.browsersync.io/), [chest](http://chestjs.com/), [gulp](http://gulpjs.com/), and [yeoman](http://yeoman.io/).
 
-## Overview
+### Overview
 
 This software serves as a boilerplate  for the purpose of providing a general software that can be modified to create any game imaginable within the scope of HTML5, CSS3, and JavaScript technologies.
 
 Using the latest technologies and design patterns, this frontend repo currently incorporates this massive stack to build your application upon:
 
 #### Libraries
-- For DOM manipulation - **jQuery**
-- For general styling and CSS simplification - **Bootstrap**
-- For modularity and integrating libraries - **RequireJS** + **Conditioner** + **JSONpatch**
-- For templating and abstracting data from the DOM - **KnockOut** + **Backbone** + **Marionette** + **Mustache** + **Handlebars**
-- For geolocation integration - **Leaflet**
-- For 3D graphics functionality - **ThreeJS**
-- For handling sound assets and manipulation - **Buzz**
-- For storing data - **Cookie**
-- For dealing with browser compatability - **Modernizr**
-- Specialist data formatting - **AccountingJS** + **Moment**
+- For DOM manipulation - **[jQuery](http://jquery.com/)**
+- For general styling and CSS simplification - **[Bootstrap](http://getbootstrap.com/)**
+- For modularity and integrating libraries - **[RequireJS](http://requirejs.org/)**, **[Conditioner](http://conditionerjs.com)**, and **[JSONpatch](http://jsonpatchjs.com/)**
+- For templating and abstracting data from the DOM - **[KnockOut](http://knockoutjs.com/)**, **[Backbone](http://backbonejs.org/)**, **[Marionette](http://marionettejs.com/)**, **[Mustache](http://mustache.github.io/)**, and **[Handlebars](http://handlebarsjs.com/)**
+- For geolocation integration - **[Leaflet](http://leafletjs.com/)**
+- For 3D graphics functionality - **[ThreeJS](http://threejs.org/)**
+- For handling sound assets and manipulation - **[Buzz](http://buzz.jaysalvat.com/)**
+- For storing data - **[Cookie](https://github.com/carhartl/jquery-cookie)**
+- For dealing with browser compatability - **[Modernizr](http://modernizr.com)**
+- Specialist data formatting - **[AccountingJS](http://openexchangerates.github.io/accounting.js/)** and **[Moment](http://momentjs.com/)**
+- Custom site themes - **[Bootswatch](http://bootswatch.com/)**
 
 ##### Fancy UI
-- Notification - **Toastr**
-- Modal - **Bootbox**
-- Tables - **Datatables**
-- Many things - **Fuelux** + **jQuery UI**
+- Notification - **[Toastr](https://github.com/CodeSeven/toastr)**
+- Modal - **[Bootbox](http://bootboxjs.com/)**
+- Tables - **[Datatables](http://datatables.net)**
+- Many things - **[Fuelux](http://getfuelux.com/)** and **[jQuery UI](http://jqueryui.com/)**
 
 #### Tools
-- For documenting - **JSdoc** + **Covers**
-- For testing and debugging - **Mocha** + **Chai**
-- For sanity checks - **JShint** + **JSONlint**
-- For image compression - **SpriteSmith**
-- For CSS optimization - **LESS** + **LessElements** + **UnCSS** + **Autoprefixer** + **Minifier**
-- For JS optimization - **Browserify** + **Uglify**
-- For browser integration - **BrowserSync**
+- For documenting - **[JSdoc](http://usejsdoc.org/)** and **[Blanket](http://blanketjs.org/)**
+- For testing and debugging - **[Mocha](https://github.com/mochajs/mocha)** and **[Chai](http://chaijs.com/)**
+- For data sanity checks - **[JShint](http://www.jshint.com/)** and **[JSONlint](https://www.npmjs.org/package/gulp-jsonlint)**
+- For image compression - **[SpriteSmith](https://github.com/Ensighten/spritesmith)** and **[ImageMin](https://github.com/imagemin/imagemin)**
+- For CSS pre-processing and post-processing - **[LESS](http://lesscss.org/)** or **[SASS](http://sass-lang.com/)** (pick your flavour), and **[PostCSS](https://github.com/postcss/postcss)**
+- For JS package management and compilation - **[Browserify](http://browserify.org/)** and **[NPM](https://www.npmjs.org/)**
+- For browser integration - **[BrowserSync](http://www.browsersync.io/)**
 
-- Task runner - **Gulp**
-- Commandline generator - **Yeoman**
+#### Command-line Tools
+- Asset management - **[Bower](http://bower.io/)**
+- Meta-file manager - **[Chest](http://chestjs.com/)**
+- Task runner - **[Gulp](http://gulpjs.com/)**
+- Commandline generator - **[Yeoman](http://yeoman.io/)**
 
 These libraries combined employ a powerful design pattern to build the frontend in the following fashion:
 UMD modules + DCSS (Dynamic CSS) + MVVM (Model View ViewModel) + RESTful data
