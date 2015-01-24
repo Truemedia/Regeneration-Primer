@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import BackBone from 'backbone';
+import {Config} from './config';
 
 	export class Package
 	{				
@@ -14,6 +16,9 @@ import $ from 'jquery';
         	this.element = element;
         	this.settings = (Object.keys(options).length === 0) ? Config.get(`${this.name}::defaults`) : options; // Package options
         	this.trans = Lang.getTrans(nls); // Load translations
+
+        	console.log(this.settings);
+        	$(element).html('adding HTML from package');
         }
 
 		set element(element)
@@ -22,17 +27,6 @@ import $ from 'jquery';
 			return element;
 		}
 	}
-
-	export var Config = {
-		get(jsonpath)
-		{
-			console.log(jsonpath);
-			var sample_config_json = {
-        		"hello": "world"
-        	};
-			return sample_config_json;
-		}
-	};
 
 	export var Lang = {
 		getTrans(nls = {})
