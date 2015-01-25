@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import JSONpatch from 'jsonpatch';
+import yaml from 'js-yaml';
 
 	export var Config = {
 			
@@ -136,17 +137,27 @@ import JSONpatch from 'jsonpatch';
 					Config.files.packages[package_name] = [];
 				}
 				
-				$.getJSON(`src/packages/${package_name}/config/${file_name}.json`, function(data)
+				var file_path = `src/packages/${package_name}/config/${file_name}.yml`;
+				$.get(file_path, function(data)
 				{
-					Config.files.packages[package_name][file_name] = data;
+					Config.files.packages[package_name][file_name] = yaml.safeLoad(data);
+				})
+				.fail( function()
+				{
+					alert(`Failed to find configuration file ${file_path}, please check the file exists`);
 				});
 			}
 			// Application config directory
 			else
 			{
-				$.getJSON(`src/config/${file_name}.json`, function(data)
+				var file_path = `src/config/${file_name}.yml`;
+				$.get(file_path, function(data)
 				{
-					Config.files.application[file_name] = data;
+					Config.files.application[file_name] = yaml.safeLoad(data);
+				})
+				.fail( function()
+				{
+					alert(`Failed to find configuration file ${file_path}, please check the file exists`);
 				});
 			}
 			
