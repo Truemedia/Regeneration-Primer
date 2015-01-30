@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import JSONpatch from 'jsonpatch';
 import yaml from 'js-yaml';
+import Path from './path';
 
 	export var Config = {
 			
@@ -10,18 +11,17 @@ import yaml from 'js-yaml';
 			packages: []
 		},
 			
-		/* Get a configuration property value (same as Laravel class) */
-		get: function(property, default_value)
-		{	
-			if (property === undefined) property = "";
-		    if (default_value === undefined) default_value = "";
+		/* Get a configuration jsonpath value (same as Laravel class) */
+		get: function(jsonpath, default_value = "")
+		{
+			var current_path = new Path(jsonpath);
 		    var value = null;
 		    
 		    // Extract JSON pointer
-			var json_pointer = Config.property_extract('json_pointer', property);
+			var json_pointer = current_path.extract('json_pointer');
 		    
 		    // Grab full config
-		    var data = Config.instance(property);
+		    var data = Config.instance(jsonpath);
 			
 		    // Query JSON file
 		    if (json_pointer !== '/') { value = new JSONpatch.JSONPointer(json_pointer).get(data); }
@@ -32,23 +32,24 @@ import yaml from 'js-yaml';
 			else { return value; }
 		},
 		
-		/* Set a configuration property value (same as Laravel class) */
-		set: function(property, supplied_value)
+		/* Set a configuration jsonpath value (same as Laravel class) */
+		set: function(jsonpath, supplied_value)
 		{	
 			// Extract filename and JSON pointer
-			var file_name = Config.property_extract('file_name', property);
-			var json_pointer = Config.property_extract('json_pointer', property);
+			var current_path = new Path(jsonpath);
+			var file_name = current_path.extract('file_name');
+			var json_pointer = current_path.extract('json_pointer');
 
 			// Grab full config
-		    var data = Config.instance(property);
+		    var data = Config.instance(jsonpath);
 			
-			// Get original property value
+			// Get original jsonpath value
 			var value = new JSONpatch.JSONPointer(json_pointer).get(data);
 			
-			// Setting Package config property
-			if (Config.property_origin(property) == 'package')
+			// Setting Package config jsonpath
+			if (current_path.origin() == 'package')
 			{
-				var package_name = Config.property_extract('package_name', property);
+				var package_name = current_path.extract('package_name');
 				if (value === undefined)
 				{
 					Config.files.packages[package_name][file_name] = new JSONpatch.JSONPointer(json_pointer).add(data, supplied_value);
@@ -58,7 +59,7 @@ import yaml from 'js-yaml';
 					Config.files.packages[package_name][file_name] = new JSONpatch.JSONPointer(json_pointer).replace(data, supplied_value);
 				}
 			}
-			// Setting Application config property
+			// Setting Application config jsonpath
 			else
 			{
 				if (value === undefined)
@@ -72,16 +73,17 @@ import yaml from 'js-yaml';
 			}
 		},
 		
-		instance: function(property)
+		instance: function(jsonpath)
 		{
 			// Extract filename
-			var file_name = Config.property_extract('file_name', property);
+			var current_path = new Path(jsonpath);
+			var file_name = current_path.extract('file_name');
 			
 			// Retrieve JSON instance of config
 			var data = null;
-			if (Config.property_origin(property) == 'package')
+			if (current_path.origin() == 'package')
 			{	
-				var package_name = Config.property_extract('package_name', property);
+				var package_name = current_path.extract('package_name');
 				data = Config.load(file_name, package_name);
 			}
 			else
@@ -163,96 +165,5 @@ import yaml from 'js-yaml';
 			
 			// Set ASYNC AJAX back to true
 			$.ajaxSetup({ async: true });
-		},
-		
-		/* Extract information embedded inside a property */
-		property_extract: function(embedded, property)
-		{
-			var extracted = null;
-			var package_indicator = '::';
-			var dot_location = property.indexOf(".");
-
-			switch (embedded)
-			{
-				case 'package_name':
-					if (Config.property_origin(property) == 'package')
-					{
-						extracted = property.substr(0, property.indexOf(package_indicator));
-					}
-				break;
-
-				case 'file_name':
-					// Package config file
-					if (Config.property_origin(property) == 'package')
-					{
-						var file_name_position = property.indexOf(package_indicator) + package_indicator.length;
-						
-						// Points to key inside JSON file
-						if (dot_location >= 0)
-						{	
-							extracted = property.substr(file_name_position, dot_location - file_name_position);
-						}
-						// Points to a JSON file
-						else
-						{
-							extracted = property.substr(file_name_position, property.length - file_name_position);
-						}
-					}
-					// Application config file
-					else
-					{
-						// Points to key inside JSON file
-						if (dot_location >= 0)
-						{	
-							extracted = property.substr(0, dot_location);
-						}
-						// Points to a JSON file
-						else
-						{
-							extracted = property;
-						}	
-					}
-				break;
-
-				case 'json_pointer':
-					// Points to key inside JSON file
-					if (dot_location >= 0)
-					{	
-						var string = property.substr(dot_location);
-						extracted = string.replace(/\./g, "/");
-					}
-					// Points to a JSON file
-					else
-					{
-						extracted = "/";
-					}	
-				break;
-
-				default:
-					extracted = property;
-				break;
-			}
-			
-			// Return extracted information
-			return extracted;
-		},
-		
-		/* Return whether property originates from application or package config file */
-		property_origin: function(property)
-		{	
-			var property_origin = null;
-			
-			// Package config file
-			if (new RegExp('::').test(property))
-			{
-				property_origin = 'package';
-			}
-			// Application config file
-			else
-			{
-				property_origin = 'application';
-			}
-
-			return property_origin;
 		}
 	};
