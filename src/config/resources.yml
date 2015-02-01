@@ -4,6 +4,7 @@ sprites:
   default_character: coward
   sprite_filename_prefix: (
   sprite_filename_suffix: )_DefaultPose.png
+
 directories:
   components: components
   dependencies: dependencies
@@ -21,6 +22,11 @@ directories:
     guns: themes/default/assets/images/items/guns/
   packages: packages
   windows: windows
+
 content_packs:
   - debug
   - default-contentpack
+
+templates:
+  engine: handlebars
+  extension: hbs

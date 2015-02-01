@@ -1,6 +1,6 @@
 	export default class Path
 	{
-		constructor(path, context = "path", package_seperator = "::")
+		constructor(path, context = "jsonpath", package_seperator = "::")
 		{
 			this.options = {path, context, package_seperator};
 		}

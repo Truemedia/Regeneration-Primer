@@ -1,4 +1,5 @@
 import {Package} from 'src/core/package';
+
 import {nls} from './nls/strings';
 
 	/** 
@@ -15,7 +16,7 @@ import {nls} from './nls/strings';
 		 */
         constructor(element, options = {})
         {
-        	let resources = {nls};
+        	let resources = {nls}
         	super(element, options, resources);
         }
 	}
