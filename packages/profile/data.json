@@ -1,9 +1,0 @@
-{
-  "header": "Login (Not implemented)",
-  "scoredefault": "500",
-  "loginfields": [
-      {"name": "red", "first": true, "url": "#Red"},
-      {"name": "green", "link": true, "url": "#Green"}
-  ],
-  "empty": false
-}
