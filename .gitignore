@@ -20,6 +20,11 @@ build
 
 # compiled files
 /bundle.js
+/script.min.js
+/style.min.css
+/sprite.min.css
+/sprite.min.svg
+/cache.json
 
 # dependencies
 libs/
