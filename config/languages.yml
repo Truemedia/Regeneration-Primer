@@ -1,0 +1,8 @@
+# Internalization and Localization (i18n + l20n)
+---
+-
+  lang_code: en
+  lang_name: English
+-
+  lang_code: jp
+  lang_name: 日本語

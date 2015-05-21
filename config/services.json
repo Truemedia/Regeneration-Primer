@@ -1,6 +1,6 @@
 {
-	"bootswatch": {
-		"url": "http://api.bootswatch.com",
-		"version": "3"
-	}
+  "bootswatch": {
+    "url": "http://api.bootswatch.com",
+    "version": "3"
+  }
 }

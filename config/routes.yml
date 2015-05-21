@@ -1,0 +1,7 @@
+# Routes
+---
+make: create
+play: game
+3D: three
+customize: customize
+'*defaults': index

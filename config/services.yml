@@ -1,0 +1,5 @@
+# Services (External APIs)
+---
+bootswatch:
+  url: 'http://api.bootswatch.com'
+  version: '3'

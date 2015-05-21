@@ -1,31 +1,5 @@
 {
-	"sprites": {
-		"default_character": "coward",
-		"sprite_filename_prefix": "(",
-		"sprite_filename_suffix": ")_DefaultPose.png"
-	},
-	"directories": {
-		"components": "components",
-		"dependencies": "dependencies",
-		"gameobjects": "gameobjects",
-		"libs": "libs",
-		"modules": "modules",
-		"multimedia": {
-			"root": "themes/debug/assets/",
-			"audio": "themes/debug/assets/audio/",
-			"images": "themes/debug/assets/images/",
-			"video": "themes/debug/assets/video/"
-		},
-		"scenes": "scenes",
-		"sprites": {
-			"characters": "themes/debug/assets/images/characters/",
-			"guns": "themes/default/assets/images/items/guns/"
-		},
-		"packages": "packages",
-		"windows": "windows"
-	},
-	"content_packs": [
-		"debug",
-		"default-contentpack"
-	]
+	"templates": {
+		"extension": "hbs"
+	}
 }

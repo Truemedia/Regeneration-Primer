@@ -1,0 +1,9 @@
+# Game settings (descriptive and functional)
+---
+name: 'DIY DIE'
+version: 'Pre 0.1'
+content_pack: default
+theme: null
+resolution:
+  width: '1280'
+  height: '720'

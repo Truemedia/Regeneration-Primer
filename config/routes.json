@@ -1,6 +1,7 @@
 {
-	"make": "create",
-	"play": "game",
-	"3D": "three",
-	"*defaults": "index"
+  "make": "create",
+  "play": "game",
+  "3D": "three",
+  "customize": "customize",
+  "*defaults": "index"
 }
