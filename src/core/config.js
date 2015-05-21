@@ -139,10 +139,10 @@ import Path from './path';
 					Config.files.packages[package_name] = [];
 				}
 				
-				var file_path = `src/packages/${package_name}/config/${file_name}.yml`;
+				var file_path = `packages/${package_name}/config/${file_name}.json`;
 				$.get(file_path, function(data)
 				{
-					Config.files.packages[package_name][file_name] = yaml.safeLoad(data);
+					Config.files.packages[package_name][file_name] = data;
 				})
 				.fail( function()
 				{
@@ -152,10 +152,10 @@ import Path from './path';
 			// Application config directory
 			else
 			{
-				var file_path = `src/config/${file_name}.yml`;
+				var file_path = `config/${file_name}.json`;
 				$.get(file_path, function(data)
 				{
-					Config.files.application[file_name] = yaml.safeLoad(data);
+					Config.files.application[file_name] = data;
 				})
 				.fail( function()
 				{

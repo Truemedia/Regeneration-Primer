@@ -40,7 +40,7 @@ import $ from 'jquery';
 
 			let file_name = `${this.info.name}.${this.ext}`;
 
-			let directories = ["src"];
+			let directories = [];
 
 			// Package directory
 			if (this.path.origin() == 'package')
@@ -70,7 +70,7 @@ import $ from 'jquery';
 		/* Output the file path to the current source asset */
 		file_path()
 		{
-			let path = `src/packages/${this.name}/templates/src/partial.hbs`;
+			let path = `packages/${this.name}/templates/src/partial.hbs`;
 			return path;
 		}
 	};

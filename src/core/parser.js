@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars';
+import Mustache from 'mustache';
 import Resource from './resource';
 
 	export default class Parser
@@ -18,7 +18,7 @@ import Resource from './resource';
 
 	export class Compiler
 	{
-		constructor(source, template_engine = 'handlebars')
+		constructor(source, template_engine = 'mustache')
 		{
 			this.options = {source, template_engine};
 		}
@@ -26,10 +26,19 @@ import Resource from './resource';
 		/* Compile template to javascript templating function */
 		to_function()
 		{
-			switch (this.options.template_engine)
+			let template_engine = this.options.template_engine;
+			let source = this.options.source;
+
+			switch (template_engine)
 			{
 				case 'handlebars':
-					var tpl = Handlebars.compile(this.options.source);
+					var tpl = Handlebars.compile(source);
+				break;
+				case 'mustache':
+					var tpl = function(data = {})
+					{
+						return Mustache.render(source, data);
+					};
 				break;
 			}
 			// $.get(this.source, function(template)

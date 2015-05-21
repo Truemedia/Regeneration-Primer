@@ -31,7 +31,7 @@ Backbone.$ = $;
 			
 			new Parser(`${this.package_name}::partial`, function(tpl)
 			{
-				let html = tpl({ "test": "sample data" });
+				let html = tpl({ "test": "This works!" });
 				self.$el.html(html);
 			});
 		}
@@ -50,7 +50,6 @@ Backbone.$ = $;
 
         	this.name = $(element).attr('data-package');
         	this.settings = (Object.keys(options).length === 0) ? Config.get(`${this.name}::defaults`) : options; // Package options
-        	console.log(this.settings);
         	this.trans = Lang.getTrans(nls); // Load translations
 
         	new PackageView({ el: element, package_name: this.name });
