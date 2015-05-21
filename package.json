@@ -1,0 +1,37 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Truemedia/Regeneration-Primer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Truemedia/Regeneration-Primer/issues"
+  },
+  "homepage": "https://github.com/Truemedia/Regeneration-Primer",
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "backbone": "npm:backbone@^1.2.0",
+      "components/jquery": "github:components/jquery@^2.1.4",
+      "handlebars": "npm:handlebars@^3.0.3",
+      "jquery": "github:components/jquery@^2.1.4",
+      "js-yaml": "npm:js-yaml@^3.3.1",
+      "jsonpatch": "npm:jsonpatch@^1.0.1",
+      "knockout": "npm:knockout@^3.3.0",
+      "mustache": "github:janl/mustache.js@^2.0.0",
+      "rikschennink/conditioner": "github:rikschennink/conditioner@^1.1.0"
+    },
+    "devDependencies": {
+      "traceur": "github:jmcriffey/bower-traceur@0.0.88",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88"
+    }
+  }
+}
