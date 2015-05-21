@@ -21,8 +21,10 @@ build
 # compiled files
 /bundle.js
 
-# loaded files
+# dependencies
 libs/
+bower_components/
+jspm_packages/
 node_modules/
 out/
 notes/
