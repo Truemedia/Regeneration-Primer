@@ -31,8 +31,9 @@ libs/
 bower_components/
 jspm_packages/
 node_modules/
-out/
 notes/
+out/
+packages/
 
 # code coverage
 .coverdata/
